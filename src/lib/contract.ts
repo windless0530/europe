@@ -177,6 +177,40 @@ export interface Manifest {
 // 工具函数
 // ------------------------------------------------------------
 
+/** 平面鞋带面积（经纬度坐标按平面近似；仅用于判断绕向符号） */
+export function ringSignedArea(ring: number[][]): number {
+  let s = 0;
+  for (let i = 0; i < ring.length - 1; i++) {
+    s += ring[i]![0]! * ring[i + 1]![1]! - ring[i + 1]![0]! * ring[i]![1]!;
+  }
+  return s / 2;
+}
+
+/**
+ * 强制环向一致：外环 CW（shoelace < 0），洞 CCW（> 0）。
+ * 本仓库三个数据源（ESRI/ArcGIS 系 GeoJSON）的外环惯例均为 CW；
+ * 同一 MultiPolygon 内若个别 part 环向相反，d3-geo 会把它当补集
+ * 渲染成"整个投影球减去该 part"（表现为巨幅色块覆盖全图），
+ * 因此在 normalize 阶段统一修正。返回修复的环数量。
+ */
+export function enforceRingWinding(geom: PolygonalGeometry): number {
+  const polys: Ring[][] = geom.type === 'Polygon' ? [geom.coordinates] : geom.coordinates;
+  let fixed = 0;
+  for (const rings of polys) {
+    for (let r = 0; r < rings.length; r++) {
+      const ring = rings[r]!;
+      const area = ringSignedArea(ring);
+      if (Math.abs(area) < 1e-15) continue;
+      const wantPositive = r > 0; // 外环 CW（负），洞 CCW（正）
+      if (area > 0 !== wantPositive) {
+        ring.reverse();
+        fixed++;
+      }
+    }
+  }
+  return fixed;
+}
+
 /** 生成 url-safe slug：仅小写字母/数字/下划线 */
 export function slugify(input: string): string {
   const s = input

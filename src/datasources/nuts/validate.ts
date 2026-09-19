@@ -189,14 +189,14 @@ function buildCoverageNote(stats: NormalizeStats | null, gadmCountries: string[]
       `其中 UA 仅 LEVL 0、BA 至 LEVL 2，其余均至 LEVL 3。`,
   );
   lines.push(
-    `GADM 4.1 补齐：${gadmCountries.join('、')}（英国[脱欧]、摩尔多瓦、白俄罗斯、俄罗斯欧洲部分、安道尔、摩纳哥、圣马力诺、梵蒂冈、法罗群岛为 NUTS 缺口；乌克兰为 NUTS 仅国家级、补 admin1 州级）。` +
+    `GADM 4.1 补齐：${gadmCountries.join('、')}（英国[脱欧]、摩尔多瓦、白俄罗斯、俄罗斯欧洲部分、安道尔、摩纳哥、圣马力诺、梵蒂冈、法罗群岛及高加索三国为 NUTS 缺口；乌克兰为 NUTS 仅国家级、补 admin1 州级）。` +
       `俄罗斯仅保留与欧洲参考 bbox 相交的 40 余个州/边疆区/共和国，叶尼塞以东的亚洲部分未纳入。`,
   );
   lines.push(
     `已按 bbox 过滤：法国海外大区（FRY* 瓜德罗普/马提尼克/法属圭亚那/留尼汪/马约特）与斯瓦尔巴（NO0B2，纬度 74-81N 超出参考范围 73N）。`,
   );
   lines.push(
-    `对“欧洲各族群分布地图”仍明显缺失：高加索三国（格鲁吉亚/亚美尼亚/阿塞拜疆）、哈萨克斯坦乌拉尔以西部分、` +
+    `对“欧洲各族群分布地图”仍明显缺失：哈萨克斯坦乌拉尔以西部分、` +
       `北塞浦路斯（NUTS CY 不含）、直布罗陀等英属海外领地（GADM GBR_1 未单列）、马耳他骑士团等虚拟实体；` +
       `微型国家中摩纳哥/梵蒂冈/圣马力诺仅有国家级要素（GADM admin1 不可用或为空）。`,
   );
@@ -291,6 +291,7 @@ export async function runValidate(): Promise<ValidationReport> {
       `GADM JSON 导出剥掉了名称中的空格（"NorthernIreland"），做保守机械恢复（小写->大写边界与句点后补空格），原始值保留在 source_props；GBR.1_1 NAME_1 缺失按几何/类型判定为 England（NAME_OVERRIDES 表）`,
       `GADM 4.1 乌克兰有 1 个脱敏要素（GID/NAME="?"）与 1 个 GBR 全 NA 要素，直接丢弃并计数`,
       `乌克兰层级结构：NUTS UA LEVL 0 为国家级（region_code=nuts:ua），GADM UKR admin1（27 州，含克里米亚与塞瓦斯托波尔，GADM 口径）挂在其下`,
+      `高加索三国 GEO/ARM/AZE 为族群空间代理补国家级边界，不纳入更细行政层级`,
       `GADM 几何保持原始精度未做 turf 简化：产物共约 ${stats ? (stats.regions_geojson_bytes / 1048576).toFixed(1) : '?'} MB，在 30MB 预算内`,
       `GADM license 单独记录：${LICENSE_GADM}（${LICENSE_GADM_URL}）——本产物为个人非商业项目使用，若公开分发需重新评估`,
     ],

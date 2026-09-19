@@ -68,10 +68,11 @@ npx tsx src/datasources/nuts/index.ts validate
 - GADM 补齐（`origin='gadm'`）：
   - 缺口国家国家级 + admin1：GBR（4 构成国）、MDA、BLR、RUS（欧洲部分）、AND、SMR、FRO
   - 仅国家级（GADM 无 admin1）：MCO、VAT
+  - 高加索空间代理，仅国家级：GEO、ARM、AZE
   - UA：NUTS 有 L0（`nuts:ua`），GADM 补 27 个州级 admin1 挂其下
     （含克里米亚与塞瓦斯托波尔，系 GADM 口径）
-- 明显缺口（记入 manifest coverage_note）：高加索三国、哈萨克斯坦乌拉尔以
-  西部分、北塞浦路斯、直布罗陀等英属领地。
+- 明显缺口（记入 manifest coverage_note）：哈萨克斯坦乌拉尔以西部分、
+  北塞浦路斯、直布罗陀等英属领地。
 
 ## 关键决策
 

@@ -8,22 +8,33 @@
     "awmc": "tsx src/datasources/awmc/index.ts",
     "darmc": "tsx src/datasources/darmc/index.ts",
     "nuts": "tsx src/datasources/nuts/index.ts",
-    "data": "tsx src/cli.ts"
+    "data": "tsx src/cli.ts",
+    "export": "tsx src/export/sql-export.ts",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "smoke": "node scripts/smoke-demo.mjs"
   },
   "dependencies": {
     "@turf/turf": "^7.1.0",
     "adm-zip": "^0.5.16",
+    "d3": "^7.9.0",
     "papaparse": "^5.4.1",
+    "pg": "^8.23.0",
     "proj4": "^2.11.0",
     "shapefile": "^0.6.6"
   },
   "devDependencies": {
     "@types/adm-zip": "^0.5.5",
+    "@types/d3": "^7.4.3",
     "@types/node": "^20.14.0",
     "@types/papaparse": "^5.3.14",
+    "@types/pg": "^8.23.1",
     "@types/proj4": "^2.5.5",
     "@types/shapefile": "^0.6.4",
+    "playwright-core": "^1.63.0",
     "tsx": "^4.19.0",
-    "typescript": "^5.5.0"
+    "typescript": "^5.5.0",
+    "vite": "^6.0.0"
   }
 }

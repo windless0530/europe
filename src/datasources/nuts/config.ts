@@ -47,8 +47,8 @@ export interface GadmCountrySpec {
  *   GBR 脱欧后移出 NUTS；MDA/BLR/RUS 从不在 NUTS；
  *   AND/MCO/SMR/VAT 微型国家不在 NUTS；FRO 法罗群岛不在 NUTS；
  *   UKR 在 NUTS 2024 仅有 LEVL 0，admin1（州）用 GADM 补。
- * 高加索三国（GEO/ARM/AZE）与哈萨克斯坦乌拉尔以西部分不属于本项目
- * 欧洲参考范围，未纳入（见 manifest coverage_note）。
+ * 为覆盖数据库中的格鲁吉亚人、亚美尼亚人和阿塞拜疆人，高加索三国补 L0；
+ * 它们只作为现代空间代理，不改变欧洲主体数据的层级范围。
  */
 export const GADM_COUNTRIES: GadmCountrySpec[] = [
   { iso3: 'GBR', levels: [0, 1], note: 'UK：脱欧后不在 NUTS' },
@@ -61,6 +61,9 @@ export const GADM_COUNTRIES: GadmCountrySpec[] = [
   { iso3: 'VAT', levels: [0], note: 'GADM 无 admin1，仅国家级要素' },
   { iso3: 'FRO', levels: [0, 1], note: '法罗群岛（丹麦自治领），不在 NUTS' },
   { iso3: 'UKR', levels: [1], parentOverride: 'nuts:ua', note: 'NUTS 2024 有 UA LEVL 0；admin1 补州级' },
+  { iso3: 'GEO', levels: [0], note: '高加索空间代理，仅国家级' },
+  { iso3: 'ARM', levels: [0], note: '高加索空间代理，仅国家级' },
+  { iso3: 'AZE', levels: [0], note: '高加索空间代理，仅国家级' },
 ];
 
 export function gadmFileName(iso3: string, level: number): string {

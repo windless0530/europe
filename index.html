@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='7' fill='%232a78d6'/></svg>" />
+    <title>欧洲历史族群图谱 · European Historical Peoples Atlas</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="app-header">
+        <div class="app-title">
+          <h1 data-i18n="appTitle">欧洲历史族群图谱</h1>
+          <span class="app-subtitle" data-i18n="appSubtitle">拖动时间轴 · 悬停查看区域详情</span>
+        </div>
+        <div class="app-controls">
+          <button id="mode-toggle" class="btn" type="button">几何浏览</button>
+          <div class="seg" id="source-seg" role="group" aria-label="data source"></div>
+          <button id="lang-toggle" class="btn ghost" type="button">English</button>
+        </div>
+      </header>
+
+      <div class="controls-row" id="controls-row">
+        <div class="legend" id="legend"></div>
+        <div class="filters" id="filters"></div>
+      </div>
+
+      <main class="app-main">
+        <div class="map-wrap" id="map-wrap">
+          <div class="map-tooltip" id="map-tooltip" hidden></div>
+        </div>
+        <aside class="detail-panel" id="detail-panel"></aside>
+      </main>
+
+      <footer class="timeline" id="timeline"></footer>
+    </div>
+    <div class="boot-overlay" id="boot-overlay">
+      <div class="boot-card">
+        <div class="boot-title">欧洲历史族群图谱</div>
+        <div class="boot-bar"><div class="boot-fill" id="boot-fill"></div></div>
+        <div class="boot-text" id="boot-text">…</div>
+        <div class="boot-hint" id="boot-hint"></div>
+      </div>
+    </div>
+    <script type="module" src="/src/frontend/main.ts"></script>
+  </body>
+</html>

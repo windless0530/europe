@@ -28,6 +28,7 @@ import {
   slugify,
   writeJson,
   regionCode,
+  enforceRingWinding,
   type PlaceFeature,
   type RegionFeature,
   type PlacesFile,
@@ -56,6 +57,8 @@ export interface LayerStat {
   /** 仅 regions：简化前后顶点数 */
   verticesBefore?: number;
   verticesAfter?: number;
+  /** 仅 regions：环向修复的外/洞环数量 */
+  windingFixed?: number;
 }
 
 // ---------- 小工具 ----------
@@ -241,6 +244,7 @@ async function normalizeRegions(): Promise<LayerStat[]> {
     let out = 0;
     let verticesBefore = 0;
     let verticesAfter = 0;
+    let windingFixed = 0;
 
     for (const f of fc.features) {
       const props = f.properties ?? {};
@@ -260,6 +264,7 @@ async function normalizeRegions(): Promise<LayerStat[]> {
       const simplified = simplify(g as PolygonalGeometry, {
         tolerance: SIMPLIFY_TOLERANCE[layer.family] ?? 0.001,
       }) as PolygonalGeometry;
+      windingFixed += enforceRingWinding(simplified);
       verticesAfter += countVertices(simplified.coordinates);
 
       const name = regionName(layer, props);
@@ -292,6 +297,7 @@ async function normalizeRegions(): Promise<LayerStat[]> {
       dropped: [...dropped.entries()].map(([reason, n]) => ({ reason, n })),
       verticesBefore,
       verticesAfter,
+      windingFixed,
     });
   }
 

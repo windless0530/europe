@@ -31,6 +31,7 @@ import {
   writeJson,
   slugify,
   regionCode,
+  enforceRingWinding,
   REPO_ROOT,
 } from '../../lib/contract';
 import {
@@ -59,6 +60,8 @@ export interface NormalizeStats {
   level_counts: Record<string, number>;
   origin_counts: Record<string, number>;
   regions_geojson_bytes: number;
+  /** 环向修复的外/洞环数量 */
+  winding_fixed: number;
 }
 
 /** 几何树中是否存在落在 bbox 内的顶点（对跨反经线几何也安全的相交判定） */
@@ -112,6 +115,7 @@ export async function runNormalize(): Promise<NormalizeStats> {
     level_counts: {},
     origin_counts: {},
     regions_geojson_bytes: 0,
+    winding_fixed: 0,
   };
 
   const features: RegionFeature[] = [];
@@ -262,6 +266,12 @@ export async function runNormalize(): Promise<NormalizeStats> {
     const origin = (f.properties.source_props as Record<string, unknown>).origin;
     countKey(stats.origin_counts, typeof origin === 'string' ? origin : 'unknown');
   }
+
+  // 环向一致性：个别 ESRI 系要素存在与惯例相反的外环（d3-geo 会渲染成
+  // 整球补集），写出前统一强制 外环CW/洞CCW
+  let windingFixed = 0;
+  for (const f of features) windingFixed += enforceRingWinding(f.geometry);
+  stats.winding_fixed = windingFixed;
 
   const outDir = processedDataDir('nuts');
   const regionsFile = path.join(outDir, 'regions.geojson');
