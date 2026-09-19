@@ -1,0 +1,162 @@
+{
+  "generated_at": "2026-09-19T03:39:43.553Z",
+  "fixed": {
+    "regions": 2,
+    "places": 1,
+    "lines": 0
+  },
+  "dropped": {
+    "regions": 0,
+    "places": 0,
+    "lines": 0
+  },
+  "per_dataset": [
+    {
+      "id": "roman_empire_60_bce",
+      "kind": "regions",
+      "input_features": 74,
+      "output_features": 1,
+      "dropped": 0
+    },
+    {
+      "id": "roman_empire_14_ce",
+      "kind": "regions",
+      "input_features": 109,
+      "output_features": 1,
+      "dropped": 0
+    },
+    {
+      "id": "roman_empire_69_ce",
+      "kind": "regions",
+      "input_features": 110,
+      "output_features": 1,
+      "dropped": 0
+    },
+    {
+      "id": "roman_empire_117_ce",
+      "kind": "regions",
+      "input_features": 112,
+      "output_features": 1,
+      "dropped": 0
+    },
+    {
+      "id": "roman_empire_200_ce",
+      "kind": "regions",
+      "input_features": 112,
+      "output_features": 1,
+      "dropped": 0
+    },
+    {
+      "id": "roman_empire_314_ce",
+      "kind": "regions",
+      "input_features": 111,
+      "output_features": 1,
+      "dropped": 0
+    },
+    {
+      "id": "alexanders_empire",
+      "kind": "regions",
+      "input_features": 41,
+      "output_features": 1,
+      "dropped": 0
+    },
+    {
+      "id": "achaemenid_persian_empire",
+      "kind": "regions",
+      "input_features": 24,
+      "output_features": 1,
+      "dropped": 0
+    },
+    {
+      "id": "hasmonean_kingdom",
+      "kind": "regions",
+      "input_features": 1,
+      "output_features": 1,
+      "dropped": 0
+    },
+    {
+      "id": "herods_kingdom",
+      "kind": "regions",
+      "input_features": 2,
+      "output_features": 1,
+      "dropped": 0
+    },
+    {
+      "id": "roman_senatorial_provinces",
+      "kind": "regions",
+      "input_features": 8,
+      "output_features": 1,
+      "dropped": 0
+    },
+    {
+      "id": "italy",
+      "kind": "regions",
+      "input_features": 1,
+      "output_features": 1,
+      "dropped": 0
+    },
+    {
+      "id": "ethnonyms",
+      "kind": "regions",
+      "input_features": 109,
+      "output_features": 109,
+      "dropped": 0
+    },
+    {
+      "id": "urban_areas",
+      "kind": "places",
+      "input_features": 95,
+      "output_features": 95,
+      "dropped": 0
+    },
+    {
+      "id": "roman_provinces_60_bce",
+      "kind": "lines",
+      "input_features": 16,
+      "output_features": 16,
+      "dropped": 0
+    },
+    {
+      "id": "roman_provinces_14_ce",
+      "kind": "lines",
+      "input_features": 79,
+      "output_features": 79,
+      "dropped": 0
+    },
+    {
+      "id": "roman_provinces_69_ce",
+      "kind": "lines",
+      "input_features": 79,
+      "output_features": 79,
+      "dropped": 0
+    },
+    {
+      "id": "roman_empire_around_75_ce",
+      "kind": "lines",
+      "input_features": 8,
+      "output_features": 8,
+      "dropped": 0
+    },
+    {
+      "id": "roman_provinces_100_ce_ba",
+      "kind": "lines",
+      "input_features": 87,
+      "output_features": 87,
+      "dropped": 0
+    },
+    {
+      "id": "roman_provinces_200_ce",
+      "kind": "lines",
+      "input_features": 81,
+      "output_features": 81,
+      "dropped": 0
+    },
+    {
+      "id": "roman_provinces_post_diocletian",
+      "kind": "lines",
+      "input_features": 96,
+      "output_features": 96,
+      "dropped": 0
+    }
+  ]
+}
