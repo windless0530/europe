@@ -229,7 +229,7 @@ function main(): void {
 
   const out = project(b);
   mkdirSync(dirname(OUT_FILE), { recursive: true });
-  writeFileSync(OUT_FILE, JSON.stringify(out), 'utf8');
+  writeFileSync(OUT_FILE, JSON.stringify(out, null, 2) + '\n', 'utf8');
   const kb = (statSync(OUT_FILE).size / 1024).toFixed(1);
   console.log(
     `投影完成 -> data/export/atlas.json (${kb} KB)：` +

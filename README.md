@@ -25,8 +25,8 @@ npm run smoke          # headless 冒烟：加载/时间轴/hover/零网络验�
 | `data/source/events.json` | 手写（真实源） | 事件 + 参与族群 |
 | `data/source/taxonomy.json` | 手写（真实源） | 3 棵谱系树（语言 / 历史人群 / 现代族群） |
 | `data/source/reference.json` | 手写（真实源） | 语言 / 宗教 / 时期 / 枚举字典 / 文献来源 |
-| `data/export/atlas.json` | 自动生成（勿手改） | 前端投影：中英 join、谱系/事件/语言宗教挂接；前端与审计脚本的唯一图谱输入 |
-| `data/processed/<源>/regions.geojson` | 自动生成 | 三源规范化几何（awmc/darmc/nuts，license 见「数据管线」一节） |
+| `data/export/atlas.json` | 自动生成（勿手改） | 前端投影：中英 join、谱系/事件/语言宗教挂接；前端与审计脚本的唯一图谱输入；多行可读（2 空格缩进） |
+| `data/processed/<源>/regions.geojson` | 自动生成 | 三源规范化几何（awmc/darmc/nuts，license 见「数据管线」一节）；全部 processed 产物（geojson/manifest/stats）均为多行可读格式——geojson 坐标行内、每环一行（`src/lib/geojson-format.ts`），其余 2 空格缩进 |
 
 改数据只改 `data/source/`；省写约定（confidence 缺省 high、priority 缺省 0、
 classification 字符串项 = member_of）与全部校验规则见 `src/build/source.ts` 头注。
@@ -51,6 +51,12 @@ npm run project                  # 校验（错即中止）+ 投影 -> atlas.jso
 git diff data/source data/export # 审阅本次数据变更（源 + 产物一起）
 npm run audit && npm run collisions && npm run smoke   # 门禁
 ```
+
+最小示例——新增一个族群：在 `data/source/peoples.json` 加一个对象（`code` /
+`type` / `name.zh`+`name.en` 必填），`slices` 指向 `regions.json` 既有地区；
+需要新地区时先在 `regions.json` 加地区并补 `geometry_rules` 映射。跑
+`npm run project`：validator 拦漏翻/坏引用，audit 报覆盖空窗。全程无需数据库。
+另见 `AGENTS.md`（编码代理工作规则，人也可读）。
 
 ## 前端（两种模式）
 
@@ -115,3 +121,10 @@ npm run data -- compare   # 三源对比
 
 原始下载在 `data/raw/`（gitignore）。各源字段映射、license、已知问题见
 `src/datasources/<源>/README.md`。
+
+## 项目沿革
+
+1. **MVP**：PostgreSQL 30 表图谱 + 静态导出前端；确立全量加载 / 交互期零网络 / 中英双语
+2. **五个数据补丁**累积覆盖：核心补全 → 瑞士/科索沃 → 次国家级 Tier 1 → 前罗马中欧 → 德国 Tier 2 四分；`audit` / `collisions` / `smoke` 门禁随之成型
+3. **2026-10 合并**：补丁 SQL 与 `region-map.ts` 硬编码映射全部收进两份幂等 SQL + `region_geometry_rule` 表，空库重放逐表字节一致验收
+4. **2026-10 文件优先切换**（当前形态）：PostgreSQL 退役，`data/source/` 五文件成为唯一真实源，`npm run project` 校验 + 投影；以「与旧库导出字节等价」验收迁移（唯一差异 = 修正 `other_name_zh` 误存英文名的旧 bug 14 处）

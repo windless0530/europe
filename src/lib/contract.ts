@@ -10,6 +10,7 @@
 
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { formatGeoJson } from './geojson-format.js';
 
 export type SourceCode = 'awmc' | 'darmc' | 'nuts';
 
@@ -230,7 +231,10 @@ export function regionCode(source: SourceCode, slug: string): string {
 
 export async function writeJson(file: string, data: unknown): Promise<void> {
   await mkdir(path.dirname(file), { recursive: true });
-  await writeFile(file, JSON.stringify(data), 'utf8');
+  // data/processed 产物统一人类可读：.geojson 用坐标行内的多行格式
+  // （见 geojson-format.ts），其余 .json 用 2 空格缩进
+  const body = file.endsWith('.geojson') ? formatGeoJson(data) : `${JSON.stringify(data, null, 2)}\n`;
+  await writeFile(file, body, 'utf8');
 }
 
 export function emptyReport(source: SourceCode, file: string): ValidationReport {
