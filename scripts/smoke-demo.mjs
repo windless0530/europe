@@ -114,13 +114,13 @@ await page.screenshot({ path: 'chromium/smoke-4c-tree-active-only.png' });
 await page.locator('#ptree-show-inactive').check(); // 恢复
 await page.waitForTimeout(300);
 
-// ---- 740 年中欧+瑞士/科索沃上色断言（覆盖补丁回归） ----
+// ---- 740 年中欧+瑞士/科索沃上色断言（覆盖补丁回归；德国已细分，改查 L2 单元） ----
 await page.locator('#tl-range').fill('740');
 await page.waitForTimeout(400);
 const central = await page.evaluate(() => {
   const ctx = getComputedStyle(document.documentElement).getPropertyValue('--context-fill').trim();
   const out = {};
-  for (const cc of ['de', 'at', 'cz', 'sk', 'hu', 'ch', 'xk']) {
+  for (const cc of ['def0', 'de11', 'deg0', 'de21', 'at', 'cz', 'sk', 'hu', 'ch01', 'ch04', 'ch07', 'xk']) {
     const el = document.querySelector(`path.region[data-code="nuts:${cc}"]`);
     out[cc] = el && el.style.fill && el.style.fill !== ctx ? 'painted' : 'BLANK';
   }
@@ -138,6 +138,88 @@ if (!tree740.includes('阿瓦尔人') || !tree740.includes('巴伐利亚人')) {
   console.error('FAIL: 740 年谱系树缺少新增族群');
   process.exitCode = 1;
 }
+
+// ---- 次国家级细分断言（补丁 3 回归）：1300 年与当前年，16 个代表单元不得空白 ----
+for (const yr of [1300, 2026]) {
+  await page.locator('#tl-range').fill(String(yr));
+  await page.waitForTimeout(400);
+  const sub = await page.evaluate(() => {
+    const ctx = getComputedStyle(document.documentElement).getPropertyValue('--context-fill').trim();
+    const out = {};
+    const checks = {
+      castile: 'es41', andalusia: 'es61', catalonia: 'es51', basque: 'es21', galicia: 'es11',
+      brittany: 'frh', flanders: 'be2', wallonia: 'be3', samiland: 'no07', transylvania: 'ro11',
+      silesia: 'pl22', masuria: 'pl62', crimea: 'ukr_4_1', eastGalicia: 'ukr_14_1', swissW: 'ch01', ticino: 'ch07',
+    };
+    for (const [k, cc] of Object.entries(checks)) {
+      const el = document.querySelector(`path.region[data-code="nuts:${cc}"]`);
+      out[k] = el && el.style.fill && el.style.fill !== ctx ? 'painted' : 'BLANK';
+    }
+    return out;
+  });
+  console.log(`subnational@${yr}: ${JSON.stringify(sub)} (expect all painted)`);
+  if (Object.values(sub).some((v) => v !== 'painted')) {
+    console.error(`FAIL: ${yr} 年次国家级单元存在空白（补丁 3 回归）`);
+    process.exitCode = 1;
+  }
+  if (yr === 1300) await page.screenshot({ path: 'chromium/smoke-7-subnational-1300.png' });
+}
+
+// ---- 前罗马时代断言（补丁 4 回归）：前 300 与公元 0 年中欧不得空白 ----
+for (const yr of [-300, 0]) {
+  await page.locator('#tl-range').fill(String(yr));
+  await page.waitForTimeout(400);
+  const early = await page.evaluate(() => {
+    const ctx = getComputedStyle(document.documentElement).getPropertyValue('--context-fill').trim();
+    const out = {};
+    for (const cc of ['def0', 'de11', 'deg0', 'de21', 'at', 'cz', 'sk', 'pl21', 'pl22']) {
+      const el = document.querySelector(`path.region[data-code="nuts:${cc}"]`);
+      out[cc] = el && el.style.fill && el.style.fill !== ctx ? 'painted' : 'BLANK';
+    }
+    return out;
+  });
+  console.log(`pre-roman@${yr}: ${JSON.stringify(early)} (expect all painted)`);
+  if (Object.values(early).some((v) => v !== 'painted')) {
+    console.error(`FAIL: ${yr} 年中欧存在空白（补丁 4 回归）`);
+    process.exitCode = 1;
+  }
+  if (yr === 0) {
+    // 公元 0 年：奥地利（罗马/诺里库姆）与德国中东部（古日耳曼）应不同色
+    const fills0 = await page.evaluate(() => ({
+      at: document.querySelector('path.region[data-code="nuts:at"]')?.style.fill,
+      deg0: document.querySelector('path.region[data-code="nuts:deg0"]')?.style.fill,
+    }));
+    console.log(`year-0 colors: at=${fills0.at} deg0=${fills0.deg0} (expect distinct: Rome vs Germanic)`);
+    if (!fills0.at || !fills0.deg0 || fills0.at === fills0.deg0) {
+      console.error('FAIL: 公元 0 年奥地利/德国应显示不同政权色');
+      process.exitCode = 1;
+    }
+    await page.screenshot({ path: 'chromium/smoke-8-pre-roman-0.png' });
+  }
+}
+
+// ---- 500 年德国四分断言（补丁 5 回归）：四区各自着色，不得为伦巴第单色 ----
+await page.locator('#tl-range').fill('500');
+await page.waitForTimeout(400);
+const de500 = await page.evaluate(() => {
+  const ctx = getComputedStyle(document.documentElement).getPropertyValue('--context-fill').trim();
+  const out = {};
+  for (const cc of ['def0', 'de11', 'deg0', 'de21']) {
+    const el = document.querySelector(`path.region[data-code="nuts:${cc}"]`);
+    out[cc] = el && el.style.fill && el.style.fill !== ctx ? el.style.fill : 'BLANK';
+  }
+  return out;
+});
+console.log(`germany@500: ${JSON.stringify(de500)} (expect 4 painted, old_saxony=thuringia distinct)`);
+if (Object.values(de500).some((v) => v === 'BLANK')) {
+  console.error('FAIL: 500 年德国四区存在空白（补丁 5 回归）');
+  process.exitCode = 1;
+}
+if (new Set(Object.values(de500)).size < 3) {
+  console.error('FAIL: 500 年德国四区应至少 3 种颜色（萨克森/图林根/阿勒曼尼/东哥特）');
+  process.exitCode = 1;
+}
+await page.screenshot({ path: 'chromium/smoke-9-germany-500.png' });
 
 // 切到几何浏览模式（DARMC + 1450）
 await page.click('#mode-toggle');

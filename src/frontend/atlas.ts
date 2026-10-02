@@ -6,7 +6,7 @@
 
 import type { SourceCode } from '../lib/contract.js';
 import type { RegionVm, SourceView } from './load';
-import { resolveRegionGeometry } from './region-map';
+import { resolveRegionGeometry, countryOf } from './region-map';
 
 export interface AtlasTrItem {
   name_en: string | null;
@@ -84,9 +84,13 @@ export interface AtlasData {
   enums: Record<string, Record<string, Record<string, string>>>;
 }
 
-/** 分类调色板（dataviz 参考实例 8 槽，固定顺序分配；超过 8 个族群回绕并记录） */
-const CATEGORICAL_LIGHT = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300', '#4a3aa7', '#e34948'];
-const CATEGORICAL_DARK = ['#3987e5', '#d95926', '#199e70', '#c98500', '#d55181', '#008300', '#9085e9', '#e66767'];
+/** 分类调色板（16 槽，Okabe-Ito + Tol muted 家族贪心+局部修复精选；
+ *  CVD 目标下全对 ΔE≥15 不可行，此组经 OKLab + Machado 二色模拟校验，
+ *  正常视觉最差对 7.0、CVD 最差 4.4（深酒红×深绿，仅当二者恰相差 16 槽共现），
+ *  槽长 16 由经验碰撞扫描（scripts/palette-collisions.ts）标定：同国同年同色对 0；
+ *  次级编码（谱系树 + hover）补足区分；超过 16 个族群回绕并记录） */
+const CATEGORICAL_LIGHT = ['#0072B2', '#F0E442', '#D55E00', '#88CCEE', '#332288', '#A0446E', '#44AA99', '#E69F00', '#7A5C00', '#3C4E9C', '#808080', '#DDCC77', '#882255', '#56B4E9', '#AA4499', '#0B6E4F'];
+const CATEGORICAL_DARK = ['#3187C5', '#F0E442', '#D55E00', '#332288', '#94D5F5', '#9D3C68', '#3CB389', '#E69F00', '#808080', '#56B4E9', '#3C4E9C', '#7A5C00', '#E190BC', '#DCCC7C', '#608F42', '#BF5DAD'];
 
 export function categoricalPalette(): string[] {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? CATEGORICAL_DARK : CATEGORICAL_LIGHT;
@@ -216,12 +220,23 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
   }
 
   function paintAt(year: number): Map<string, string> {
-    const paint = new Map<string, string>();
+    // 一几何可属多区域（如 at ∈ {austria, central_europe}）：
+    // 跨区域竞争与 regionFor（hover）同规则——主族群 render_priority 高者胜，
+    // 平局按 people_code 字典序，避免「后写覆盖」的不确定着色。
+    const best = new Map<string, { color: string; pr: number; code: string }>();
     for (const [, state] of regionsAt(year)) {
       const color = peopleColor.get(state.top.people_code);
       if (!color) continue;
-      for (const gcode of regionGeometry.get(state.top.region_code) ?? []) paint.set(gcode, color);
+      const cand = { color, pr: state.top.render_priority, code: state.top.people_code };
+      for (const gcode of regionGeometry.get(state.top.region_code) ?? []) {
+        const cur = best.get(gcode);
+        if (!cur || cand.pr > cur.pr || (cand.pr === cur.pr && cand.code.localeCompare(cur.code) < 0)) {
+          best.set(gcode, cand);
+        }
+      }
     }
+    const paint = new Map<string, string>();
+    for (const [gcode, win] of best) paint.set(gcode, win.color);
     return paint;
   }
 
@@ -439,15 +454,30 @@ export async function fetchAtlas(onBytes?: (loaded: number, total: number) => vo
 }
 
 /** 族群分布模式的几何集合（绘制顺序 = 数组顺序，后者在上）：
- *  AWMC 帝国参考层垫底 -> DARMC 北非行省 -> NUTS L0 国家及英国构成国 L1
- *  （最上层承载着色）。 */
+ *  AWMC 帝国参考层垫底 -> DARMC 北非行省 -> NUTS/GADM 几何（最上层承载着色）。
+ *  几何粒度：未细分国家渲染 L0；已按族群断层线细分的国家
+ *  （SUBNATIONAL_LEVEL）改渲染次国家级单元，其 L0 不再绘制。 */
+const SUBNATIONAL_LEVEL: Record<string, number> = {
+  BE: 1, FR: 1, UA: 1, // 大区/GADM 州级（乌克兰 GADM 国家码 UKR 归一为 UA）
+  CH: 2, ES: 2, PL: 2, RO: 2, SE: 2, NO: 2, DE: 2, // NUTS L2（补丁 5：德国四分）
+};
+const GBR_CONSTITUENTS = ['GBR.1_1', 'GBR.3_1', 'GBR.4_1'];
+
 export function atlasGeometryFeatures(sources: Map<SourceCode, SourceView>): RegionVm[] {
   const out: RegionVm[] = [];
   out.push(...(sources.get('awmc')?.features ?? []).filter((vm) => vm.family === 'empire' && vm.snapshot === 117));
   const africaRe = /AFRICA|NUMIDIA|MAURETAN|AEGYPT|CYRENA|LIBYA|TRIPOLITAN|BYZACENA/i;
   out.push(...(sources.get('darmc')?.features ?? []).filter((vm) => vm.family === 'provinces' && africaRe.test(vm.nameEn ?? '')));
-  out.push(...(sources.get('nuts')?.features ?? []).filter(
-    (vm) => vm.level === 0 || (vm.level === 1 && ['GBR.1_1', 'GBR.3_1', 'GBR.4_1'].includes(vm.sourceId)),
-  ));
+  out.push(...(sources.get('nuts')?.features ?? []).filter((vm) => {
+    const raw = countryOf(vm);
+    const cc = raw === 'UKR' ? 'UA' : raw;
+    if (vm.level === 0) return vm.sourceId !== 'GBR' && (cc === null || !(cc in SUBNATIONAL_LEVEL)); // 细分国家不绘 L0；英国由构成国覆盖
+    if (vm.level === 1 && GBR_CONSTITUENTS.includes(vm.sourceId)) return true; // 英国构成国叠加
+    if (cc !== null) {
+      const want = SUBNATIONAL_LEVEL[cc];
+      if (want !== undefined && vm.level === want) return true; // 细分国家的次国家级单元
+    }
+    return false;
+  }));
   return out;
 }

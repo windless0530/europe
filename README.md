@@ -11,6 +11,7 @@
 npm run dev            # http://localhost:5173（默认进入「族群分布」模式）
 npm run export         # PostgreSQL -> data/export/atlas.json（改库后重跑）
 npm run audit          # 覆盖审计：逐年扫描核心几何「先有族群后空白」断档
+npm run collisions     # 调色板碰撞审计：同年同国同色异族群对（目标 0）
 npm run favicon        # 由自有 NUTS 几何生成 favicon（SVG + PNG 回退）
 npm run smoke          # headless 冒烟：加载/时间轴/hover/零网络验证 + 截图
 ```
@@ -19,8 +20,8 @@ PostgreSQL（brew postgresql@16，数据目录 `/opt/homebrew/var/postgresql@16`
 
 ```bash
 /opt/homebrew/opt/postgresql@16/bin/pg_ctl -D /opt/homebrew/var/postgresql@16 start|stop
-psql -d europe_atlas -f european_historical_population_atlas_v2.sql   # 重建（主 seed）
-psql -d europe_atlas -f sql/patches/*.sql                             # 再按序应用补丁
+psql -d europe_atlas -f european_historical_population_atlas_v2.sql   # 重建（主 seed，须空库：先 DROP SCHEMA public CASCADE 并重建 schema）
+psql -d europe_atlas -f sql/patches/*.sql                             # 再按序应用补丁（补丁链只在空库 seed 之上可重放；对已打补丁的库重放会因 UPDATE 变形行产生重复切片）
 ```
 
 ## 前端（两种模式）
@@ -36,15 +37,32 @@ SQL region（粗粒度历史地理）→ 几何的近似映射见 `src/frontend/
 当年活动者全亮并注记活动区域、未活动者半透明；悬停树叶时地图上该族群
 区域之外全部压暗（内存操作）。
 
-当前 seed 为 61 个族群提供 91 条空间时间片：每个族群在自身生命周期内均有
-连续覆盖。**覆盖原则：核心欧洲几何（现代国家）在首次有族群之后的任何年份
-不得空白**——由 `npm run audit` 逐年门禁（时间轴最小步长 1 年，并报告
-从未覆盖的 L0 国家），补丁 `sql/patches/2026-10-01-core-coverage.sql`
-消除了基线审计发现的 16 处断档（新增阿瓦尔人/巴伐利亚人/摩尔人、
-austria region，及法兰克/斯拉夫/撒克逊等衔接切片）；
-`sql/patches/2026-10-02-switzerland.sql` 补上瑞士 region 与 5 条切片
-（高卢→罗马→勃艮第→法兰克→德意志，零新增族群），科索沃（XK）加入
-balkans 映射。豁免项：`roman_empire` AWMC 快照（帝国消亡即隐没）、
+当前 seed 为 79 个族群提供 199 条空间时间片：每个族群在自身生命周期内均有
+连续覆盖。**覆盖原则：核心欧洲几何在首次有族群之后的任何年份不得空白**——
+由 `npm run audit` 逐年门禁（时间轴最小步长 1 年，并报告从未覆盖的 L0
+国家），补丁 `sql/patches/2026-10-01-core-coverage.sql` 消除了基线审计
+发现的 16 处断档（新增阿瓦尔人/巴伐利亚人/摩尔人、austria region，及
+法兰克/斯拉夫/撒克逊等衔接切片）；`2026-10-02-switzerland.sql` 补上
+瑞士与科索沃；`2026-10-03-subnational.sql` 落地次国家级细分 Tier 1
+（比利时/瑞士三分/伊比利亚五分/布列塔尼/波兰三分/乌克兰三分/特兰西瓦尼
+亚/萨普米，新增 6 族群——细分以族群断层线为准，非行政区划下钻，细分
+国家渲染 NUTS L1/L2 或 GADM 州级几何而非 L0）；`2026-10-04-pre-roman.sql`
+补全中欧前罗马时代（凯尔特人/古日耳曼人集合称、奥地利罗马行省期前 15
+起、波兰汪达尔/哥特铁器层、斯洛伐克夸迪层），德/奥/捷首覆盖由 100 年
+前移至前 500、波兰由 550 前移至前 380、斯洛伐克由 550 前移至前 400；
+`2026-10-05-germany-and-fixes.sql` 德国 Tier 2 四分（旧萨克森/施瓦本-
+法兰克/图林根-劳西茨/巴伐利亚，38 个 NUTS L2）并全面修正同类问题——
+伦巴第收窄至摩拉维亚-诺里库姆（490–568）、潘诺尼亚补罗马-匈人-格皮德
+链、斯堪的纳维亚补诺斯链、波罗的人补立/拉前 1000、皮克特补苏格兰
+200–843、英格兰/威尔士构成国补 450–1000、巴尔干补罗马行省层与波斯尼
+亚/黑山/马其顿本国层、高卢补罗马行省期（-50–476）与法兰克 476 起政
+治控制、意大利伦巴第止 774 接法兰克、法兰克入高卢 358（托克桑德里亚）、
+丹麦人 500、苏格兰人 843 起（阿尔巴），新增 10 族群，退役死区（germany/
+britannia/frankish_gaul/switzerland/visigothic_kingdom/ostrogothic_
+kingdom）。调色板扩为 16 槽（Okabe-Ito + Tol muted 精选，OKLab + CVD
+校验），`npm run collisions` 以 16 槽回绕做经验扫描：同年同国同色
+异族群对为 0。豁免项：
+`roman_empire` AWMC 快照（帝国消亡即隐没）、
 `north_africa` DARMC 行省 551 年后（非欧洲核心）。历史区间和现代国家/构成国
 边界是 MVP 可视化代理，不代表精确疆界、排他领土或边界内人口同质；
 近似程度记录在 `confidence_code` 与 `notes` 中。

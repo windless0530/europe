@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { buildView, type RegionVm } from '../src/frontend/load.js';
 import { resolveRegionGeometry } from '../src/frontend/region-map.js';
+import { atlasGeometryFeatures } from '../src/frontend/atlas.js';
 import type { SourceCode } from '../src/lib/contract.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -47,12 +48,16 @@ for (const r of atlas.people_region) {
 const yearMin = Math.min(...candidates, -500);
 const yearMax = Math.max(...candidates, new Date().getFullYear());
 
-// 几何：三源规范化产物 + region 映射（与前端同一套规则）
-const allFeatures: RegionVm[] = [];
+// 几何：三源规范化产物，经 atlasGeometryFeatures 取「实际渲染集合」
+// （与前端同一套规则：细分国家只渲染次国家级单元），再过 region 映射。
+const sourceFeatures = new Map<SourceCode, { features: RegionVm[] }>();
 for (const code of ['awmc', 'darmc', 'nuts'] as SourceCode[]) {
   const file = JSON.parse(readFileSync(join(root, `data/processed/${code}/regions.geojson`), 'utf8'));
-  allFeatures.push(...buildView(code, file).features);
+  sourceFeatures.set(code, { features: buildView(code, file).features });
 }
+const allFeatures = atlasGeometryFeatures(
+  sourceFeatures as unknown as Map<SourceCode, { features: RegionVm[] }>,
+);
 const vmByCode = new Map(allFeatures.map((vm) => [vm.code, vm]));
 const { byGeometry } = resolveRegionGeometry(allFeatures);
 
