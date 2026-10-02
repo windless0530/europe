@@ -21,11 +21,11 @@ npm run smoke          # headless 冒烟：加载/时间轴/hover/零网络验�
 | 文件 | 性质 | 说明 |
 |---|---|---|
 | `data/source/peoples.json` | 手写（真实源） | 79 族群全量：双语名/简介/谱系挂点/语言/宗教/空间时间切片（slices），顶层 relations（族群关系+文献出处）与 claims |
-| `data/source/regions.json` | 手写（真实源） | 70 地区 + `geometry_rules`（71 条 SQL 地区→几何映射；**数组顺序 = 求值候选优先序**） |
+| `data/source/regions.json` | 手写（真实源） | 70 地区 + `geometry_rules`（71 条地区→几何映射规则；**数组顺序 = 求值候选优先序**） |
 | `data/source/events.json` | 手写（真实源） | 事件 + 参与族群 |
 | `data/source/taxonomy.json` | 手写（真实源） | 3 棵谱系树（语言 / 历史人群 / 现代族群） |
 | `data/source/reference.json` | 手写（真实源） | 语言 / 宗教 / 时期 / 枚举字典 / 文献来源 |
-| `data/export/atlas.json` | 自动生成（勿手改） | 前端投影：中英 join、谱系/事件/语言宗教挂接；前端与审计脚本的唯一图谱输入；多行可读（2 空格缩进） |
+| `data/export/atlas.json` | 自动生成（勿手改） | 前端投影：双语名称展开、谱系/事件/语言宗教挂接；前端与审计脚本的唯一图谱输入；多行可读（2 空格缩进） |
 | `data/processed/<源>/regions.geojson` | 自动生成 | 三源规范化几何（awmc/darmc/nuts，license 见「数据管线」一节）；全部 processed 产物（geojson/manifest/stats）均为多行可读格式——geojson 坐标行内、每环一行（`src/lib/geojson-format.ts`），其余 2 空格缩进 |
 
 改数据只改 `data/source/`；省写约定（confidence 缺省 high、priority 缺省 0、
