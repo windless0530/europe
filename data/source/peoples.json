@@ -1,0 +1,4553 @@
+{
+  "relations": [
+    {
+      "a": "angles",
+      "type": "related_to",
+      "b": "saxons",
+      "notes": "Angles, Saxons and Jutes are among the principal Germanic groups traditionally associated with early Anglo-Saxon England."
+    },
+    {
+      "a": "english",
+      "type": "related_to",
+      "b": "angles",
+      "confidence": "medium",
+      "notes": "Modern English ethnogenesis involved Brittonic populations, Anglo-Saxon groups, Norse settlement and Norman influence."
+    },
+    {
+      "a": "french",
+      "type": "related_to",
+      "b": "franks",
+      "confidence": "medium",
+      "notes": "Modern French ethnogenesis involved Gallo-Roman populations, Frankish elites and later regional populations; it should not be modeled as a simple one-to-one descent."
+    },
+    {
+      "a": "gauls",
+      "type": "related_to",
+      "b": "romans",
+      "notes": "Gauls were predominantly Celtic-speaking peoples of ancient Gaul; later populations were heavily Romanized."
+    },
+    {
+      "a": "ostrogoths",
+      "type": "subgroup_of",
+      "b": "goths",
+      "notes": "Ostrogoths are conventionally treated as a Gothic group."
+    },
+    {
+      "a": "vandals",
+      "type": "related_to",
+      "b": "goths",
+      "confidence": "medium",
+      "notes": "Vandals are conventionally classified within East Germanic in many modern reference works, but details of their linguistic/historical classification are debated.",
+      "sources": [
+        {
+          "source": "oxford_barbarian_worlds",
+          "evidence": "general_reference",
+          "notes": "示例来源；Vandals 的语言分类应保留一定不确定性。"
+        }
+      ]
+    },
+    {
+      "a": "visigoths",
+      "type": "subgroup_of",
+      "b": "goths",
+      "notes": "Visigoths are conventionally treated as a branch/group of the Goths.",
+      "sources": [
+        {
+          "source": "oxford_late_antiquity",
+          "evidence": "general_reference",
+          "notes": "示例来源；后续应进一步绑定到具体章节/页码。"
+        }
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "subject": "french",
+      "predicate": "descended_from",
+      "object": "franks",
+      "notes": "这里表达的是现代法国族群形成中的历史来源之一，而不是单线血缘继承。"
+    },
+    {
+      "subject": "english",
+      "predicate": "historical_ancestor_component",
+      "object": "angles",
+      "notes": "现代英格兰族群形成包含多个历史成分，此关系不应解释为简单的单一民族血缘。"
+    }
+  ],
+  "peoples": [
+    {
+      "code": "albanians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "阿尔巴尼亚人",
+        "en": "Albanians"
+      },
+      "brief": {
+        "zh": "现代阿尔巴尼亚族群。",
+        "en": "The modern Albanian people."
+      },
+      "notes": "现代阿尔巴尼亚族群。",
+      "languages": [
+        {
+          "language": "albanian",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "language": [
+          "albanian"
+        ],
+        "modern_ethnicity": [
+          "albanians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "albania",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "alemanni",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        200,
+        506
+      ],
+      "name": {
+        "zh": "阿勒曼尼人",
+        "en": "Alemanni"
+      },
+      "brief": {
+        "zh": "上莱茵部落联盟，施瓦本人前身",
+        "en": "Upper Rhine confederation, ancestors of the Swabians"
+      },
+      "notes": "阿勒曼尼人：上莱茵-美因日耳曼部落联盟，260 年后占居阿格里德库玛特斯，496/506 年被法兰克臣服，后演化为施瓦本人。",
+      "classification": {
+        "language": [
+          "germanic_west"
+        ],
+        "historical_people": [
+          "alemanni"
+        ]
+      },
+      "slices": [
+        {
+          "region": "swabia_francia",
+          "presence": "homeland",
+          "years": [
+            260,
+            506
+          ],
+          "priority": 60,
+          "notes": "260 年罗马弃守后占居；496 托尔比亚克/506 臣服法兰克"
+        }
+      ]
+    },
+    {
+      "code": "angles",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        300,
+        900
+      ],
+      "name": {
+        "zh": "盎格鲁人",
+        "en": "Angles"
+      },
+      "brief": {
+        "zh": "与早期英格兰形成密切相关的日耳曼人群。",
+        "en": "A Germanic people associated with the early formation of England."
+      },
+      "notes": "盎格鲁人，参与英格兰早期族群形成。",
+      "languages": [
+        {
+          "language": "old_english",
+          "role": "historical"
+        }
+      ],
+      "classification": {
+        "language": [
+          "germanic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "england",
+          "presence": "settlement",
+          "years": [
+            450,
+            900
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "盎格鲁人迁入（亨伯河口-东盎格利亚）"
+        },
+        {
+          "region": "north_sea_coast",
+          "presence": "homeland",
+          "years": [
+            300,
+            450
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        }
+      ]
+    },
+    {
+      "code": "armenians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        500,
+        null
+      ],
+      "name": {
+        "zh": "亚美尼亚人",
+        "en": "Armenians"
+      },
+      "brief": {
+        "zh": "现代亚美尼亚族群。",
+        "en": "The modern Armenian people."
+      },
+      "notes": "现代亚美尼亚族群。",
+      "languages": [
+        {
+          "language": "armenian",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "armenians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "armenia",
+          "presence": "homeland",
+          "years": [
+            500,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "avars",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        567,
+        799
+      ],
+      "name": {
+        "zh": "阿瓦尔人",
+        "en": "Avars"
+      },
+      "brief": {
+        "zh": "阿瓦尔汗国（喀尔巴阡盆地）",
+        "en": "Avar Khaganate (Carpathian Basin)"
+      },
+      "notes": "阿瓦尔人，567 年建汗国统治喀尔巴阡盆地，796–803 年为查理曼与保加尔人所灭。",
+      "classification": {
+        "language": [
+          {
+            "node": "turkic",
+            "confidence": "low"
+          }
+        ],
+        "historical_people": [
+          "avars"
+        ]
+      },
+      "slices": [
+        {
+          "region": "carpathian_basin",
+          "presence": "political_control",
+          "years": [
+            567,
+            799
+          ],
+          "priority": 65,
+          "confidence": "medium",
+          "notes": "阿瓦尔汗国；796–799 年查理曼战役后瓦解"
+        }
+      ]
+    },
+    {
+      "code": "azerbaijanis",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "阿塞拜疆人",
+        "en": "Azerbaijanis"
+      },
+      "brief": {
+        "zh": "现代阿塞拜疆族群。",
+        "en": "The modern Azerbaijani people."
+      },
+      "notes": "现代阿塞拜疆族群。",
+      "languages": [
+        {
+          "language": "azerbaijani",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "azerbaijanis"
+        ]
+      },
+      "slices": [
+        {
+          "region": "azerbaijan",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "balts",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -500,
+        1000
+      ],
+      "name": {
+        "zh": "波罗的人",
+        "en": "Balts"
+      },
+      "brief": {
+        "zh": "立陶宛/拉脱维亚人前身",
+        "en": "Ancestors of Lithuanians and Latvians"
+      },
+      "notes": "波罗的人：东波罗的铁器时代部落（立陶宛人/拉脱维亚人/古普鲁士人的前身）。",
+      "classification": {
+        "language": [
+          "baltic"
+        ],
+        "historical_people": [
+          "balts"
+        ]
+      },
+      "slices": [
+        {
+          "region": "latvia",
+          "presence": "homeland",
+          "years": [
+            -500,
+            1000
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "波罗的-芬兰混合带（拉特加列人/谢米加利亚人）"
+        },
+        {
+          "region": "lithuania",
+          "presence": "homeland",
+          "years": [
+            -500,
+            1000
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "波罗的铁器时代部落（高地立陶宛文化圈）"
+        }
+      ]
+    },
+    {
+      "code": "basques",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        -500,
+        null
+      ],
+      "name": {
+        "zh": "巴斯克人",
+        "en": "Basques"
+      },
+      "brief": {
+        "zh": "前印欧语言孤岛（巴斯克语）",
+        "en": "Pre-Indo-European language isolate people"
+      },
+      "notes": "巴斯克人：欧洲唯一前印欧语言孤岛的承载者，连续定居至今。",
+      "classification": {
+        "language": [
+          "basque"
+        ],
+        "modern_ethnicity": [
+          "basques"
+        ]
+      },
+      "slices": [
+        {
+          "region": "basque_country",
+          "presence": "homeland",
+          "years": [
+            -500,
+            null
+          ],
+          "priority": 65,
+          "notes": "瓦斯科尼亞：前印欧语言孤岛，罗马—西哥特—法兰克期保持连续（含纳瓦拉）"
+        }
+      ]
+    },
+    {
+      "code": "bavarians",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        550,
+        788
+      ],
+      "name": {
+        "zh": "巴伐利亚人",
+        "en": "Bavarians"
+      },
+      "brief": {
+        "zh": "阿吉洛尔夫王朝巴伐利亚公国",
+        "en": "Agilolfing Duchy of Bavaria"
+      },
+      "notes": "巴伐利亚人（阿吉洛尔夫王朝），788 年塔西洛被废，并入法兰克王国。",
+      "classification": {
+        "language": [
+          "germanic",
+          "germanic_west"
+        ],
+        "historical_people": [
+          "bavarians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "austria",
+          "presence": "homeland",
+          "years": [
+            550,
+            788
+          ],
+          "priority": 58,
+          "confidence": "medium",
+          "notes": "阿吉洛尔夫王朝巴伐利亚公国（多瑙河上游）"
+        },
+        {
+          "region": "bavaria",
+          "presence": "homeland",
+          "years": [
+            550,
+            788
+          ],
+          "priority": 60,
+          "notes": "巴伐利亚公国（阿吉洛尔家族，向法兰克称臣）"
+        }
+      ]
+    },
+    {
+      "code": "belarusians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "白俄罗斯人",
+        "en": "Belarusians"
+      },
+      "brief": {
+        "zh": "现代白俄罗斯族群。",
+        "en": "The modern Belarusian people."
+      },
+      "notes": "现代白俄罗斯族群。",
+      "classification": {
+        "modern_ethnicity": [
+          "belarusians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "belarus",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "bosniaks",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1300,
+        null
+      ],
+      "name": {
+        "zh": "波斯尼亚克族",
+        "en": "Bosniaks"
+      },
+      "brief": {
+        "zh": "中世纪波斯尼亚王国人口基础",
+        "en": "Population base of medieval Bosnia"
+      },
+      "notes": "波斯尼亚克族：中世纪波斯尼亚班国-王国（1154–1463）人口基础，现代认同主要成型于奥斯曼时期。",
+      "classification": {
+        "language": [
+          "south_slavic"
+        ],
+        "modern_ethnicity": [
+          "bosniaks"
+        ]
+      },
+      "slices": [
+        {
+          "region": "bosnia",
+          "presence": "homeland",
+          "years": [
+            1300,
+            null
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "波斯尼亚班国-王国（1154–1463）人口基础；此前 700–1300 由塞尔维亚补底层过渡"
+        }
+      ]
+    },
+    {
+      "code": "bretons",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        450,
+        null
+      ],
+      "name": {
+        "zh": "布列塔尼人",
+        "en": "Bretons"
+      },
+      "brief": {
+        "zh": "不列颠凯尔特移民后裔（布列塔尼半岛）",
+        "en": "Celtic descendants of British migrants (Brittany)"
+      },
+      "notes": "布列塔尼人：罗马末期自不列颠渡海的凯尔特族群后裔，布列塔尼语存续至今。",
+      "classification": {
+        "language": [
+          "celtic"
+        ],
+        "modern_ethnicity": [
+          "bretons"
+        ]
+      },
+      "slices": [
+        {
+          "region": "brittany",
+          "presence": "homeland",
+          "years": [
+            450,
+            null
+          ],
+          "priority": 65,
+          "notes": "罗马末期不列颠凯尔特渡海（布列塔尼语存续至今）"
+        }
+      ]
+    },
+    {
+      "code": "britons",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        -100,
+        800
+      ],
+      "name": {
+        "zh": "不列颠人",
+        "en": "Britons"
+      },
+      "brief": {
+        "zh": "古代及中世纪早期不列颠岛的布立吞语人群。",
+        "en": "Brittonic-speaking peoples of ancient and early medieval Britain."
+      },
+      "notes": "不列颠岛的布立吞语凯尔特人群。",
+      "classification": {
+        "language": [
+          "celtic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "england",
+          "presence": "homeland",
+          "years": [
+            -100,
+            650
+          ],
+          "priority": 56,
+          "confidence": "medium",
+          "notes": "罗马不列颠-后罗马不列颠人（西部王国至 6 世纪中）"
+        },
+        {
+          "region": "wales",
+          "presence": "homeland",
+          "years": [
+            -100,
+            700
+          ],
+          "priority": 52,
+          "confidence": "medium",
+          "notes": "罗马-后罗马不列颠人西部山区（坎布里亚）"
+        }
+      ]
+    },
+    {
+      "code": "bulgarians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        700,
+        null
+      ],
+      "name": {
+        "zh": "保加利亚人",
+        "en": "Bulgarians"
+      },
+      "brief": {
+        "zh": "现代保加利亚族群。",
+        "en": "The modern Bulgarian people."
+      },
+      "notes": "现代保加利亚族群。",
+      "classification": {
+        "modern_ethnicity": [
+          "bulgarians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "bulgaria",
+          "presence": "homeland",
+          "years": [
+            700,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "burgundians",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        200,
+        600
+      ],
+      "name": {
+        "zh": "勃艮第人",
+        "en": "Burgundians"
+      },
+      "brief": {
+        "zh": "与勃艮第地区历史相关的日耳曼人群。",
+        "en": "A historical Germanic people associated with Burgundy."
+      },
+      "notes": "勃艮第人。",
+      "classification": {
+        "language": [
+          "germanic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "gaul",
+          "presence": "settlement",
+          "years": [
+            407,
+            600
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "swabia_francia",
+          "presence": "political_control",
+          "years": [
+            413,
+            443
+          ],
+          "priority": 62,
+          "confidence": "medium",
+          "notes": "沃尔姆斯王国（413–437），余部迁萨伏依"
+        },
+        {
+          "region": "switzerland_west",
+          "presence": "settlement",
+          "years": [
+            443,
+            534
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "勃艮第王国（日内瓦—洛桑一带）"
+        }
+      ]
+    },
+    {
+      "code": "catalans",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        900,
+        null
+      ],
+      "name": {
+        "zh": "加泰罗尼亚人",
+        "en": "Catalans"
+      },
+      "brief": {
+        "zh": "阿拉贡王冠核心的罗曼族群",
+        "en": "Romance people of the Crown of Aragón"
+      },
+      "notes": "加泰罗尼亚人：加泰卢尼亚语（奥克-罗曼语近亲），阿拉贡王冠核心。",
+      "classification": {
+        "language": [
+          "romance"
+        ],
+        "modern_ethnicity": [
+          "catalans"
+        ]
+      },
+      "slices": [
+        {
+          "region": "catalonia",
+          "presence": "homeland",
+          "years": [
+            987,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "博雷利二世事实独立后加泰卢尼亚；含阿拉贡王冠（1249 后瓦伦西亚/巴利阿里）"
+        }
+      ]
+    },
+    {
+      "code": "celtiberians",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -500,
+        100
+      ],
+      "name": {
+        "zh": "凯尔特伊比利亚人",
+        "en": "Celtiberians"
+      },
+      "brief": {
+        "zh": "伊比利亚中部受凯尔特文化影响的古代人群。",
+        "en": "Celtic-influenced peoples of central Iberia."
+      },
+      "notes": "伊比利亚半岛中部的凯尔特-伊比利亚人群。",
+      "classification": {
+        "language": [
+          "celtic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "castile",
+          "presence": "homeland",
+          "years": [
+            -500,
+            100
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "克尔特伊比利亚/瓦凯伊诸部（含加拉伊克人北境近似）"
+        },
+        {
+          "region": "galicia",
+          "presence": "homeland",
+          "years": [
+            -500,
+            100
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "加拉伊克人（凯尔特伊比利亚）"
+        }
+      ]
+    },
+    {
+      "code": "celts",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -500,
+        100
+      ],
+      "name": {
+        "zh": "凯尔特人",
+        "en": "Celts"
+      },
+      "brief": {
+        "zh": "哈尔施塔特—拉登铁器时代族群集合称",
+        "en": "Iron Age peoples of the Hallstatt and La Tène cultures"
+      },
+      "notes": "凯尔特人（集合称）：哈尔施塔特—拉登铁器时代中欧主体族群，后分化为高卢人、伊比利亚凯尔特人与海岛凯尔特人等。",
+      "classification": {
+        "language": [
+          "celtic"
+        ],
+        "historical_people": [
+          "celts"
+        ]
+      },
+      "slices": [
+        {
+          "region": "bavaria",
+          "presence": "settlement",
+          "years": [
+            -500,
+            -15
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "拉埃托人（雷蒂亚）与波伊人东境"
+        },
+        {
+          "region": "central_europe",
+          "presence": "settlement",
+          "years": [
+            -500,
+            -15
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "拉登文化：波伊人（波希米亚，Boiohaemum）、文德利奇人（巴伐利亚）、诺里库姆诸部；北德同期为亚斯托夫文化（整体近似）"
+        },
+        {
+          "region": "pannonia",
+          "presence": "settlement",
+          "years": [
+            -450,
+            9
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "埃拉维斯奇人/斯科尔迪斯克人（潘诺尼亚凯尔特）"
+        },
+        {
+          "region": "poland",
+          "presence": "settlement",
+          "years": [
+            -380,
+            -100
+          ],
+          "priority": 45,
+          "confidence": "low",
+          "notes": "南境（小波兰/库亚维）拉登文化据点：钱币与输入品，人口规模有限"
+        },
+        {
+          "region": "silesia_pomerania",
+          "presence": "settlement",
+          "years": [
+            -380,
+            -100
+          ],
+          "priority": 45,
+          "confidence": "low",
+          "notes": "西里西亚拉登文化据点（新采尔克维亚类型），人口规模有限"
+        },
+        {
+          "region": "slovakia",
+          "presence": "settlement",
+          "years": [
+            -400,
+            -50
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "科蒂尼人（采铁，塔西佗记其说高卢语）、布拉迪斯拉发比亚泰克钱币区；前 45 年前后达契亚布雷比斯塔短暂支配（不单列）"
+        },
+        {
+          "region": "swabia_francia",
+          "presence": "settlement",
+          "years": [
+            -500,
+            74
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "拉登文化：沃尔凯人/特雷维里人等"
+        }
+      ]
+    },
+    {
+      "code": "crimean_tatars",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1441,
+        null
+      ],
+      "name": {
+        "zh": "克里米亚鞑靼人",
+        "en": "Crimean Tatars"
+      },
+      "brief": {
+        "zh": "克里米亚汗国（1441–1783）主体",
+        "en": "People of the Crimean Khanate (1441-1783)"
+      },
+      "notes": "克里米亚鞑靼人：克里米亚汗国（1441–1783）主体，此后为少数族群。",
+      "classification": {
+        "language": [
+          "turkic",
+          {
+            "node": "kipchak",
+            "confidence": "medium"
+          }
+        ],
+        "modern_ethnicity": [
+          "crimean_tatars"
+        ]
+      },
+      "slices": [
+        {
+          "region": "crimea",
+          "presence": "homeland",
+          "years": [
+            1441,
+            null
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "克里米亚汗国（1441–1783）；此后处少数族群地位"
+        }
+      ]
+    },
+    {
+      "code": "croats",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        700,
+        null
+      ],
+      "name": {
+        "zh": "克罗地亚人",
+        "en": "Croats"
+      },
+      "brief": {
+        "zh": "现代克罗地亚族群。",
+        "en": "The modern Croatian people."
+      },
+      "notes": "现代克罗地亚族群。",
+      "classification": {
+        "modern_ethnicity": [
+          "croats"
+        ]
+      },
+      "slices": [
+        {
+          "region": "croatia",
+          "presence": "homeland",
+          "years": [
+            700,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "czechs",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "捷克人",
+        "en": "Czechs"
+      },
+      "brief": {
+        "zh": "现代捷克族群。",
+        "en": "The modern Czech people."
+      },
+      "notes": "现代捷克族群。",
+      "languages": [
+        {
+          "language": "czech",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "czechs"
+        ]
+      },
+      "slices": [
+        {
+          "region": "czechia",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "dacians",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -500,
+        300
+      ],
+      "name": {
+        "zh": "达契亚人",
+        "en": "Dacians"
+      },
+      "brief": {
+        "zh": "多瑙河下游及喀尔巴阡地区的古代人群。",
+        "en": "Ancient peoples of the lower Danube and Carpathian region."
+      },
+      "notes": "达契亚人。",
+      "classification": {},
+      "slices": [
+        {
+          "region": "lower_danube",
+          "presence": "homeland",
+          "years": [
+            -500,
+            300
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "romania",
+          "presence": "homeland",
+          "years": [
+            -500,
+            300
+          ],
+          "priority": 60,
+          "notes": "达契亚（巴纳特/蒙特尼亚/摩尔达维亚）"
+        },
+        {
+          "region": "transylvania",
+          "presence": "homeland",
+          "years": [
+            -500,
+            300
+          ],
+          "priority": 60,
+          "notes": "达契亚核心（奥勒什蒂耶山地）"
+        }
+      ]
+    },
+    {
+      "code": "danes",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        804,
+        null
+      ],
+      "name": {
+        "zh": "丹麦人",
+        "en": "Danes"
+      },
+      "brief": {
+        "zh": "现代丹麦族群。",
+        "en": "The modern Danish people."
+      },
+      "notes": "现代丹麦族群。",
+      "languages": [
+        {
+          "language": "danish",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "danes"
+        ]
+      },
+      "slices": [
+        {
+          "region": "denmark",
+          "presence": "homeland",
+          "years": [
+            500,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "england",
+          "presence": "settlement",
+          "years": [
+            865,
+            954
+          ],
+          "priority": 45,
+          "notes": "丹麦法区（异教徒大军-约克末代国王埃里克，hover 层）"
+        }
+      ]
+    },
+    {
+      "code": "dutch",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        900,
+        null
+      ],
+      "name": {
+        "zh": "荷兰人",
+        "en": "Dutch"
+      },
+      "brief": {
+        "zh": "现代荷兰族群。",
+        "en": "The modern Dutch people."
+      },
+      "notes": "现代荷兰族群。",
+      "languages": [
+        {
+          "language": "dutch",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "dutch"
+        ]
+      },
+      "slices": [
+        {
+          "region": "flanders",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "弗拉芒（低地法兰克语演化）"
+        },
+        {
+          "region": "netherlands",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "english",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "英格兰人",
+        "en": "English"
+      },
+      "brief": {
+        "zh": "现代英格兰的族群与文化共同体。",
+        "en": "The modern ethnic and cultural population of England."
+      },
+      "notes": "现代英格兰族群；其形成包含多个历史人群的长期融合。",
+      "languages": [
+        {
+          "language": "french",
+          "role": "native"
+        },
+        {
+          "language": "old_english",
+          "role": "ancestral",
+          "confidence": "medium"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "english"
+        ]
+      },
+      "slices": [
+        {
+          "region": "england",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "estonian",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "爱沙尼亚人",
+        "en": "Estonians"
+      },
+      "brief": {
+        "zh": "现代爱沙尼亚族群。",
+        "en": "The modern Estonian people."
+      },
+      "notes": "现代爱沙尼亚族群。",
+      "languages": [
+        {
+          "language": "estonian",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "estonian"
+        ]
+      },
+      "slices": [
+        {
+          "region": "estonia",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "finns",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "芬兰人",
+        "en": "Finns"
+      },
+      "brief": {
+        "zh": "现代芬兰族群。",
+        "en": "The modern Finnish people."
+      },
+      "notes": "现代芬兰族群。",
+      "languages": [
+        {
+          "language": "finnish",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "finns"
+        ]
+      },
+      "slices": [
+        {
+          "region": "finland",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "franks",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        200,
+        900
+      ],
+      "name": {
+        "zh": "法兰克人",
+        "en": "Franks"
+      },
+      "brief": {
+        "zh": "日耳曼人群联盟，后来成为法兰克高卢的重要政治力量。",
+        "en": "A confederation of Germanic peoples that became central to Frankish Gaul."
+      },
+      "notes": "法兰克人联盟及其后继政治共同体。",
+      "religions": [
+        {
+          "religion": "christianity",
+          "role": "historical",
+          "years": [
+            300,
+            600
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "germanic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "austria",
+          "presence": "political_control",
+          "years": [
+            788,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "788 年查理曼废黜塔西洛，巴伐利亚并入法兰克"
+        },
+        {
+          "region": "bavaria",
+          "presence": "political_control",
+          "years": [
+            788,
+            900
+          ],
+          "priority": 90,
+          "notes": "查理曼废黜塔西洛三世，并入法兰克"
+        },
+        {
+          "region": "catalonia",
+          "presence": "political_control",
+          "years": [
+            801,
+            987
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "西班牙边区（马雷斯·希斯帕尼卡）"
+        },
+        {
+          "region": "flanders",
+          "presence": "political_control",
+          "years": [
+            358,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "萨利安法兰克核心区（图尔奈—根特一带）"
+        },
+        {
+          "region": "gaul",
+          "presence": "settlement",
+          "years": [
+            476,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "克洛维击败西亚格里乌斯（481 定理姆斯取 476 近似）后的法兰克王国统治"
+        },
+        {
+          "region": "italy",
+          "presence": "political_control",
+          "years": [
+            774,
+            1000
+          ],
+          "priority": 90,
+          "notes": "查理曼征服伦巴第—加洛林意大利王国—奥托帝国意大利"
+        },
+        {
+          "region": "netherlands",
+          "presence": "political_control",
+          "years": [
+            358,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "法兰克核心区（萨利安—里普阿里安法兰克故地）"
+        },
+        {
+          "region": "old_saxony",
+          "presence": "political_control",
+          "years": [
+            772,
+            900
+          ],
+          "priority": 65,
+          "notes": "查理曼萨克森战争（772–804）：维尔登洗礼与加洛林整合"
+        },
+        {
+          "region": "swabia_francia",
+          "presence": "political_control",
+          "years": [
+            506,
+            900
+          ],
+          "priority": 65,
+          "notes": "克洛维臣服阿勒曼尼后的法兰克-加洛林统治"
+        },
+        {
+          "region": "switzerland_east",
+          "presence": "political_control",
+          "years": [
+            534,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "法兰克（墨洛温—加洛林）统治期叠加层"
+        },
+        {
+          "region": "switzerland_west",
+          "presence": "political_control",
+          "years": [
+            534,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "法兰克征服勃艮第后统治"
+        },
+        {
+          "region": "thuringia_lausitz",
+          "presence": "political_control",
+          "years": [
+            531,
+            900
+          ],
+          "priority": 65,
+          "notes": "法兰克-萨克森联合吞并后加洛林东部边区"
+        },
+        {
+          "region": "wallonia",
+          "presence": "political_control",
+          "years": [
+            358,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "里普阿里安法兰克—加洛林"
+        }
+      ]
+    },
+    {
+      "code": "french",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        900,
+        null
+      ],
+      "name": {
+        "zh": "法国人",
+        "en": "French"
+      },
+      "brief": {
+        "zh": "现代法国相关的族群与国民共同体。",
+        "en": "The modern population associated with France."
+      },
+      "notes": "现代法国族群；形成过程涉及高卢、罗马化及法兰克等多重因素。",
+      "languages": [
+        {
+          "language": "french",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "french"
+        ]
+      },
+      "slices": [
+        {
+          "region": "france",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "gaul",
+          "presence": "settlement",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "notes": "西法兰克—法兰西王国；近似同比利时法语区（瓦隆）与卢森堡"
+        },
+        {
+          "region": "switzerland_west",
+          "presence": "settlement",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "notes": "瑞士法语区（沃/日内瓦/纳沙泰尔；语言边界中世纪方定型）"
+        },
+        {
+          "region": "wallonia",
+          "presence": "settlement",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "notes": "瓦隆（奥伊语东渐；布鲁塞尔按法语多数近似归入）"
+        }
+      ]
+    },
+    {
+      "code": "gaels",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        -100,
+        1500
+      ],
+      "name": {
+        "zh": "盖尔人",
+        "en": "Gaels"
+      },
+      "brief": {
+        "zh": "与爱尔兰和盖尔语苏格兰相关的凯尔特人群。",
+        "en": "Celtic peoples associated with Ireland and Gaelic Scotland."
+      },
+      "notes": "爱尔兰及苏格兰盖尔语凯尔特人群。",
+      "classification": {
+        "language": [
+          "celtic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "ireland_and_scotland",
+          "presence": "homeland",
+          "years": [
+            -100,
+            1500
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        }
+      ]
+    },
+    {
+      "code": "gauls",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -500,
+        500
+      ],
+      "name": {
+        "zh": "高卢人",
+        "en": "Gauls"
+      },
+      "brief": {
+        "zh": "古代高卢地区的凯尔特人群总称。",
+        "en": "Celtic peoples of ancient Gaul."
+      },
+      "notes": "罗马征服前后高卢地区的凯尔特人群统称。",
+      "classification": {
+        "language": [
+          "celtic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "brittany",
+          "presence": "settlement",
+          "years": [
+            -500,
+            -50
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "阿莫里卡半岛凯尔特诸部（文内蒂人）"
+        },
+        {
+          "region": "flanders",
+          "presence": "homeland",
+          "years": [
+            -500,
+            500
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "比利时高卢（门奈皮/贝尔盖人）"
+        },
+        {
+          "region": "gaul",
+          "presence": "homeland",
+          "years": [
+            -500,
+            -51
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "switzerland_east",
+          "presence": "settlement",
+          "years": [
+            -500,
+            -50
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "拉埃托人/海尔维蒂东境"
+        },
+        {
+          "region": "switzerland_west",
+          "presence": "settlement",
+          "years": [
+            -500,
+            -50
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "海尔维蒂人（凯尔特）"
+        },
+        {
+          "region": "ticino",
+          "presence": "settlement",
+          "years": [
+            -500,
+            -50
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "山南高卢（勒蓬蒂人）"
+        },
+        {
+          "region": "wallonia",
+          "presence": "homeland",
+          "years": [
+            -500,
+            500
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "贝尔盖高卢"
+        }
+      ]
+    },
+    {
+      "code": "georgians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "格鲁吉亚人",
+        "en": "Georgians"
+      },
+      "brief": {
+        "zh": "现代格鲁吉亚族群。",
+        "en": "The modern Georgian people."
+      },
+      "notes": "现代格鲁吉亚族群。",
+      "languages": [
+        {
+          "language": "georgian",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "georgians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "georgia",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "gepids",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        400,
+        567
+      ],
+      "name": {
+        "zh": "格皮德人",
+        "en": "Gepids"
+      },
+      "brief": {
+        "zh": "内道战役后据蒂萨河建国",
+        "en": "Tisza kingdom after the Battle of Nedao"
+      },
+      "notes": "格皮德人：东日耳曼部族，469 年内道战役击败匈人后据蒂萨河流域建国，567 年被阿瓦尔人灭亡。",
+      "classification": {
+        "language": [
+          "germanic_east"
+        ],
+        "historical_people": [
+          "gepids"
+        ]
+      },
+      "slices": [
+        {
+          "region": "pannonia",
+          "presence": "homeland",
+          "years": [
+            469,
+            567
+          ],
+          "priority": 60,
+          "notes": "内道战役（454/469）后格皮德王国，567 年被阿瓦尔人所灭"
+        }
+      ]
+    },
+    {
+      "code": "germanic_tribes",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -450,
+        400
+      ],
+      "name": {
+        "zh": "古日耳曼人",
+        "en": "Early Germanic peoples"
+      },
+      "brief": {
+        "zh": "亚斯托夫文化部族时代集合称（苏维汇/法兰克等前身）",
+        "en": "Jastorf-culture tribes before the named confederations"
+      },
+      "notes": "古日耳曼人（集合称）：亚斯托夫文化铁器时代北欧/中欧族群，前 1 世纪起分化为苏维汇、法兰克、哥特等具体部族。",
+      "classification": {
+        "language": [
+          "germanic"
+        ],
+        "historical_people": [
+          "germanic_tribes"
+        ]
+      },
+      "slices": [
+        {
+          "region": "central_europe",
+          "presence": "settlement",
+          "years": [
+            -450,
+            100
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "亚斯托夫文化扩张至中德；前 8 年马科曼尼人入波希米亚、前 6 年夸迪人随进摩拉维亚"
+        },
+        {
+          "region": "norway",
+          "presence": "settlement",
+          "years": [
+            -450,
+            200
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "北欧铁器时代（前罗马-罗马时代）日耳曼人群"
+        },
+        {
+          "region": "old_saxony",
+          "presence": "settlement",
+          "years": [
+            -450,
+            300
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "亚斯托夫文化核心区（萨克森人摇篮）"
+        },
+        {
+          "region": "slovakia",
+          "presence": "settlement",
+          "years": [
+            -50,
+            500
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "夸迪人（苏维汇系，瓦尼乌斯王国 19–50）+ 多瑙河中游平原伊阿济格斯（萨尔马提亚）"
+        },
+        {
+          "region": "sweden",
+          "presence": "settlement",
+          "years": [
+            -450,
+            200
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "北欧铁器时代日耳曼人群（文德尔文化前身）"
+        },
+        {
+          "region": "thuringia_lausitz",
+          "presence": "settlement",
+          "years": [
+            -450,
+            400
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "日耳曼部落带（赫尔蒙德里人传统）"
+        }
+      ]
+    },
+    {
+      "code": "germans",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        900,
+        null
+      ],
+      "name": {
+        "zh": "德国人",
+        "en": "Germans"
+      },
+      "brief": {
+        "zh": "现代德国族群。",
+        "en": "The modern German people."
+      },
+      "notes": "现代德意志族群。",
+      "languages": [
+        {
+          "language": "german",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "germans"
+        ]
+      },
+      "slices": [
+        {
+          "region": "austria",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "东法兰克—德意志—哈布斯堡奥地利德语区"
+        },
+        {
+          "region": "bavaria",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "巴伐利亚公国（德意志王国核心诸侯）"
+        },
+        {
+          "region": "masuria",
+          "presence": "settlement",
+          "years": [
+            1250,
+            1945
+          ],
+          "priority": 65,
+          "confidence": "medium",
+          "notes": "条顿骑士团国（1230 起）—普鲁士公国—东普鲁士"
+        },
+        {
+          "region": "old_saxony",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "萨克森公国（吕迪格家族—韦尔夫）归入德意志王国"
+        },
+        {
+          "region": "silesia_pomerania",
+          "presence": "settlement",
+          "years": [
+            1250,
+            1945
+          ],
+          "priority": 65,
+          "confidence": "medium",
+          "notes": "德意志东进（Ostsiedlung）：波希米亚王冠/勃兰登堡/波美拉尼亚公爵治下德语城市带"
+        },
+        {
+          "region": "swabia_francia",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "施瓦本-法兰克尼亚公国（德意志王国）"
+        },
+        {
+          "region": "switzerland_east",
+          "presence": "settlement",
+          "years": [
+            476,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "阿勒曼尼定居→施瓦本→瑞士德语区（罗曼什谷地并入近似）"
+        },
+        {
+          "region": "thuringia_lausitz",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "迈森边区-图林根方伯领（德意志东扩，索布人渐次同化）"
+        }
+      ]
+    },
+    {
+      "code": "goths",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        100,
+        700
+      ],
+      "name": {
+        "zh": "哥特人",
+        "en": "Goths"
+      },
+      "brief": {
+        "zh": "与哥特传统相关的历史日耳曼人群。",
+        "en": "A historical Germanic people associated with the Gothic tradition."
+      },
+      "notes": "古代及晚期罗马时期的哥特人总称；具体分支与名称在不同史料中存在争议。",
+      "languages": [
+        {
+          "language": "gothic",
+          "role": "historical"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "paganism",
+          "role": "traditional",
+          "confidence": "medium",
+          "years": [
+            0,
+            900
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "germanic",
+          "germanic_east",
+          "gothic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "balkans",
+          "presence": "migration",
+          "years": [
+            375,
+            700
+          ],
+          "priority": 40,
+          "confidence": "low",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "crimea",
+          "presence": "settlement",
+          "years": [
+            250,
+            1440
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "notes": "克里米亚哥特人（存续至晚期中世纪；涵盖可萨/库曼时期近似）"
+        },
+        {
+          "region": "eastern_europe",
+          "presence": "homeland",
+          "years": [
+            100,
+            375
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "poland",
+          "presence": "settlement",
+          "years": [
+            -100,
+            250
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "notes": "维尔巴克文化（主流比定哥特人）：波莫瑞—库亚维—马佐维叶，250 年前后南迁"
+        },
+        {
+          "region": "romania",
+          "presence": "migration",
+          "years": [
+            300,
+            450
+          ],
+          "priority": 40,
+          "confidence": "medium",
+          "notes": "哥特人迁入期"
+        },
+        {
+          "region": "silesia_pomerania",
+          "presence": "settlement",
+          "years": [
+            -100,
+            250
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "notes": "维尔巴克文化（哥特人比定）：波美拉尼亚核心区，250 年前后南迁"
+        },
+        {
+          "region": "transylvania",
+          "presence": "migration",
+          "years": [
+            300,
+            450
+          ],
+          "priority": 40,
+          "confidence": "medium",
+          "notes": "哥特人迁入后罗马达契亚"
+        },
+        {
+          "region": "ukraine",
+          "presence": "settlement",
+          "years": [
+            200,
+            400
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "切尔尼亚霍夫文化（哥特—斯基泰混合带近似）"
+        }
+      ]
+    },
+    {
+      "code": "greeks",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        700,
+        null
+      ],
+      "name": {
+        "zh": "希腊人",
+        "en": "Greeks"
+      },
+      "brief": {
+        "zh": "现代希腊族群。",
+        "en": "The modern Greek people."
+      },
+      "notes": "现代希腊族群。",
+      "languages": [
+        {
+          "language": "greek",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "language": [
+          "hellenic"
+        ],
+        "modern_ethnicity": [
+          "greeks"
+        ]
+      },
+      "slices": [
+        {
+          "region": "greece",
+          "presence": "homeland",
+          "years": [
+            700,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "hungarians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "匈牙利人",
+        "en": "Hungarians"
+      },
+      "brief": {
+        "zh": "现代匈牙利族群。",
+        "en": "The modern Hungarian people."
+      },
+      "notes": "现代匈牙利族群。",
+      "languages": [
+        {
+          "language": "hungarian",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "hungarians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "hungary",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "transylvania",
+          "presence": "political_control",
+          "years": [
+            1000,
+            1918
+          ],
+          "priority": 90,
+          "notes": "匈牙利王国圣伊什特万王冠领（含特兰西瓦尼亚萨克森殖民未单列）"
+        }
+      ]
+    },
+    {
+      "code": "huns",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        375,
+        469
+      ],
+      "name": {
+        "zh": "匈人",
+        "en": "Huns"
+      },
+      "brief": {
+        "zh": "阿提拉草原联盟（潘诺尼亚核心）",
+        "en": "Steppe confederation of Attila (Pannonian core)"
+      },
+      "notes": "匈人：草原游牧联盟，阿提拉时期（434–453）以潘诺尼亚为政治核心，语言无确切记载。",
+      "classification": {
+        "historical_people": [
+          "huns"
+        ]
+      },
+      "slices": [
+        {
+          "region": "pannonia",
+          "presence": "political_control",
+          "years": [
+            425,
+            469
+          ],
+          "priority": 65,
+          "notes": "阿提拉帝国政治核心（多瑙河中游洪泛平原为宫廷驻地）"
+        }
+      ]
+    },
+    {
+      "code": "iberians",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -1000,
+        100
+      ],
+      "name": {
+        "zh": "伊比利亚人",
+        "en": "Iberians"
+      },
+      "brief": {
+        "zh": "伊比利亚半岛部分地区的古代人群。",
+        "en": "Ancient peoples of parts of the Iberian Peninsula."
+      },
+      "notes": "伊比利亚半岛东部和南部的古代伊比利亚人群。",
+      "classification": {},
+      "slices": [
+        {
+          "region": "andalusia",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            100
+          ],
+          "priority": 60,
+          "notes": "塔尔提索斯—伊比利亚诸部（安达卢斯故地）"
+        },
+        {
+          "region": "catalonia",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            100
+          ],
+          "priority": 60,
+          "notes": "东北伊比利亚诸部"
+        }
+      ]
+    },
+    {
+      "code": "illyrians",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -1000,
+        100
+      ],
+      "name": {
+        "zh": "伊利里亚人",
+        "en": "Illyrians"
+      },
+      "brief": {
+        "zh": "古代巴尔干西部若干人群的宽泛称呼。",
+        "en": "A broad ancient designation for peoples of the western Balkans."
+      },
+      "notes": "古代巴尔干西部相关人群的统称。",
+      "classification": {},
+      "slices": [
+        {
+          "region": "balkans",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            100
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        }
+      ]
+    },
+    {
+      "code": "irish",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        700,
+        null
+      ],
+      "name": {
+        "zh": "爱尔兰人",
+        "en": "Irish"
+      },
+      "brief": {
+        "zh": "现代爱尔兰族群。",
+        "en": "The modern people of Ireland."
+      },
+      "notes": "现代爱尔兰族群。",
+      "languages": [
+        {
+          "language": "irish",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "irish"
+        ]
+      },
+      "slices": [
+        {
+          "region": "ireland",
+          "presence": "homeland",
+          "years": [
+            700,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "italians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "意大利人",
+        "en": "Italians"
+      },
+      "brief": {
+        "zh": "现代意大利族群。",
+        "en": "The modern Italian people."
+      },
+      "notes": "现代意大利族群。",
+      "languages": [
+        {
+          "language": "italian",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "italians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "italy",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "ticino",
+          "presence": "settlement",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "提契诺（1515 年后并入瑞士邦联，意大利语区）"
+        }
+      ]
+    },
+    {
+      "code": "jutes",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        300,
+        800
+      ],
+      "name": {
+        "zh": "朱特人",
+        "en": "Jutes"
+      },
+      "brief": {
+        "zh": "传统上与英格兰肯特及威塞克斯早期定居有关的日耳曼人群。",
+        "en": "A Germanic people traditionally associated with settlement in Kent and Wessex."
+      },
+      "notes": "朱特人，传统上与英格兰早期定居相关。",
+      "languages": [
+        {
+          "language": "old_english",
+          "role": "historical"
+        }
+      ],
+      "classification": {
+        "language": [
+          "germanic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "england",
+          "presence": "settlement",
+          "years": [
+            450,
+            800
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "notes": "朱特人（肯特-怀特岛）"
+        },
+        {
+          "region": "north_sea_coast",
+          "presence": "homeland",
+          "years": [
+            300,
+            450
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        }
+      ]
+    },
+    {
+      "code": "latins",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -800,
+        500
+      ],
+      "name": {
+        "zh": "拉丁人",
+        "en": "Latins"
+      },
+      "brief": {
+        "zh": "古代意大利拉丁姆地区的人群。",
+        "en": "An ancient Italic people of Latium."
+      },
+      "notes": "古代拉丁人群。",
+      "languages": [
+        {
+          "language": "latin",
+          "role": "historical"
+        }
+      ],
+      "classification": {
+        "language": [
+          "italic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "italy",
+          "presence": "homeland",
+          "years": [
+            -800,
+            500
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        }
+      ]
+    },
+    {
+      "code": "latvians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "拉脱维亚人",
+        "en": "Latvians"
+      },
+      "brief": {
+        "zh": "现代拉脱维亚族群。",
+        "en": "The modern Latvian people."
+      },
+      "notes": "现代拉脱维亚族群。",
+      "languages": [
+        {
+          "language": "latvian",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "latvians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "latvia",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "lithuanians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "立陶宛人",
+        "en": "Lithuanians"
+      },
+      "brief": {
+        "zh": "现代立陶宛族群。",
+        "en": "The modern Lithuanian people."
+      },
+      "notes": "现代立陶宛族群。",
+      "languages": [
+        {
+          "language": "lithuanian",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "lithuanians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "lithuania",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "lombards",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        200,
+        1000
+      ],
+      "name": {
+        "zh": "伦巴第人",
+        "en": "Lombards"
+      },
+      "brief": {
+        "zh": "在意大利建立伦巴第王国的日耳曼人群。",
+        "en": "A Germanic people that established a kingdom in Italy."
+      },
+      "notes": "伦巴第人，后在意大利建立伦巴第王国。",
+      "classification": {
+        "language": [
+          "germanic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "central_europe",
+          "presence": "homeland",
+          "years": [
+            490,
+            568
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "摩拉维亚-诺里库姆迁徙期（易北河下游→卢吉兰），568 年入意大利"
+        },
+        {
+          "region": "italy",
+          "presence": "political_control",
+          "years": [
+            568,
+            774
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "old_saxony",
+          "presence": "settlement",
+          "years": [
+            200,
+            450
+          ],
+          "priority": 45,
+          "confidence": "low",
+          "notes": "易北河下游伦巴第家园（第二阶段迁出，hover 层）"
+        },
+        {
+          "region": "ticino",
+          "presence": "political_control",
+          "years": [
+            568,
+            1000
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "伦巴第王国—米兰主教区势力"
+        }
+      ]
+    },
+    {
+      "code": "lusitanians",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -500,
+        100
+      ],
+      "name": {
+        "zh": "卢西塔尼亚人",
+        "en": "Lusitanians"
+      },
+      "brief": {
+        "zh": "伊比利亚西部的古代人群。",
+        "en": "An ancient people of western Iberia."
+      },
+      "notes": "卢西塔尼亚人，主要见于伊比利亚西部。",
+      "classification": {},
+      "slices": [
+        {
+          "region": "portugal",
+          "presence": "homeland",
+          "years": [
+            -500,
+            100
+          ],
+          "priority": 60,
+          "notes": "卢西塔尼亚人（维里亚图斯）"
+        }
+      ]
+    },
+    {
+      "code": "macedonians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        900,
+        null
+      ],
+      "name": {
+        "zh": "马其顿人",
+        "en": "Macedonians"
+      },
+      "brief": {
+        "zh": "萨穆伊尔帝国以降的区域斯拉夫传统",
+        "en": "Slavic tradition since Samuel's empire"
+      },
+      "notes": "马其顿人：萨穆伊尔帝国（976–1014）以降的马其顿-奥赫里德斯拉夫传统；与保加利亚认同的史学表述差异见 notes，此处取中世纪区域传统。",
+      "classification": {
+        "language": [
+          "south_slavic"
+        ],
+        "modern_ethnicity": [
+          "macedonians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "macedonia",
+          "presence": "homeland",
+          "years": [
+            976,
+            null
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "萨穆伊尔帝国（976–1014）-奥赫里德传统"
+        }
+      ]
+    },
+    {
+      "code": "magyars",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        800,
+        1100
+      ],
+      "name": {
+        "zh": "马扎尔人",
+        "en": "Magyars"
+      },
+      "brief": {
+        "zh": "与征服喀尔巴阡盆地及匈牙利民族形成相关的历史匈牙利语人群。",
+        "en": "The historical Hungarian-speaking people associated with the Hungarian conquest of the Carpathian Basin."
+      },
+      "notes": "马扎尔人，匈牙利民族形成的重要历史人群。",
+      "classification": {},
+      "slices": [
+        {
+          "region": "carpathian_basin",
+          "presence": "homeland",
+          "years": [
+            800,
+            1100
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        }
+      ]
+    },
+    {
+      "code": "montenegrins",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "黑山人",
+        "en": "Montenegrins"
+      },
+      "brief": {
+        "zh": "杜克利亚-泽塔公国传统",
+        "en": "Tradition of Duklja and Zeta"
+      },
+      "notes": "黑山人：杜克利亚（泽塔）公国 1043 年以降传统；与塞尔维亚人认同边界存在当代差异，此处按杜克利亚-泽塔传统单列。",
+      "classification": {
+        "language": [
+          "south_slavic"
+        ],
+        "modern_ethnicity": [
+          "montenegrins"
+        ]
+      },
+      "slices": [
+        {
+          "region": "montenegro",
+          "presence": "homeland",
+          "years": [
+            1043,
+            null
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "杜克利亚公国独立（1043）；泽塔传统"
+        }
+      ]
+    },
+    {
+      "code": "moors",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        711,
+        1492
+      ],
+      "name": {
+        "zh": "摩尔人（安达卢斯）",
+        "en": "Moors (al-Andalus)"
+      },
+      "brief": {
+        "zh": "安达卢斯的阿拉伯—柏柏尔政权",
+        "en": "Arab-Berber polities of al-Andalus"
+      },
+      "notes": "安达卢斯摩尔人（阿拉伯—柏柏尔），711 年入侵伊比利亚，1492 年格拉纳达陷落。",
+      "classification": {
+        "historical_people": [
+          "moors"
+        ]
+      },
+      "slices": [
+        {
+          "region": "andalusia",
+          "presence": "political_control",
+          "years": [
+            711,
+            1492
+          ],
+          "priority": 90,
+          "notes": "安达卢斯（科尔多瓦哈里发—格拉纳达）"
+        },
+        {
+          "region": "catalonia",
+          "presence": "political_control",
+          "years": [
+            711,
+            801
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "安达卢斯上边区（785/801 年法兰克夺取前）"
+        },
+        {
+          "region": "portugal",
+          "presence": "political_control",
+          "years": [
+            711,
+            1249
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "加尔卜（安达卢斯西部）；1249 阿尔加维陷落完成再征服"
+        }
+      ]
+    },
+    {
+      "code": "norse",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        200,
+        900
+      ],
+      "name": {
+        "zh": "诺斯人",
+        "en": "Norse"
+      },
+      "brief": {
+        "zh": "维京时代北日耳曼人",
+        "en": "North Germanic peoples of the Viking Age"
+      },
+      "notes": "诺斯人：铁器时代晚期-维京时代北日耳曼人，丹麦/瑞典/挪威人与诺曼人的前身。",
+      "classification": {
+        "language": [
+          "germanic_north"
+        ],
+        "historical_people": [
+          "norse"
+        ]
+      },
+      "slices": [
+        {
+          "region": "norway",
+          "presence": "homeland",
+          "years": [
+            200,
+            900
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "迁移时代-维京时代诺斯人（金发哈拉尔 872 统一前夜）"
+        },
+        {
+          "region": "sweden",
+          "presence": "homeland",
+          "years": [
+            200,
+            900
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "迁移时代-维京时代诺斯人（瑞典人前身，伊陶瓦尔王朝）"
+        }
+      ]
+    },
+    {
+      "code": "norwegians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        900,
+        null
+      ],
+      "name": {
+        "zh": "挪威人",
+        "en": "Norwegians"
+      },
+      "brief": {
+        "zh": "现代挪威族群。",
+        "en": "The modern Norwegian people."
+      },
+      "notes": "现代挪威族群。",
+      "languages": [
+        {
+          "language": "norwegian",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "norwegians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "norway",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "ostrogoths",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        300,
+        550
+      ],
+      "name": {
+        "zh": "东哥特人",
+        "en": "Ostrogoths"
+      },
+      "brief": {
+        "zh": "哥特人的一个分支，5-6世纪在意大利建立东哥特王国。",
+        "en": "A Gothic people that established a kingdom in Italy in the 5th-6th centuries."
+      },
+      "notes": "东哥特人，6世纪在意大利建立东哥特王国。",
+      "languages": [
+        {
+          "language": "gothic",
+          "role": "historical"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "christianity",
+          "role": "historical",
+          "years": [
+            300,
+            600
+          ]
+        },
+        {
+          "religion": "paganism",
+          "role": "traditional",
+          "confidence": "medium",
+          "years": [
+            0,
+            900
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "germanic",
+          "germanic_east",
+          "gothic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "austria",
+          "presence": "political_control",
+          "years": [
+            476,
+            552
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "奥多亚克-东哥特王国对诺里库姆的统治（圣塞维利诺时代）"
+        },
+        {
+          "region": "bavaria",
+          "presence": "political_control",
+          "years": [
+            476,
+            552
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "后罗马期东哥特王国边区（至 553 拜占庭再征服）"
+        },
+        {
+          "region": "eastern_europe",
+          "presence": "homeland",
+          "years": [
+            300,
+            493
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "italy",
+          "presence": "political_control",
+          "years": [
+            493,
+            550
+          ],
+          "priority": 90,
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "ticino",
+          "presence": "political_control",
+          "years": [
+            476,
+            568
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "奥多亚克—东哥特王国（476 西罗马终结至伦巴第入关）"
+        }
+      ]
+    },
+    {
+      "code": "picts",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        200,
+        843
+      ],
+      "name": {
+        "zh": "皮克特人",
+        "en": "Picts"
+      },
+      "brief": {
+        "zh": "苏格兰东部-北部族群联盟",
+        "en": "Confederacy of northern and eastern Scotland"
+      },
+      "notes": "皮克特人：苏格兰东部-北部族群联盟，皮克特语归属有争议（凯尔特语系假说为主流），843 年与达尔里雅达合并为阿尔巴。",
+      "classification": {
+        "historical_people": [
+          "picts"
+        ]
+      },
+      "slices": [
+        {
+          "region": "scotland",
+          "presence": "homeland",
+          "years": [
+            200,
+            843
+          ],
+          "priority": 65,
+          "confidence": "medium",
+          "notes": "皮克特王国联盟；500–843 与达尔里雅达盖尔人并立（次级层），843 阿尔巴合并"
+        }
+      ]
+    },
+    {
+      "code": "poles",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "波兰人",
+        "en": "Poles"
+      },
+      "brief": {
+        "zh": "现代波兰族群。",
+        "en": "The modern Polish people."
+      },
+      "notes": "现代波兰族群。",
+      "languages": [
+        {
+          "language": "polish",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "poles"
+        ]
+      },
+      "slices": [
+        {
+          "region": "masuria",
+          "presence": "homeland",
+          "years": [
+            1945,
+            null
+          ],
+          "priority": 70,
+          "notes": "马祖里划归波兰（战后）"
+        },
+        {
+          "region": "poland",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "silesia_pomerania",
+          "presence": "homeland",
+          "years": [
+            1945,
+            null
+          ],
+          "priority": 70,
+          "notes": "战后边界西移与人口迁徙（收复领土）"
+        },
+        {
+          "region": "silesia_pomerania",
+          "presence": "political_control",
+          "years": [
+            1000,
+            1250
+          ],
+          "priority": 65,
+          "confidence": "medium",
+          "notes": "皮亚斯特诸公国（梅什科—波列斯瓦夫）"
+        }
+      ]
+    },
+    {
+      "code": "portuguese",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1200,
+        null
+      ],
+      "name": {
+        "zh": "葡萄牙人",
+        "en": "Portuguese"
+      },
+      "brief": {
+        "zh": "现代葡萄牙族群。",
+        "en": "The modern Portuguese people."
+      },
+      "notes": "现代葡萄牙族群。",
+      "languages": [
+        {
+          "language": "portuguese",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "portuguese"
+        ]
+      },
+      "slices": [
+        {
+          "region": "portugal",
+          "presence": "homeland",
+          "years": [
+            1200,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "prussians",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        -500,
+        1250
+      ],
+      "name": {
+        "zh": "古普鲁士人",
+        "en": "Old Prussians"
+      },
+      "brief": {
+        "zh": "波罗的语族，被条顿骑士团同化",
+        "en": "Baltic people assimilated by the Teutonic Order"
+      },
+      "notes": "古普鲁士人：波罗的语族，条顿骑士团征服（1230–1283）后被同化。",
+      "classification": {
+        "language": [
+          "baltic"
+        ],
+        "historical_people": [
+          "prussians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "masuria",
+          "presence": "homeland",
+          "years": [
+            -500,
+            1250
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "古普鲁士人（波罗的语族）：普鲁森诸部"
+        }
+      ]
+    },
+    {
+      "code": "romanians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "罗马尼亚人",
+        "en": "Romanians"
+      },
+      "brief": {
+        "zh": "现代罗马尼亚族群。",
+        "en": "The modern Romanian people."
+      },
+      "notes": "现代罗马尼亚族群。",
+      "languages": [
+        {
+          "language": "romanian",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "romanians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "romania",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "transylvania",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 60,
+          "notes": "罗马尼亚人多数（1918 联合后优先显示）"
+        }
+      ]
+    },
+    {
+      "code": "romans",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        -500,
+        600
+      ],
+      "name": {
+        "zh": "罗马人",
+        "en": "Romans"
+      },
+      "brief": {
+        "zh": "与罗马及罗马国家相关的历史人群。",
+        "en": "The historical people associated with Rome and the Roman state."
+      },
+      "notes": "罗马人的历史共同体。",
+      "languages": [
+        {
+          "language": "latin",
+          "role": "historical"
+        }
+      ],
+      "classification": {
+        "language": [
+          "italic",
+          "romance"
+        ]
+      },
+      "slices": [
+        {
+          "region": "andalusia",
+          "presence": "political_control",
+          "years": [
+            -200,
+            476
+          ],
+          "priority": 60,
+          "notes": "倍提卡行省"
+        },
+        {
+          "region": "austria",
+          "presence": "political_control",
+          "years": [
+            -15,
+            476
+          ],
+          "priority": 65,
+          "notes": "诺里库姆王国并入（前 16/15 年，克劳狄乌斯时正式行省化）；多瑙河为北界"
+        },
+        {
+          "region": "balkans",
+          "presence": "political_control",
+          "years": [
+            -100,
+            700
+          ],
+          "priority": 60,
+          "notes": "伊利里库姆/默西亚/色雷斯诸行省（前 168 起逐步设省，取 -100 近似），查士丁尼后拜占庭统治至斯拉夫定居"
+        },
+        {
+          "region": "bavaria",
+          "presence": "political_control",
+          "years": [
+            -15,
+            476
+          ],
+          "priority": 65,
+          "notes": "雷蒂亚行省（前 15 年并入）+ 多瑙河-伊恩河界"
+        },
+        {
+          "region": "brittany",
+          "presence": "political_control",
+          "years": [
+            -50,
+            450
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "里昂那行省—阿莫里卡"
+        },
+        {
+          "region": "castile",
+          "presence": "political_control",
+          "years": [
+            -200,
+            476
+          ],
+          "priority": 60,
+          "notes": "近西班牙/倍提卡行省"
+        },
+        {
+          "region": "catalonia",
+          "presence": "political_control",
+          "years": [
+            -200,
+            476
+          ],
+          "priority": 60,
+          "notes": "塔拉科行省"
+        },
+        {
+          "region": "galicia",
+          "presence": "political_control",
+          "years": [
+            -200,
+            476
+          ],
+          "priority": 60,
+          "notes": "加利西亚行省"
+        },
+        {
+          "region": "gaul",
+          "presence": "political_control",
+          "years": [
+            -50,
+            476
+          ],
+          "priority": 60,
+          "notes": "罗马高卢（恺撒征服前 58–50 取 -50；纳博讷早至前 121）"
+        },
+        {
+          "region": "italy",
+          "presence": "settlement",
+          "years": [
+            476,
+            600
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "italy",
+          "presence": "homeland",
+          "years": [
+            -500,
+            -27
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "pannonia",
+          "presence": "political_control",
+          "years": [
+            9,
+            433
+          ],
+          "priority": 60,
+          "notes": "潘诺尼亚行省（9 年大伊利里亚起义后设省）；5 世纪渐失"
+        },
+        {
+          "region": "portugal",
+          "presence": "political_control",
+          "years": [
+            -200,
+            476
+          ],
+          "priority": 60,
+          "notes": "卢西塔尼亚行省"
+        },
+        {
+          "region": "roman_empire",
+          "presence": "political_control",
+          "years": [
+            -27,
+            476
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "swabia_francia",
+          "presence": "political_control",
+          "years": [
+            74,
+            260
+          ],
+          "priority": 60,
+          "notes": "阿格里德库玛特斯—上日耳曼尼亚-雷蒂亚边区（74 年并入）"
+        },
+        {
+          "region": "switzerland_east",
+          "presence": "political_control",
+          "years": [
+            -50,
+            476
+          ],
+          "priority": 60,
+          "notes": "雷蒂亚/诺里库姆行省"
+        },
+        {
+          "region": "switzerland_west",
+          "presence": "political_control",
+          "years": [
+            -50,
+            476
+          ],
+          "priority": 60,
+          "notes": "上日耳曼尼亚—雷蒂亚行省"
+        },
+        {
+          "region": "ticino",
+          "presence": "political_control",
+          "years": [
+            -50,
+            476
+          ],
+          "priority": 60,
+          "notes": "意大利行省北境"
+        }
+      ]
+    },
+    {
+      "code": "russians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "俄罗斯人",
+        "en": "Russians"
+      },
+      "brief": {
+        "zh": "现代俄罗斯族群。",
+        "en": "The modern Russian people."
+      },
+      "notes": "现代俄罗斯族群。",
+      "languages": [
+        {
+          "language": "russian",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "russians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "crimea",
+          "presence": "political_control",
+          "years": [
+            1783,
+            null
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "俄罗斯帝国吞并（1783）；现代归属存在争议，此处仅作政治控制层"
+        },
+        {
+          "region": "russia",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "sami",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        500,
+        null
+      ],
+      "name": {
+        "zh": "萨米人",
+        "en": "Sami"
+      },
+      "brief": {
+        "zh": "萨普米的原住民（驯鹿畜牧）",
+        "en": "Indigenous people of Sápmi (reindeer herding)"
+      },
+      "notes": "萨米人：乌拉尔语系原住民，分布于萨普米（挪/瑞/芬北部）。",
+      "classification": {
+        "language": [
+          "uralic"
+        ],
+        "modern_ethnicity": [
+          "sami"
+        ]
+      },
+      "slices": [
+        {
+          "region": "samiland",
+          "presence": "homeland",
+          "years": [
+            500,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "萨普米：驯鹿畜牧原住民（挪威北角+瑞典诺尔兰；芬兰拉普兰并入芬兰近似）"
+        }
+      ]
+    },
+    {
+      "code": "saxons",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        300,
+        1000
+      ],
+      "name": {
+        "zh": "撒克逊人",
+        "en": "Saxons"
+      },
+      "brief": {
+        "zh": "与北德意志及早期英格兰历史相关的日耳曼人群。",
+        "en": "A Germanic people associated with northern Germany and early England."
+      },
+      "notes": "撒克逊人，分布于北海沿岸并参与英格兰形成。",
+      "languages": [
+        {
+          "language": "old_english",
+          "role": "historical"
+        }
+      ],
+      "classification": {
+        "language": [
+          "germanic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "england",
+          "presence": "settlement",
+          "years": [
+            450,
+            1000
+          ],
+          "priority": 54,
+          "notes": "撒克逊诸王国-韦塞克斯霸权（7 世纪起主导）"
+        },
+        {
+          "region": "north_sea_coast",
+          "presence": "homeland",
+          "years": [
+            300,
+            450
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "north_sea_coast",
+          "presence": "settlement",
+          "years": [
+            450,
+            804
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "大陆撒克逊人留守北德，直至查理曼撒克逊战争结束（804）"
+        },
+        {
+          "region": "old_saxony",
+          "presence": "homeland",
+          "years": [
+            300,
+            900
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "旧萨克森部落联盟—萨克森公国（772–804 萨克森战争后并入法兰克）"
+        }
+      ]
+    },
+    {
+      "code": "scots",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "苏格兰人",
+        "en": "Scots"
+      },
+      "brief": {
+        "zh": "现代苏格兰族群。",
+        "en": "The modern people of Scotland."
+      },
+      "notes": "现代苏格兰族群。",
+      "classification": {
+        "modern_ethnicity": [
+          "scots"
+        ]
+      },
+      "slices": [
+        {
+          "region": "scotland",
+          "presence": "homeland",
+          "years": [
+            843,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "serbs",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        700,
+        null
+      ],
+      "name": {
+        "zh": "塞尔维亚人",
+        "en": "Serbs"
+      },
+      "brief": {
+        "zh": "现代塞尔维亚族群。",
+        "en": "The modern Serbian people."
+      },
+      "notes": "现代塞尔维亚族群。",
+      "classification": {
+        "modern_ethnicity": [
+          "serbs"
+        ]
+      },
+      "slices": [
+        {
+          "region": "balkans",
+          "presence": "settlement",
+          "years": [
+            700,
+            null
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "notes": "《论帝国治理》所载塞族定居西巴尔干；近似覆盖波斯尼亚/黑山/北马其顿/阿尔巴尼亚一带"
+        },
+        {
+          "region": "serbia",
+          "presence": "homeland",
+          "years": [
+            700,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "slavs",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        400,
+        1000
+      ],
+      "name": {
+        "zh": "斯拉夫人",
+        "en": "Slavs"
+      },
+      "brief": {
+        "zh": "早期斯拉夫人群，其扩散深刻影响东欧和东南欧。",
+        "en": "Early Slavic peoples whose expansion shaped much of eastern and southeastern Europe."
+      },
+      "notes": "早期斯拉夫人及其扩散形成的多个人群。",
+      "classification": {
+        "language": [
+          "slavic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "czechia",
+          "presence": "settlement",
+          "years": [
+            550,
+            1000
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "西斯拉夫部落迁入波希米亚盆地（捷克人前身）"
+        },
+        {
+          "region": "eastern_europe",
+          "presence": "homeland",
+          "years": [
+            400,
+            1000
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "galicia_volhynia",
+          "presence": "settlement",
+          "years": [
+            550,
+            1000
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "东斯拉夫部落（杜列伯—沃伦人）"
+        },
+        {
+          "region": "old_saxony",
+          "presence": "settlement",
+          "years": [
+            600,
+            1160
+          ],
+          "priority": 45,
+          "confidence": "medium",
+          "notes": "梅克伦堡端奥博特里特人（hover 层，斯拉夫-萨克森边界摇摆）"
+        },
+        {
+          "region": "poland",
+          "presence": "settlement",
+          "years": [
+            450,
+            1000
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "西斯拉夫部落（波兰人前身，皮亚斯特兴起于核心区）"
+        },
+        {
+          "region": "romania",
+          "presence": "settlement",
+          "years": [
+            450,
+            1000
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "斯拉夫部落定居"
+        },
+        {
+          "region": "silesia_pomerania",
+          "presence": "settlement",
+          "years": [
+            450,
+            1000
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "西斯拉夫部落（西里西亚/波美拉尼亚诸部）"
+        },
+        {
+          "region": "slovakia",
+          "presence": "settlement",
+          "years": [
+            500,
+            1000
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "西斯拉夫部落迁入（尼特拉公国前身）"
+        },
+        {
+          "region": "thuringia_lausitz",
+          "presence": "settlement",
+          "years": [
+            600,
+            1150
+          ],
+          "priority": 45,
+          "confidence": "medium",
+          "notes": "索布-卢蒂齐（易北-萨勒以东斯拉夫层，hover 显示）"
+        },
+        {
+          "region": "transylvania",
+          "presence": "settlement",
+          "years": [
+            450,
+            1000
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "斯拉夫部落定居"
+        },
+        {
+          "region": "ukraine",
+          "presence": "settlement",
+          "years": [
+            400,
+            1000
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "东斯拉夫部落扩张"
+        }
+      ]
+    },
+    {
+      "code": "slovaks",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "斯洛伐克人",
+        "en": "Slovaks"
+      },
+      "brief": {
+        "zh": "现代斯洛伐克族群。",
+        "en": "The modern Slovak people."
+      },
+      "notes": "现代斯洛伐克族群。",
+      "classification": {
+        "modern_ethnicity": [
+          "slovaks"
+        ]
+      },
+      "slices": [
+        {
+          "region": "slovakia",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "slovenes",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        700,
+        null
+      ],
+      "name": {
+        "zh": "斯洛文尼亚人",
+        "en": "Slovenes"
+      },
+      "brief": {
+        "zh": "现代斯洛文尼亚族群。",
+        "en": "The modern Slovenian people."
+      },
+      "notes": "现代斯洛文尼亚族群。",
+      "classification": {
+        "modern_ethnicity": [
+          "slovenes"
+        ]
+      },
+      "slices": [
+        {
+          "region": "slovenia",
+          "presence": "homeland",
+          "years": [
+            700,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "spaniards",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        711,
+        null
+      ],
+      "name": {
+        "zh": "西班牙人",
+        "en": "Spaniards"
+      },
+      "brief": {
+        "zh": "现代西班牙人的广义称呼；内部具有多样的区域身份。",
+        "en": "A broad modern designation for the people of Spain."
+      },
+      "notes": "现代西班牙族群的总称；地区内部存在显著语言和族群差异。",
+      "languages": [
+        {
+          "language": "spanish",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "spaniards"
+        ]
+      },
+      "slices": [
+        {
+          "region": "andalusia",
+          "presence": "homeland",
+          "years": [
+            1492,
+            null
+          ],
+          "priority": 70,
+          "notes": "卡斯蒂利亚再征服后（格拉纳达陷落）"
+        },
+        {
+          "region": "castile",
+          "presence": "homeland",
+          "years": [
+            711,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "阿斯图里亚斯抵抗（718 科瓦东加传说）→莱昂—卡斯蒂利亚"
+        },
+        {
+          "region": "galicia",
+          "presence": "homeland",
+          "years": [
+            711,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "并入阿斯图里亚斯—莱昂—卡斯蒂利亚"
+        }
+      ]
+    },
+    {
+      "code": "suebi",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        100,
+        600
+      ],
+      "name": {
+        "zh": "苏维汇人",
+        "en": "Suebi"
+      },
+      "brief": {
+        "zh": "在伊比利亚西北部建立王国的日耳曼人群。",
+        "en": "A Germanic people that established a kingdom in northwestern Iberia."
+      },
+      "notes": "苏维汇人，晚期罗马时期进入伊比利亚半岛。",
+      "classification": {
+        "language": [
+          "germanic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "central_europe",
+          "presence": "homeland",
+          "years": [
+            100,
+            489
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "马科曼尼-夸迪（苏维汇系）据波希米亚-摩拉维亚至匈人时代"
+        },
+        {
+          "region": "galicia",
+          "presence": "homeland",
+          "years": [
+            409,
+            585
+          ],
+          "priority": 65,
+          "notes": "斯维汇王国（加利西亚核心，定都布拉加）"
+        },
+        {
+          "region": "portugal",
+          "presence": "homeland",
+          "years": [
+            409,
+            585
+          ],
+          "priority": 60,
+          "notes": "斯维汇王国定都布拉加（409–585）"
+        }
+      ]
+    },
+    {
+      "code": "swedes",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        900,
+        null
+      ],
+      "name": {
+        "zh": "瑞典人",
+        "en": "Swedes"
+      },
+      "brief": {
+        "zh": "现代瑞典族群。",
+        "en": "The modern Swedish people."
+      },
+      "notes": "现代瑞典族群。",
+      "languages": [
+        {
+          "language": "swedish",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "swedes"
+        ]
+      },
+      "slices": [
+        {
+          "region": "sweden",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "thracians",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -1000,
+        500
+      ],
+      "name": {
+        "zh": "色雷斯人",
+        "en": "Thracians"
+      },
+      "brief": {
+        "zh": "古代色雷斯及周边地区的人群。",
+        "en": "Ancient peoples of Thrace and adjacent regions."
+      },
+      "notes": "古代巴尔干东部及周边色雷斯人群。",
+      "classification": {},
+      "slices": [
+        {
+          "region": "balkans",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            500
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        }
+      ]
+    },
+    {
+      "code": "thuringians",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        400,
+        531
+      ],
+      "name": {
+        "zh": "图林根人",
+        "en": "Thuringians"
+      },
+      "brief": {
+        "zh": "中德意志王国（531 年亡）",
+        "en": "Kingdom of central Germany (fell 531)"
+      },
+      "notes": "图林根人：中德意志王国（赫尔蒙德里人后裔传统），531 年被法兰克与萨克森联合吞并。",
+      "classification": {
+        "language": [
+          {
+            "node": "germanic_west",
+            "confidence": "medium"
+          }
+        ],
+        "historical_people": [
+          "thuringians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "thuringia_lausitz",
+          "presence": "homeland",
+          "years": [
+            400,
+            531
+          ],
+          "priority": 60,
+          "notes": "图林根王国（至易北-萨勒河）"
+        }
+      ]
+    },
+    {
+      "code": "ukrainians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "乌克兰人",
+        "en": "Ukrainians"
+      },
+      "brief": {
+        "zh": "现代乌克兰族群。",
+        "en": "The modern Ukrainian people."
+      },
+      "notes": "现代乌克兰族群。",
+      "languages": [
+        {
+          "language": "ukrainian",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "ukrainians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "galicia_volhynia",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 65,
+          "confidence": "medium",
+          "notes": "加利西亚—沃里尼亚公国；乌克兰西部（含外喀尔巴阡/布科维纳近似）"
+        },
+        {
+          "region": "ukraine",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "vandals",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        -100,
+        550
+      ],
+      "name": {
+        "zh": "汪达尔人",
+        "en": "Vandals"
+      },
+      "brief": {
+        "zh": "建立过以北非为核心王国的日耳曼人群。",
+        "en": "A Germanic people that established a kingdom centered in North Africa."
+      },
+      "notes": "汪达尔人，后建立以北非为核心的汪达尔王国。",
+      "religions": [
+        {
+          "religion": "christianity",
+          "role": "historical",
+          "years": [
+            300,
+            600
+          ]
+        },
+        {
+          "religion": "paganism",
+          "role": "traditional",
+          "confidence": "medium",
+          "years": [
+            0,
+            900
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          {
+            "node": "germanic",
+            "confidence": "medium"
+          },
+          {
+            "node": "germanic_east",
+            "confidence": "medium"
+          }
+        ]
+      },
+      "slices": [
+        {
+          "region": "north_africa",
+          "presence": "political_control",
+          "years": [
+            435,
+            550
+          ],
+          "priority": 90,
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "poland",
+          "presence": "settlement",
+          "years": [
+            -100,
+            450
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "卢吉伊人—汪达尔人（普热沃斯克文化，主流比定）；406 年渡莱茵西迁后余部滞留至 5 世纪中期文化消亡"
+        },
+        {
+          "region": "silesia_pomerania",
+          "presence": "settlement",
+          "years": [
+            -100,
+            450
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "卢吉伊人—汪达尔人（普热沃斯克文化）；406 年渡莱茵西迁后余部滞留至 5 世纪中期"
+        }
+      ]
+    },
+    {
+      "code": "visigoths",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        300,
+        711
+      ],
+      "name": {
+        "zh": "西哥特人",
+        "en": "Visigoths"
+      },
+      "brief": {
+        "zh": "哥特人的一个分支，在晚期罗马高卢和伊比利亚历史中非常重要。",
+        "en": "A branch of the Goths prominent in late Roman Gaul and Iberia."
+      },
+      "notes": "西哥特人，晚期罗马帝国及中世纪早期重要日耳曼人群。",
+      "languages": [
+        {
+          "language": "gothic",
+          "role": "historical"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "christianity",
+          "role": "historical",
+          "years": [
+            300,
+            600
+          ]
+        },
+        {
+          "religion": "paganism",
+          "role": "traditional",
+          "confidence": "medium",
+          "years": [
+            0,
+            900
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "germanic",
+          "germanic_east",
+          "gothic"
+        ]
+      },
+      "slices": [
+        {
+          "region": "andalusia",
+          "presence": "political_control",
+          "years": [
+            400,
+            711
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "西哥特王国（托莱多）"
+        },
+        {
+          "region": "balkans",
+          "presence": "homeland",
+          "years": [
+            300,
+            400
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "castile",
+          "presence": "political_control",
+          "years": [
+            400,
+            711
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "西哥特王国核心"
+        },
+        {
+          "region": "catalonia",
+          "presence": "political_control",
+          "years": [
+            400,
+            711
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "西哥特王国（巴塞罗那）"
+        },
+        {
+          "region": "galicia",
+          "presence": "political_control",
+          "years": [
+            585,
+            711
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "西哥特吞并斯维汇王国后"
+        },
+        {
+          "region": "gaul",
+          "presence": "settlement",
+          "years": [
+            400,
+            500
+          ],
+          "priority": 50,
+          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "portugal",
+          "presence": "political_control",
+          "years": [
+            585,
+            711
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "西哥特王国"
+        }
+      ]
+    },
+    {
+      "code": "welsh",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        700,
+        null
+      ],
+      "name": {
+        "zh": "威尔士人",
+        "en": "Welsh"
+      },
+      "brief": {
+        "zh": "现代威尔士族群。",
+        "en": "The modern people of Wales."
+      },
+      "notes": "现代威尔士族群，与布立吞语凯尔特传统密切相关。",
+      "languages": [
+        {
+          "language": "welsh",
+          "role": "native"
+        }
+      ],
+      "classification": {
+        "modern_ethnicity": [
+          "welsh"
+        ]
+      },
+      "slices": [
+        {
+          "region": "wales",
+          "presence": "homeland",
+          "years": [
+            700,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    }
+  ]
+}

@@ -8,7 +8,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { buildView, type RegionVm } from '../src/frontend/load.js';
-import { resolveRegionGeometry, countryOf } from '../src/frontend/region-map.js';
+import { resolveRegionGeometry, countryOf, type RegionGeometryRule } from '../src/frontend/region-map.js';
 import { atlasGeometryFeatures, activeInYear } from '../src/frontend/atlas.js';
 import type { SourceCode } from '../src/lib/contract.js';
 
@@ -25,6 +25,7 @@ interface Row {
 interface Data {
   people_region: Row[];
   periods: Array<{ start_year: number | null; end_year: number | null }>;
+  region_geometry: RegionGeometryRule[];
 }
 const atlas = JSON.parse(readFileSync(join(root, 'data/export/atlas.json'), 'utf8')) as Data;
 
@@ -33,8 +34,8 @@ for (const code of ['awmc', 'darmc', 'nuts'] as SourceCode[]) {
   const file = JSON.parse(readFileSync(join(root, `data/processed/${code}/regions.geojson`), 'utf8'));
   sourceFeatures.set(code, { features: buildView(code, file).features });
 }
-const features = atlasGeometryFeatures(sourceFeatures as unknown as Map<SourceCode, { features: RegionVm[] }>);
-const { byRegion } = resolveRegionGeometry(features);
+const features = atlasGeometryFeatures(sourceFeatures as unknown as Map<SourceCode, { features: RegionVm[] }>, atlas.region_geometry ?? []);
+const { byRegion } = resolveRegionGeometry(features, atlas.region_geometry ?? []);
 const countryOfGeom = new Map<string, string | null>(
   features.map((vm) => [vm.code, vm.family === 'nuts' ? countryOf(vm) : null]),
 );

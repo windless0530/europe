@@ -1,0 +1,868 @@
+{
+  "taxonomies": [
+    {
+      "code": "language",
+      "sort": 10,
+      "notes": "语言分类（语系/语族/语支，一棵树）",
+      "nodes": [
+        {
+          "code": "finnic",
+          "parent": "uralic",
+          "sort": 10,
+          "name": {
+            "zh": "芬兰语支",
+            "en": "Finnic"
+          }
+        },
+        {
+          "code": "germanic",
+          "parent": "indo_european",
+          "sort": 10,
+          "name": {
+            "zh": "日耳曼语族",
+            "en": "Germanic"
+          }
+        },
+        {
+          "code": "germanic_north",
+          "parent": "germanic",
+          "sort": 10,
+          "name": {
+            "zh": "北日耳曼",
+            "en": "North Germanic"
+          }
+        },
+        {
+          "code": "gothic",
+          "parent": "germanic_east",
+          "sort": 10,
+          "name": {
+            "zh": "哥特语支",
+            "en": "Gothic"
+          }
+        },
+        {
+          "code": "indo_european",
+          "sort": 10,
+          "name": {
+            "zh": "印欧语系",
+            "en": "Indo-European"
+          }
+        },
+        {
+          "code": "kartvelian_core",
+          "parent": "kartvelian",
+          "sort": 10,
+          "name": {
+            "zh": "卡特维尔语支核心",
+            "en": "Kartvelian core"
+          }
+        },
+        {
+          "code": "oghuz",
+          "parent": "turkic",
+          "sort": 10,
+          "name": {
+            "zh": "乌古斯",
+            "en": "Oghuz"
+          }
+        },
+        {
+          "code": "romance",
+          "parent": "italic",
+          "sort": 10,
+          "name": {
+            "zh": "罗曼语族",
+            "en": "Romance"
+          }
+        },
+        {
+          "code": "west_slavic",
+          "parent": "slavic",
+          "sort": 10,
+          "name": {
+            "zh": "西斯拉夫",
+            "en": "West Slavic"
+          }
+        },
+        {
+          "code": "celtic",
+          "parent": "indo_european",
+          "sort": 20,
+          "name": {
+            "zh": "凯尔特语族",
+            "en": "Celtic"
+          }
+        },
+        {
+          "code": "east_slavic",
+          "parent": "slavic",
+          "sort": 20,
+          "name": {
+            "zh": "东斯拉夫",
+            "en": "East Slavic"
+          }
+        },
+        {
+          "code": "germanic_west",
+          "parent": "germanic",
+          "sort": 20,
+          "name": {
+            "zh": "西日耳曼",
+            "en": "West Germanic"
+          }
+        },
+        {
+          "code": "kipchak",
+          "parent": "turkic",
+          "sort": 20,
+          "name": {
+            "zh": "钦察",
+            "en": "Kipchak"
+          }
+        },
+        {
+          "code": "uralic",
+          "sort": 20,
+          "name": {
+            "zh": "乌拉尔语系",
+            "en": "Uralic"
+          }
+        },
+        {
+          "code": "germanic_east",
+          "parent": "germanic",
+          "sort": 30,
+          "name": {
+            "zh": "东日耳曼",
+            "en": "East Germanic"
+          }
+        },
+        {
+          "code": "italic",
+          "parent": "indo_european",
+          "sort": 30,
+          "name": {
+            "zh": "意大利语族",
+            "en": "Italic"
+          }
+        },
+        {
+          "code": "kartvelian",
+          "sort": 30,
+          "name": {
+            "zh": "卡特维尔语系",
+            "en": "Kartvelian"
+          }
+        },
+        {
+          "code": "south_slavic",
+          "parent": "slavic",
+          "sort": 30,
+          "name": {
+            "zh": "南斯拉夫",
+            "en": "South Slavic"
+          }
+        },
+        {
+          "code": "slavic",
+          "parent": "indo_european",
+          "sort": 40,
+          "name": {
+            "zh": "斯拉夫语族",
+            "en": "Slavic"
+          }
+        },
+        {
+          "code": "turkic",
+          "sort": 40,
+          "name": {
+            "zh": "突厥语系",
+            "en": "Turkic"
+          }
+        },
+        {
+          "code": "baltic",
+          "parent": "indo_european",
+          "sort": 50,
+          "name": {
+            "zh": "波罗的语族",
+            "en": "Baltic"
+          }
+        },
+        {
+          "code": "hellenic",
+          "parent": "indo_european",
+          "sort": 60,
+          "name": {
+            "zh": "希腊语族",
+            "en": "Hellenic"
+          }
+        },
+        {
+          "code": "albanian",
+          "parent": "indo_european",
+          "sort": 70,
+          "name": {
+            "zh": "阿尔巴尼亚语支",
+            "en": "Albanian"
+          }
+        },
+        {
+          "code": "basque",
+          "sort": 500,
+          "name": {
+            "zh": "巴斯克语系（孤立）",
+            "en": "Basque (isolate)"
+          }
+        }
+      ]
+    },
+    {
+      "code": "historical_people",
+      "sort": 30,
+      "notes": "历史民族/历史人群",
+      "nodes": [
+        {
+          "code": "goths",
+          "sort": 10,
+          "name": {
+            "zh": "哥特人",
+            "en": "Goths"
+          }
+        },
+        {
+          "code": "franks",
+          "sort": 20,
+          "name": {
+            "zh": "法兰克人",
+            "en": "Franks"
+          }
+        },
+        {
+          "code": "angles",
+          "sort": 30,
+          "name": {
+            "zh": "盎格鲁人",
+            "en": "Angles"
+          }
+        },
+        {
+          "code": "saxons",
+          "sort": 40,
+          "name": {
+            "zh": "撒克逊人",
+            "en": "Saxons"
+          }
+        },
+        {
+          "code": "jutes",
+          "sort": 50,
+          "name": {
+            "zh": "朱特人",
+            "en": "Jutes"
+          }
+        },
+        {
+          "code": "gauls",
+          "sort": 60,
+          "name": {
+            "zh": "高卢人",
+            "en": "Gauls"
+          }
+        },
+        {
+          "code": "britons",
+          "sort": 70,
+          "name": {
+            "zh": "不列颠人",
+            "en": "Britons"
+          }
+        },
+        {
+          "code": "gaels",
+          "sort": 80,
+          "name": {
+            "zh": "盖尔人",
+            "en": "Gaels"
+          }
+        },
+        {
+          "code": "vandals",
+          "sort": 90,
+          "name": {
+            "zh": "汪达尔人",
+            "en": "Vandals"
+          }
+        },
+        {
+          "code": "burgundians",
+          "sort": 100,
+          "name": {
+            "zh": "勃艮第人",
+            "en": "Burgundians"
+          }
+        },
+        {
+          "code": "lombards",
+          "sort": 110,
+          "name": {
+            "zh": "伦巴第人",
+            "en": "Lombards"
+          }
+        },
+        {
+          "code": "suebi",
+          "sort": 120,
+          "name": {
+            "zh": "苏维汇人",
+            "en": "Suebi"
+          }
+        },
+        {
+          "code": "visigoths",
+          "sort": 130,
+          "name": {
+            "zh": "西哥特人",
+            "en": "Visigoths"
+          }
+        },
+        {
+          "code": "ostrogoths",
+          "sort": 140,
+          "name": {
+            "zh": "东哥特人",
+            "en": "Ostrogoths"
+          }
+        },
+        {
+          "code": "romans",
+          "sort": 150,
+          "name": {
+            "zh": "罗马人",
+            "en": "Romans"
+          }
+        },
+        {
+          "code": "latins",
+          "sort": 160,
+          "name": {
+            "zh": "拉丁人",
+            "en": "Latins"
+          }
+        },
+        {
+          "code": "iberians",
+          "sort": 170,
+          "name": {
+            "zh": "伊比利亚人",
+            "en": "Iberians"
+          }
+        },
+        {
+          "code": "celtiberians",
+          "sort": 180,
+          "name": {
+            "zh": "凯尔特伊比利亚人",
+            "en": "Celtiberians"
+          }
+        },
+        {
+          "code": "lusitanians",
+          "sort": 190,
+          "name": {
+            "zh": "卢西塔尼亚人",
+            "en": "Lusitanians"
+          }
+        },
+        {
+          "code": "dacians",
+          "sort": 200,
+          "name": {
+            "zh": "达契亚人",
+            "en": "Dacians"
+          }
+        },
+        {
+          "code": "illyrians",
+          "sort": 210,
+          "name": {
+            "zh": "伊利里亚人",
+            "en": "Illyrians"
+          }
+        },
+        {
+          "code": "thracians",
+          "sort": 220,
+          "name": {
+            "zh": "色雷斯人",
+            "en": "Thracians"
+          }
+        },
+        {
+          "code": "slavs",
+          "sort": 230,
+          "name": {
+            "zh": "斯拉夫人",
+            "en": "Slavs"
+          }
+        },
+        {
+          "code": "magyars",
+          "sort": 240,
+          "name": {
+            "zh": "马扎尔人",
+            "en": "Magyars"
+          }
+        },
+        {
+          "code": "avars",
+          "sort": 250,
+          "name": {
+            "zh": "阿瓦尔人",
+            "en": "Avars"
+          }
+        },
+        {
+          "code": "bavarians",
+          "sort": 260,
+          "name": {
+            "zh": "巴伐利亚人",
+            "en": "Bavarians"
+          }
+        },
+        {
+          "code": "moors",
+          "sort": 270,
+          "name": {
+            "zh": "摩尔人",
+            "en": "Moors"
+          }
+        },
+        {
+          "code": "prussians",
+          "sort": 280,
+          "name": {
+            "zh": "古普鲁士人",
+            "en": "Old Prussians"
+          }
+        },
+        {
+          "code": "celts",
+          "sort": 290,
+          "name": {
+            "zh": "凯尔特人",
+            "en": "Celts"
+          }
+        },
+        {
+          "code": "germanic_tribes",
+          "sort": 300,
+          "name": {
+            "zh": "古日耳曼人",
+            "en": "Early Germanic peoples"
+          }
+        },
+        {
+          "code": "alemanni",
+          "sort": 310,
+          "name": {
+            "zh": "阿勒曼尼人",
+            "en": "Alemanni"
+          }
+        },
+        {
+          "code": "thuringians",
+          "sort": 320,
+          "name": {
+            "zh": "图林根人",
+            "en": "Thuringians"
+          }
+        },
+        {
+          "code": "huns",
+          "sort": 330,
+          "name": {
+            "zh": "匈人",
+            "en": "Huns"
+          }
+        },
+        {
+          "code": "gepids",
+          "sort": 340,
+          "name": {
+            "zh": "格皮德人",
+            "en": "Gepids"
+          }
+        },
+        {
+          "code": "norse",
+          "sort": 350,
+          "name": {
+            "zh": "诺斯人",
+            "en": "Norse"
+          }
+        },
+        {
+          "code": "picts",
+          "sort": 360,
+          "name": {
+            "zh": "皮克特人",
+            "en": "Picts"
+          }
+        },
+        {
+          "code": "balts",
+          "sort": 370,
+          "name": {
+            "zh": "波罗的人",
+            "en": "Balts"
+          }
+        }
+      ]
+    },
+    {
+      "code": "modern_ethnicity",
+      "sort": 40,
+      "notes": "现代族群",
+      "nodes": [
+        {
+          "code": "english",
+          "sort": 10,
+          "name": {
+            "zh": "英格兰人",
+            "en": "English"
+          }
+        },
+        {
+          "code": "scots",
+          "sort": 20,
+          "name": {
+            "zh": "苏格兰人",
+            "en": "Scots"
+          }
+        },
+        {
+          "code": "welsh",
+          "sort": 30,
+          "name": {
+            "zh": "威尔士人",
+            "en": "Welsh"
+          }
+        },
+        {
+          "code": "irish",
+          "sort": 40,
+          "name": {
+            "zh": "爱尔兰人",
+            "en": "Irish"
+          }
+        },
+        {
+          "code": "french",
+          "sort": 50,
+          "name": {
+            "zh": "法国人",
+            "en": "French"
+          }
+        },
+        {
+          "code": "germans",
+          "sort": 60,
+          "name": {
+            "zh": "德国人",
+            "en": "Germans"
+          }
+        },
+        {
+          "code": "dutch",
+          "sort": 70,
+          "name": {
+            "zh": "荷兰人",
+            "en": "Dutch"
+          }
+        },
+        {
+          "code": "danes",
+          "sort": 80,
+          "name": {
+            "zh": "丹麦人",
+            "en": "Danes"
+          }
+        },
+        {
+          "code": "swedes",
+          "sort": 90,
+          "name": {
+            "zh": "瑞典人",
+            "en": "Swedes"
+          }
+        },
+        {
+          "code": "norwegians",
+          "sort": 100,
+          "name": {
+            "zh": "挪威人",
+            "en": "Norwegians"
+          }
+        },
+        {
+          "code": "italians",
+          "sort": 110,
+          "name": {
+            "zh": "意大利人",
+            "en": "Italians"
+          }
+        },
+        {
+          "code": "spaniards",
+          "sort": 120,
+          "name": {
+            "zh": "西班牙人",
+            "en": "Spaniards"
+          }
+        },
+        {
+          "code": "portuguese",
+          "sort": 130,
+          "name": {
+            "zh": "葡萄牙人",
+            "en": "Portuguese"
+          }
+        },
+        {
+          "code": "romanians",
+          "sort": 140,
+          "name": {
+            "zh": "罗马尼亚人",
+            "en": "Romanians"
+          }
+        },
+        {
+          "code": "poles",
+          "sort": 150,
+          "name": {
+            "zh": "波兰人",
+            "en": "Poles"
+          }
+        },
+        {
+          "code": "czechs",
+          "sort": 160,
+          "name": {
+            "zh": "捷克人",
+            "en": "Czechs"
+          }
+        },
+        {
+          "code": "slovaks",
+          "sort": 170,
+          "name": {
+            "zh": "斯洛伐克人",
+            "en": "Slovaks"
+          }
+        },
+        {
+          "code": "serbs",
+          "sort": 180,
+          "name": {
+            "zh": "塞尔维亚人",
+            "en": "Serbs"
+          }
+        },
+        {
+          "code": "croats",
+          "sort": 190,
+          "name": {
+            "zh": "克罗地亚人",
+            "en": "Croats"
+          }
+        },
+        {
+          "code": "slovenes",
+          "sort": 200,
+          "name": {
+            "zh": "斯洛文尼亚人",
+            "en": "Slovenes"
+          }
+        },
+        {
+          "code": "bulgarians",
+          "sort": 210,
+          "name": {
+            "zh": "保加利亚人",
+            "en": "Bulgarians"
+          }
+        },
+        {
+          "code": "greeks",
+          "sort": 220,
+          "name": {
+            "zh": "希腊人",
+            "en": "Greeks"
+          }
+        },
+        {
+          "code": "albanians",
+          "sort": 230,
+          "name": {
+            "zh": "阿尔巴尼亚人",
+            "en": "Albanians"
+          }
+        },
+        {
+          "code": "hungarians",
+          "sort": 240,
+          "name": {
+            "zh": "匈牙利人",
+            "en": "Hungarians"
+          }
+        },
+        {
+          "code": "ukrainians",
+          "sort": 250,
+          "name": {
+            "zh": "乌克兰人",
+            "en": "Ukrainians"
+          }
+        },
+        {
+          "code": "belarusians",
+          "sort": 260,
+          "name": {
+            "zh": "白俄罗斯人",
+            "en": "Belarusians"
+          }
+        },
+        {
+          "code": "russians",
+          "sort": 270,
+          "name": {
+            "zh": "俄罗斯人",
+            "en": "Russians"
+          }
+        },
+        {
+          "code": "latvians",
+          "sort": 280,
+          "name": {
+            "zh": "拉脱维亚人",
+            "en": "Latvians"
+          }
+        },
+        {
+          "code": "lithuanians",
+          "sort": 290,
+          "name": {
+            "zh": "立陶宛人",
+            "en": "Lithuanians"
+          }
+        },
+        {
+          "code": "estonian",
+          "sort": 300,
+          "name": {
+            "zh": "爱沙尼亚人",
+            "en": "Estonians"
+          }
+        },
+        {
+          "code": "finns",
+          "sort": 310,
+          "name": {
+            "zh": "芬兰人",
+            "en": "Finns"
+          }
+        },
+        {
+          "code": "georgians",
+          "sort": 320,
+          "name": {
+            "zh": "格鲁吉亚人",
+            "en": "Georgians"
+          }
+        },
+        {
+          "code": "armenians",
+          "sort": 330,
+          "name": {
+            "zh": "亚美尼亚人",
+            "en": "Armenians"
+          }
+        },
+        {
+          "code": "azerbaijanis",
+          "sort": 340,
+          "name": {
+            "zh": "阿塞拜疆人",
+            "en": "Azerbaijanis"
+          }
+        },
+        {
+          "code": "bretons",
+          "sort": 350,
+          "name": {
+            "zh": "布列塔尼人",
+            "en": "Bretons"
+          }
+        },
+        {
+          "code": "catalans",
+          "sort": 360,
+          "name": {
+            "zh": "加泰罗尼亚人",
+            "en": "Catalans"
+          }
+        },
+        {
+          "code": "basques",
+          "sort": 370,
+          "name": {
+            "zh": "巴斯克人",
+            "en": "Basques"
+          }
+        },
+        {
+          "code": "crimean_tatars",
+          "sort": 380,
+          "name": {
+            "zh": "克里米亚鞑靼人",
+            "en": "Crimean Tatars"
+          }
+        },
+        {
+          "code": "sami",
+          "sort": 390,
+          "name": {
+            "zh": "萨米人",
+            "en": "Sami"
+          }
+        },
+        {
+          "code": "bosniaks",
+          "sort": 400,
+          "name": {
+            "zh": "波斯尼亚克族",
+            "en": "Bosniaks"
+          }
+        },
+        {
+          "code": "macedonians",
+          "sort": 410,
+          "name": {
+            "zh": "马其顿人",
+            "en": "Macedonians"
+          }
+        },
+        {
+          "code": "montenegrins",
+          "sort": 420,
+          "name": {
+            "zh": "黑山人",
+            "en": "Montenegrins"
+          }
+        }
+      ]
+    }
+  ]
+}

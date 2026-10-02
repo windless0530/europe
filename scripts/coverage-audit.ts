@@ -10,7 +10,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { buildView, type RegionVm } from '../src/frontend/load.js';
-import { resolveRegionGeometry } from '../src/frontend/region-map.js';
+import { resolveRegionGeometry, type RegionGeometryRule } from '../src/frontend/region-map.js';
 import { atlasGeometryFeatures } from '../src/frontend/atlas.js';
 import type { SourceCode } from '../src/lib/contract.js';
 
@@ -25,6 +25,7 @@ interface AtlasPeopleRegion {
 interface AtlasData {
   people_region: AtlasPeopleRegion[];
   periods: Array<{ start_year: number | null; end_year: number | null }>;
+  region_geometry: RegionGeometryRule[];
 }
 
 const atlas = JSON.parse(readFileSync(join(root, 'data/export/atlas.json'), 'utf8')) as AtlasData;
@@ -57,9 +58,10 @@ for (const code of ['awmc', 'darmc', 'nuts'] as SourceCode[]) {
 }
 const allFeatures = atlasGeometryFeatures(
   sourceFeatures as unknown as Map<SourceCode, { features: RegionVm[] }>,
+  atlas.region_geometry ?? [],
 );
 const vmByCode = new Map(allFeatures.map((vm) => [vm.code, vm]));
-const { byGeometry } = resolveRegionGeometry(allFeatures);
+const { byGeometry } = resolveRegionGeometry(allFeatures, atlas.region_geometry ?? []);
 
 // 逐年活跃 region 集合
 const years: number[] = [];

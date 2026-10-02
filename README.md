@@ -2,70 +2,87 @@
 
 欧洲历史族群图谱（个人项目）：带时间轴的欧洲地图，展示各时期各地区（次国家级粒度）的族群分布、语言、宗教与族群关系，中英双语。
 
-- 数据库设计：`european_historical_population_atlas_v2.sql`（PostgreSQL 16 已装载，库名 `europe_atlas`）
-- 技术方案：静态导出 + 纯前端 SPA
+- 数据：`data/source/*.json`（5 个手写文件，唯一真实源）→ `npm run project` 投影出前端数据；无数据库、无运行时后端
+- 技术方案：文件优先（content-as-code）+ 静态导出 + 纯前端 SPA
 
 ## 快速开始
 
 ```bash
 npm run dev            # http://localhost:5173（默认进入「族群分布」模式）
-npm run export         # PostgreSQL -> data/export/atlas.json（改库后重跑）
+npm run project        # data/source/*.json -> data/export/atlas.json（校验 + 投影，改数据后重跑）
 npm run audit          # 覆盖审计：逐年扫描核心几何「先有族群后空白」断档
 npm run collisions     # 调色板碰撞审计：同年同国同色异族群对（目标 0）
 npm run favicon        # 由自有 NUTS 几何生成 favicon（SVG + PNG 回退）
 npm run smoke          # headless 冒烟：加载/时间轴/hover/零网络验证 + 截图
 ```
 
-PostgreSQL（brew postgresql@16，数据目录 `/opt/homebrew/var/postgresql@16`）：
+## 数据文件
+
+| 文件 | 性质 | 说明 |
+|---|---|---|
+| `data/source/peoples.json` | 手写（真实源） | 79 族群全量：双语名/简介/谱系挂点/语言/宗教/空间时间切片（slices），顶层 relations（族群关系+文献出处）与 claims |
+| `data/source/regions.json` | 手写（真实源） | 70 地区 + `geometry_rules`（71 条 SQL 地区→几何映射；**数组顺序 = 求值候选优先序**） |
+| `data/source/events.json` | 手写（真实源） | 事件 + 参与族群 |
+| `data/source/taxonomy.json` | 手写（真实源） | 3 棵谱系树（语言 / 历史人群 / 现代族群） |
+| `data/source/reference.json` | 手写（真实源） | 语言 / 宗教 / 时期 / 枚举字典 / 文献来源 |
+| `data/export/atlas.json` | 自动生成（勿手改） | 前端投影：中英 join、谱系/事件/语言宗教挂接；前端与审计脚本的唯一图谱输入 |
+| `data/processed/<源>/regions.geojson` | 自动生成 | 三源规范化几何（awmc/darmc/nuts，license 见「数据管线」一节） |
+
+改数据只改 `data/source/`；省写约定（confidence 缺省 high、priority 缺省 0、
+classification 字符串项 = member_of）与全部校验规则见 `src/build/source.ts` 头注。
+历史沿革：PostgreSQL 时代的 `sql/`、`atlas-seed.json` 及其生成链已于 2026-10
+退役（历史见 git log），数据原样迁入源文件。
+
+## 脚本
+
+| 脚本 | 作用 | 输入 | 输出 |
+|---|---|---|---|
+| `src/build/project.ts` | 校验 + 投影（`npm run project`） | `data/source/*.json` | `data/export/atlas.json` |
+| `src/build/source.ts` | 源格式类型 / 装载 / 校验器（被 project 引用，也可单独 import） | `data/source/*.json` | 校验错误列表 |
+| `src/datasources/awmc/index.ts` | AWMC 下载/规范化管线（`npm run awmc`） | AWMC 在线服务 | `data/processed/awmc/regions.geojson` |
+| `src/datasources/darmc/index.ts` | DARMC 下载/规范化管线（`npm run darmc`） | DARMC 在线服务 | `data/processed/darmc/regions.geojson` |
+| `src/datasources/nuts/index.ts` | NUTS 下载/规范化管线（`npm run nuts`） | NUTS 2024 + GADM 下载 | `data/processed/nuts/regions.geojson` |
+
+改数据的完整回路：
 
 ```bash
-/opt/homebrew/opt/postgresql@16/bin/pg_ctl -D /opt/homebrew/var/postgresql@16 start|stop
-psql -d europe_atlas -f european_historical_population_atlas_v2.sql   # 重建（主 seed，须空库：先 DROP SCHEMA public CASCADE 并重建 schema）
-psql -d europe_atlas -f sql/patches/*.sql                             # 再按序应用补丁（补丁链只在空库 seed 之上可重放；对已打补丁的库重放会因 UPDATE 变形行产生重复切片）
+# 编辑器直接改 data/source/*.json
+npm run project                  # 校验（错即中止）+ 投影 -> atlas.json
+git diff data/source data/export # 审阅本次数据变更（源 + 产物一起）
+npm run audit && npm run collisions && npm run smoke   # 门禁
 ```
 
 ## 前端（两种模式）
 
-**族群分布（默认，SQL 驱动）**：启动全量加载 atlas.json + 三源几何（带进度条），
+**族群分布（默认，源数据驱动）**：启动全量加载 atlas.json + 三源几何（带进度条），
 此后**缩放/连续年份时间轴（-509 至今）/hover 全部内存运算、零网络请求**。
 着色 = `people_region` 时间切片按 render_priority 取主族群；hover 面板显示
-当年全部族群、语言、宗教、族群关系与当期事件（中文名取自 `*_translation`）。
-SQL region（粗粒度历史地理）→ 几何的近似映射见 `src/frontend/region-map.ts`。
+当年全部族群、语言、宗教、族群关系与当期事件（双语名直接来自源文件）。
+地区（粗粒度历史地理）→ 几何的近似映射规则存于 `data/source/regions.json`
+的 `geometry_rules`（71 条：NUTS L0 国家集 / 要素 id 集 / DARMC 行省名
+正则 / AWMC 帝国快照四类），随 atlas.json 的 `region_geometry` 段下发，
+求值器在 `src/frontend/region-map.ts`。
 
-图例为左侧「族群谱系」树（`src/frontend/people-tree.ts`）：按 SQL taxonomy
-层级组织全部族群（如 印欧语系 → 日耳曼 → 东日耳曼 → 哥特 → 东/西哥特人），
+图例为左侧「族群谱系」树（`src/frontend/people-tree.ts`）：按 `taxonomy.json`
+谱系层级组织全部族群（如 印欧语系 → 日耳曼 → 东日耳曼 → 哥特 → 东/西哥特人），
 当年活动者全亮并注记活动区域、未活动者半透明；悬停树叶时地图上该族群
 区域之外全部压暗（内存操作）。
 
-当前 seed 为 79 个族群提供 199 条空间时间片：每个族群在自身生命周期内均有
+当前数据为 79 个族群提供 199 条空间时间片：每个族群在自身生命周期内均有
 连续覆盖。**覆盖原则：核心欧洲几何在首次有族群之后的任何年份不得空白**——
 由 `npm run audit` 逐年门禁（时间轴最小步长 1 年，并报告从未覆盖的 L0
-国家），补丁 `sql/patches/2026-10-01-core-coverage.sql` 消除了基线审计
-发现的 16 处断档（新增阿瓦尔人/巴伐利亚人/摩尔人、austria region，及
-法兰克/斯拉夫/撒克逊等衔接切片）；`2026-10-02-switzerland.sql` 补上
-瑞士与科索沃；`2026-10-03-subnational.sql` 落地次国家级细分 Tier 1
-（比利时/瑞士三分/伊比利亚五分/布列塔尼/波兰三分/乌克兰三分/特兰西瓦尼
-亚/萨普米，新增 6 族群——细分以族群断层线为准，非行政区划下钻，细分
-国家渲染 NUTS L1/L2 或 GADM 州级几何而非 L0）；`2026-10-04-pre-roman.sql`
-补全中欧前罗马时代（凯尔特人/古日耳曼人集合称、奥地利罗马行省期前 15
-起、波兰汪达尔/哥特铁器层、斯洛伐克夸迪层），德/奥/捷首覆盖由 100 年
-前移至前 500、波兰由 550 前移至前 380、斯洛伐克由 550 前移至前 400；
-`2026-10-05-germany-and-fixes.sql` 德国 Tier 2 四分（旧萨克森/施瓦本-
-法兰克/图林根-劳西茨/巴伐利亚，38 个 NUTS L2）并全面修正同类问题——
-伦巴第收窄至摩拉维亚-诺里库姆（490–568）、潘诺尼亚补罗马-匈人-格皮德
-链、斯堪的纳维亚补诺斯链、波罗的人补立/拉前 1000、皮克特补苏格兰
-200–843、英格兰/威尔士构成国补 450–1000、巴尔干补罗马行省层与波斯尼
-亚/黑山/马其顿本国层、高卢补罗马行省期（-50–476）与法兰克 476 起政
-治控制、意大利伦巴第止 774 接法兰克、法兰克入高卢 358（托克桑德里亚）、
-丹麦人 500、苏格兰人 843 起（阿尔巴），新增 10 族群，退役死区（germany/
-britannia/frankish_gaul/switzerland/visigothic_kingdom/ostrogothic_
-kingdom）。调色板扩为 16 槽（Okabe-Ito + Tol muted 精选，OKLab + CVD
-校验），`npm run collisions` 以 16 槽回绕做经验扫描：同年同国同色
-异族群对为 0。豁免项：
-`roman_empire` AWMC 快照（帝国消亡即隐没）、
-`north_africa` DARMC 行省 551 年后（非欧洲核心）。历史区间和现代国家/构成国
-边界是 MVP 可视化代理，不代表精确疆界、排他领土或边界内人口同质；
-近似程度记录在 `confidence_code` 与 `notes` 中。
+国家）。历史上由五个补丁（核心覆盖补全 → 瑞士/科索沃 → 次国家级细分
+Tier 1 → 前罗马时代中欧 → 德国 Tier 2 四分 + 全面修正）累积达成，现
+已全部沉淀在 `data/source/` 源文件中（数据库时代的补丁与 SQL 已退役，
+历史见 git log）。
+细分以族群断层线为准（比利时/瑞士三分/伊比利亚五分/布列塔尼/波兰三分/
+乌克兰三分/德国四分等），非行政区划下钻，细分国家渲染 NUTS L1/L2 或
+GADM 州级几何而非 L0。调色板 16 槽（Okabe-Ito + Tol muted 精选，OKLab
++ CVD 校验），`npm run collisions` 以 16 槽回绕做经验扫描：同年同国
+同色异族群对为 0。豁免项：`roman_empire` AWMC 快照（帝国消亡即隐没）、
+`north_africa` DARMC 行省 551 年后（非欧洲核心）。历史区间和现代国家/
+构成国边界是 MVP 可视化代理，不代表精确疆界、排他领土或边界内人口
+同质；近似程度记录在 `confidence` 与 `notes` 中。
 
 **几何浏览**：三源原始几何 + 快照时间轴（`src/datasources/` 各自 README）。
 

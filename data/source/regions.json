@@ -1,0 +1,1442 @@
+{
+  "regions": [
+    {
+      "code": "albania",
+      "type": "modern_country",
+      "name": {
+        "zh": "阿尔巴尼亚",
+        "en": "Albania"
+      },
+      "notes": "阿尔巴尼亚现代国界空间代理"
+    },
+    {
+      "code": "andalusia",
+      "type": "cultural_region",
+      "name": {
+        "zh": "安达卢西亚",
+        "en": "Andalusia"
+      },
+      "notes": "安达卢西亚+穆尔西亚（安达卢斯核心）"
+    },
+    {
+      "code": "armenia",
+      "type": "modern_country",
+      "name": {
+        "zh": "亚美尼亚",
+        "en": "Armenia"
+      },
+      "notes": "亚美尼亚现代国界空间代理"
+    },
+    {
+      "code": "austria",
+      "type": "modern_country",
+      "name": {
+        "zh": "奥地利",
+        "en": "Austria"
+      },
+      "notes": "奥地利现代国界空间代理"
+    },
+    {
+      "code": "azerbaijan",
+      "type": "modern_country",
+      "name": {
+        "zh": "阿塞拜疆",
+        "en": "Azerbaijan"
+      },
+      "notes": "阿塞拜疆现代国界空间代理"
+    },
+    {
+      "code": "balkans",
+      "type": "historical_region",
+      "years": [
+        -1000,
+        null
+      ],
+      "name": {
+        "zh": "巴尔干半岛",
+        "en": "Balkans"
+      },
+      "notes": "巴尔干半岛"
+    },
+    {
+      "code": "basque_country",
+      "type": "cultural_region",
+      "name": {
+        "zh": "巴斯克地区",
+        "en": "Basque Country"
+      },
+      "notes": "巴斯克自治州+纳瓦拉（瓦斯科尼亞）"
+    },
+    {
+      "code": "bavaria",
+      "type": "cultural_region",
+      "name": {
+        "zh": "巴伐利亚（德国东南）",
+        "en": "Bavaria (SE Germany)"
+      },
+      "notes": "巴伐利亚（德国东南）：拜恩自由州 NUTS L2 ×7"
+    },
+    {
+      "code": "belarus",
+      "type": "modern_country",
+      "name": {
+        "zh": "白俄罗斯",
+        "en": "Belarus"
+      },
+      "notes": "白俄罗斯现代国界空间代理"
+    },
+    {
+      "code": "bosnia",
+      "type": "modern_country",
+      "name": {
+        "zh": "波斯尼亚",
+        "en": "Bosnia"
+      },
+      "notes": "波斯尼亚和黑塞哥维那"
+    },
+    {
+      "code": "brittany",
+      "type": "cultural_region",
+      "name": {
+        "zh": "布列塔尼",
+        "en": "Brittany"
+      },
+      "notes": "布列塔尼（阿莫里卡半岛）"
+    },
+    {
+      "code": "bulgaria",
+      "type": "modern_country",
+      "name": {
+        "zh": "保加利亚",
+        "en": "Bulgaria"
+      },
+      "notes": "保加利亚现代国界空间代理"
+    },
+    {
+      "code": "carpathian_basin",
+      "type": "historical_region",
+      "name": {
+        "zh": "喀尔巴阡盆地",
+        "en": "Carpathian Basin"
+      },
+      "notes": "喀尔巴阡盆地"
+    },
+    {
+      "code": "castile",
+      "type": "cultural_region",
+      "name": {
+        "zh": "卡斯蒂利亚",
+        "en": "Castile"
+      },
+      "notes": "卡斯蒂利亚（含阿斯图里亚斯/莱昂/马德里/加那利）"
+    },
+    {
+      "code": "catalonia",
+      "type": "cultural_region",
+      "name": {
+        "zh": "加泰罗尼亚",
+        "en": "Catalonia"
+      },
+      "notes": "加泰罗尼亚+阿拉贡+巴伦西亚+巴利阿里（阿拉贡王冠）"
+    },
+    {
+      "code": "central_europe",
+      "type": "cultural_region",
+      "name": {
+        "zh": "中欧",
+        "en": "Central Europe"
+      },
+      "notes": "中欧历史空间代理"
+    },
+    {
+      "code": "crimea",
+      "type": "historical_region",
+      "name": {
+        "zh": "克里米亚",
+        "en": "Crimea"
+      },
+      "notes": "克里米亚半岛（含塞瓦斯托波尔）"
+    },
+    {
+      "code": "croatia",
+      "type": "modern_country",
+      "name": {
+        "zh": "克罗地亚",
+        "en": "Croatia"
+      },
+      "notes": "克罗地亚现代国界空间代理"
+    },
+    {
+      "code": "czechia",
+      "type": "modern_country",
+      "name": {
+        "zh": "捷克",
+        "en": "Czechia"
+      },
+      "notes": "捷克现代国界空间代理"
+    },
+    {
+      "code": "denmark",
+      "type": "modern_country",
+      "name": {
+        "zh": "丹麦",
+        "en": "Denmark"
+      },
+      "notes": "丹麦现代国界空间代理"
+    },
+    {
+      "code": "eastern_europe",
+      "type": "cultural_region",
+      "name": {
+        "zh": "东欧",
+        "en": "Eastern Europe"
+      },
+      "notes": "东欧历史空间代理"
+    },
+    {
+      "code": "england",
+      "type": "cultural_region",
+      "name": {
+        "zh": "英格兰",
+        "en": "England"
+      },
+      "notes": "英格兰现代空间代理"
+    },
+    {
+      "code": "estonia",
+      "type": "modern_country",
+      "name": {
+        "zh": "爱沙尼亚",
+        "en": "Estonia"
+      },
+      "notes": "爱沙尼亚现代国界空间代理"
+    },
+    {
+      "code": "europe",
+      "type": "continent",
+      "name": {
+        "zh": "欧洲",
+        "en": "Europe"
+      },
+      "notes": "欧洲"
+    },
+    {
+      "code": "finland",
+      "type": "modern_country",
+      "name": {
+        "zh": "芬兰",
+        "en": "Finland"
+      },
+      "notes": "芬兰现代国界空间代理"
+    },
+    {
+      "code": "flanders",
+      "type": "cultural_region",
+      "name": {
+        "zh": "弗拉芒",
+        "en": "Flanders"
+      },
+      "notes": "比利时弗拉芒大区（荷兰语区）"
+    },
+    {
+      "code": "france",
+      "type": "modern_country",
+      "name": {
+        "zh": "法国",
+        "en": "France"
+      },
+      "notes": "法国现代国界空间代理"
+    },
+    {
+      "code": "galicia",
+      "type": "cultural_region",
+      "name": {
+        "zh": "加利西亚",
+        "en": "Galicia"
+      },
+      "notes": "加利西亚（斯维汇王国核心区）"
+    },
+    {
+      "code": "galicia_volhynia",
+      "type": "historical_region",
+      "name": {
+        "zh": "加利西亚-沃里尼亚",
+        "en": "Galicia-Volhynia"
+      },
+      "notes": "加利西亚-沃里尼亚（乌克兰西部各州近似）"
+    },
+    {
+      "code": "gaul",
+      "type": "historical_region",
+      "years": [
+        -500,
+        500
+      ],
+      "name": {
+        "zh": "高卢",
+        "en": "Gaul"
+      },
+      "notes": "古代高卢地区"
+    },
+    {
+      "code": "georgia",
+      "type": "modern_country",
+      "name": {
+        "zh": "格鲁吉亚",
+        "en": "Georgia"
+      },
+      "notes": "格鲁吉亚现代国界空间代理"
+    },
+    {
+      "code": "greece",
+      "type": "modern_country",
+      "name": {
+        "zh": "希腊",
+        "en": "Greece"
+      },
+      "notes": "希腊现代国界空间代理"
+    },
+    {
+      "code": "hungary",
+      "type": "modern_country",
+      "name": {
+        "zh": "匈牙利",
+        "en": "Hungary"
+      },
+      "notes": "匈牙利现代国界空间代理"
+    },
+    {
+      "code": "ireland",
+      "type": "modern_country",
+      "name": {
+        "zh": "爱尔兰",
+        "en": "Ireland"
+      },
+      "notes": "爱尔兰现代国界空间代理"
+    },
+    {
+      "code": "ireland_and_scotland",
+      "type": "cultural_region",
+      "name": {
+        "zh": "爱尔兰与盖尔苏格兰",
+        "en": "Ireland and Gaelic Scotland"
+      },
+      "notes": "爱尔兰与苏格兰盖尔文化空间代理"
+    },
+    {
+      "code": "italy",
+      "type": "historical_region",
+      "years": [
+        -500,
+        null
+      ],
+      "name": {
+        "zh": "意大利",
+        "en": "Italy"
+      },
+      "notes": "意大利半岛及相关历史地区"
+    },
+    {
+      "code": "latvia",
+      "type": "modern_country",
+      "name": {
+        "zh": "拉脱维亚",
+        "en": "Latvia"
+      },
+      "notes": "拉脱维亚现代国界空间代理"
+    },
+    {
+      "code": "lithuania",
+      "type": "modern_country",
+      "name": {
+        "zh": "立陶宛",
+        "en": "Lithuania"
+      },
+      "notes": "立陶宛现代国界空间代理"
+    },
+    {
+      "code": "lower_danube",
+      "type": "cultural_region",
+      "name": {
+        "zh": "多瑙河下游",
+        "en": "Lower Danube"
+      },
+      "notes": "多瑙河下游历史空间代理"
+    },
+    {
+      "code": "macedonia",
+      "type": "modern_country",
+      "name": {
+        "zh": "马其顿",
+        "en": "Macedonia"
+      },
+      "notes": "北马其顿"
+    },
+    {
+      "code": "masuria",
+      "type": "historical_region",
+      "name": {
+        "zh": "马祖里（东普鲁士）",
+        "en": "Masuria (East Prussia)"
+      },
+      "notes": "马祖里（东普鲁士故地南部）"
+    },
+    {
+      "code": "montenegro",
+      "type": "modern_country",
+      "name": {
+        "zh": "黑山",
+        "en": "Montenegro"
+      },
+      "notes": "黑山"
+    },
+    {
+      "code": "netherlands",
+      "type": "modern_country",
+      "name": {
+        "zh": "荷兰",
+        "en": "Netherlands"
+      },
+      "notes": "荷兰现代国界空间代理"
+    },
+    {
+      "code": "north_africa",
+      "type": "historical_region",
+      "years": [
+        -1000,
+        null
+      ],
+      "name": {
+        "zh": "北非",
+        "en": "North Africa"
+      },
+      "notes": "北非"
+    },
+    {
+      "code": "north_sea_coast",
+      "type": "cultural_region",
+      "name": {
+        "zh": "北海沿岸与日德兰",
+        "en": "North Sea coast and Jutland"
+      },
+      "notes": "北海南岸及日德兰历史空间代理"
+    },
+    {
+      "code": "norway",
+      "type": "modern_country",
+      "name": {
+        "zh": "挪威",
+        "en": "Norway"
+      },
+      "notes": "挪威现代国界空间代理"
+    },
+    {
+      "code": "old_saxony",
+      "type": "cultural_region",
+      "name": {
+        "zh": "旧萨克森（德国西北）",
+        "en": "Old Saxony (NW Germany)"
+      },
+      "notes": "旧萨克森（德国西北）：石荷/下萨克森/不来梅/汉堡/梅克伦堡+威斯特法伦三区，NUTS L2 ×11"
+    },
+    {
+      "code": "pannonia",
+      "type": "historical_region",
+      "name": {
+        "zh": "潘诺尼亚",
+        "en": "Pannonia"
+      },
+      "notes": "潘诺尼亚（现代匈牙利近似）：罗马行省-匈人-格皮德-阿瓦尔链"
+    },
+    {
+      "code": "poland",
+      "type": "modern_country",
+      "name": {
+        "zh": "波兰",
+        "en": "Poland"
+      },
+      "notes": "波兰现代国界空间代理"
+    },
+    {
+      "code": "portugal",
+      "type": "modern_country",
+      "name": {
+        "zh": "葡萄牙",
+        "en": "Portugal"
+      },
+      "notes": "葡萄牙现代国界空间代理"
+    },
+    {
+      "code": "roman_empire",
+      "type": "political_entity",
+      "years": [
+        -27,
+        476
+      ],
+      "name": {
+        "zh": "罗马帝国",
+        "en": "Roman Empire"
+      },
+      "notes": "西部帝国灭亡前的罗马帝国框架；此处用于示例。"
+    },
+    {
+      "code": "romania",
+      "type": "modern_country",
+      "name": {
+        "zh": "罗马尼亚",
+        "en": "Romania"
+      },
+      "notes": "罗马尼亚现代国界空间代理"
+    },
+    {
+      "code": "russia",
+      "type": "modern_country",
+      "name": {
+        "zh": "俄罗斯",
+        "en": "Russia"
+      },
+      "notes": "俄罗斯现代国界空间代理；地图数据展示欧洲部分"
+    },
+    {
+      "code": "samiland",
+      "type": "cultural_region",
+      "name": {
+        "zh": "萨普米（拉普兰）",
+        "en": "Sápmi (Lapland)"
+      },
+      "notes": "萨普米（挪威北角+瑞典上/中诺尔兰；芬兰拉普兰暂并入芬兰近似）"
+    },
+    {
+      "code": "scotland",
+      "type": "cultural_region",
+      "name": {
+        "zh": "苏格兰",
+        "en": "Scotland"
+      },
+      "notes": "苏格兰现代空间代理"
+    },
+    {
+      "code": "serbia",
+      "type": "modern_country",
+      "name": {
+        "zh": "塞尔维亚",
+        "en": "Serbia"
+      },
+      "notes": "塞尔维亚现代国界空间代理"
+    },
+    {
+      "code": "silesia_pomerania",
+      "type": "historical_region",
+      "name": {
+        "zh": "西里西亚-波美拉尼亚",
+        "en": "Silesia-Pomerania"
+      },
+      "notes": "西里西亚+波美拉尼亚（收复领土）"
+    },
+    {
+      "code": "slovakia",
+      "type": "modern_country",
+      "name": {
+        "zh": "斯洛伐克",
+        "en": "Slovakia"
+      },
+      "notes": "斯洛伐克现代国界空间代理"
+    },
+    {
+      "code": "slovenia",
+      "type": "modern_country",
+      "name": {
+        "zh": "斯洛文尼亚",
+        "en": "Slovenia"
+      },
+      "notes": "斯洛文尼亚现代国界空间代理"
+    },
+    {
+      "code": "swabia_francia",
+      "type": "cultural_region",
+      "name": {
+        "zh": "施瓦本-法兰克（德国西南）",
+        "en": "Swabia-Francia (SW Germany)"
+      },
+      "notes": "施瓦本-法兰克（德国西南）：巴登-符滕堡/黑森/莱法/萨尔+莱茵兰两区，NUTS L2 ×13"
+    },
+    {
+      "code": "sweden",
+      "type": "modern_country",
+      "name": {
+        "zh": "瑞典",
+        "en": "Sweden"
+      },
+      "notes": "瑞典现代国界空间代理"
+    },
+    {
+      "code": "switzerland_east",
+      "type": "cultural_region",
+      "name": {
+        "zh": "瑞士德语区",
+        "en": "German Switzerland"
+      },
+      "notes": "瑞士德语区（CH02–06 近似，含罗曼什谷地）"
+    },
+    {
+      "code": "switzerland_west",
+      "type": "cultural_region",
+      "name": {
+        "zh": "瑞士法语区",
+        "en": "French Switzerland"
+      },
+      "notes": "瑞士法语区（莱芒湖区 NUTS CH01 近似）"
+    },
+    {
+      "code": "thuringia_lausitz",
+      "type": "cultural_region",
+      "name": {
+        "zh": "图林根-劳西茨（德国中东）",
+        "en": "Thuringia-Lusatia (EC Germany)"
+      },
+      "notes": "图林根-劳西茨（德国中东部）：图林根/萨克森-安哈尔特/萨克森/勃兰登堡/柏林，NUTS L2 ×7；易北-萨勒以东中世纪为索布-卢蒂齐斯拉夫层"
+    },
+    {
+      "code": "ticino",
+      "type": "cultural_region",
+      "name": {
+        "zh": "提契诺",
+        "en": "Ticino"
+      },
+      "notes": "瑞士意大利语区（提契诺州）"
+    },
+    {
+      "code": "transylvania",
+      "type": "historical_region",
+      "name": {
+        "zh": "特兰西瓦尼亚",
+        "en": "Transylvania"
+      },
+      "notes": "特兰西瓦尼亚+克里沙纳（NUTS 西北/中心区近似）"
+    },
+    {
+      "code": "ukraine",
+      "type": "modern_country",
+      "name": {
+        "zh": "乌克兰",
+        "en": "Ukraine"
+      },
+      "notes": "乌克兰现代国界空间代理"
+    },
+    {
+      "code": "vandal_kingdom",
+      "type": "political_entity",
+      "years": [
+        435,
+        534
+      ],
+      "name": {
+        "zh": "汪达尔王国",
+        "en": "Vandal Kingdom"
+      },
+      "notes": "汪达尔王国"
+    },
+    {
+      "code": "wales",
+      "type": "cultural_region",
+      "name": {
+        "zh": "威尔士",
+        "en": "Wales"
+      },
+      "notes": "威尔士现代空间代理"
+    },
+    {
+      "code": "wallonia",
+      "type": "cultural_region",
+      "name": {
+        "zh": "瓦隆",
+        "en": "Wallonia"
+      },
+      "notes": "比利时瓦隆大区+布鲁塞尔（法语区近似）"
+    }
+  ],
+  "geometry_rules": [
+    {
+      "region": "gaul",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "FR1",
+        "FRB",
+        "FRC",
+        "FRD",
+        "FRE",
+        "FRF",
+        "FRG",
+        "FRI",
+        "FRJ",
+        "FRK",
+        "FRL",
+        "FRM"
+      ],
+      "note": "近似为法国（不含布列塔尼）+卢森堡"
+    },
+    {
+      "region": "gaul",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "LU"
+      ],
+      "note": "近似为法国（不含布列塔尼）+卢森堡"
+    },
+    {
+      "region": "italy",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "IT"
+      ],
+      "note": "近似为现代意大利"
+    },
+    {
+      "region": "balkans",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "AL",
+        "BA",
+        "BG",
+        "EL",
+        "HR",
+        "ME",
+        "MK",
+        "RS",
+        "SI",
+        "XK"
+      ],
+      "note": "近似为现代巴尔干诸国+希腊（Eurostat 希腊码为 EL、科索沃为 XK）"
+    },
+    {
+      "region": "north_africa",
+      "source": "darmc",
+      "type": "name_regex",
+      "values": [
+        "AFRICA|NUMIDIA|MAURETAN|AEGYPT|CYRENA|LIBYA|TRIPOLITAN|BYZACENA"
+      ],
+      "note": "DARMC 罗马行省中的北非诸省"
+    },
+    {
+      "region": "carpathian_basin",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "HU",
+        "SK"
+      ],
+      "note": "近似为现代匈牙利+斯洛伐克"
+    },
+    {
+      "region": "roman_empire",
+      "source": "awmc",
+      "type": "awmc_snapshot",
+      "values": [
+        "117"
+      ],
+      "note": "AWMC 罗马帝国 117 CE 快照范围"
+    },
+    {
+      "region": "vandal_kingdom",
+      "source": "darmc",
+      "type": "name_regex",
+      "values": [
+        "AFRICA|NUMIDIA|MAURETAN|AEGYPT|CYRENA|LIBYA|TRIPOLITAN|BYZACENA"
+      ],
+      "note": "DARMC 北非行省近似（435-534 王国期）"
+    },
+    {
+      "region": "central_europe",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "AT",
+        "CZ"
+      ],
+      "note": "以奥地利+捷克近似中欧核心（德国已四分细分）"
+    },
+    {
+      "region": "eastern_europe",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "BLR"
+      ],
+      "note": "以现代白俄罗斯近似东欧历史活动空间（波/乌/罗已细分）"
+    },
+    {
+      "region": "north_sea_coast",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "DK",
+        "NL"
+      ],
+      "note": "以荷兰+丹麦近似北海沿岸与日德兰（德国段已细分）"
+    },
+    {
+      "region": "ireland_and_scotland",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "IE"
+      ],
+      "note": "以现代爱尔兰与苏格兰构成国近似盖尔文化空间"
+    },
+    {
+      "region": "ireland_and_scotland",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "GBR.3_1"
+      ],
+      "note": "以现代爱尔兰与苏格兰构成国近似盖尔文化空间"
+    },
+    {
+      "region": "lower_danube",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "BG"
+      ],
+      "note": "以现代保加利亚近似多瑙河下游南岸（罗马尼亚已细分）"
+    },
+    {
+      "region": "england",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "GBR.1_1"
+      ],
+      "note": "以 GADM 英格兰构成国边界近似"
+    },
+    {
+      "region": "scotland",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "GBR.3_1"
+      ],
+      "note": "以 GADM 苏格兰构成国边界近似"
+    },
+    {
+      "region": "wales",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "GBR.4_1"
+      ],
+      "note": "以 GADM 威尔士构成国边界近似"
+    },
+    {
+      "region": "ireland",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "IE"
+      ],
+      "note": "以现代爱尔兰国界近似"
+    },
+    {
+      "region": "france",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "FR1",
+        "FRB",
+        "FRC",
+        "FRD",
+        "FRE",
+        "FRF",
+        "FRG",
+        "FRI",
+        "FRJ",
+        "FRK",
+        "FRL",
+        "FRM"
+      ],
+      "note": "以法国大区近似（不含布列塔尼，NUTS L1 ×12）"
+    },
+    {
+      "region": "austria",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "AT"
+      ],
+      "note": "以现代奥地利国界近似"
+    },
+    {
+      "region": "netherlands",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "NL"
+      ],
+      "note": "以现代荷兰国界近似"
+    },
+    {
+      "region": "denmark",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "DK"
+      ],
+      "note": "以现代丹麦国界近似"
+    },
+    {
+      "region": "sweden",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "SE11",
+        "SE12",
+        "SE21",
+        "SE22",
+        "SE23",
+        "SE31"
+      ],
+      "note": "以瑞典 NUTS L2（除萨普米两区）近似"
+    },
+    {
+      "region": "norway",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "NO02",
+        "NO06",
+        "NO08",
+        "NO09",
+        "NO0A",
+        "NO0B"
+      ],
+      "note": "以挪威 NUTS L2（除北角）近似"
+    },
+    {
+      "region": "portugal",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "PT"
+      ],
+      "note": "以现代葡萄牙国界近似"
+    },
+    {
+      "region": "romania",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "RO21",
+        "RO22",
+        "RO31",
+        "RO32",
+        "RO41",
+        "RO42"
+      ],
+      "note": "以罗马尼亚 NUTS L2（除特兰西瓦尼亚两区）近似"
+    },
+    {
+      "region": "poland",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "PL21",
+        "PL41",
+        "PL61",
+        "PL71",
+        "PL72",
+        "PL81",
+        "PL82",
+        "PL84",
+        "PL91",
+        "PL92"
+      ],
+      "note": "以波兰核心省（NUTS L2 ×10）近似"
+    },
+    {
+      "region": "czechia",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "CZ"
+      ],
+      "note": "以现代捷克国界近似"
+    },
+    {
+      "region": "slovakia",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "SK"
+      ],
+      "note": "以现代斯洛伐克国界近似"
+    },
+    {
+      "region": "serbia",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "RS"
+      ],
+      "note": "以现代塞尔维亚国界近似"
+    },
+    {
+      "region": "croatia",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "HR"
+      ],
+      "note": "以现代克罗地亚国界近似"
+    },
+    {
+      "region": "slovenia",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "SI"
+      ],
+      "note": "以现代斯洛文尼亚国界近似"
+    },
+    {
+      "region": "bulgaria",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "BG"
+      ],
+      "note": "以现代保加利亚国界近似"
+    },
+    {
+      "region": "greece",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "EL"
+      ],
+      "note": "以现代希腊国界近似"
+    },
+    {
+      "region": "albania",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "AL"
+      ],
+      "note": "以现代阿尔巴尼亚国界近似"
+    },
+    {
+      "region": "hungary",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "HU"
+      ],
+      "note": "以现代匈牙利国界近似"
+    },
+    {
+      "region": "ukraine",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "UKR.1_1",
+        "UKR.10_1",
+        "UKR.11_1",
+        "UKR.12_1",
+        "UKR.13_1",
+        "UKR.15_1",
+        "UKR.16_1",
+        "UKR.17_1",
+        "UKR.18_1",
+        "UKR.2_1",
+        "UKR.21_1",
+        "UKR.24_1",
+        "UKR.26_1",
+        "UKR.27_1",
+        "UKR.5_1",
+        "UKR.6_1",
+        "UKR.8_1",
+        "UKR.9_1"
+      ],
+      "note": "以乌克兰中部/东部各州（GADM L1 ×18）近似"
+    },
+    {
+      "region": "belarus",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "BLR"
+      ],
+      "note": "以现代白俄罗斯国界近似"
+    },
+    {
+      "region": "russia",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "RUS"
+      ],
+      "note": "以 GADM 俄罗斯国界近似（视图范围主要展示欧洲部分）"
+    },
+    {
+      "region": "latvia",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "LV"
+      ],
+      "note": "以现代拉脱维亚国界近似"
+    },
+    {
+      "region": "lithuania",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "LT"
+      ],
+      "note": "以现代立陶宛国界近似"
+    },
+    {
+      "region": "estonia",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "EE"
+      ],
+      "note": "以现代爱沙尼亚国界近似"
+    },
+    {
+      "region": "finland",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "FI"
+      ],
+      "note": "以现代芬兰国界近似"
+    },
+    {
+      "region": "georgia",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "GEO"
+      ],
+      "note": "以 GADM 格鲁吉亚国界近似"
+    },
+    {
+      "region": "armenia",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "ARM"
+      ],
+      "note": "以 GADM 亚美尼亚国界近似"
+    },
+    {
+      "region": "azerbaijan",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "AZE"
+      ],
+      "note": "以 GADM 阿塞拜疆国界近似"
+    },
+    {
+      "region": "flanders",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "BE2"
+      ],
+      "note": "比利时弗拉芒大区（NUTS L1 BE2，荷兰语区）"
+    },
+    {
+      "region": "wallonia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "BE1",
+        "BE3"
+      ],
+      "note": "瓦隆大区+布鲁塞尔首府区（BE1+BE3，法语区近似）"
+    },
+    {
+      "region": "switzerland_west",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "CH01"
+      ],
+      "note": "瑞士法语区（NUTS L2 CH01 莱芒湖区近似）"
+    },
+    {
+      "region": "switzerland_east",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "CH02",
+        "CH03",
+        "CH04",
+        "CH05",
+        "CH06"
+      ],
+      "note": "瑞士德语区（CH02–06；罗曼什谷地并入近似）"
+    },
+    {
+      "region": "ticino",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "CH07"
+      ],
+      "note": "瑞士意大利语区（提契诺州 CH07）"
+    },
+    {
+      "region": "andalusia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "ES61",
+        "ES62",
+        "ES63",
+        "ES64"
+      ],
+      "note": "安达卢西亚+穆尔西亚（ES61/62/63/64，安达卢斯核心）"
+    },
+    {
+      "region": "castile",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "ES12",
+        "ES13",
+        "ES23",
+        "ES30",
+        "ES41",
+        "ES42",
+        "ES43",
+        "ES70"
+      ],
+      "note": "卡斯蒂利亚（含阿斯图里亚斯/马德里/加那利等，ES L2 ×8）"
+    },
+    {
+      "region": "catalonia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "ES24",
+        "ES51",
+        "ES52",
+        "ES53"
+      ],
+      "note": "加泰罗尼亚+阿拉贡+巴伦西亚+巴利阿里（阿拉贡王冠，ES L2 ×4）"
+    },
+    {
+      "region": "galicia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "ES11"
+      ],
+      "note": "加利西亚（ES11，斯维汇王国核心区）"
+    },
+    {
+      "region": "basque_country",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "ES21",
+        "ES22"
+      ],
+      "note": "巴斯克自治州+纳瓦拉（ES21/22，瓦斯科尼亞）"
+    },
+    {
+      "region": "brittany",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "FRH"
+      ],
+      "note": "布列塔尼（NUTS L1 FRH，阿莫里卡半岛）"
+    },
+    {
+      "region": "silesia_pomerania",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "PL22",
+        "PL42",
+        "PL43",
+        "PL51",
+        "PL52",
+        "PL63"
+      ],
+      "note": "西里西亚-波美拉尼亚（PL22/42/43/51/52/63，收复领土）"
+    },
+    {
+      "region": "masuria",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "PL62"
+      ],
+      "note": "马祖里/东普鲁士故地（PL62）"
+    },
+    {
+      "region": "galicia_volhynia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "UKR.14_1",
+        "UKR.19_1",
+        "UKR.22_1",
+        "UKR.23_1",
+        "UKR.25_1",
+        "UKR.3_1",
+        "UKR.7_1"
+      ],
+      "note": "加利西亚-沃里尼亚（乌克兰西部 7 州 GADM 近似）"
+    },
+    {
+      "region": "crimea",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "UKR.20_1",
+        "UKR.4_1"
+      ],
+      "note": "克里米亚半岛（克里米亚+塞瓦斯托波尔州）"
+    },
+    {
+      "region": "transylvania",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "RO11",
+        "RO12"
+      ],
+      "note": "特兰西瓦尼亚（NUTS L2 RO11/12 近似）"
+    },
+    {
+      "region": "samiland",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "NO07",
+        "SE32",
+        "SE33"
+      ],
+      "note": "萨普米（挪威北角 NO07 + 瑞典上/中诺尔兰 SE32/33；芬兰拉普兰暂并入芬兰近似）"
+    },
+    {
+      "region": "old_saxony",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "DE50",
+        "DE60",
+        "DE80",
+        "DE91",
+        "DE92",
+        "DE93",
+        "DE94",
+        "DEA3",
+        "DEA4",
+        "DEA5",
+        "DEF0"
+      ],
+      "note": "旧萨克森（德国西北 NUTS L2 ×11：石荷/不来梅/汉堡/梅克伦堡/下萨克森/威斯特法伦三区）"
+    },
+    {
+      "region": "swabia_francia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "DE11",
+        "DE12",
+        "DE13",
+        "DE14",
+        "DE71",
+        "DE72",
+        "DE73",
+        "DEA1",
+        "DEA2",
+        "DEB1",
+        "DEB2",
+        "DEB3",
+        "DEC0"
+      ],
+      "note": "施瓦本-法兰克（德国西南 NUTS L2 ×13：巴符/黑森/莱茵兰/莱法/萨尔）"
+    },
+    {
+      "region": "thuringia_lausitz",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "DE30",
+        "DE40",
+        "DED2",
+        "DED4",
+        "DED5",
+        "DEE0",
+        "DEG0"
+      ],
+      "note": "图林根-劳西茨（德国中东部 NUTS L2 ×7：柏林/勃兰登堡/萨克森/萨安/图林根）"
+    },
+    {
+      "region": "bavaria",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "DE21",
+        "DE22",
+        "DE23",
+        "DE24",
+        "DE25",
+        "DE26",
+        "DE27"
+      ],
+      "note": "巴伐利亚（德国东南，拜恩自由州 NUTS L2 ×7）"
+    },
+    {
+      "region": "pannonia",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "HU"
+      ],
+      "note": "潘诺尼亚（以现代匈牙利国界近似罗马行省-匈人-格皮德范围）"
+    },
+    {
+      "region": "bosnia",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "BA"
+      ],
+      "note": "波斯尼亚和黑塞哥维那"
+    },
+    {
+      "region": "macedonia",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "MK"
+      ],
+      "note": "北马其顿"
+    },
+    {
+      "region": "montenegro",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "ME"
+      ],
+      "note": "黑山"
+    }
+  ]
+}

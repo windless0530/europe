@@ -1,0 +1,1165 @@
+{
+  "languages": [
+    {
+      "code": "albanian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "阿尔巴尼亚语",
+        "en": "Albanian"
+      },
+      "notes": "阿尔巴尼亚语。"
+    },
+    {
+      "code": "armenian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        500,
+        null
+      ],
+      "name": {
+        "zh": "亚美尼亚语",
+        "en": "Armenian"
+      },
+      "notes": "亚美尼亚语。"
+    },
+    {
+      "code": "azerbaijani",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "阿塞拜疆语",
+        "en": "Azerbaijani"
+      },
+      "notes": "阿塞拜疆语。"
+    },
+    {
+      "code": "czech",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "捷克语",
+        "en": "Czech"
+      },
+      "notes": "捷克语。"
+    },
+    {
+      "code": "danish",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "丹麦语",
+        "en": "Danish"
+      },
+      "notes": "丹麦语。"
+    },
+    {
+      "code": "dutch",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "荷兰语",
+        "en": "Dutch"
+      },
+      "notes": "荷兰语。"
+    },
+    {
+      "code": "estonian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "爱沙尼亚语",
+        "en": "Estonian"
+      },
+      "notes": "爱沙尼亚语。"
+    },
+    {
+      "code": "finnish",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "芬兰语",
+        "en": "Finnish"
+      },
+      "notes": "芬兰语。"
+    },
+    {
+      "code": "french",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        800,
+        null
+      ],
+      "name": {
+        "zh": "法语",
+        "en": "French"
+      },
+      "notes": "法语。"
+    },
+    {
+      "code": "georgian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "格鲁吉亚语",
+        "en": "Georgian"
+      },
+      "notes": "格鲁吉亚语。"
+    },
+    {
+      "code": "german",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        800,
+        null
+      ],
+      "name": {
+        "zh": "德语",
+        "en": "German"
+      },
+      "notes": "德语。"
+    },
+    {
+      "code": "gothic",
+      "type": "ancient",
+      "status": "extinct",
+      "years": [
+        300,
+        800
+      ],
+      "name": {
+        "zh": "哥特语",
+        "en": "Gothic"
+      },
+      "notes": "哥特语，东日耳曼语支的重要历史语言。"
+    },
+    {
+      "code": "greek",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        -1400,
+        null
+      ],
+      "name": {
+        "zh": "希腊语",
+        "en": "Greek"
+      },
+      "notes": "希腊语及其历史阶段。"
+    },
+    {
+      "code": "hungarian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "匈牙利语",
+        "en": "Hungarian"
+      },
+      "notes": "匈牙利语。"
+    },
+    {
+      "code": "irish",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        700,
+        null
+      ],
+      "name": {
+        "zh": "爱尔兰语",
+        "en": "Irish"
+      },
+      "notes": "爱尔兰语。"
+    },
+    {
+      "code": "italian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "意大利语",
+        "en": "Italian"
+      },
+      "notes": "意大利语。"
+    },
+    {
+      "code": "latin",
+      "type": "ancient",
+      "status": "transformed",
+      "years": [
+        -700,
+        1000
+      ],
+      "name": {
+        "zh": "拉丁语",
+        "en": "Latin"
+      },
+      "notes": "拉丁语；后续发展出罗曼语族诸语言。"
+    },
+    {
+      "code": "latvian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "拉脱维亚语",
+        "en": "Latvian"
+      },
+      "notes": "拉脱维亚语。"
+    },
+    {
+      "code": "lithuanian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "立陶宛语",
+        "en": "Lithuanian"
+      },
+      "notes": "立陶宛语。"
+    },
+    {
+      "code": "norwegian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "挪威语",
+        "en": "Norwegian"
+      },
+      "notes": "挪威语。"
+    },
+    {
+      "code": "old_english",
+      "type": "medieval",
+      "status": "transformed",
+      "years": [
+        450,
+        1150
+      ],
+      "name": {
+        "zh": "古英语",
+        "en": "Old English"
+      },
+      "notes": "古英语。"
+    },
+    {
+      "code": "old_norse",
+      "type": "medieval",
+      "status": "transformed",
+      "years": [
+        800,
+        1400
+      ],
+      "name": {
+        "zh": "古诺斯语",
+        "en": "Old Norse"
+      },
+      "notes": "古诺斯语。"
+    },
+    {
+      "code": "polish",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "波兰语",
+        "en": "Polish"
+      },
+      "notes": "波兰语。"
+    },
+    {
+      "code": "portuguese",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        900,
+        null
+      ],
+      "name": {
+        "zh": "葡萄牙语",
+        "en": "Portuguese"
+      },
+      "notes": "葡萄牙语。"
+    },
+    {
+      "code": "romanian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "罗马尼亚语",
+        "en": "Romanian"
+      },
+      "notes": "罗马尼亚语。"
+    },
+    {
+      "code": "russian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "俄语",
+        "en": "Russian"
+      },
+      "notes": "俄语。"
+    },
+    {
+      "code": "spanish",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        900,
+        null
+      ],
+      "name": {
+        "zh": "西班牙语",
+        "en": "Spanish"
+      },
+      "notes": "西班牙语。"
+    },
+    {
+      "code": "swedish",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "瑞典语",
+        "en": "Swedish"
+      },
+      "notes": "瑞典语。"
+    },
+    {
+      "code": "ukrainian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1000,
+        null
+      ],
+      "name": {
+        "zh": "乌克兰语",
+        "en": "Ukrainian"
+      },
+      "notes": "乌克兰语。"
+    },
+    {
+      "code": "welsh",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        700,
+        null
+      ],
+      "name": {
+        "zh": "威尔士语",
+        "en": "Welsh"
+      },
+      "notes": "威尔士语。"
+    }
+  ],
+  "religions": [
+    {
+      "code": "catholicism",
+      "parent": "christianity",
+      "name": {
+        "zh": "天主教",
+        "en": "Catholicism"
+      },
+      "notes": "天主教传统"
+    },
+    {
+      "code": "christianity",
+      "name": {
+        "zh": "基督教",
+        "en": "Christianity"
+      },
+      "notes": "基督教"
+    },
+    {
+      "code": "eastern_orthodoxy",
+      "parent": "christianity",
+      "name": {
+        "zh": "东正教",
+        "en": "Eastern Orthodoxy"
+      },
+      "notes": "东正教传统"
+    },
+    {
+      "code": "islam",
+      "name": {
+        "zh": "伊斯兰教",
+        "en": "Islam"
+      },
+      "notes": "伊斯兰教"
+    },
+    {
+      "code": "judaism",
+      "name": {
+        "zh": "犹太教",
+        "en": "Judaism"
+      },
+      "notes": "犹太教"
+    },
+    {
+      "code": "paganism",
+      "name": {
+        "zh": "多神教 / 异教传统",
+        "en": "Paganism"
+      },
+      "notes": "泛称；具体传统需要继续细分。"
+    },
+    {
+      "code": "protestantism",
+      "parent": "christianity",
+      "name": {
+        "zh": "新教",
+        "en": "Protestantism"
+      },
+      "notes": "新教传统"
+    }
+  ],
+  "periods": [
+    {
+      "code": "roman_republic",
+      "years": [
+        -509,
+        -27
+      ],
+      "name": {
+        "zh": "罗马共和国",
+        "en": "Roman Republic"
+      },
+      "brief": {
+        "zh": "从王政被推翻到奥古斯都掌权之间的罗马国家。",
+        "en": "The Roman state from the overthrow of the monarchy to the accession of Augustus."
+      },
+      "notes": "罗马共和国；年份为惯用近似。"
+    },
+    {
+      "code": "roman_empire_period",
+      "years": [
+        -27,
+        476
+      ],
+      "name": {
+        "zh": "罗马帝国",
+        "en": "Roman Empire"
+      },
+      "brief": {
+        "zh": "罗马帝国时期；惯用断代终点为西罗马帝国灭亡。",
+        "en": "The imperial Roman state; the conventional end date marks the fall of the western empire."
+      },
+      "notes": "以西部帝国灭亡为断代的罗马帝国时期（东部延续至1453年）。"
+    },
+    {
+      "code": "late_antiquity",
+      "years": [
+        284,
+        700
+      ],
+      "name": {
+        "zh": "晚期古代",
+        "en": "Late Antiquity"
+      },
+      "brief": {
+        "zh": "古典古代与中世纪之间的过渡时代。",
+        "en": "The transitional era between classical antiquity and the Middle Ages."
+      },
+      "notes": "晚期古代；学界界定不一，与其他时期有意重叠。"
+    },
+    {
+      "code": "migration_period",
+      "years": [
+        375,
+        568
+      ],
+      "name": {
+        "zh": "民族大迁徙时期",
+        "en": "Migration Period"
+      },
+      "brief": {
+        "zh": "各人群大规模迁入罗马世界及其周边的时期。",
+        "en": "The period of large-scale movements of peoples into the Roman world."
+      },
+      "notes": "民族大迁徙时期；起讫年份为惯用近似。"
+    },
+    {
+      "code": "early_middle_ages",
+      "years": [
+        476,
+        1000
+      ],
+      "name": {
+        "zh": "中世纪早期",
+        "en": "Early Middle Ages"
+      },
+      "brief": {
+        "zh": "约5至10世纪。",
+        "en": "Roughly the 5th to 10th centuries."
+      },
+      "notes": "中世纪早期。"
+    },
+    {
+      "code": "high_middle_ages",
+      "years": [
+        1000,
+        1300
+      ],
+      "name": {
+        "zh": "中世纪盛期",
+        "en": "High Middle Ages"
+      },
+      "brief": {
+        "zh": "约11至13世纪。",
+        "en": "Roughly the 11th to 13th centuries."
+      },
+      "notes": "中世纪盛期。"
+    },
+    {
+      "code": "late_middle_ages",
+      "years": [
+        1300,
+        1500
+      ],
+      "name": {
+        "zh": "中世纪晚期",
+        "en": "Late Middle Ages"
+      },
+      "brief": {
+        "zh": "约14至15世纪。",
+        "en": "Roughly the 14th and 15th centuries."
+      },
+      "notes": "中世纪晚期。"
+    },
+    {
+      "code": "early_modern_period",
+      "years": [
+        1500,
+        1800
+      ],
+      "name": {
+        "zh": "近代早期",
+        "en": "Early Modern Period"
+      },
+      "brief": {
+        "zh": "约1500至1800年。",
+        "en": "Roughly 1500 to 1800."
+      },
+      "notes": "近代早期。"
+    },
+    {
+      "code": "modern_period",
+      "years": [
+        1800,
+        null
+      ],
+      "name": {
+        "zh": "现代",
+        "en": "Modern Period"
+      },
+      "brief": {
+        "zh": "约1800年至今。",
+        "en": "From around 1800 to the present."
+      },
+      "notes": "现代。"
+    }
+  ],
+  "enums": {
+    "classification_relation": [
+      {
+        "code": "member_of",
+        "label": {
+          "en": "Member of",
+          "zh": "属于"
+        }
+      },
+      {
+        "code": "associated_with",
+        "label": {
+          "en": "Associated with",
+          "zh": "相关于"
+        }
+      },
+      {
+        "code": "descendant_of",
+        "label": {
+          "en": "Descendant of",
+          "zh": "后裔 / 后续人群"
+        }
+      }
+    ],
+    "confidence_level": [
+      {
+        "code": "very_high",
+        "label": {
+          "en": "Very high",
+          "zh": "非常高"
+        }
+      },
+      {
+        "code": "high",
+        "label": {
+          "en": "High",
+          "zh": "高"
+        }
+      },
+      {
+        "code": "medium",
+        "label": {
+          "en": "Medium",
+          "zh": "中"
+        }
+      },
+      {
+        "code": "low",
+        "label": {
+          "en": "Low",
+          "zh": "低"
+        }
+      },
+      {
+        "code": "disputed",
+        "label": {
+          "en": "Disputed",
+          "zh": "存在争议"
+        },
+        "desc": {
+          "zh": "该判断存在明显史学争议。",
+          "en": "The interpretation is disputed or substantially debated."
+        }
+      }
+    ],
+    "event_role": [
+      {
+        "code": "attacker",
+        "label": {
+          "en": "Attacker",
+          "zh": "进攻方"
+        }
+      },
+      {
+        "code": "target",
+        "label": {
+          "en": "Target",
+          "zh": "目标 / 被攻击方"
+        }
+      },
+      {
+        "code": "participant",
+        "label": {
+          "en": "Participant",
+          "zh": "参与方"
+        }
+      },
+      {
+        "code": "ruler",
+        "label": {
+          "en": "Ruler",
+          "zh": "统治方"
+        }
+      },
+      {
+        "code": "migrating_group",
+        "label": {
+          "en": "Migrating group",
+          "zh": "迁徙人群"
+        }
+      },
+      {
+        "code": "founder",
+        "label": {
+          "en": "Founder",
+          "zh": "建立者"
+        }
+      }
+    ],
+    "event_type": [
+      {
+        "code": "conquest",
+        "label": {
+          "en": "Conquest",
+          "zh": "征服"
+        }
+      },
+      {
+        "code": "migration",
+        "label": {
+          "en": "Migration",
+          "zh": "迁徙"
+        }
+      },
+      {
+        "code": "battle",
+        "label": {
+          "en": "Battle",
+          "zh": "战役"
+        }
+      },
+      {
+        "code": "political_change",
+        "label": {
+          "en": "Political change",
+          "zh": "政治变迁"
+        }
+      },
+      {
+        "code": "religious_change",
+        "label": {
+          "en": "Religious change",
+          "zh": "宗教变迁"
+        }
+      },
+      {
+        "code": "settlement",
+        "label": {
+          "en": "Settlement",
+          "zh": "定居"
+        }
+      }
+    ],
+    "language_role": [
+      {
+        "code": "native",
+        "label": {
+          "en": "Native language",
+          "zh": "母语"
+        }
+      },
+      {
+        "code": "ancestral",
+        "label": {
+          "en": "Ancestral language",
+          "zh": "祖语 / 祖先语言"
+        }
+      },
+      {
+        "code": "administrative",
+        "label": {
+          "en": "Administrative language",
+          "zh": "行政语言"
+        }
+      },
+      {
+        "code": "liturgical",
+        "label": {
+          "en": "Liturgical language",
+          "zh": "礼仪语言"
+        }
+      },
+      {
+        "code": "historical",
+        "label": {
+          "en": "Historical language",
+          "zh": "历史语言"
+        }
+      }
+    ],
+    "language_type": [
+      {
+        "code": "ancient",
+        "label": {
+          "en": "Ancient language",
+          "zh": "古代语言"
+        }
+      },
+      {
+        "code": "medieval",
+        "label": {
+          "en": "Medieval language",
+          "zh": "中世纪语言"
+        }
+      },
+      {
+        "code": "modern",
+        "label": {
+          "en": "Modern language",
+          "zh": "现代语言"
+        }
+      },
+      {
+        "code": "liturgical",
+        "label": {
+          "en": "Liturgical language",
+          "zh": "礼仪语言"
+        }
+      }
+    ],
+    "people_type": [
+      {
+        "code": "prehistoric",
+        "label": {
+          "en": "Prehistoric",
+          "zh": "史前"
+        }
+      },
+      {
+        "code": "ancient",
+        "label": {
+          "en": "Ancient",
+          "zh": "古代"
+        }
+      },
+      {
+        "code": "medieval",
+        "label": {
+          "en": "Medieval",
+          "zh": "中世纪"
+        }
+      },
+      {
+        "code": "early_modern",
+        "label": {
+          "en": "Early modern",
+          "zh": "近代早期"
+        }
+      },
+      {
+        "code": "modern",
+        "label": {
+          "en": "Modern",
+          "zh": "现代"
+        }
+      },
+      {
+        "code": "historical",
+        "label": {
+          "en": "Historical",
+          "zh": "历史时期"
+        }
+      }
+    ],
+    "presence_type": [
+      {
+        "code": "homeland",
+        "label": {
+          "en": "Homeland",
+          "zh": "核心故地"
+        }
+      },
+      {
+        "code": "settlement",
+        "label": {
+          "en": "Settlement",
+          "zh": "定居地"
+        }
+      },
+      {
+        "code": "migration",
+        "label": {
+          "en": "Migration",
+          "zh": "迁徙"
+        }
+      },
+      {
+        "code": "political_control",
+        "label": {
+          "en": "Political control",
+          "zh": "政治控制"
+        }
+      },
+      {
+        "code": "minority",
+        "label": {
+          "en": "Minority presence",
+          "zh": "少数族群存在"
+        }
+      },
+      {
+        "code": "temporary_presence",
+        "label": {
+          "en": "Temporary presence",
+          "zh": "短期存在"
+        }
+      }
+    ],
+    "region_type": [
+      {
+        "code": "continent",
+        "label": {
+          "en": "Continent",
+          "zh": "洲"
+        }
+      },
+      {
+        "code": "historical_region",
+        "label": {
+          "en": "Historical region",
+          "zh": "历史地区"
+        }
+      },
+      {
+        "code": "political_entity",
+        "label": {
+          "en": "Political entity",
+          "zh": "政治实体"
+        }
+      },
+      {
+        "code": "modern_country",
+        "label": {
+          "en": "Modern country",
+          "zh": "现代国家"
+        }
+      },
+      {
+        "code": "cultural_region",
+        "label": {
+          "en": "Cultural region",
+          "zh": "文化区域"
+        }
+      }
+    ],
+    "relation_type": [
+      {
+        "code": "subgroup_of",
+        "label": {
+          "en": "Subgroup of",
+          "zh": "分支"
+        },
+        "desc": {
+          "zh": "某人群是另一人群的历史或社会分支。",
+          "en": "A historical or social subgroup of another people."
+        }
+      },
+      {
+        "code": "part_of",
+        "label": {
+          "en": "Part of",
+          "zh": "组成部分"
+        }
+      },
+      {
+        "code": "descended_from",
+        "label": {
+          "en": "Descended from",
+          "zh": "源自"
+        }
+      },
+      {
+        "code": "merged_into",
+        "label": {
+          "en": "Merged into",
+          "zh": "融入 / 合并为"
+        }
+      },
+      {
+        "code": "split_from",
+        "label": {
+          "en": "Split from",
+          "zh": "分化自"
+        }
+      },
+      {
+        "code": "related_to",
+        "label": {
+          "en": "Related to",
+          "zh": "相关于"
+        }
+      },
+      {
+        "code": "influenced",
+        "label": {
+          "en": "Influenced",
+          "zh": "影响了"
+        }
+      },
+      {
+        "code": "conquered",
+        "label": {
+          "en": "Conquered",
+          "zh": "征服了"
+        }
+      },
+      {
+        "code": "migrated_to",
+        "label": {
+          "en": "Migrated to",
+          "zh": "迁徙至"
+        }
+      },
+      {
+        "code": "ruled",
+        "label": {
+          "en": "Ruled",
+          "zh": "统治了"
+        }
+      },
+      {
+        "code": "allied_with",
+        "label": {
+          "en": "Allied with",
+          "zh": "与……结盟"
+        }
+      },
+      {
+        "code": "enemy_of",
+        "label": {
+          "en": "Enemy of",
+          "zh": "敌对方"
+        }
+      }
+    ],
+    "religion_role": [
+      {
+        "code": "traditional",
+        "label": {
+          "en": "Traditional religion",
+          "zh": "传统宗教"
+        }
+      },
+      {
+        "code": "dominant",
+        "label": {
+          "en": "Dominant religion",
+          "zh": "主要宗教"
+        }
+      },
+      {
+        "code": "minority",
+        "label": {
+          "en": "Minority religion",
+          "zh": "少数宗教"
+        }
+      },
+      {
+        "code": "historical",
+        "label": {
+          "en": "Historical religion",
+          "zh": "历史宗教"
+        }
+      }
+    ],
+    "status": [
+      {
+        "code": "extant",
+        "label": {
+          "en": "Extant",
+          "zh": "现存"
+        }
+      },
+      {
+        "code": "extinct",
+        "label": {
+          "en": "Extinct",
+          "zh": "已消亡"
+        }
+      },
+      {
+        "code": "transformed",
+        "label": {
+          "en": "Transformed",
+          "zh": "演变 / 转化"
+        }
+      },
+      {
+        "code": "merged",
+        "label": {
+          "en": "Merged",
+          "zh": "融合 / 合并"
+        }
+      }
+    ]
+  },
+  "sources": [
+    {
+      "code": "oxford_late_antiquity",
+      "type": "reference",
+      "title": "The Oxford Dictionary of Late Antiquity",
+      "author": "Oliver Nicholson (ed.)",
+      "publisher": "Oxford University Press",
+      "year": 2018,
+      "notes": "晚期古代欧洲的重要综合参考工具书。"
+    },
+    {
+      "code": "cambridge_medieval_history",
+      "type": "reference",
+      "title": "The New Cambridge Medieval History",
+      "author": "Various editors",
+      "publisher": "Cambridge University Press",
+      "year": 1995,
+      "notes": "中世纪史综合参考。"
+    },
+    {
+      "code": "oxford_barbarian_worlds",
+      "type": "reference",
+      "title": "The Oxford Handbook of the Archaeology of the Barbarian Worlds",
+      "author": "Various editors",
+      "publisher": "Oxford University Press",
+      "year": 2019,
+      "notes": "迁徙时代与“蛮族世界”考古研究参考。"
+    },
+    {
+      "code": "cambridge_ancient_history",
+      "type": "reference",
+      "title": "The Cambridge Ancient History",
+      "author": "Various editors",
+      "publisher": "Cambridge University Press",
+      "year": 2005,
+      "notes": "古代地中海世界综合参考。"
+    }
+  ]
+}

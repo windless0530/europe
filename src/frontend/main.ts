@@ -80,7 +80,7 @@ async function boot(): Promise<void> {
   const allFeatures: RegionVm[] = [...views.values()].flatMap((v) => v.features);
   const allByCode = new Map(allFeatures.map((vm) => [vm.code, vm]));
   const model: AtlasModel = buildAtlasModel(atlasData, allFeatures);
-  const atlasFeatures = atlasGeometryFeatures(views);
+  const atlasFeatures = atlasGeometryFeatures(views, atlasData.region_geometry ?? []);
 
   const initialSource = await loadConfigSource();
   const store = createStore({

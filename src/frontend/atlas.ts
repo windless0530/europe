@@ -6,7 +6,7 @@
 
 import type { SourceCode } from '../lib/contract.js';
 import type { RegionVm, SourceView } from './load';
-import { resolveRegionGeometry, countryOf } from './region-map';
+import { resolveRegionGeometry, countryOf, type RegionGeometryRule } from './region-map';
 
 export interface AtlasTrItem {
   name_en: string | null;
@@ -77,6 +77,8 @@ export interface AtlasData {
   regions: AtlasRegion[];
   peoples: AtlasPeople[];
   people_region: AtlasPeopleRegion[];
+  /** region -> 几何映射规则（region_geometry_rule 表，驱动 resolveRegionGeometry 与叠加层选取） */
+  region_geometry: RegionGeometryRule[];
   religions: Array<{ code: string; parent_code: string | null; name_en: string | null; name_zh: string | null }>;
   events: AtlasEvent[];
   periods: AtlasPeriod[];
@@ -175,7 +177,7 @@ export function activeInYear(row: AtlasPeopleRegion, year: number): boolean {
 export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasModel {
   const peopleByCode = new Map(data.peoples.map((p) => [p.code, p]));
   const regionByCode = new Map(data.regions.map((r) => [r.code, r]));
-  const { byRegion: regionGeometry, byGeometry: geometryToRegions } = resolveRegionGeometry(features);
+  const { byRegion: regionGeometry, byGeometry: geometryToRegions } = resolveRegionGeometry(features, data.region_geometry ?? []);
 
   // 颜色槽位：按 people_region 中首次出现顺序固定分配（颜色跟实体走，不随过滤变化）
   const order: string[] = [];
@@ -455,19 +457,31 @@ export async function fetchAtlas(onBytes?: (loaded: number, total: number) => vo
 
 /** 族群分布模式的几何集合（绘制顺序 = 数组顺序，后者在上）：
  *  AWMC 帝国参考层垫底 -> DARMC 北非行省 -> NUTS/GADM 几何（最上层承载着色）。
- *  几何粒度：未细分国家渲染 L0；已按族群断层线细分的国家
+ *  AWMC/DARMC 叠加层由 region_geometry 规则推导（awmc_snapshot / name_regex），
+ *  NUTS 部分为渲染策略：未细分国家渲染 L0；已按族群断层线细分的国家
  *  （SUBNATIONAL_LEVEL）改渲染次国家级单元，其 L0 不再绘制。 */
 const SUBNATIONAL_LEVEL: Record<string, number> = {
   BE: 1, FR: 1, UA: 1, // 大区/GADM 州级（乌克兰 GADM 国家码 UKR 归一为 UA）
-  CH: 2, ES: 2, PL: 2, RO: 2, SE: 2, NO: 2, DE: 2, // NUTS L2（补丁 5：德国四分）
+  CH: 2, ES: 2, PL: 2, RO: 2, SE: 2, NO: 2, DE: 2, // NUTS L2（德国四分）
 };
 const GBR_CONSTITUENTS = ['GBR.1_1', 'GBR.3_1', 'GBR.4_1'];
 
-export function atlasGeometryFeatures(sources: Map<SourceCode, SourceView>): RegionVm[] {
+export function atlasGeometryFeatures(sources: Map<SourceCode, SourceView>, rules: RegionGeometryRule[]): RegionVm[] {
   const out: RegionVm[] = [];
-  out.push(...(sources.get('awmc')?.features ?? []).filter((vm) => vm.family === 'empire' && vm.snapshot === 117));
-  const africaRe = /AFRICA|NUMIDIA|MAURETAN|AEGYPT|CYRENA|LIBYA|TRIPOLITAN|BYZACENA/i;
-  out.push(...(sources.get('darmc')?.features ?? []).filter((vm) => vm.family === 'provinces' && africaRe.test(vm.nameEn ?? '')));
+  const awmcSnapshots = new Set(
+    rules.filter((r) => r.source_code === 'awmc' && r.rule_type === 'awmc_snapshot').flatMap((r) => r.match_values.map(Number)),
+  );
+  out.push(
+    ...(sources.get('awmc')?.features ?? []).filter((vm) => vm.family === 'empire' && vm.snapshot !== null && awmcSnapshots.has(vm.snapshot)),
+  );
+  const darmcRegexes = rules
+    .filter((r) => r.source_code === 'darmc' && r.rule_type === 'name_regex')
+    .map((r) => new RegExp(r.match_values[0] ?? '', 'i'));
+  out.push(
+    ...(sources.get('darmc')?.features ?? []).filter(
+      (vm) => vm.family === 'provinces' && darmcRegexes.some((re) => re.test(vm.nameEn ?? '')),
+    ),
+  );
   out.push(...(sources.get('nuts')?.features ?? []).filter((vm) => {
     const raw = countryOf(vm);
     const cc = raw === 'UKR' ? 'UA' : raw;
