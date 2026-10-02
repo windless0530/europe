@@ -1,15 +1,15 @@
 // 调色板碰撞审计：复刻前端 paintAt 竞争规则，逐年检查
-// 「同年、同色、不同族群」的着色对（14 色回绕的实际后果）。
-// 出现碰撞不代表必须改色——若两族群地理上同年不同区，读者仍可区分；
-// 此脚本按几何邻近度报告：仅当同色对出现在相邻（同 L0 国家内）几何时升级为 warn。
-// 用法：npm run collisions   （先 npm run export）
+// 「同年、同槽、不同族群」的着色对（assignPaletteSlots 同年全局贪心避让后的实际后果）。
+// 避让按「同年全图主族群两两冲突」构造，理论上同年同槽不同族群不应出现；
+// 本脚本独立复验该不变量（槽位饱和回绕时可能出现，视为需扩槽的信号）。
+// 用法：npm run collisions
 
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { buildView, type RegionVm } from '../src/frontend/load.js';
 import { resolveRegionGeometry, countryOf, type RegionGeometryRule } from '../src/frontend/region-map.js';
-import { atlasGeometryFeatures, activeInYear } from '../src/frontend/atlas.js';
+import { atlasGeometryFeatures, activeInYear, assignPaletteSlots, PEOPLE_SLOT } from '../src/frontend/atlas.js';
 import type { SourceCode } from '../src/lib/contract.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -40,11 +40,10 @@ const countryOfGeom = new Map<string, string | null>(
   features.map((vm) => [vm.code, vm.family === 'nuts' ? countryOf(vm) : null]),
 );
 
-// 槽位分配：people_region 数组首现顺序（与前端一致）
+// 槽位分配：与前端 buildAtlasModel 同一实现（写死映射为种子 + 新族群运行时避让）
 const order: string[] = [];
 for (const row of atlas.people_region) if (!order.includes(row.people_code)) order.push(row.people_code);
-const PALETTE_LEN = 16;
-const slotOf = new Map(order.map((code, i) => [code, i % PALETTE_LEN]));
+const slotOf = assignPaletteSlots(atlas, features, order, undefined, PEOPLE_SLOT);
 
 // 年份范围
 const cands: number[] = [];
@@ -133,9 +132,11 @@ for (let y = yMin; y <= yMax; y += step) {
 
 const list = [...colls.values()].sort((x, y) => y.adjacentYears - x.adjacentYears || y.years - x.years);
 const adjTotal = list.filter((c) => c.adjacentYears > 0);
-console.log(`调色板碰撞扫描：${yMin}–${yMax} 步长 ${step}，${PALETTE_LEN} 色回绕，着色族群 ${order.length} 个\n`);
-if (adjTotal.length === 0) {
-  console.log('OK: 无同年同国同色异族群对（跨区共现由 hover/谱系树消歧）');
+console.log(`调色板碰撞扫描：${yMin}–${yMax} 步长 ${step}，写死映射 + 运行时同年共现避让，着色族群 ${order.length} 个\n`);
+if (list.length === 0) {
+  console.log('OK: 无同年同槽异族群对（写死映射未饱和，避让不变量成立）');
+} else if (adjTotal.length === 0) {
+  console.log('OK: 无同年同国同槽异族群对；同年跨区同槽对见下（信息，hover/谱系树可消歧）');
 } else {
   console.log(`同年同国同色（读者难分辨）：${adjTotal.length} 组`);
   for (const c of adjTotal) {

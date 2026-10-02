@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T10:33:54.282Z",
+  "generated_at": "2026-10-02T11:56:24.213Z",
   "regions": [
     {
       "code": "albania",
@@ -162,6 +162,16 @@
       "brief_zh": null
     },
     {
+      "code": "crete",
+      "region_type": "cultural_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Crete",
+      "name_zh": "克里特",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "crimea",
       "region_type": "historical_region",
       "start_year": null,
@@ -198,6 +208,26 @@
       "end_year": null,
       "name_en": "Denmark",
       "name_zh": "丹麦",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "east_macedonia_thrace",
+      "region_type": "cultural_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "East Macedonia and Thrace",
+      "name_zh": "东马其顿-色雷斯",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "east_thrace",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "East Thrace",
+      "name_zh": "东色雷斯",
       "brief_en": null,
       "brief_zh": null
     },
@@ -358,6 +388,16 @@
       "end_year": null,
       "name_en": "Italy",
       "name_zh": "意大利",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "karelia",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Karelia",
+      "name_zh": "卡累利阿",
       "brief_en": null,
       "brief_zh": null
     },
@@ -542,6 +582,16 @@
       "brief_zh": null
     },
     {
+      "code": "sardinia",
+      "region_type": "cultural_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Sardinia",
+      "name_zh": "撒丁",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "scotland",
       "region_type": "cultural_region",
       "start_year": null,
@@ -558,6 +608,16 @@
       "end_year": null,
       "name_en": "Serbia",
       "name_zh": "塞尔维亚",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "sicily",
+      "region_type": "cultural_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Sicily",
+      "name_zh": "西西里",
       "brief_en": null,
       "brief_zh": null
     },
@@ -672,12 +732,42 @@
       "brief_zh": null
     },
     {
+      "code": "ukraine_east",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Eastern Ukraine (Sloboda-Donbas)",
+      "name_zh": "东乌克兰（斯洛博达-顿巴斯）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "ukraine_south",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Southern Ukraine (Novorossiya)",
+      "name_zh": "南乌克兰（新俄罗斯）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "vandal_kingdom",
       "region_type": "political_entity",
       "start_year": 435,
       "end_year": 534,
       "name_en": "Vandal Kingdom",
       "name_zh": "汪达尔王国",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "volga",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Volga-Kama",
+      "name_zh": "伏尔加-卡马",
       "brief_en": null,
       "brief_zh": null
     },
@@ -820,6 +910,70 @@
           "notes": "Modern English ethnogenesis involved Brittonic populations, Anglo-Saxon groups, Norse settlement and Norman influence."
         }
       ]
+    },
+    {
+      "code": "arabs_crete",
+      "people_type": "medieval",
+      "start_year": 824,
+      "end_year": 961,
+      "status_code": "transformed",
+      "name_en": "Arabs of Crete",
+      "name_zh": "克里特阿拉伯人",
+      "brief_en": "Arab-Andalusi settlers of the Emirate of Crete (824-961).",
+      "brief_zh": "克里特酋长国（824–961）的阿拉伯—安达卢斯移民。",
+      "languages": [],
+      "religions": [
+        {
+          "code": "islam",
+          "name_en": "Islam",
+          "name_zh": "伊斯兰教",
+          "role": "dominant",
+          "sy": 824,
+          "ey": 961
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "historical_people",
+          "node": "arabs",
+          "name_en": "Arabs",
+          "name_zh": "阿拉伯人",
+          "relation": "member_of"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "code": "arabs_sicily",
+      "people_type": "medieval",
+      "start_year": 827,
+      "end_year": 1091,
+      "status_code": "transformed",
+      "name_en": "Arabs of Sicily",
+      "name_zh": "西西里阿拉伯人",
+      "brief_en": "Arab-Berber rulers of the Emirate of Sicily (831-1091).",
+      "brief_zh": "西西里酋长国（831–1091）的阿拉伯—柏柏尔统治集团。",
+      "languages": [],
+      "religions": [
+        {
+          "code": "islam",
+          "name_en": "Islam",
+          "name_zh": "伊斯兰教",
+          "role": "dominant",
+          "sy": 827,
+          "ey": 1091
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "historical_people",
+          "node": "arabs",
+          "name_en": "Arabs",
+          "name_zh": "阿拉伯人",
+          "relation": "member_of"
+        }
+      ],
+      "relations": []
     },
     {
       "code": "armenians",
@@ -1875,13 +2029,13 @@
     {
       "code": "greeks",
       "people_type": "modern",
-      "start_year": 700,
+      "start_year": -800,
       "end_year": null,
       "status_code": "extant",
       "name_en": "Greeks",
       "name_zh": "希腊人",
-      "brief_en": "The modern Greek people.",
-      "brief_zh": "现代希腊族群。",
+      "brief_en": "The Greek people, continuous from the Archaic city-states to today.",
+      "brief_zh": "自古希腊城邦时代延续至今的希腊语族群。",
       "languages": [
         {
           "code": "greek",
@@ -2087,6 +2241,54 @@
           "node": "germanic",
           "name_en": "Germanic",
           "name_zh": "日耳曼语族",
+          "relation": "member_of"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "code": "karelians",
+      "people_type": "medieval",
+      "start_year": 800,
+      "end_year": null,
+      "status_code": "extant",
+      "name_en": "Karelians",
+      "name_zh": "卡累利阿人",
+      "brief_en": "Orthodox Finnic people of the Ladoga region.",
+      "brief_zh": "拉多加湖周边的东正教芬兰语族族群。",
+      "languages": [
+        {
+          "code": "karelian",
+          "name_en": "Karelian",
+          "name_zh": "卡累利阿语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "eastern_orthodoxy",
+          "name_en": "Eastern Orthodoxy",
+          "name_zh": "东正教",
+          "role": "dominant",
+          "sy": 1227,
+          "ey": null
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "language",
+          "node": "finnic",
+          "name_en": "Finnic",
+          "name_zh": "芬兰语支",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "modern_ethnicity",
+          "node": "karelians",
+          "name_en": "Karelians",
+          "name_zh": "卡累利阿人",
           "relation": "member_of"
         }
       ],
@@ -2718,6 +2920,54 @@
       "relations": []
     },
     {
+      "code": "sardinians",
+      "people_type": "modern",
+      "start_year": -500,
+      "end_year": null,
+      "status_code": "extant",
+      "name_en": "Sardinians",
+      "name_zh": "撒丁人",
+      "brief_en": "Island people continuous since the Nuragic era, speaking Sardinian (Romance).",
+      "brief_zh": "努拉吉时代以来持续至今的岛屿族群，操罗曼语族撒丁语。",
+      "languages": [
+        {
+          "code": "sardinian",
+          "name_en": "Sardinian",
+          "name_zh": "撒丁语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "catholicism",
+          "name_en": "Catholicism",
+          "name_zh": "天主教",
+          "role": "dominant",
+          "sy": 400,
+          "ey": null
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "language",
+          "node": "romance",
+          "name_en": "Romance",
+          "name_zh": "罗曼语族",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "modern_ethnicity",
+          "node": "sardinians",
+          "name_en": "Sardinians",
+          "name_zh": "撒丁人",
+          "relation": "member_of"
+        }
+      ],
+      "relations": []
+    },
+    {
       "code": "saxons",
       "people_type": "historical",
       "start_year": 300,
@@ -2961,6 +3211,54 @@
       "relations": []
     },
     {
+      "code": "tatars",
+      "people_type": "modern",
+      "start_year": 1240,
+      "end_year": null,
+      "status_code": "extant",
+      "name_en": "Volga Tatars",
+      "name_zh": "伏尔加鞑靼人",
+      "brief_en": "Muslim Turkic people formed under the Golden Horde, heirs of Volga Bulgaria.",
+      "brief_zh": "金帐汗国框架下形成的伊斯兰突厥族群，伏尔加保加利亚继承者。",
+      "languages": [
+        {
+          "code": "tatar",
+          "name_en": "Tatar",
+          "name_zh": "鞑靼语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "islam",
+          "name_en": "Islam",
+          "name_zh": "伊斯兰教",
+          "role": "dominant",
+          "sy": 1240,
+          "ey": null
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "language",
+          "node": "kipchak",
+          "name_en": "Kipchak",
+          "name_zh": "钦察",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "modern_ethnicity",
+          "node": "volga_tatars",
+          "name_en": "Volga Tatars",
+          "name_zh": "伏尔加鞑靼人",
+          "relation": "member_of"
+        }
+      ],
+      "relations": []
+    },
+    {
       "code": "thracians",
       "people_type": "ancient",
       "start_year": -1000,
@@ -3000,6 +3298,54 @@
           "node": "germanic_west",
           "name_en": "West Germanic",
           "name_zh": "西日耳曼",
+          "relation": "member_of"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "code": "turks",
+      "people_type": "modern",
+      "start_year": 1369,
+      "end_year": null,
+      "status_code": "extant",
+      "name_en": "Turks",
+      "name_zh": "土耳其人",
+      "brief_en": "Ottoman Turks, ruling Eastern Thrace from the Edirne era (1369).",
+      "brief_zh": "奥斯曼土耳其人，1369 年定都埃迪尔内后经营东色雷斯。",
+      "languages": [
+        {
+          "code": "turkish",
+          "name_en": "Turkish",
+          "name_zh": "土耳其语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "islam",
+          "name_en": "Islam",
+          "name_zh": "伊斯兰教",
+          "role": "dominant",
+          "sy": 1369,
+          "ey": null
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "language",
+          "node": "oghuz",
+          "name_en": "Oghuz",
+          "name_zh": "乌古斯",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "modern_ethnicity",
+          "node": "turks",
+          "name_en": "Turks",
+          "name_zh": "土耳其人",
           "relation": "member_of"
         }
       ],
@@ -3164,6 +3510,45 @@
           "notes": "Visigoths are conventionally treated as a branch/group of the Goths."
         }
       ]
+    },
+    {
+      "code": "volga_bulgars",
+      "people_type": "medieval",
+      "start_year": 937,
+      "end_year": 1240,
+      "status_code": "transformed",
+      "name_en": "Volga Bulgars",
+      "name_zh": "伏尔加保加尔人",
+      "brief_en": "Turkic people and trading state on the Volga-Kama (937-1240).",
+      "brief_zh": "伏尔加-卡马河的突厥语族群及其商业国家（937–1240）。",
+      "languages": [],
+      "religions": [
+        {
+          "code": "islam",
+          "name_en": "Islam",
+          "name_zh": "伊斯兰教",
+          "role": "dominant",
+          "sy": 922,
+          "ey": 1240
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "historical_people",
+          "node": "volga_bulgars",
+          "name_en": "Volga Bulgars",
+          "name_zh": "伏尔加保加尔人",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "language",
+          "node": "turkic",
+          "name_en": "Turkic",
+          "name_zh": "突厥语系",
+          "relation": "member_of"
+        }
+      ],
+      "relations": []
     },
     {
       "code": "welsh",
@@ -3632,6 +4017,33 @@
       "render_priority": 50
     },
     {
+      "people_code": "arabs_crete",
+      "region_code": "crete",
+      "presence": "political_control",
+      "start_year": 824,
+      "end_year": 961,
+      "confidence": "high",
+      "render_priority": 80
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "crete",
+      "presence": "settlement",
+      "start_year": -800,
+      "end_year": 824,
+      "confidence": "medium",
+      "render_priority": 70
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "crete",
+      "presence": "homeland",
+      "start_year": 961,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70
+    },
+    {
       "people_code": "russians",
       "region_code": "crimea",
       "presence": "political_control",
@@ -3690,6 +4102,42 @@
       "region_code": "denmark",
       "presence": "homeland",
       "start_year": 500,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70
+    },
+    {
+      "people_code": "slavs",
+      "region_code": "east_macedonia_thrace",
+      "presence": "settlement",
+      "start_year": 600,
+      "end_year": 1000,
+      "confidence": "medium",
+      "render_priority": 75
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "east_macedonia_thrace",
+      "presence": "homeland",
+      "start_year": 700,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "east_thrace",
+      "presence": "homeland",
+      "start_year": 700,
+      "end_year": 1369,
+      "confidence": "medium",
+      "render_priority": 70
+    },
+    {
+      "people_code": "turks",
+      "region_code": "east_thrace",
+      "presence": "homeland",
+      "start_year": 1369,
       "end_year": null,
       "confidence": "medium",
       "render_priority": 70
@@ -3959,7 +4407,7 @@
       "people_code": "greeks",
       "region_code": "greece",
       "presence": "homeland",
-      "start_year": 700,
+      "start_year": -800,
       "end_year": null,
       "confidence": "medium",
       "render_priority": 70
@@ -4053,6 +4501,15 @@
       "end_year": 600,
       "confidence": "low",
       "render_priority": 50
+    },
+    {
+      "people_code": "karelians",
+      "region_code": "karelia",
+      "presence": "homeland",
+      "start_year": 800,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 65
     },
     {
       "people_code": "latvians",
@@ -4487,6 +4944,15 @@
       "render_priority": 70
     },
     {
+      "people_code": "sardinians",
+      "region_code": "sardinia",
+      "presence": "homeland",
+      "start_year": -500,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70
+    },
+    {
       "people_code": "scots",
       "region_code": "scotland",
       "presence": "homeland",
@@ -4509,6 +4975,33 @@
       "region_code": "serbia",
       "presence": "homeland",
       "start_year": 700,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70
+    },
+    {
+      "people_code": "arabs_sicily",
+      "region_code": "sicily",
+      "presence": "political_control",
+      "start_year": 827,
+      "end_year": 1091,
+      "confidence": "high",
+      "render_priority": 80
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "sicily",
+      "presence": "settlement",
+      "start_year": -735,
+      "end_year": 827,
+      "confidence": "medium",
+      "render_priority": 70
+    },
+    {
+      "people_code": "italians",
+      "region_code": "sicily",
+      "presence": "homeland",
+      "start_year": 1091,
       "end_year": null,
       "confidence": "medium",
       "render_priority": 70
@@ -4946,6 +5439,60 @@
       "render_priority": 50
     },
     {
+      "people_code": "ukrainians",
+      "region_code": "ukraine_east",
+      "presence": "homeland",
+      "start_year": 1650,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 65
+    },
+    {
+      "people_code": "russians",
+      "region_code": "ukraine_east",
+      "presence": "minority",
+      "start_year": 1870,
+      "end_year": null,
+      "confidence": "high",
+      "render_priority": 40
+    },
+    {
+      "people_code": "ukrainians",
+      "region_code": "ukraine_south",
+      "presence": "homeland",
+      "start_year": 1550,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 65
+    },
+    {
+      "people_code": "russians",
+      "region_code": "ukraine_south",
+      "presence": "minority",
+      "start_year": 1774,
+      "end_year": null,
+      "confidence": "high",
+      "render_priority": 40
+    },
+    {
+      "people_code": "volga_bulgars",
+      "region_code": "volga",
+      "presence": "political_control",
+      "start_year": 937,
+      "end_year": 1240,
+      "confidence": "medium",
+      "render_priority": 80
+    },
+    {
+      "people_code": "tatars",
+      "region_code": "volga",
+      "presence": "homeland",
+      "start_year": 1240,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 75
+    },
+    {
       "people_code": "welsh",
       "region_code": "wales",
       "presence": "homeland",
@@ -5024,11 +5571,29 @@
     {
       "region_code": "italy",
       "source_code": "nuts",
-      "rule_type": "l0_country",
+      "rule_type": "source_id",
       "match_values": [
-        "IT"
+        "ITC1",
+        "ITC2",
+        "ITC3",
+        "ITC4",
+        "ITF1",
+        "ITF2",
+        "ITF3",
+        "ITF4",
+        "ITF5",
+        "ITF6",
+        "ITH1",
+        "ITH2",
+        "ITH3",
+        "ITH4",
+        "ITH5",
+        "ITI1",
+        "ITI2",
+        "ITI3",
+        "ITI4"
       ],
-      "note": "近似为现代意大利"
+      "note": "意大利大陆 NUTS L2 ×19（西北 4+南部 6+东北 5+中部 4；西西里 ITG1/撒丁 ITG2 另设）"
     },
     {
       "region_code": "balkans",
@@ -5350,11 +5915,21 @@
     {
       "region_code": "greece",
       "source_code": "nuts",
-      "rule_type": "l0_country",
+      "rule_type": "source_id",
       "match_values": [
-        "EL"
+        "EL30",
+        "EL41",
+        "EL42",
+        "EL52",
+        "EL53",
+        "EL54",
+        "EL61",
+        "EL62",
+        "EL63",
+        "EL64",
+        "EL65"
       ],
-      "note": "以现代希腊国界近似"
+      "note": "希腊主体 NUTS L2 ×11（阿提卡/爱琴群岛/中-西马其顿/伊庇鲁斯/中部/伊奥尼亚/西希腊/斯泰里亚/伯罗奔尼撒；克里特 EL43 与东马其顿-色雷斯 EL51 另设）"
     },
     {
       "region_code": "albania",
@@ -5383,22 +5958,38 @@
         "UKR.10_1",
         "UKR.11_1",
         "UKR.12_1",
-        "UKR.13_1",
-        "UKR.15_1",
-        "UKR.16_1",
-        "UKR.17_1",
         "UKR.18_1",
         "UKR.2_1",
         "UKR.21_1",
         "UKR.24_1",
-        "UKR.26_1",
-        "UKR.27_1",
-        "UKR.5_1",
+        "UKR.27_1"
+      ],
+      "note": "以乌克兰中北部各州（GADM L1 ×9）近似"
+    },
+    {
+      "region_code": "ukraine_east",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "UKR.15_1",
         "UKR.6_1",
-        "UKR.8_1",
+        "UKR.8_1"
+      ],
+      "note": "哈尔科夫/顿涅茨克/卢甘斯克（GADM L1 ×3）"
+    },
+    {
+      "region_code": "ukraine_south",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "UKR.13_1",
+        "UKR.16_1",
+        "UKR.17_1",
+        "UKR.26_1",
+        "UKR.5_1",
         "UKR.9_1"
       ],
-      "note": "以乌克兰中部/东部各州（GADM L1 ×18）近似"
+      "note": "扎波罗热/第聂伯罗/基洛沃格勒/尼古拉耶夫/赫尔松/敖德萨（GADM L1 ×6）"
     },
     {
       "region_code": "belarus",
@@ -5664,9 +6255,10 @@
       "match_values": [
         "NO07",
         "SE32",
-        "SE33"
+        "SE33",
+        "FI1D7"
       ],
-      "note": "萨普米（挪威北角 NO07 + 瑞典上/中诺尔兰 SE32/33；芬兰拉普兰暂并入芬兰近似）"
+      "note": "萨普米（挪威北角 NO07 + 瑞典上/中诺尔兰 SE32/33 + 芬兰拉普兰 FI1D7）"
     },
     {
       "region_code": "old_saxony",
@@ -5773,6 +6365,71 @@
         "ME"
       ],
       "note": "黑山"
+    },
+    {
+      "region_code": "sicily",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "ITG1"
+      ],
+      "note": "西西里岛（NUTS L2 ITG1）"
+    },
+    {
+      "region_code": "sardinia",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "ITG2"
+      ],
+      "note": "撒丁岛（NUTS L2 ITG2）"
+    },
+    {
+      "region_code": "crete",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "EL43"
+      ],
+      "note": "克里特岛（NUTS L2 EL43）"
+    },
+    {
+      "region_code": "east_macedonia_thrace",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "EL51"
+      ],
+      "note": "希腊东北部（NUTS L2 EL51 东马其顿-色雷斯大区）"
+    },
+    {
+      "region_code": "east_thrace",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TR21"
+      ],
+      "note": "东色雷斯（NUTS L2 TR21 特基尔达-埃迪尔内-克尔克拉雷利；TR22 恰纳卡莱省的欧洲部分加利波利未单列）"
+    },
+    {
+      "region_code": "karelia",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "RUS.26_1",
+        "FI1DC"
+      ],
+      "note": "卡累利阿（GADM 卡累利阿共和国 RUS.26_1 + 芬兰北卡累利阿 FI1DC；卡累利阿地峡在列宁格勒州内未单列）"
+    },
+    {
+      "region_code": "volga",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "RUS.68_1",
+        "RUS.6_1"
+      ],
+      "note": "伏尔加-卡马（GADM 鞑靼斯坦 RUS.68_1 + 巴什科尔托斯坦 RUS.6_1；巴什科尔托斯坦东缘已入亚洲，按整共和国近似）"
     }
   ],
   "religions": [
@@ -6383,6 +7040,20 @@
           "sort": 370,
           "name_en": "Balts",
           "name_zh": "波罗的人"
+        },
+        {
+          "code": "volga_bulgars",
+          "parent": null,
+          "sort": 380,
+          "name_en": "Volga Bulgars",
+          "name_zh": "伏尔加保加尔人"
+        },
+        {
+          "code": "arabs",
+          "parent": null,
+          "sort": 390,
+          "name_en": "Arabs",
+          "name_zh": "阿拉伯人"
         }
       ]
     },
@@ -6682,6 +7353,34 @@
           "sort": 420,
           "name_en": "Montenegrins",
           "name_zh": "黑山人"
+        },
+        {
+          "code": "sardinians",
+          "parent": null,
+          "sort": 430,
+          "name_en": "Sardinians",
+          "name_zh": "撒丁人"
+        },
+        {
+          "code": "karelians",
+          "parent": null,
+          "sort": 440,
+          "name_en": "Karelians",
+          "name_zh": "卡累利阿人"
+        },
+        {
+          "code": "volga_tatars",
+          "parent": null,
+          "sort": 450,
+          "name_en": "Volga Tatars",
+          "name_zh": "伏尔加鞑靼人"
+        },
+        {
+          "code": "turks",
+          "parent": null,
+          "sort": 460,
+          "name_en": "Turks",
+          "name_zh": "土耳其人"
         }
       ]
     }

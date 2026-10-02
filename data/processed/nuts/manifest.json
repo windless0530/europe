@@ -30,35 +30,35 @@
   ],
   "license": "Eurostat GISCO / NUTS：欧盟委员会再利用政策（Commission Decision 2011/833/EU），注明出处即可自由再利用；补齐数据 GADM 4.1：学术与非商业使用免费；禁止再分发与商业使用（需另行授权）",
   "license_url": "https://ec.europa.eu/eurostat/web/main/about/policies/copyright",
-  "retrieved_at": "2026-09-19T06:25:55.117Z",
+  "retrieved_at": "2026-09-19T06:25:55.118Z",
   "files": [
     {
       "path": "data/processed/nuts/regions.geojson",
       "kind": "regions",
-      "features": 1938,
+      "features": 1940,
       "geometry_types": [
         "MultiPolygon"
       ],
-      "bytes": 12915982
+      "bytes": 14302623
     },
     {
       "path": "data/processed/nuts/normalize_stats.json",
       "kind": "other",
       "features": 0,
       "geometry_types": [],
-      "bytes": 2266
+      "bytes": 2846
     }
   ],
   "validation": [
     {
       "source": "nuts",
       "file": "data/processed/nuts/regions.geojson",
-      "total": 1938,
-      "passed": 1938,
+      "total": 1940,
+      "passed": 1940,
       "fixed": 16,
-      "dropped": 54,
+      "dropped": 52,
       "geometry_types": {
-        "MultiPolygon": 1938
+        "MultiPolygon": 1940
       },
       "bounds": [
         -180,
@@ -89,7 +89,7 @@
     "end_year": null,
     "note": "版本型数据：NUTS 2024（vintage 在各要素 source_props.vintage=2024），GADM 4.1 为当前快照（无官方年代标注）；start/end_year 一律 null"
   },
-  "coverage_note": "NUTS 2024 覆盖 39 个国家/地区（EU27 + IS/NO/CH/LI + 候选国 TR/RS/ME/MK/AL/BA/XK + UA），层级 0-3；其中 UA 仅 LEVL 0、BA 至 LEVL 2，其余均至 LEVL 3。\nGADM 4.1 补齐：GBR、MDA、BLR、RUS、AND、MCO、SMR、VAT、FRO、UKR（补 UA admin1）、GEO、ARM、AZE（英国[脱欧]、摩尔多瓦、白俄罗斯、俄罗斯欧洲部分、安道尔、摩纳哥、圣马力诺、梵蒂冈、法罗群岛及高加索三国为 NUTS 缺口；乌克兰为 NUTS 仅国家级、补 admin1 州级）。俄罗斯仅保留与欧洲参考 bbox 相交的 40 余个州/边疆区/共和国，叶尼塞以东的亚洲部分未纳入。\n已按 bbox 过滤：法国海外大区（FRY* 瓜德罗普/马提尼克/法属圭亚那/留尼汪/马约特）与斯瓦尔巴（NO0B2，纬度 74-81N 超出参考范围 73N）。\n对“欧洲各族群分布地图”仍明显缺失：哈萨克斯坦乌拉尔以西部分、北塞浦路斯（NUTS CY 不含）、直布罗陀等英属海外领地（GADM GBR_1 未单列）、马耳他骑士团等虚拟实体；微型国家中摩纳哥/梵蒂冈/圣马力诺仅有国家级要素（GADM admin1 不可用或为空）。\nnormalize 丢弃明细：NUTS bbox 外 12、GADM 脱敏 1、无属性 1、GADM bbox 外 40。",
+  "coverage_note": "NUTS 2024 覆盖 39 个国家/地区（EU27 + IS/NO/CH/LI + 候选国 TR/RS/ME/MK/AL/BA/XK + UA），层级 0-3；其中 UA 仅 LEVL 0、BA 至 LEVL 2，其余均至 LEVL 3。\nGADM 4.1 补齐：GBR、MDA、BLR、RUS、AND、MCO、SMR、VAT、FRO、UKR（补 UA admin1）、GEO、ARM、AZE（英国[脱欧]、摩尔多瓦、白俄罗斯、俄罗斯欧洲部分、安道尔、摩纳哥、圣马力诺、梵蒂冈、法罗群岛及高加索三国为 NUTS 缺口；乌克兰为 NUTS 仅国家级、补 admin1 州级）。俄罗斯仅保留与欧洲参考 bbox 相交的 40 余个州/边疆区/共和国，叶尼塞以东的亚洲部分未纳入。\n已按 bbox 过滤：法国海外大区（FRY* 瓜德罗普/马提尼克/法属圭亚那/留尼汪/马约特）与斯瓦尔巴（NO0B2，纬度 74-81N 超出参考范围 73N）。\n对“欧洲各族群分布地图”仍明显缺失：哈萨克斯坦乌拉尔以西部分、北塞浦路斯（NUTS CY 不含）、直布罗陀等英属海外领地（GADM GBR_1 未单列）、马耳他骑士团等虚拟实体；微型国家中摩纳哥/梵蒂冈/圣马力诺仅有国家级要素（GADM admin1 不可用或为空）。\nnormalize 丢弃明细：NUTS bbox 外 12、GADM 脱敏 1、无属性 1、GADM bbox 外 38。",
   "decisions": [
     "采用 NUTS 2024（最新版），20M 精度、EPSG:4326、LEVL 0-3 全取：原始共约 3MB，远低于 30MB 预算，LEVL 3 也纳入",
     "NUTS 2024 已含 UA/XK/BA（2021 版没有）；英国自 NUTS 2021 起因脱欧移除 -> GADM GBR 补 4 个构成国 + 国界",
@@ -100,7 +100,7 @@
     "GADM 4.1 乌克兰有 1 个脱敏要素（GID/NAME=\"?\"）与 1 个 GBR 全 NA 要素，直接丢弃并计数",
     "乌克兰层级结构：NUTS UA LEVL 0 为国家级（region_code=nuts:ua），GADM UKR admin1（27 州，含克里米亚与塞瓦斯托波尔，GADM 口径）挂在其下",
     "高加索三国 GEO/ARM/AZE 为族群空间代理补国家级边界，不纳入更细行政层级",
-    "GADM 几何保持原始精度未做 turf 简化：产物共约 12.3 MB，在 30MB 预算内",
+    "GADM 几何保持原始精度未做 turf 简化：产物共约 13.6 MB，在 30MB 预算内",
     "GADM license 单独记录：GADM 4.1：学术与非商业使用免费；禁止再分发与商业使用（需另行授权）（https://gadm.org/license.html）——本产物为个人非商业项目使用，若公开分发需重新评估"
   ],
   "open_issues": [

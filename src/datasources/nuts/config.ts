@@ -70,6 +70,13 @@ export function gadmFileName(iso3: string, level: number): string {
   return `gadm${GADM_VERSION.replace(/\./g, '')}_${iso3}_${level}.json.zip`;
 }
 
+/**
+ * 欧洲 bbox 外仍保留的 GADM admin1 白名单（GID_1）：
+ * 伏尔加保加利亚—喀山汗国核心区（鞑靼斯坦/巴什科尔托斯坦）整体落在
+ * bbox 东界之外，但历史图谱细分需要，normalize 阶段跳过 bbox 丢弃。
+ */
+export const GADM_ADMIN1_KEEP = new Set(['RUS.6_1', 'RUS.68_1']);
+
 export function gadmUrl(iso3: string, level: number): string {
   return `${GADM_BASE}/${gadmFileName(iso3, level)}`;
 }

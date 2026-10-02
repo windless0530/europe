@@ -158,6 +158,15 @@
       "notes": "克里米亚半岛（含塞瓦斯托波尔）"
     },
     {
+      "code": "crete",
+      "type": "cultural_region",
+      "name": {
+        "zh": "克里特",
+        "en": "Crete"
+      },
+      "notes": "克里特岛（古希腊—拜占庭—阿拉伯酋长国—威尼斯—奥斯曼）"
+    },
+    {
       "code": "croatia",
       "type": "modern_country",
       "name": {
@@ -183,6 +192,24 @@
         "en": "Denmark"
       },
       "notes": "丹麦现代国界空间代理"
+    },
+    {
+      "code": "east_macedonia_thrace",
+      "type": "cultural_region",
+      "name": {
+        "zh": "东马其顿-色雷斯",
+        "en": "East Macedonia and Thrace"
+      },
+      "notes": "希腊东北部（东马其顿+西色雷斯）：斯拉夫定居带与穆斯林少数族群区"
+    },
+    {
+      "code": "east_thrace",
+      "type": "historical_region",
+      "name": {
+        "zh": "东色雷斯",
+        "en": "East Thrace"
+      },
+      "notes": "土耳其欧洲部分（伊斯坦布尔-埃迪尔内一线）：拜占庭核心区与奥斯曼门户"
     },
     {
       "code": "eastern_europe",
@@ -335,6 +362,15 @@
         "en": "Italy"
       },
       "notes": "意大利半岛及相关历史地区"
+    },
+    {
+      "code": "karelia",
+      "type": "historical_region",
+      "name": {
+        "zh": "卡累利阿",
+        "en": "Karelia"
+      },
+      "notes": "拉多加湖周边卡累利阿人核心区（俄联邦卡累利阿共和国+芬兰北卡累利阿近似）"
     },
     {
       "code": "latvia",
@@ -504,7 +540,16 @@
         "zh": "萨普米（拉普兰）",
         "en": "Sápmi (Lapland)"
       },
-      "notes": "萨普米（挪威北角+瑞典上/中诺尔兰；芬兰拉普兰暂并入芬兰近似）"
+      "notes": "萨普米（挪威北角+瑞典上/中诺尔兰+芬兰拉普兰）"
+    },
+    {
+      "code": "sardinia",
+      "type": "cultural_region",
+      "name": {
+        "zh": "撒丁",
+        "en": "Sardinia"
+      },
+      "notes": "撒丁岛（努拉吉时代以来连续定居的岛屿族群）"
     },
     {
       "code": "scotland",
@@ -523,6 +568,15 @@
         "en": "Serbia"
       },
       "notes": "塞尔维亚现代国界空间代理"
+    },
+    {
+      "code": "sicily",
+      "type": "cultural_region",
+      "name": {
+        "zh": "西西里",
+        "en": "Sicily"
+      },
+      "notes": "西西里岛（大希腊—罗马—拜占庭—阿拉伯—诺曼—意大利）"
     },
     {
       "code": "silesia_pomerania",
@@ -621,7 +675,25 @@
         "zh": "乌克兰",
         "en": "Ukraine"
       },
-      "notes": "乌克兰现代国界空间代理"
+      "notes": "乌克兰中北部各州近似（基辅/切尔尼戈夫/波尔塔瓦等）"
+    },
+    {
+      "code": "ukraine_east",
+      "type": "historical_region",
+      "name": {
+        "zh": "东乌克兰（斯洛博达-顿巴斯）",
+        "en": "Eastern Ukraine (Sloboda-Donbas)"
+      },
+      "notes": "斯洛博达乌克兰与顿巴斯（哈尔科夫/顿涅茨克/卢甘斯克）；1650 年代垦殖前为「荒野」草原"
+    },
+    {
+      "code": "ukraine_south",
+      "type": "historical_region",
+      "name": {
+        "zh": "南乌克兰（新俄罗斯）",
+        "en": "Southern Ukraine (Novorossiya)"
+      },
+      "notes": "黑海北岸殖民带（扎波罗热/第聂伯罗/基洛沃格勒/尼古拉耶夫/赫尔松/敖德萨）；1550 年代塞契之前为「荒野」草原"
     },
     {
       "code": "vandal_kingdom",
@@ -635,6 +707,15 @@
         "en": "Vandal Kingdom"
       },
       "notes": "汪达尔王国"
+    },
+    {
+      "code": "volga",
+      "type": "historical_region",
+      "name": {
+        "zh": "伏尔加-卡马",
+        "en": "Volga-Kama"
+      },
+      "notes": "伏尔加保加利亚—喀山汗国核心区（鞑靼斯坦+巴什科尔托斯坦近似）"
     },
     {
       "code": "wales",
@@ -688,11 +769,29 @@
     {
       "region": "italy",
       "source": "nuts",
-      "type": "l0_country",
+      "type": "source_id",
       "values": [
-        "IT"
+        "ITC1",
+        "ITC2",
+        "ITC3",
+        "ITC4",
+        "ITF1",
+        "ITF2",
+        "ITF3",
+        "ITF4",
+        "ITF5",
+        "ITF6",
+        "ITH1",
+        "ITH2",
+        "ITH3",
+        "ITH4",
+        "ITH5",
+        "ITI1",
+        "ITI2",
+        "ITI3",
+        "ITI4"
       ],
-      "note": "近似为现代意大利"
+      "note": "意大利大陆 NUTS L2 ×19（西北 4+南部 6+东北 5+中部 4；西西里 ITG1/撒丁 ITG2 另设）"
     },
     {
       "region": "balkans",
@@ -1014,11 +1113,21 @@
     {
       "region": "greece",
       "source": "nuts",
-      "type": "l0_country",
+      "type": "source_id",
       "values": [
-        "EL"
+        "EL30",
+        "EL41",
+        "EL42",
+        "EL52",
+        "EL53",
+        "EL54",
+        "EL61",
+        "EL62",
+        "EL63",
+        "EL64",
+        "EL65"
       ],
-      "note": "以现代希腊国界近似"
+      "note": "希腊主体 NUTS L2 ×11（阿提卡/爱琴群岛/中-西马其顿/伊庇鲁斯/中部/伊奥尼亚/西希腊/斯泰里亚/伯罗奔尼撒；克里特 EL43 与东马其顿-色雷斯 EL51 另设）"
     },
     {
       "region": "albania",
@@ -1047,22 +1156,38 @@
         "UKR.10_1",
         "UKR.11_1",
         "UKR.12_1",
-        "UKR.13_1",
-        "UKR.15_1",
-        "UKR.16_1",
-        "UKR.17_1",
         "UKR.18_1",
         "UKR.2_1",
         "UKR.21_1",
         "UKR.24_1",
-        "UKR.26_1",
-        "UKR.27_1",
-        "UKR.5_1",
+        "UKR.27_1"
+      ],
+      "note": "以乌克兰中北部各州（GADM L1 ×9）近似"
+    },
+    {
+      "region": "ukraine_east",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "UKR.15_1",
         "UKR.6_1",
-        "UKR.8_1",
+        "UKR.8_1"
+      ],
+      "note": "哈尔科夫/顿涅茨克/卢甘斯克（GADM L1 ×3）"
+    },
+    {
+      "region": "ukraine_south",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "UKR.13_1",
+        "UKR.16_1",
+        "UKR.17_1",
+        "UKR.26_1",
+        "UKR.5_1",
         "UKR.9_1"
       ],
-      "note": "以乌克兰中部/东部各州（GADM L1 ×18）近似"
+      "note": "扎波罗热/第聂伯罗/基洛沃格勒/尼古拉耶夫/赫尔松/敖德萨（GADM L1 ×6）"
     },
     {
       "region": "belarus",
@@ -1328,9 +1453,10 @@
       "values": [
         "NO07",
         "SE32",
-        "SE33"
+        "SE33",
+        "FI1D7"
       ],
-      "note": "萨普米（挪威北角 NO07 + 瑞典上/中诺尔兰 SE32/33；芬兰拉普兰暂并入芬兰近似）"
+      "note": "萨普米（挪威北角 NO07 + 瑞典上/中诺尔兰 SE32/33 + 芬兰拉普兰 FI1D7）"
     },
     {
       "region": "old_saxony",
@@ -1437,6 +1563,71 @@
         "ME"
       ],
       "note": "黑山"
+    },
+    {
+      "region": "sicily",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "ITG1"
+      ],
+      "note": "西西里岛（NUTS L2 ITG1）"
+    },
+    {
+      "region": "sardinia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "ITG2"
+      ],
+      "note": "撒丁岛（NUTS L2 ITG2）"
+    },
+    {
+      "region": "crete",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "EL43"
+      ],
+      "note": "克里特岛（NUTS L2 EL43）"
+    },
+    {
+      "region": "east_macedonia_thrace",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "EL51"
+      ],
+      "note": "希腊东北部（NUTS L2 EL51 东马其顿-色雷斯大区）"
+    },
+    {
+      "region": "east_thrace",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TR21"
+      ],
+      "note": "东色雷斯（NUTS L2 TR21 特基尔达-埃迪尔内-克尔克拉雷利；TR22 恰纳卡莱省的欧洲部分加利波利未单列）"
+    },
+    {
+      "region": "karelia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "RUS.26_1",
+        "FI1DC"
+      ],
+      "note": "卡累利阿（GADM 卡累利阿共和国 RUS.26_1 + 芬兰北卡累利阿 FI1DC；卡累利阿地峡在列宁格勒州内未单列）"
+    },
+    {
+      "region": "volga",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "RUS.68_1",
+        "RUS.6_1"
+      ],
+      "note": "伏尔加-卡马（GADM 鞑靼斯坦 RUS.68_1 + 巴什科尔托斯坦 RUS.6_1；巴什科尔托斯坦东缘已入亚洲，按整共和国近似）"
     }
   ]
 }

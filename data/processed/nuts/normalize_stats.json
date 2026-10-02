@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T06:26:03.880Z",
+  "generated_at": "2026-10-02T11:07:49.205Z",
   "nuts": {
     "kept": 1786,
     "dropped_outside_europe": [
@@ -18,7 +18,7 @@
     ]
   },
   "gadm": {
-    "kept": 152,
+    "kept": 154,
     "dropped_masked": [
       "UKR L1 要素（GADM 脱敏\"?\"）"
     ],
@@ -29,7 +29,6 @@
       "RUS.2_1 Altay",
       "RUS.3_1 Amur",
       "RUS.5_1 Astrakhan'",
-      "RUS.6_1 Bashkortostan",
       "RUS.9_1 Buryat",
       "RUS.11_1 Chelyabinsk",
       "RUS.12_1 Chukot",
@@ -57,7 +56,6 @@
       "RUS.61_1 Sakhalin",
       "RUS.62_1 Samara",
       "RUS.66_1 Sverdlovsk",
-      "RUS.68_1 Tatarstan",
       "RUS.69_1 Tomsk",
       "RUS.71_1 Tuva",
       "RUS.73_1 Tyumen'",
@@ -89,14 +87,14 @@
   "dropped_geometry_bad": [],
   "level_counts": {
     "0": 51,
-    "1": 254,
+    "1": 256,
     "2": 294,
     "3": 1339
   },
   "origin_counts": {
     "nuts": 1786,
-    "gadm": 152
+    "gadm": 154
   },
-  "regions_geojson_bytes": 12915982,
+  "regions_geojson_bytes": 14302623,
   "winding_fixed": 2
 }

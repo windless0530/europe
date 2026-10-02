@@ -225,6 +225,20 @@
       "notes": "意大利语。"
     },
     {
+      "code": "karelian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1200,
+        null
+      ],
+      "name": {
+        "zh": "卡累利阿语",
+        "en": "Karelian"
+      },
+      "notes": "卡累利阿语（13 世纪诺夫哥罗德桦皮文书首见记载）。"
+    },
+    {
       "code": "latin",
       "type": "ancient",
       "status": "transformed",
@@ -365,6 +379,20 @@
       "notes": "俄语。"
     },
     {
+      "code": "sardinian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        800,
+        null
+      ],
+      "name": {
+        "zh": "撒丁语",
+        "en": "Sardinian"
+      },
+      "notes": "撒丁语（罗曼语族最保守一支，自通俗拉丁语分化）。"
+    },
+    {
       "code": "spanish",
       "type": "modern",
       "status": "extant",
@@ -391,6 +419,34 @@
         "en": "Swedish"
       },
       "notes": "瑞典语。"
+    },
+    {
+      "code": "tatar",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1240,
+        null
+      ],
+      "name": {
+        "zh": "鞑靼语",
+        "en": "Tatar"
+      },
+      "notes": "伏尔加鞑靼语（钦察语支）。"
+    },
+    {
+      "code": "turkish",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1369,
+        null
+      ],
+      "name": {
+        "zh": "土耳其语",
+        "en": "Turkish"
+      },
+      "notes": "土耳其语（奥斯曼土耳其语—现代标准语）。"
     },
     {
       "code": "ukrainian",

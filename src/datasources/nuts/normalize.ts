@@ -39,6 +39,7 @@ import {
   NUTS_YEAR,
   GADM_VERSION,
   GADM_COUNTRIES,
+  GADM_ADMIN1_KEEP,
   EUROPE_BBOX,
   NAME_OVERRIDES,
   restoreGadmSpaces,
@@ -223,7 +224,7 @@ export async function runNormalize(): Promise<NormalizeStats> {
           stats.dropped_geometry_bad.push(`${gid1} 几何非多边形`);
           continue;
         }
-        if (!anyVertexInBbox(f.geometry, EUROPE_BBOX)) {
+        if (!GADM_ADMIN1_KEEP.has(gid1) && !anyVertexInBbox(f.geometry, EUROPE_BBOX)) {
           stats.gadm.dropped_outside_europe.push(`${gid1} ${p.NAME_1 ?? ''}`.trim());
           continue;
         }

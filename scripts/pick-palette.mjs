@@ -1,7 +1,10 @@
-// 调色板扩展选择器：以现有 8 色为种子，从候选池贪心补足 16 色，
-// 最大化相邻色对的最小距离（正常视觉 OKLab ΔE ×100 + 二色视觉模拟后 ΔE）。
-// dataviz 规范：正常 ≥15、CVD ≥8（×100 制）。输出 light/dark 两套。
-// 用法：node scripts/pick-palette.mjs
+// 调色板构造库：OKLab 色彩数学 + Machado 二色模拟 + 结构化色环网格。
+// 被 scripts/palette-tune.ts 引用（构造候选池与初序）；直接运行则打印初序数组。
+//
+// 构造：HUE_N 色相 × 3 明度全格点（66 色 @22 色相）。抽象全对下限：
+// 同色相 ΔL0.14 → ΔE≥14；相邻色相同明度 ≈4（弱）——由 palette-tune.ts 按
+// 实际「同年同屏」槽对爬山排序，弱对被排进永不共现的槽位。
+// 用法：node scripts/pick-palette.mjs [色相数=22]
 
 // ---------- 色彩数学（sRGB -> OKLab） ----------
 const srgbToLinear = (c) => {
@@ -12,10 +15,10 @@ const linearToSrgb = (v) => {
   const c = v <= 0.0031308 ? v * 12.92 : 1.055 * Math.pow(v, 1 / 2.4) - 0.055;
   return Math.round(Math.min(1, Math.max(0, c)) * 255);
 };
-const hexToRgb = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
-const rgbToHex = ([r, g, b]) => '#' + [r, g, b].map((x) => x.toString(16).padStart(2, '0')).join('');
+export const hexToRgb = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+export const rgbToHex = ([r, g, b]) => '#' + [r, g, b].map((x) => Math.round(x).toString(16).padStart(2, '0')).join('');
 
-function rgbToOklab(rgb) {
+export function rgbToOklab(rgb) {
   const [lr, lg, lb] = rgb.map(srgbToLinear);
   const l = 0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb;
   const m = 0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb;
@@ -27,7 +30,7 @@ function rgbToOklab(rgb) {
     0.0259040371 * l_ + 0.7827717662 * m_ - 0.808675766 * s_,
   ];
 }
-function oklabToRgb([L, a, b]) {
+export function oklabToRgb([L, a, b]) {
   const l_ = L + 0.3963377774 * a + 0.2158037573 * b;
   const m_ = L - 0.1055613458 * a - 0.0638541728 * b;
   const s_ = L - 0.0894841775 * a - 1.291485548 * b;
@@ -61,8 +64,7 @@ const simCvd = (rgb, m) => {
 
 const DE = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]) * 100;
 
-/** 全色对最小距离：正常 + 两种二色视觉 */
-function pairScores(hexA, hexB) {
+export function pairScores(hexA, hexB) {
   const a = hexToRgb(hexA), b = hexToRgb(hexB);
   return {
     normal: DE(rgbToOklab(a), rgbToOklab(b)),
@@ -71,98 +73,91 @@ function pairScores(hexA, hexB) {
   };
 }
 
-// ---------- 候选与选择 ----------
-const SEED = []; // 旧 8 色含 CVD 3.3 坏对，不作种子
-// 地图调色板与图表序列不同：全对可分辨受色度学上限约束（12+ 色无法全对 ΔE≥15）。
-// 策略：正常视觉 ΔE 与表面反差优先，CVD 以 1.33 权重放宽到 ~7.5 目标
-//（谱系树/hover 提供完整次级标识，符合 6–8 地板 + 次级编码条款），
-// 残余同年同色碰撞由槽位周期（palette 长度）经验扫描决定。
-const SURFACE_LIGHT = '#ecebe7';
-const pool = new Set();
-for (let deg = 0; deg < 360; deg += 11.25) {
-  for (const L of [0.48, 0.58, 0.68]) {
-    for (const C of [0.1, 0.16]) {
-      const rad = (deg * Math.PI) / 180;
-      pool.add(rgbToHex(oklabToRgb([L, C * Math.cos(rad), C * Math.sin(rad)])));
+/** 槽对得分：正常 ΔE 与 CVD ΔE×1.33 取小（与 dataviz 6–8 地板 + 次级编码条款一致） */
+export const pairScore = (hexA, hexB) => {
+  const p = pairScores(hexA, hexB);
+  return Math.min(p.normal, Math.min(p.protan, p.deutan) * 1.33);
+};
+/** 仅正常视觉距离（池准入用：CVD 相近的色可留给调优器排进不共现槽） */
+export const pairScoreNormal = (hexA, hexB) => pairScores(hexA, hexB).normal;
+
+// ---------- 结构化候选池：HUE_N 色相 × 3 明度 × 2 色度，互距过滤 ----------
+// 均匀色相采样在暖色低明度区（棕/橄榄）会产生近重复色（ΔE 2-4），
+// 故池先按「质量序扫描 + 互距 ≥ FILTER 地板」过滤，再交给 palette-tune 选排。
+export const SURFACE_LIGHT = '#ecebe7';
+export function buildPool(hueN = 22, filter = 8) {
+  const LS = [0.38, 0.48, 0.58, 0.68, 0.78];
+  const CS = [0.09, 0.15, 0.21];
+  const raw = [];
+  for (let i = 0; i < hueN; i++) {
+    const deg = (360 / hueN) * i;
+    const rad = (deg * Math.PI) / 180;
+    for (const L of LS) {
+      for (const C of CS) raw.push(rgbToHex(oklabToRgb([L, C * Math.cos(rad), C * Math.sin(rad)])));
     }
   }
-}
-
-const scoreOf = (cand, set) => {
-  let worst = Infinity;
-  for (const s of set) {
-    const p = pairScores(cand, s);
-    worst = Math.min(worst, p.normal, Math.min(p.protan, p.deutan) * 1.33);
+  // 锚点：离经典蓝最近，保持既有蓝色主调观感
+  let anchor = null, anchorScore = -Infinity;
+  for (const c of raw) {
+    const s = -pairScoreNormal(c, '#2a78d6');
+    if (s > anchorScore) { anchorScore = s; anchor = c; }
   }
-  return worst;
-};
+  const admitted = [anchor];
+  const rest = new Set(raw.filter((c) => c !== anchor));
+  // 贪心 max-min 扫描（准入只看正常视觉 ΔE：CVD 相近的色可留给调优器排进不共现槽）
+  while (rest.size > 0) {
+    let best = null, bestScore = -Infinity;
+    for (const c of rest) {
+      let worst = Infinity;
+      for (const a of [...admitted, SURFACE_LIGHT]) worst = Math.min(worst, pairScoreNormal(c, a));
+      if (worst > bestScore) { bestScore = worst; best = c; }
+    }
+    if (bestScore < filter) break;
+    admitted.push(best);
+    rest.delete(best);
+  }
+  return admitted;
+}
+/** 兼容旧名 */
+export const buildWheel = (hueN = 22) => buildPool(hueN);
 
-function pickN(n, surface) {
-  const picked = [];
-  const hueOf = (hex) => {
-    const [L, a, b] = rgbToOklab(hexToRgb(hex));
-    return { h: (Math.atan2(b, a) * 180) / Math.PI, L };
-  };
-  // 锚点：最接近经典蓝的候选，保持既有蓝色主调观感
+/** 初序：贪心 max-min（含表面色），锚定经典蓝主调 */
+export function initialOrder(wheel) {
   let anchor = null, anchorD = Infinity;
-  for (const c of pool) {
+  for (const c of wheel) {
     const d = DE(rgbToOklab(hexToRgb(c)), rgbToOklab(hexToRgb('#2a78d6')));
     if (d < anchorD) { anchorD = d; anchor = c; }
   }
-  picked.push(anchor);
-  const localPool = new Set([...pool].filter((c) => c !== anchor));
-  while (picked.length < n) {
+  const ordered = [anchor];
+  const rest = new Set(wheel.filter((c) => c !== anchor));
+  while (rest.size > 0) {
     let best = null, bestScore = -1;
-    for (const c of localPool) {
-      const ch = hueOf(c);
-      // 扇区约束：每 45° 色相扇区至多 2 色；同扇区第二色须与首色明度差 >= 0.12
-      const sector = Math.floor(((ch.h + 360) % 360) / 45);
-      const inSector = picked.filter((p) => Math.floor(((hueOf(p).h + 360) % 360) / 45) === sector);
-      if (inSector.length >= 2) continue;
-      if (inSector.length === 1 && Math.abs(hueOf(inSector[0]).L - ch.L) < 0.12) continue;
-      const score = scoreOf(c, [...picked, surface]);
-      if (score > bestScore) { bestScore = score; best = c; }
+    for (const c of rest) {
+      let worst = Infinity;
+      for (const s of [...ordered, SURFACE_LIGHT]) worst = Math.min(worst, pairScore(c, s));
+      if (worst > bestScore) { bestScore = worst; best = c; }
     }
-    if (best === null) {
-      // 扇区约束无解时退化为无约束最优，保证收敛
-      for (const c of localPool) {
-        const score = scoreOf(c, [...picked, surface]);
-        if (score > bestScore) { bestScore = score; best = c; }
-      }
-    }
-    picked.push(best);
-    localPool.delete(best);
+    ordered.push(best);
+    rest.delete(best);
   }
-  return picked;
+  return ordered;
 }
 
-// ---------- dark 变体：L 提升约 0.06 ----------
-const darken = (hex) => {
+/** dark 变体：L + 0.06（封顶 0.80），C × 0.92 */
+export const darken = (hex) => {
   const lab = rgbToOklab(hexToRgb(hex));
-  return rgbToHex(oklabToRgb([Math.min(0.82, lab[0] + 0.06), lab[1] * 0.92, lab[2] * 0.92]));
+  return rgbToHex(oklabToRgb([Math.min(0.8, lab[0] + 0.06), lab[1] * 0.92, lab[2] * 0.92]));
 };
 
-// ---------- 报告 ----------
-const report = (name, arr) => {
-  console.log(`\nconst ${name} = ['${arr.join("', '")}'];`);
-  const pairs = [];
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      const p = pairScores(arr[i], arr[j]);
-      pairs.push({ a: arr[i], b: arr[j], ...p, cvd: Math.min(p.protan, p.deutan) });
-    }
+// ---------- CLI：打印初序（实际采用值以 palette-tune.ts 输出为准） ----------
+if (process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).href) {
+  const hueN = Number(process.argv[2] ?? 22);
+  const light = initialOrder(buildWheel(hueN));
+  const dark = light.map(darken);
+  for (const [name, arr] of [['CATEGORICAL_LIGHT', light], ['CATEGORICAL_DARK', dark]]) {
+    console.log(`const ${name} = [`);
+    for (let i = 0; i < arr.length; i += 6) console.log('  ' + arr.slice(i, i + 6).map((c) => `'${c}',`).join(' '));
+    console.log('];');
   }
-  pairs.sort((x, y) => x.normal - y.normal);
-  console.log(`${name} 最差 5 对（正常ΔE / CVDΔE）: ${pairs.slice(0, 5).map((p) => `${p.a}vs${p.b} ${p.normal.toFixed(1)}/${p.cvd.toFixed(1)}`).join(' | ')}`);
-};
-// 最终采用：Okabe-Ito + Tol muted（均为 CVD 专业设计）家族手工精选 16 色，
-// 相似色相在序列中拉开距离；残余弱对由「同年共现碰撞扫描」把关。
-const CURATED = ['#0072B2', '#E69F00', '#009E73', '#CC79A7', '#56B4E9', '#D55E00', '#332288', '#999933',
-  '#88CCEE', '#117733', '#AA4499', '#8C6D31', '#882255', '#5F7C8A'];
-const DARK_CURATED = ['#4C93D6', '#F2A950', '#2FAE85', '#D68BB6', '#6FB9E8', '#E07839', '#5A4FA8', '#A6A64A',
-  '#B7DDEA', '#2E8B4A', '#BE62AF', '#A08250', '#A5456F', '#7394A2'];
-report('CURATED_LIGHT', CURATED);
-report('CURATED_DARK', DARK_CURATED);
-if (process.argv[2] === 'greedy') {
-  report('GREEDY16', pickN(16, SURFACE_LIGHT));
+  console.error('（初序仅供参照；实际调色板由 scripts/palette-tune.ts 按实际共现槽对调优后写入 atlas.ts）');
 }

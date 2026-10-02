@@ -212,6 +212,96 @@
       ]
     },
     {
+      "code": "arabs_crete",
+      "type": "medieval",
+      "status": "transformed",
+      "lifespan": [
+        824,
+        961
+      ],
+      "name": {
+        "zh": "克里特阿拉伯人",
+        "en": "Arabs of Crete"
+      },
+      "brief": {
+        "zh": "克里特酋长国（824–961）的阿拉伯—安达卢斯移民。",
+        "en": "Arab-Andalusi settlers of the Emirate of Crete (824-961)."
+      },
+      "notes": "安达卢斯流亡者 824 年占克里特岛建酋长国（汉达克/ Chandax），以海盗基地著称；961 年尼基弗鲁斯二世收复。",
+      "religions": [
+        {
+          "religion": "islam",
+          "role": "dominant",
+          "years": [
+            824,
+            961
+          ]
+        }
+      ],
+      "classification": {
+        "historical_people": [
+          "arabs"
+        ]
+      },
+      "slices": [
+        {
+          "region": "crete",
+          "presence": "political_control",
+          "years": [
+            824,
+            961
+          ],
+          "priority": 80,
+          "notes": "克里特酋长国（824–961，首府汉达克）"
+        }
+      ]
+    },
+    {
+      "code": "arabs_sicily",
+      "type": "medieval",
+      "status": "transformed",
+      "lifespan": [
+        827,
+        1091
+      ],
+      "name": {
+        "zh": "西西里阿拉伯人",
+        "en": "Arabs of Sicily"
+      },
+      "brief": {
+        "zh": "西西里酋长国（831–1091）的阿拉伯—柏柏尔统治集团。",
+        "en": "Arab-Berber rulers of the Emirate of Sicily (831-1091)."
+      },
+      "notes": "827 年阿格拉布远征军登陆马扎拉，902 年全岛征服，948 年卡尔比德王朝定都巴勒莫；1091 年诺曼人完成收复。",
+      "religions": [
+        {
+          "religion": "islam",
+          "role": "dominant",
+          "years": [
+            827,
+            1091
+          ]
+        }
+      ],
+      "classification": {
+        "historical_people": [
+          "arabs"
+        ]
+      },
+      "slices": [
+        {
+          "region": "sicily",
+          "presence": "political_control",
+          "years": [
+            827,
+            1091
+          ],
+          "priority": 80,
+          "notes": "西西里酋长国（831–1091；827 年始征服，902 年全岛）"
+        }
+      ]
+    },
+    {
       "code": "armenians",
       "type": "modern",
       "status": "extant",
@@ -2145,7 +2235,7 @@
       "type": "modern",
       "status": "extant",
       "lifespan": [
-        700,
+        -800,
         null
       ],
       "name": {
@@ -2153,10 +2243,10 @@
         "en": "Greeks"
       },
       "brief": {
-        "zh": "现代希腊族群。",
-        "en": "The modern Greek people."
+        "zh": "自古希腊城邦时代延续至今的希腊语族群。",
+        "en": "The Greek people, continuous from the Archaic city-states to today."
       },
-      "notes": "现代希腊族群。",
+      "notes": "希腊人：自古风时代起连续的希腊语族群；西西里/克里特的殖民地—拜占庭链条单独设片，安纳托利亚主体不在本图范围。",
       "languages": [
         {
           "language": "greek",
@@ -2173,7 +2263,29 @@
       },
       "slices": [
         {
-          "region": "greece",
+          "region": "crete",
+          "presence": "settlement",
+          "years": [
+            -800,
+            824
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "克里特（多利安希腊城邦—罗马—拜占庭，至 824 年阿拉伯征服）"
+        },
+        {
+          "region": "crete",
+          "presence": "homeland",
+          "years": [
+            961,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "961 年尼基弗鲁斯二世收复后的希腊—威尼斯—奥斯曼希腊裔族群连续"
+        },
+        {
+          "region": "east_macedonia_thrace",
           "presence": "homeland",
           "years": [
             700,
@@ -2181,7 +2293,40 @@
           ],
           "priority": 70,
           "confidence": "medium",
-          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+          "notes": "拜占庭希腊裔（斯拉夫定居期由更高优先级的斯拉夫片覆盖，700 年起持续）"
+        },
+        {
+          "region": "east_thrace",
+          "presence": "homeland",
+          "years": [
+            700,
+            1369
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "色雷斯希腊裔（君士坦丁堡—阿德里安堡腹地；1369 年奥斯曼迁都后渐为土耳其人主导）"
+        },
+        {
+          "region": "greece",
+          "presence": "homeland",
+          "years": [
+            -800,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "古希腊—罗马—拜占庭—现代连续空间近似；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "sicily",
+          "presence": "settlement",
+          "years": [
+            -735,
+            827
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "大希腊（纳克索斯建城 -735）—罗马—拜占庭的西西里希腊裔，至 827 年阿拉伯征服始"
         }
       ]
     },
@@ -2428,6 +2573,17 @@
           "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
         },
         {
+          "region": "sicily",
+          "presence": "homeland",
+          "years": [
+            1091,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "诺曼征服完成（1091）后的拉丁—意大利化西西里"
+        },
+        {
           "region": "ticino",
           "presence": "settlement",
           "years": [
@@ -2490,6 +2646,61 @@
           "priority": 60,
           "confidence": "low",
           "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        }
+      ]
+    },
+    {
+      "code": "karelians",
+      "type": "medieval",
+      "status": "extant",
+      "lifespan": [
+        800,
+        null
+      ],
+      "name": {
+        "zh": "卡累利阿人",
+        "en": "Karelians"
+      },
+      "brief": {
+        "zh": "拉多加湖周边的东正教芬兰语族族群。",
+        "en": "Orthodox Finnic people of the Ladoga region."
+      },
+      "notes": "卡累利阿人：东正教芬兰语族，13 世纪起为诺夫哥罗德与瑞典分治，今俄联邦卡累利阿共和国为聚居核心。",
+      "languages": [
+        {
+          "language": "karelian",
+          "role": "native"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "eastern_orthodoxy",
+          "role": "dominant",
+          "years": [
+            1227,
+            null
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "finnic"
+        ],
+        "modern_ethnicity": [
+          "karelians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "karelia",
+          "presence": "homeland",
+          "years": [
+            800,
+            null
+          ],
+          "priority": 65,
+          "confidence": "medium",
+          "notes": "卡累利阿（俄联邦卡累利阿共和国+芬兰北卡累利阿近似；卡累利阿地峡未单列）"
         }
       ]
     },
@@ -3592,6 +3803,28 @@
           "priority": 70,
           "confidence": "medium",
           "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "ukraine_east",
+          "presence": "minority",
+          "years": [
+            1870,
+            null
+          ],
+          "priority": 40,
+          "confidence": "high",
+          "notes": "顿巴斯工业化移民潮（1870s–）；2001 年普查俄族占比：顿涅茨克 38.2%、卢甘斯克 39.1%、哈尔科夫 25.6%（哈尔科夫 1654 建城即有俄驻军，此切片自工业化浪潮起算）"
+        },
+        {
+          "region": "ukraine_south",
+          "presence": "minority",
+          "years": [
+            1774,
+            null
+          ],
+          "priority": 40,
+          "confidence": "high",
+          "notes": "新俄罗斯殖民（1774 年和约后叶卡捷琳娜二世招募俄/塞尔维亚/德意志殖民者）；2001 年普查俄族占比约 14–21%（敖德萨最高 20.7%）"
         }
       ]
     },
@@ -3705,6 +3938,61 @@
           "priority": 60,
           "confidence": "medium",
           "notes": "旧萨克森部落联盟—萨克森公国（772–804 萨克森战争后并入法兰克）"
+        }
+      ]
+    },
+    {
+      "code": "sardinians",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        -500,
+        null
+      ],
+      "name": {
+        "zh": "撒丁人",
+        "en": "Sardinians"
+      },
+      "brief": {
+        "zh": "努拉吉时代以来持续至今的岛屿族群，操罗曼语族撒丁语。",
+        "en": "Island people continuous since the Nuragic era, speaking Sardinian (Romance)."
+      },
+      "notes": "撒丁人：青铜时代努拉吉文化以来连续定居，历经罗马/汪达尔/拜占庭/裁定官时代/阿拉贡统治而未被同化，语言属罗曼语族最古一层。",
+      "languages": [
+        {
+          "language": "sardinian",
+          "role": "native"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "catholicism",
+          "role": "dominant",
+          "years": [
+            400,
+            null
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "romance"
+        ],
+        "modern_ethnicity": [
+          "sardinians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "sardinia",
+          "presence": "homeland",
+          "years": [
+            -500,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "撒丁岛（-500 起以努拉吉部落社会为锚点，持续至今）"
         }
       ]
     },
@@ -3824,6 +4112,17 @@
           "priority": 60,
           "confidence": "low",
           "notes": "西斯拉夫部落迁入波希米亚盆地（捷克人前身）"
+        },
+        {
+          "region": "east_macedonia_thrace",
+          "presence": "settlement",
+          "years": [
+            600,
+            1000
+          ],
+          "priority": 75,
+          "confidence": "medium",
+          "notes": "斯拉夫温德/斯克拉维尼亚定居带（塞萨洛尼基周边，拜占庭再征服后逐步希腊化）"
         },
         {
           "region": "eastern_europe",
@@ -4171,6 +4470,61 @@
       ]
     },
     {
+      "code": "tatars",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1240,
+        null
+      ],
+      "name": {
+        "zh": "伏尔加鞑靼人",
+        "en": "Volga Tatars"
+      },
+      "brief": {
+        "zh": "金帐汗国框架下形成的伊斯兰突厥族群，伏尔加保加利亚继承者。",
+        "en": "Muslim Turkic people formed under the Golden Horde, heirs of Volga Bulgaria."
+      },
+      "notes": "喀山鞑靼人：1240 年蒙古征服后与保加尔遗民融合形成，喀山汗国（1438–1552）主体，1552 年后为俄国属民，今鞑靼斯坦共和国主体。",
+      "languages": [
+        {
+          "language": "tatar",
+          "role": "native"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "islam",
+          "role": "dominant",
+          "years": [
+            1240,
+            null
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "kipchak"
+        ],
+        "modern_ethnicity": [
+          "volga_tatars"
+        ]
+      },
+      "slices": [
+        {
+          "region": "volga",
+          "presence": "homeland",
+          "years": [
+            1240,
+            null
+          ],
+          "priority": 75,
+          "confidence": "medium",
+          "notes": "金帐汗国—喀山汗国—俄国治下（1552 年后为少数族群地位）"
+        }
+      ]
+    },
+    {
       "code": "thracians",
       "type": "ancient",
       "status": "transformed",
@@ -4244,6 +4598,61 @@
       ]
     },
     {
+      "code": "turks",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        1369,
+        null
+      ],
+      "name": {
+        "zh": "土耳其人",
+        "en": "Turks"
+      },
+      "brief": {
+        "zh": "奥斯曼土耳其人，1369 年定都埃迪尔内后经营东色雷斯。",
+        "en": "Ottoman Turks, ruling Eastern Thrace from the Edirne era (1369)."
+      },
+      "notes": "奥斯曼土耳其人 1354 年起进入色雷斯，1369 年迁都阿德里安堡（埃迪尔内）；本图仅覆盖欧洲侧东色雷斯，安纳托利亚主体不在范围。",
+      "languages": [
+        {
+          "language": "turkish",
+          "role": "native"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "islam",
+          "role": "dominant",
+          "years": [
+            1369,
+            null
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "oghuz"
+        ],
+        "modern_ethnicity": [
+          "turks"
+        ]
+      },
+      "slices": [
+        {
+          "region": "east_thrace",
+          "presence": "homeland",
+          "years": [
+            1369,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "东色雷斯（1354–1369 奥斯曼征服；1923 人口交换后希腊裔基本迁出伊斯坦布尔以外）"
+        }
+      ]
+    },
+    {
       "code": "ukrainians",
       "type": "modern",
       "status": "extant",
@@ -4293,6 +4702,28 @@
           "priority": 70,
           "confidence": "medium",
           "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "ukraine_east",
+          "presence": "homeland",
+          "years": [
+            1650,
+            null
+          ],
+          "priority": 65,
+          "confidence": "medium",
+          "notes": "斯洛博达乌克兰哥萨克团（奥斯特罗戈斯克团 1652、哈尔科夫 1654–56）；此前为「荒野」草原，与顿河哥萨克、克里米亚汗国游牧势力交错"
+        },
+        {
+          "region": "ukraine_south",
+          "presence": "homeland",
+          "years": [
+            1550,
+            null
+          ],
+          "priority": 65,
+          "confidence": "medium",
+          "notes": "扎波罗热塞契（1550 年代第聂伯河滩区）；黑海北岸大规模垦殖 1750s–90s（新塞尔维亚 1752、敖德萨 1794）"
         }
       ]
     },
@@ -4376,6 +4807,58 @@
           "priority": 60,
           "confidence": "medium",
           "notes": "卢吉伊人—汪达尔人（普热沃斯克文化）；406 年渡莱茵西迁后余部滞留至 5 世纪中期"
+        }
+      ]
+    },
+    {
+      "code": "volga_bulgars",
+      "type": "medieval",
+      "status": "transformed",
+      "lifespan": [
+        937,
+        1240
+      ],
+      "name": {
+        "zh": "伏尔加保加尔人",
+        "en": "Volga Bulgars"
+      },
+      "brief": {
+        "zh": "伏尔加-卡马河的突厥语族群及其商业国家（937–1240）。",
+        "en": "Turkic people and trading state on the Volga-Kama (937-1240)."
+      },
+      "notes": "伏尔加保加利亚：9 世纪末自多瑙流域迁来的保加尔人建，921/922 年皈依伊斯兰，以博尔加尔/比拉尔为枢纽掌控伏尔加商路；1236–1240 年蒙古征服后融入金帐—喀山鞑靼人。",
+      "religions": [
+        {
+          "religion": "islam",
+          "role": "dominant",
+          "years": [
+            922,
+            1240
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          {
+            "node": "turkic",
+            "confidence": "medium"
+          }
+        ],
+        "historical_people": [
+          "volga_bulgars"
+        ]
+      },
+      "slices": [
+        {
+          "region": "volga",
+          "presence": "political_control",
+          "years": [
+            937,
+            1240
+          ],
+          "priority": 80,
+          "confidence": "medium",
+          "notes": "伏尔加保加利亚（鞑靼斯坦+巴什科尔托斯坦近似；史料纪年 922 皈依/937 建国两说）"
         }
       ]
     },

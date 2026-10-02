@@ -518,6 +518,22 @@
             "zh": "波罗的人",
             "en": "Balts"
           }
+        },
+        {
+          "code": "volga_bulgars",
+          "sort": 380,
+          "name": {
+            "zh": "伏尔加保加尔人",
+            "en": "Volga Bulgars"
+          }
+        },
+        {
+          "code": "arabs",
+          "sort": 390,
+          "name": {
+            "zh": "阿拉伯人",
+            "en": "Arabs"
+          }
         }
       ]
     },
@@ -860,6 +876,38 @@
           "name": {
             "zh": "黑山人",
             "en": "Montenegrins"
+          }
+        },
+        {
+          "code": "sardinians",
+          "sort": 430,
+          "name": {
+            "zh": "撒丁人",
+            "en": "Sardinians"
+          }
+        },
+        {
+          "code": "karelians",
+          "sort": 440,
+          "name": {
+            "zh": "卡累利阿人",
+            "en": "Karelians"
+          }
+        },
+        {
+          "code": "volga_tatars",
+          "sort": 450,
+          "name": {
+            "zh": "伏尔加鞑靼人",
+            "en": "Volga Tatars"
+          }
+        },
+        {
+          "code": "turks",
+          "sort": 460,
+          "name": {
+            "zh": "土耳其人",
+            "en": "Turks"
           }
         }
       ]

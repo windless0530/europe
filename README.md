@@ -20,8 +20,8 @@ npm run smoke          # headless 冒烟：加载/时间轴/hover/零网络验�
 
 | 文件 | 性质 | 说明 |
 |---|---|---|
-| `data/source/peoples.json` | 手写（真实源） | 79 族群全量：双语名/简介/谱系挂点/语言/宗教/空间时间切片（slices），顶层 relations（族群关系+文献出处）与 claims |
-| `data/source/regions.json` | 手写（真实源） | 70 地区 + `geometry_rules`（71 条地区→几何映射规则；**数组顺序 = 求值候选优先序**） |
+| `data/source/peoples.json` | 手写（真实源） | 86 族群全量：双语名/简介/谱系挂点/语言/宗教/空间时间切片（slices），顶层 relations（族群关系+文献出处）与 claims |
+| `data/source/regions.json` | 手写（真实源） | 79 地区 + `geometry_rules`（80 条地区→几何映射规则；**数组顺序 = 求值候选优先序**） |
 | `data/source/events.json` | 手写（真实源） | 事件 + 参与族群 |
 | `data/source/taxonomy.json` | 手写（真实源） | 3 棵谱系树（语言 / 历史人群 / 现代族群） |
 | `data/source/reference.json` | 手写（真实源） | 语言 / 宗教 / 时期 / 枚举字典 / 文献来源 |
@@ -65,7 +65,7 @@ npm run audit && npm run collisions && npm run smoke   # 门禁
 着色 = `people_region` 时间切片按 render_priority 取主族群；hover 面板显示
 当年全部族群、语言、宗教、族群关系与当期事件（双语名直接来自源文件）。
 地区（粗粒度历史地理）→ 几何的近似映射规则存于 `data/source/regions.json`
-的 `geometry_rules`（71 条：NUTS L0 国家集 / 要素 id 集 / DARMC 行省名
+的 `geometry_rules`（80 条：NUTS L0 国家集 / 要素 id 集 / DARMC 行省名
 正则 / AWMC 帝国快照四类），随 atlas.json 的 `region_geometry` 段下发，
 求值器在 `src/frontend/region-map.ts`。
 
@@ -74,18 +74,29 @@ npm run audit && npm run collisions && npm run smoke   # 门禁
 当年活动者全亮并注记活动区域、未活动者半透明；悬停树叶时地图上该族群
 区域之外全部压暗（内存操作）。
 
-当前数据为 79 个族群提供 199 条空间时间片：每个族群在自身生命周期内均有
+当前数据为 86 个族群提供 217 条空间时间片：每个族群在自身生命周期内均有
 连续覆盖。**覆盖原则：核心欧洲几何在首次有族群之后的任何年份不得空白**——
 由 `npm run audit` 逐年门禁（时间轴最小步长 1 年，并报告从未覆盖的 L0
-国家）。历史上由五个补丁（核心覆盖补全 → 瑞士/科索沃 → 次国家级细分
-Tier 1 → 前罗马时代中欧 → 德国 Tier 2 四分 + 全面修正）累积达成，现
+国家）。历史上由多个补丁（核心覆盖补全 → 瑞士/科索沃 → 次国家级细分
+Tier 1 → 前罗马时代中欧 → 德国 Tier 2 四分 + 全面修正 → 五国 Tier 3
+细分）累积达成，现
 已全部沉淀在 `data/source/` 源文件中（数据库时代的补丁与 SQL 已退役，
 历史见 git log）。
 细分以族群断层线为准（比利时/瑞士三分/伊比利亚五分/布列塔尼/波兰三分/
-乌克兰三分/德国四分等），非行政区划下钻，细分国家渲染 NUTS L1/L2 或
-GADM 州级几何而非 L0。调色板 16 槽（Okabe-Ito + Tol muted 精选，OKLab
-+ CVD 校验），`npm run collisions` 以 16 槽回绕做经验扫描：同年同国
-同色异族群对为 0。豁免项：`roman_empire` AWMC 快照（帝国消亡即隐没）、
+乌克兰五分：西部加-沃/中北部/东斯洛博达-顿巴斯/南新俄罗斯/克里米亚，
+东部与南部在 1650/1550 年代垦殖前按「荒野」留白/德国四分/意大利大陆-两岛/
+希腊本土-克里特-东色雷斯断裂带等），
+非行政区划下钻，细分国家渲染 NUTS L1/L2 或
+GADM 州级几何而非 L0；另有部分细分叠加单元（`OVERLAY_UNITS`：芬兰拉普兰
+与北卡累利阿、俄罗斯卡累利阿/鞑靼斯坦/巴什科尔托斯坦、土耳其东色雷斯），
+所属国家保留 L0、仅叠加次级单元。调色板 64 槽（构造管线
+`scripts/pick-palette.mjs` 色环网格池 + `scripts/palette-tune.ts` 按实际
+共现槽对爬山优化，OKLab ΔE + Machado CVD 模拟）——族群→槽位映射写死在
+`src/frontend/atlas.ts` 的 `PEOPLE_SLOT`（同一族群颜色跨时间、跨数据版本
+一致是硬约束）；同年同屏异族颜色尽量避免冲突（尽力而为：同年 45 团共现
+超出全对 CVD 可分上限，弱对由谱系树 + hover 次级编码消歧），新族群运行时
+按同年共现贪心补位，`npm run collisions` 逐年复验。
+豁免项：`roman_empire` AWMC 快照（帝国消亡即隐没）、
 `north_africa` DARMC 行省 551 年后（非欧洲核心）。历史区间和现代国家/
 构成国边界是 MVP 可视化代理，不代表精确疆界、排他领土或边界内人口
 同质；近似程度记录在 `confidence` 与 `notes` 中。
