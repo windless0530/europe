@@ -12,6 +12,7 @@ import { createControls } from './legend';
 import { createPanel } from './panel';
 import { loadConfigSource, prefetchAllSources, type RegionVm, type SourceView } from './load';
 import { atlasGeometryFeatures, buildAtlasModel, fetchAtlas, type AtlasData, type AtlasModel } from './atlas';
+import { createPeopleTree } from './people-tree';
 import { createStore } from './state';
 import { familyName, fmtYear, t, type StringKey } from './i18n';
 import { modePalette, onModeChange } from './palette';
@@ -90,6 +91,7 @@ async function boot(): Promise<void> {
     year: 450,
     nutsLevel: 2,
     showUndated: false,
+    showInactive: true,
     hoverCode: null,
   });
   const state = () => store.get();
@@ -124,7 +126,38 @@ async function boot(): Promise<void> {
     onLevel: (level) => store.set({ nutsLevel: level }),
     onUndated: (v) => store.set({ showUndated: v }),
   });
+  const peopleTree = createPeopleTree(document.getElementById('people-tree')!);
   const panel = createPanel(document.getElementById('detail-panel')!);
+
+  const treeRoot = document.getElementById('people-tree')!;
+  const controlsRow = document.getElementById('controls-row')!;
+
+  // 图例树聚焦：悬停谱系树叶 -> 地图只亮该族群的活动区域，其余压暗（内存操作）
+  let legendFocus: string | null = null;
+  peopleTree.onHighlight((code) => {
+    legendFocus = code;
+    if (state().mode === 'atlas') applyAtlasPaint(state());
+  });
+  peopleTree.onToggle((v) => store.set({ showInactive: v }));
+
+  function applyAtlasPaint(s: { year: number }): void {
+    const paint = model.paintAt(s.year);
+    // geometry -> 当年主族群（用于图例聚焦压暗）
+    const geomPeople = new Map<string, string>();
+    for (const [regionCode, st] of model.regionsAt(s.year)) {
+      for (const g of model.regionGeometry.get(regionCode) ?? []) geomPeople.set(g, st.top.people_code);
+    }
+    const contextFill = modePalette().contextFill;
+    const entries: Array<[string, { fill: string; visible: boolean; dim: boolean }]> = atlasFeatures.map((vm) => [
+      vm.code,
+      {
+        fill: paint.get(vm.code) ?? contextFill,
+        visible: true,
+        dim: legendFocus !== null && (geomPeople.get(vm.code) ?? null) !== legendFocus,
+      },
+    ]);
+    map.applyStyles(entries);
+  }
 
   let view: SourceView | null = null;
   let mapMode: Mode | null = null;
@@ -146,6 +179,7 @@ async function boot(): Promise<void> {
     const modeBtn = document.getElementById('mode-toggle')!;
     const other = state().mode === 'atlas' ? 'modeGeo' : 'modeAtlas';
     modeBtn.textContent = t(other, lang as 'zh' | 'en');
+    timeline.setLang(); // 播放按钮 / 单一版本提示 / 年份标签随语言刷新
   }
 
   function renderSourceSeg(lang: string): void {
@@ -205,7 +239,8 @@ async function boot(): Promise<void> {
   onModeChange(() => {
     if (mapMode === 'atlas') {
       map.setGeometry(atlasFeatures);
-      controls.renderAtlas(model, state().year, state().lang);
+      applyAtlasPaint(state());
+      peopleTree.render(model, state().year, state().lang, state().showInactive);
     } else if (view) {
       map.refreshColors(view);
       controls.render(view, opts(), state().lang);
@@ -213,25 +248,21 @@ async function boot(): Promise<void> {
   });
 
   store.subscribe((s) => {
+    treeRoot.style.display = s.mode === 'atlas' ? '' : 'none';
+    controlsRow.style.display = s.mode === 'geo' ? '' : 'none';
     if (s.mode === 'atlas') {
       if (mapMode !== 'atlas') {
         mapMode = 'atlas';
         map.setGeometry(atlasFeatures);
       }
-      const paint = model.paintAt(s.year);
-      const contextFill = modePalette().contextFill;
-      const entries: Array<[string, { fill: string; visible: boolean }]> = atlasFeatures.map((vm) => [
-        vm.code,
-        { fill: paint.get(vm.code) ?? contextFill, visible: true },
-      ]);
-      map.applyStyles(entries);
+      applyAtlasPaint(s);
       if (tlKind !== 'continuous') {
         tlKind = 'continuous';
         timeline.buildContinuous(model.yearRange, s.year);
       } else {
         timeline.update(s.year);
       }
-      controls.renderAtlas(model, s.year, s.lang);
+      peopleTree.render(model, s.year, s.lang, s.showInactive);
       const vm = s.hoverCode ? (allByCode.get(s.hoverCode) ?? null) : null;
       panel.showAtlas(vm, model, s.year, s.lang);
     } else {

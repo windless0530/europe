@@ -16,6 +16,8 @@ export interface AppState {
   nutsLevel: number;
   /** awmc：是否显示未断代实体（波斯/亚历山大等） */
   showUndated: boolean;
+  /** 族群谱系树：是否显示当年未点亮（未活动）的族群 */
+  showInactive: boolean;
   /** hover 中的 region_code */
   hoverCode: string | null;
 }

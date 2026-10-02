@@ -58,7 +58,7 @@ export const REGION_GEOMETRY: Record<string, RegionGeomMapping> = {
   gaul: { note: '近似为现代法国+比利时+卢森堡', rules: [nutsL0(['FR', 'BE', 'LU'])] },
   britannia: { note: '近似为大不列颠岛（GADM 英国 L0）', rules: [nutsL0(['GBR'])] },
   italy: { note: '近似为现代意大利', rules: [nutsL0(['IT'])] },
-  balkans: { note: '近似为现代巴尔干诸国+希腊（Eurostat 希腊码为 EL）', rules: [nutsL0(['SI', 'HR', 'BA', 'RS', 'ME', 'MK', 'AL', 'BG', 'EL'])] },
+  balkans: { note: '近似为现代巴尔干诸国+希腊（Eurostat 希腊码为 EL、科索沃为 XK）', rules: [nutsL0(['SI', 'HR', 'BA', 'RS', 'ME', 'MK', 'AL', 'BG', 'EL', 'XK'])] },
   north_africa: { note: 'DARMC 罗马行省中的北非诸省', rules: [darmcAfrica()] },
   carpathian_basin: { note: '近似为现代匈牙利+斯洛伐克', rules: [nutsL0(['HU', 'SK'])] },
   roman_empire: {
@@ -81,6 +81,8 @@ export const REGION_GEOMETRY: Record<string, RegionGeomMapping> = {
   ireland: { note: '以现代爱尔兰国界近似', rules: [nutsL0(['IE'])] },
   france: { note: '以现代法国国界近似', rules: [nutsL0(['FR'])] },
   germany: { note: '以现代德国国界近似', rules: [nutsL0(['DE'])] },
+  austria: { note: '以现代奥地利国界近似', rules: [nutsL0(['AT'])] },
+  switzerland: { note: '以现代瑞士国界近似', rules: [nutsL0(['CH'])] },
   netherlands: { note: '以现代荷兰国界近似', rules: [nutsL0(['NL'])] },
   denmark: { note: '以现代丹麦国界近似', rules: [nutsL0(['DK'])] },
   sweden: { note: '以现代瑞典国界近似', rules: [nutsL0(['SE'])] },

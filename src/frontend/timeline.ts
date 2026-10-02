@@ -25,6 +25,7 @@ export function createTimeline(root: HTMLElement): TimelineApi {
   let playStep = 1;
   let playing = false;
   let timer: ReturnType<typeof setInterval> | null = null;
+  let singleVintage = false; // 该数据源只有单一现代版本（提示文案随语言刷新）
 
   root.innerHTML = `
     <div class="era-label">
@@ -114,9 +115,10 @@ export function createTimeline(root: HTMLElement): TimelineApi {
     buildSteps(vs, index) {
       mode = 'steps';
       values = vs;
+      singleVintage = vs.length <= 1;
       stopPlay();
-      root.classList.toggle('disabled', vs.length <= 1);
-      noteEl.hidden = vs.length > 1;
+      root.classList.toggle('disabled', singleVintage);
+      noteEl.hidden = !singleVintage;
       noteEl.textContent = lang() === 'zh' ? '该数据源为现代单一版本，无时间轴' : 'This source has a single modern vintage';
       rangeEl.min = '0';
       rangeEl.max = String(Math.max(vs.length - 1, 0));
@@ -160,7 +162,9 @@ export function createTimeline(root: HTMLElement): TimelineApi {
       paint();
     },
     setLang() {
-      stopPlay();
+      const zh = lang() === 'zh';
+      playBtn.textContent = playing ? (zh ? '暂停' : 'Pause') : zh ? '播放' : 'Play';
+      if (singleVintage) noteEl.textContent = zh ? '该数据源为现代单一版本，无时间轴' : 'This source has a single modern vintage';
       paint();
     },
   };

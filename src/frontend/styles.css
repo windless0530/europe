@@ -206,7 +206,175 @@ body {
   color: var(--text-primary);
 }
 
-/* ---------- 主区：地图 + 详情面板 ---------- */
+/* ---------- 主区：谱系树 + 地图 + 详情面板 ---------- */
+
+.people-tree {
+  width: 236px;
+  flex: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-1);
+  padding: 12px 10px;
+  overflow-y: auto;
+}
+
+.ptree-title {
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.4px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin: 0 4px 6px;
+}
+
+/* 未点亮族群显隐切换（一键显示/隐藏当年未活动族群） */
+.ptree-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 4px 10px;
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ptree-toggle input {
+  accent-color: var(--series-blue);
+  margin: 0;
+}
+
+.ptree-body details {
+  --ptree-indent: 12px;
+}
+
+.ptree-group {
+  margin-bottom: 4px;
+}
+
+.ptree-body summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.ptree-body summary::-webkit-details-marker {
+  display: none;
+}
+
+.ptree-body summary::before {
+  content: '▸';
+  font-size: 9px;
+  color: var(--text-muted);
+  transition: transform 0.12s ease;
+  flex: none;
+}
+
+.ptree-body details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+.ptree-body summary:hover {
+  background: var(--gridline);
+}
+
+.ptree-node-name {
+  font-size: 12.5px;
+  color: var(--text-primary);
+  font-weight: 550;
+}
+
+.ptree-group > summary .ptree-node-name {
+  font-weight: 650;
+}
+
+.ptree-body .count {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.ptree-branches,
+.ptree-leaves {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 var(--ptree-indent);
+}
+
+.ptree-branches {
+  border-left: 1px solid var(--gridline);
+  margin-left: 8px;
+  padding-left: 6px;
+}
+
+.ptree-leaves {
+  padding: 0 0 2px calc(var(--ptree-indent) + 4px);
+}
+
+.ptree-leaf {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 2.5px 4px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  cursor: default;
+}
+
+.ptree-leaf .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 2.5px;
+  border: 1px solid var(--border);
+  flex: none;
+  align-self: center;
+}
+
+.ptree-leaf.active {
+  color: var(--text-primary);
+}
+
+.ptree-leaf:not(.active) {
+  opacity: 0.5;
+}
+
+.ptree-leaf:hover {
+  background: var(--gridline);
+}
+
+.ptree-leaf-regions {
+  font-size: 11px;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ptree-neutral {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 4px 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--gridline);
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.ptree-neutral .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 2.5px;
+  border: 1px solid var(--border);
+  flex: none;
+}
+
 
 .app-main {
   flex: 1;
@@ -244,9 +412,14 @@ body {
   cursor: pointer;
 }
 
-.map-wrap path.region.hovered {
+/* hover 描边覆盖层（不重排节点，见 map.ts 注释） */
+.map-wrap path.region-outline {
   stroke: var(--text-primary);
   stroke-width: 1.6;
+  stroke-linejoin: round;
+  fill: none;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
 }
 
 .map-wrap path.graticule {
@@ -531,6 +704,9 @@ body {
 @media (max-width: 900px) {
   .app-main {
     flex-direction: column;
+  }
+  .people-tree {
+    display: none !important;
   }
   .detail-panel {
     width: auto;

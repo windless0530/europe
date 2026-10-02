@@ -15,7 +15,7 @@ async function main(): Promise<void> {
   const pool = new Pool({ database: 'europe_atlas' });
   const q = (sql: string): Promise<Record<string, unknown>[]> => pool.query(sql).then((r) => r.rows as Record<string, unknown>[]);
 
-  const [regions, peoples, peopleRegion, languages, religions, classifications, relations, events, eventPeople, periods, enumLabels, peopleLang, peopleReligion] =
+  const [regions, peoples, peopleRegion, languages, religions, classifications, relations, events, eventPeople, periods, enumLabels, peopleLang, peopleReligion, taxonomyNodes] =
     await Promise.all([
       q(`SELECT r.code, r.region_type, r.start_year AS sy, r.end_year AS ey,
                 COALESCE(te.name, tz.name) AS name_en, tz.name AS name_zh,
@@ -99,6 +99,16 @@ async function main(): Promise<void> {
          FROM people_religion pr
          JOIN people p ON p.id = pr.people_id
          JOIN religion rv ON rv.id = pr.religion_id`),
+      // 分类树全量导出（taxonomy_node 含 parent 链，供前端构建族群谱系树）
+      q(`SELECT t.code AS taxonomy, t.sort_order AS t_sort, n.code, pn.code AS parent,
+                n.sort_order AS sort,
+                COALESCE(te.name, tz.name) AS name_en, tz.name AS name_zh
+         FROM taxonomy_node n
+         JOIN taxonomy t ON t.id = n.taxonomy_id
+         LEFT JOIN taxonomy_node pn ON pn.id = n.parent_id
+         LEFT JOIN taxonomy_node_translation te ON te.taxonomy_node_id = n.id AND te.lang = 'en'
+         LEFT JOIN taxonomy_node_translation tz ON tz.taxonomy_node_id = n.id AND tz.lang = 'zh'
+         ORDER BY t.sort_order, n.sort_order`),
     ]);
 
   await pool.end();
@@ -179,6 +189,20 @@ async function main(): Promise<void> {
       .map((ep) => ({ people_code: String(ep.people_code), role: String(ep.role_code) })),
   }));
 
+  // taxonomy 按体系分组：[{code, sort, nodes: [{code, parent, sort, name_en, name_zh}]}]
+  const taxonomiesOut = [...new Set(taxonomyNodes.map((n) => String(n.taxonomy)))].map((code) => ({
+    code,
+    nodes: taxonomyNodes
+      .filter((n) => String(n.taxonomy) === code)
+      .map((n) => ({
+        code: String(n.code),
+        parent: (n.parent as string | null) ?? null,
+        sort: Number(n.sort),
+        name_en: n.name_en ?? null,
+        name_zh: n.name_zh ?? null,
+      })),
+  }));
+
   // enum 字典拉平为 {definition: {value: {lang: label}}}
   const enums: Record<string, Record<string, Record<string, string>>> = {};
   for (const row of enumLabels) {
@@ -217,6 +241,7 @@ async function main(): Promise<void> {
       name_zh: r.name_zh ?? null,
     })),
     events: eventsOut,
+    taxonomies: taxonomiesOut,
     periods: periods.map((p) => ({
       code: String(p.code),
       start_year: p.sy as number | null,
@@ -234,7 +259,7 @@ async function main(): Promise<void> {
   console.log(
     `导出完成 -> ${path.relative(REPO_ROOT, OUT_FILE)} (${(bytes / 1024).toFixed(1)} KB)：` +
       `${out.regions.length} regions, ${out.peoples.length} peoples, ${out.people_region.length} people_region, ` +
-      `${out.events.length} events, ${out.periods.length} periods`,
+      `${out.events.length} events, ${out.periods.length} periods, ${out.taxonomies.length} taxonomies`,
   );
 }
 

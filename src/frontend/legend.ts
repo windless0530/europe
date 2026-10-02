@@ -1,20 +1,14 @@
-// 图例 + 过滤器（图例与过滤同行置于地图上方）。
+// 图例 + 过滤器（几何浏览模式置于地图上方；
+// 族群分布模式的图例已移至左侧「族群谱系」树，见 people-tree.ts）。
 // 文本用 ink 色，色块只做身份标识（dataviz 规范）。
 
 import type { SourceView, RegionVm } from './load';
 import { isVisible } from './load';
-import type { AtlasModel } from './atlas';
 import { familyFill } from './palette';
 import { t, type Lang } from './i18n';
 
 export interface LegendApi {
   render(view: SourceView, opts: { era: number; nutsLevel: number; showUndated: boolean }, lang: Lang): void;
-  /** 族群分布模式：T 年被着色的 (族群, 区域) 列表 */
-  renderAtlas(model: AtlasModel, year: number, lang: Lang): void;
-}
-
-function peopleLabel(nameZh: string | null, nameEn: string | null, lang: Lang, code: string): string {
-  return (lang === 'zh' ? nameZh : nameEn) ?? nameEn ?? code;
 }
 
 const LEGEND_KEYS: Record<string, Parameters<typeof t>[0]> = {
@@ -26,42 +20,6 @@ const LEGEND_KEYS: Record<string, Parameters<typeof t>[0]> = {
 
 export function createControls(legendRoot: HTMLElement, filtersRoot: HTMLElement, handlers: { onLevel: (l: number) => void; onUndated: (v: boolean) => void }): LegendApi {
   return {
-    renderAtlas(model, year, lang) {
-      const states = [...model.regionsAt(year).entries()].sort(
-        (a, b) => b[1].top.render_priority - a[1].top.render_priority || a[0].localeCompare(b[0]),
-      );
-      legendRoot.innerHTML = '';
-      for (const [regionCode, state] of states) {
-        const region = model.regionByCode.get(regionCode);
-        const item = document.createElement('span');
-        item.className = 'legend-item';
-        const sw = document.createElement('span');
-        sw.className = 'legend-swatch';
-        sw.style.background = model.peopleColor.get(state.top.people_code) ?? 'transparent';
-        const label = document.createElement('span');
-        label.textContent =
-          peopleLabel(state.top.people.name_zh, state.top.people.name_en, lang, state.top.people_code) +
-          ' · ' +
-          peopleLabel(region?.name_zh ?? null, region?.name_en ?? null, lang, regionCode);
-        item.append(sw, label);
-        if (state.rows.length > 1) {
-          const cn = document.createElement('span');
-          cn.className = 'count';
-          cn.textContent = `+${state.rows.length - 1}`;
-          item.append(cn);
-        }
-        legendRoot.appendChild(item);
-      }
-      const neutral = document.createElement('span');
-      neutral.className = 'legend-item';
-      const nsw = document.createElement('span');
-      nsw.className = 'legend-swatch';
-      nsw.style.background = 'var(--context-fill)';
-      neutral.append(nsw, document.createTextNode(t('legendNeutral', lang)));
-      legendRoot.appendChild(neutral);
-      filtersRoot.innerHTML = '';
-    },
-
     render(view, opts, lang) {
       // ---- 图例 ----
       const counts = new Map<string, number>();

@@ -10,6 +10,8 @@
     "nuts": "tsx src/datasources/nuts/index.ts",
     "data": "tsx src/cli.ts",
     "export": "tsx src/export/sql-export.ts",
+    "audit": "tsx scripts/coverage-audit.ts",
+    "favicon": "tsx scripts/make-favicon.ts",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",

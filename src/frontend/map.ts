@@ -29,8 +29,8 @@ export interface MapApi {
   refreshColors(view: SourceView): void;
   /** 重建几何（族群分布模式：混合多源要素，默认全部可见） */
   setGeometry(features: RegionVm[]): void;
-  /** 按 region_code 批量更新填充与可见性（内存操作，无网络） */
-  applyStyles(entries: Iterable<[string, { fill?: string; visible: boolean }]>): void;
+  /** 按 region_code 批量更新填充与可见性（内存操作，无网络）；dim=true 时压暗（图例联动聚焦） */
+  applyStyles(entries: Iterable<[string, { fill?: string; visible: boolean; dim?: boolean }]>): void;
   setHover(code: string | null): void;
   onHover(cb: (e: HoverEvent) => void): void;
   resize(view: SourceView, opts: MapOpts): void;
@@ -88,6 +88,9 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
   const nodesByCode = new Map<string, SVGPathElement>();
   let hoverCb: ((e: HoverEvent) => void) | null = null;
   let hovered: string | null = null;
+  // hover 描边覆盖层：复制几何 d 而不重排 path 节点——
+  // appendChild 提升被悬停节点会让 Chromium 丢失其 hover 追踪，pointerleave 不再派发。
+  let outlinePath: SVGPathElement | null = null;
   let currentView: SourceView | null = null;
   let currentFeatures: RegionVm[] = [];
   let currentOpts: MapOpts | null = null;
@@ -173,6 +176,13 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
       nodesByCode.set(vm.code, node);
       bindHover(node, vm);
     }
+    outlinePath = gRegions
+      .append('path')
+      .attr('class', 'region-outline')
+      .attr('fill', 'none')
+      .attr('pointer-events', 'none')
+      .node()!;
+    outlinePath.style.display = 'none';
   }
 
   return {
@@ -211,20 +221,27 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
         const node = nodesByCode.get(code);
         if (!node) continue;
         if (st.fill !== undefined) node.style.fill = st.fill;
+        node.style.fillOpacity = st.dim ? '0.25' : '';
         node.style.display = st.visible ? '' : 'none';
       }
     },
 
     setHover(code) {
-      const prev = hovered !== null ? nodesByCode.get(hovered) : null;
-      prev?.classList.remove('hovered');
       hovered = code;
-      if (code === null) return;
+      if (!outlinePath) return;
+      if (code === null) {
+        outlinePath.style.display = 'none';
+        outlinePath.setAttribute('d', '');
+        return;
+      }
       const node = nodesByCode.get(code);
-      if (!node) return;
-      node.classList.add('hovered');
-      // 提到最上层，保证描边完整
-      node.parentNode?.appendChild(node);
+      if (!node) {
+        outlinePath.style.display = 'none';
+        return;
+      }
+      // 描边画在覆盖层上，无需提升被悬停节点（避免 hover 追踪丢失）
+      outlinePath.setAttribute('d', node.getAttribute('d') ?? '');
+      outlinePath.style.display = '';
     },
 
     onHover(cb) {
@@ -242,6 +259,7 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
         if (d) node.setAttribute('d', d);
       }
       currentOpts = opts;
+      this.setHover(hovered); // 几何 d 已变，覆盖层描边需重建
     },
   };
 }

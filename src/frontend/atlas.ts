@@ -59,6 +59,19 @@ export interface AtlasEvent extends AtlasTrItem {
   peoples: Array<{ people_code: string; role: string }>;
 }
 
+export interface AtlasTaxonomyNode {
+  code: string;
+  parent: string | null;
+  sort: number;
+  name_en: string | null;
+  name_zh: string | null;
+}
+
+export interface AtlasTaxonomy {
+  code: string;
+  nodes: AtlasTaxonomyNode[];
+}
+
 export interface AtlasData {
   generated_at: string;
   regions: AtlasRegion[];
@@ -67,6 +80,7 @@ export interface AtlasData {
   religions: Array<{ code: string; parent_code: string | null; name_en: string | null; name_zh: string | null }>;
   events: AtlasEvent[];
   periods: AtlasPeriod[];
+  taxonomies: AtlasTaxonomy[];
   enums: Record<string, Record<string, Record<string, string>>>;
 }
 
@@ -101,6 +115,8 @@ export interface AtlasModel {
   regionFor(code: string, year: number): { regionCode: string; state: RegionYearState | null } | null;
   /** people -> 固定颜色槽位 */
   peopleColor: Map<string, string>;
+  /** people -> 调色板槽位序（people_region 首现顺序；未上色者为 Infinity） */
+  slotIndex: Map<string, number>;
   yearRange: [number, number];
   /** T 年各 SQL 区域的状态（仅含有活动族群的区域） */
   regionsAt(year: number): Map<string, RegionYearState>;
@@ -108,7 +124,42 @@ export interface AtlasModel {
   paintAt(year: number): Map<string, string>;
   /** 时期标签：包含该年的最窄 period */
   periodAt(year: number): AtlasPeriod | null;
+  /** 族群谱系树：全部族群按分类层级组织，标注当年活动状态 */
+  peopleTreeAt(year: number): TreeGroup[];
   enumLabel(definition: string, code: string | null, lang: 'zh' | 'en'): string;
+}
+
+/** 谱系树叶节点 = 一个族群（含当年活动状态与活动区域） */
+export interface TreeLeaf {
+  people: AtlasPeople;
+  color: string | null;
+  active: boolean;
+  regions: AtlasRegion[];
+}
+
+/** 谱系树枝 = 分类节点（语系/语族/语支等）；node 为 null 表示直接挂组级 */
+export interface TreeBranch {
+  node: AtlasTaxonomyNode | null;
+  leaves: TreeLeaf[];
+  children: TreeBranch[];
+  activeCount: number;
+  totalCount: number;
+}
+
+/** 谱系树组 = 一个 taxonomy（语言谱系/现代族群/…）或未分类 */
+export interface TreeGroup {
+  key: string;
+  root: TreeBranch;
+  open: boolean;
+}
+
+/** taxonomy 优先级：语言谱系在前（历史族群的从属关系主要来自语言分类） */
+const TAX_PRIORITY: Record<string, number> = { language: 0, historical_people: 1, modern_ethnicity: 2 };
+
+interface TaxIdx {
+  byCode: Map<string, AtlasTaxonomyNode>;
+  children: Map<string | null, AtlasTaxonomyNode[]>;
+  depth: Map<string, number>;
 }
 
 export function activeInYear(row: AtlasPeopleRegion, year: number): boolean {
@@ -130,6 +181,7 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
   const peopleColor = new Map<string, string>();
   const pal = categoricalPalette();
   order.forEach((code, i) => peopleColor.set(code, pal[i % pal.length]!));
+  const slotIndex = new Map<string, number>(order.map((code, i) => [code, i]));
 
   const yearCandidates: number[] = [];
   for (const p of data.periods) {
@@ -197,6 +249,151 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
     return entry[lang] ?? entry.en ?? entry.zh ?? code;
   }
 
+  // ---------------- 谱系树 ----------------
+  // taxonomy 索引：code -> node、parent -> children、code -> 深度
+  const taxIdx = new Map<string, TaxIdx>();
+  for (const tax of data.taxonomies ?? []) {
+    const byCode = new Map(tax.nodes.map((n) => [n.code, n]));
+    const children = new Map<string | null, AtlasTaxonomyNode[]>();
+    for (const n of tax.nodes) {
+      const list = children.get(n.parent) ?? [];
+      list.push(n);
+      children.set(n.parent, list);
+    }
+    const depth = new Map<string, number>();
+    for (const n of tax.nodes) {
+      let d = 0;
+      let cur = n;
+      const seen = new Set<string>([n.code]);
+      while (cur.parent !== null && !seen.has(cur.parent)) {
+        seen.add(cur.parent);
+        d++;
+        const parent = byCode.get(cur.parent);
+        if (!parent) break;
+        cur = parent;
+      }
+      depth.set(n.code, d);
+    }
+    taxIdx.set(tax.code, { byCode, children, depth });
+  }
+
+  /** 族群的挂载点：在优先 taxonomy 内取最深分类节点 */
+  function attachOf(people: AtlasPeople): { taxonomy: string; node: AtlasTaxonomyNode } | null {
+    const byTax = new Map<string, AtlasTaxonomyNode[]>();
+    for (const c of people.classifications) {
+      if (c.relation !== 'member_of' && c.relation !== 'descendant_of') continue;
+      const idx = taxIdx.get(c.taxonomy);
+      const node = idx?.byCode.get(c.node);
+      if (!idx || !node) continue;
+      const list = byTax.get(c.taxonomy) ?? [];
+      if (!list.includes(node)) list.push(node);
+      byTax.set(c.taxonomy, list);
+    }
+    if (byTax.size === 0) return null;
+    const taxCode = [...byTax.keys()].sort(
+      (a, b) => (TAX_PRIORITY[a] ?? 90) - (TAX_PRIORITY[b] ?? 90) || a.localeCompare(b),
+    )[0]!;
+    const nodes = byTax.get(taxCode)!;
+    const idx = taxIdx.get(taxCode)!;
+    nodes.sort(
+      (a, b) => idx.depth.get(b.code)! - idx.depth.get(a.code)! || a.sort - b.sort || a.code.localeCompare(b.code),
+    );
+    return { taxonomy: taxCode, node: nodes[0]! };
+  }
+
+  function peopleTreeAt(year: number): TreeGroup[] {
+    // 当年活动：people -> 活动区域列表
+    const activeRegions = new Map<string, AtlasRegion[]>();
+    for (const [regionCode, state] of regionsAt(year)) {
+      const region = regionByCode.get(regionCode) ?? null;
+      for (const row of state.rows) {
+        const list = activeRegions.get(row.people_code) ?? [];
+        if (region) list.push(region);
+        activeRegions.set(row.people_code, list);
+      }
+    }
+    const makeLeaf = (code: string): TreeLeaf => ({
+      people: peopleByCode.get(code)!,
+      color: peopleColor.get(code) ?? null,
+      active: activeRegions.has(code),
+      regions: activeRegions.get(code) ?? [],
+    });
+    const bySlot = (a: TreeLeaf, b: TreeLeaf): number =>
+      (slotIndex.get(a.people.code) ?? Infinity) - (slotIndex.get(b.people.code) ?? Infinity) ||
+      a.people.code.localeCompare(b.people.code);
+
+    // taxonomy -> node code -> 挂载的 peoples
+    const attach = new Map<string, Map<string, string[]>>();
+    const unclassified: string[] = [];
+    for (const p of data.peoples) {
+      const at = attachOf(p);
+      if (!at) {
+        unclassified.push(p.code);
+        continue;
+      }
+      const tax = attach.get(at.taxonomy) ?? new Map<string, string[]>();
+      const list = tax.get(at.node.code) ?? [];
+      list.push(p.code);
+      tax.set(at.node.code, list);
+      attach.set(at.taxonomy, tax);
+    }
+
+    // 递归建枝：只保留含挂载族群的分支；
+    // 单叶同码的节点（modern_ethnicity 各叶与族群同名同码）上提到父级，避免「法国人→法国人」
+    function buildBranch(taxCode: string, node: AtlasTaxonomyNode | null): TreeBranch {
+      const idx = taxIdx.get(taxCode)!;
+      const mounted = attach.get(taxCode)!;
+      const childNodes = (idx.children.get(node?.code ?? null) ?? [])
+        .slice()
+        .sort((a, b) => a.sort - b.sort || a.code.localeCompare(b.code));
+      const lifted: TreeLeaf[] = [];
+      const children: TreeBranch[] = [];
+      for (const cn of childNodes) {
+        const mountedHere = mounted.get(cn.code) ?? [];
+        const collapsible =
+          mountedHere.length === 1 &&
+          (idx.children.get(cn.code)?.length ?? 0) === 0 &&
+          mountedHere[0] === cn.code;
+        if (collapsible) {
+          lifted.push(makeLeaf(mountedHere[0]!));
+          continue;
+        }
+        const branch = buildBranch(taxCode, cn);
+        if (branch.totalCount > 0) children.push(branch);
+      }
+      const own = node === null ? [] : (mounted.get(node.code) ?? []);
+      const leaves = [...own.map(makeLeaf), ...lifted].sort(bySlot);
+      const activeCount = leaves.filter((l) => l.active).length + children.reduce((s, c) => s + c.activeCount, 0);
+      const totalCount = leaves.length + children.reduce((s, c) => s + c.totalCount, 0);
+      return { node, leaves, children, activeCount, totalCount };
+    }
+
+    const groups: TreeGroup[] = [];
+    const taxCodes = [...attach.keys()].sort(
+      (a, b) => (TAX_PRIORITY[a] ?? 90) - (TAX_PRIORITY[b] ?? 90) || a.localeCompare(b),
+    );
+    for (const taxCode of taxCodes) {
+      const root = buildBranch(taxCode, null);
+      if (root.totalCount === 0) continue;
+      groups.push({ key: taxCode, root, open: root.activeCount > 0 });
+    }
+    if (unclassified.length > 0) {
+      const leaves = unclassified.map(makeLeaf).sort(bySlot);
+      groups.push({
+        key: 'unclassified',
+        root: {
+          node: null,
+          leaves,
+          children: [],
+          activeCount: leaves.filter((l) => l.active).length,
+          totalCount: leaves.length,
+        },
+        open: leaves.some((l) => l.active),
+      });
+    }
+    return groups;
+  }
+
   function regionFor(code: string, year: number): { regionCode: string; state: RegionYearState | null } | null {
     const candidates = geometryToRegions.get(code);
     if (!candidates || candidates.length === 0) return null;
@@ -211,7 +408,7 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
     return { regionCode: passive[0] ?? candidates[0]!, state: null };
   }
 
-  return { data, peopleByCode, regionByCode, regionGeometry, geometryToRegions, regionFor, peopleColor, yearRange, regionsAt, paintAt, periodAt, enumLabel };
+  return { data, peopleByCode, regionByCode, regionGeometry, geometryToRegions, regionFor, peopleColor, slotIndex, yearRange, regionsAt, paintAt, periodAt, peopleTreeAt, enumLabel };
 }
 
 /** 从 /data/export/atlas.json 拉取（带字节进度） */
