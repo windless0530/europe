@@ -13,6 +13,7 @@ import { createPanel } from './panel';
 import { loadConfigSource, prefetchAllSources, type RegionVm, type SourceView } from './load';
 import { atlasGeometryFeatures, buildAtlasModel, fetchAtlas, type AtlasData, type AtlasModel } from './atlas';
 import { createPeopleTree } from './people-tree';
+import { getCookie, setCookie } from './cookies';
 import { createStore } from './state';
 import { familyName, fmtYear, t, type StringKey } from './i18n';
 import { modePalette, onModeChange } from './palette';
@@ -20,6 +21,9 @@ import { modePalette, onModeChange } from './palette';
 type Mode = 'atlas' | 'geo';
 
 const SOURCE_CODES: SourceCode[] = ['awmc', 'darmc', 'nuts'];
+
+/** 谱系树「显示未点亮族群」开关的持久化 cookie（'1'/'0'，缺省显示） */
+const COOKIE_SHOW_INACTIVE = 'ptree-show-inactive';
 
 /** 几何浏览模式的时期名（快照年 -> 名称） */
 const GEO_ERA_NAMES: Record<number, { zh: string; en: string }> = {
@@ -91,7 +95,7 @@ async function boot(): Promise<void> {
     year: 450,
     nutsLevel: 2,
     showUndated: false,
-    showInactive: true,
+    showInactive: getCookie(COOKIE_SHOW_INACTIVE) !== '0',
     hoverCode: null,
   });
   const state = () => store.get();
@@ -138,7 +142,10 @@ async function boot(): Promise<void> {
     legendFocus = code;
     if (state().mode === 'atlas') applyAtlasPaint(state());
   });
-  peopleTree.onToggle((v) => store.set({ showInactive: v }));
+  peopleTree.onToggle((v) => {
+    store.set({ showInactive: v });
+    setCookie(COOKIE_SHOW_INACTIVE, v ? '1' : '0');
+  });
 
   function applyAtlasPaint(s: { year: number }): void {
     const paint = model.paintAt(s.year);
