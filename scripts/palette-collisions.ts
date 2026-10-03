@@ -27,11 +27,11 @@ interface Data {
   periods: Array<{ start_year: number | null; end_year: number | null }>;
   region_geometry: RegionGeometryRule[];
 }
-const atlas = JSON.parse(readFileSync(join(root, 'data/export/atlas.json'), 'utf8')) as Data;
+const atlas = JSON.parse(readFileSync(join(root, 'data/peoples/export/atlas.json'), 'utf8')) as Data;
 
 const sourceFeatures = new Map<SourceCode, { features: RegionVm[] }>();
 for (const code of ['awmc', 'darmc', 'nuts'] as SourceCode[]) {
-  const file = JSON.parse(readFileSync(join(root, `data/processed/${code}/regions.geojson`), 'utf8'));
+  const file = JSON.parse(readFileSync(join(root, `data/geography/processed/${code}/regions.geojson`), 'utf8'));
   sourceFeatures.set(code, { features: buildView(code, file).features });
 }
 const features = atlasGeometryFeatures(sourceFeatures as unknown as Map<SourceCode, { features: RegionVm[] }>, atlas.region_geometry ?? []);

@@ -24,7 +24,7 @@
   "retrieved_at": "2026-09-19T03:27:07.658Z",
   "files": [
     {
-      "path": "data/processed/awmc/regions.geojson",
+      "path": "data/geography/processed/awmc/regions.geojson",
       "kind": "regions",
       "features": 121,
       "geometry_types": [
@@ -34,7 +34,7 @@
       "bytes": 6074783
     },
     {
-      "path": "data/processed/awmc/places.geojson",
+      "path": "data/geography/processed/awmc/places.geojson",
       "kind": "places",
       "features": 95,
       "geometry_types": [
@@ -43,7 +43,7 @@
       "bytes": 59016
     },
     {
-      "path": "data/processed/awmc/lines.geojson",
+      "path": "data/geography/processed/awmc/lines.geojson",
       "kind": "lines",
       "features": 446,
       "geometry_types": [
@@ -56,7 +56,7 @@
   "validation": [
     {
       "source": "awmc",
-      "file": "data/processed/awmc/regions.geojson",
+      "file": "data/geography/processed/awmc/regions.geojson",
       "total": 121,
       "passed": 121,
       "fixed": 2,
@@ -75,7 +75,7 @@
     },
     {
       "source": "awmc",
-      "file": "data/processed/awmc/places.geojson",
+      "file": "data/geography/processed/awmc/places.geojson",
       "total": 95,
       "passed": 95,
       "fixed": 1,
@@ -93,7 +93,7 @@
     },
     {
       "source": "awmc",
-      "file": "data/processed/awmc/lines.geojson",
+      "file": "data/geography/processed/awmc/lines.geojson",
       "total": 446,
       "passed": 446,
       "fixed": 0,

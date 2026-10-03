@@ -105,7 +105,7 @@ function readJsonIfExists<T>(file: string): T | null {
 
 function processedPath(source: SourceCode, kind: ArtifactKind): string {
   const name = kind === 'regions' ? 'regions.geojson' : kind === 'places' ? 'places.geojson' : 'lines.geojson';
-  return path.join(REPO_ROOT, 'data', 'processed', source, name);
+  return path.join(REPO_ROOT, 'data', 'geography', 'processed', source, name);
 }
 
 /**
@@ -115,7 +115,7 @@ function processedPath(source: SourceCode, kind: ArtifactKind): string {
  */
 export function loadSource(source: SourceCode): LoadedSource {
   const entry = REGISTRY[source];
-  const dir = path.join(REPO_ROOT, 'data', 'processed', source);
+  const dir = path.join(REPO_ROOT, 'data', 'geography', 'processed', source);
   const manifest = readJsonIfExists<Manifest>(path.join(dir, 'manifest.json'));
   const regions = readJsonIfExists<RegionsFile>(processedPath(source, 'regions'));
   const places = readJsonIfExists<PlacesFile>(processedPath(source, 'places'));

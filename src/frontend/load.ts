@@ -144,7 +144,7 @@ const cache = new Map<SourceCode, SourceView>();
 export async function loadSource(code: SourceCode): Promise<SourceView> {
   const hit = cache.get(code);
   if (hit) return hit;
-  const res = await fetch(`/data/processed/${code}/regions.geojson`);
+  const res = await fetch(`/data/geography/processed/${code}/regions.geojson`);
   if (!res.ok) throw new Error(`加载 ${code} 数据失败：HTTP ${res.status}`);
   const file = (await res.json()) as RegionsFile;
   const view = buildView(code, file);
@@ -200,7 +200,7 @@ export async function prefetchAllSources(onStep?: (step: PrefetchStep) => void):
     onStep?.({ label, loaded: 0, total: 0, done: false });
     let lastLoaded = 0;
     let lastTotal = 0;
-    const file = (await fetchJsonWithProgress(`/data/processed/${code}/regions.geojson`, (loaded, total) => {
+    const file = (await fetchJsonWithProgress(`/data/geography/processed/${code}/regions.geojson`, (loaded, total) => {
       lastLoaded = loaded;
       lastTotal = total;
       onStep?.({ label, loaded, total, done: false });

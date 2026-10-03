@@ -28,7 +28,7 @@ interface AtlasData {
   region_geometry: RegionGeometryRule[];
 }
 
-const atlas = JSON.parse(readFileSync(join(root, 'data/export/atlas.json'), 'utf8')) as AtlasData;
+const atlas = JSON.parse(readFileSync(join(root, 'data/peoples/export/atlas.json'), 'utf8')) as AtlasData;
 
 // 与前端 buildAtlasModel 相同的 activeInYear（双端包含）与 yearRange 公式
 const activeInYear = (row: AtlasPeopleRegion, year: number): boolean => {
@@ -53,7 +53,7 @@ const yearMax = Math.max(...candidates, new Date().getFullYear());
 // （与前端同一套规则：细分国家只渲染次国家级单元），再过 region 映射。
 const sourceFeatures = new Map<SourceCode, { features: RegionVm[] }>();
 for (const code of ['awmc', 'darmc', 'nuts'] as SourceCode[]) {
-  const file = JSON.parse(readFileSync(join(root, `data/processed/${code}/regions.geojson`), 'utf8'));
+  const file = JSON.parse(readFileSync(join(root, `data/geography/processed/${code}/regions.geojson`), 'utf8'));
   sourceFeatures.set(code, { features: buildView(code, file).features });
 }
 const allFeatures = atlasGeometryFeatures(

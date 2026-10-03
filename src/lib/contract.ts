@@ -231,7 +231,7 @@ export function regionCode(source: SourceCode, slug: string): string {
 
 export async function writeJson(file: string, data: unknown): Promise<void> {
   await mkdir(path.dirname(file), { recursive: true });
-  // data/processed 产物统一人类可读：.geojson 用坐标行内的多行格式
+  // data/geography/processed 产物统一人类可读：.geojson 用坐标行内的多行格式
   // （见 geojson-format.ts），其余 .json 用 2 空格缩进
   const body = file.endsWith('.geojson') ? formatGeoJson(data) : `${JSON.stringify(data, null, 2)}\n`;
   await writeFile(file, body, 'utf8');
@@ -426,9 +426,9 @@ export function validatePlaces(fc: { features: Array<{ geometry: unknown; proper
 export const REPO_ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '..');
 
 export function rawDataDir(source: SourceCode): string {
-  return path.join(REPO_ROOT, 'data', 'raw', source);
+  return path.join(REPO_ROOT, 'data', 'geography', 'raw', source);
 }
 
 export function processedDataDir(source: SourceCode): string {
-  return path.join(REPO_ROOT, 'data', 'processed', source);
+  return path.join(REPO_ROOT, 'data', 'geography', 'processed', source);
 }

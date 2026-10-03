@@ -13,7 +13,7 @@ npm run awmc -- validate              # 校验 + 生成 manifest.json
 
 - 入口：官网 GIS Data 页 <https://awmc.unc.edu/gis-data/>，指向 GitHub 仓库
   **<https://github.com/AWMC/geodata>**（任务书中的 `AncientWorldMappingCenter/awmc-geodata` 已 404，org 实际名为 `AWMC`）
-- 仓库 README（`data/raw/awmc/upstream_README.md`）原文声明：
+- 仓库 README（`data/geography/raw/awmc/upstream_README.md`）原文声明：
 
   > The GeoJson files are offered under the ODC Open Database License
   > (http://opendatacommons.org/licenses/odbl/1.0/). Data is derived from the
@@ -28,7 +28,7 @@ npm run awmc -- validate              # 校验 + 生成 manifest.json
   ad_14/ad_69/314 帝国范围、ba_100 行省线等）。全部 URL 记录在 `manifest.json` 的 `download_urls`。
 - 全部源数据 prj 均为 WGS84（EPSG:4326），未使用 proj4。
 
-## 产物（data/processed/awmc/）
+## 产物（data/geography/processed/awmc/）
 
 | 文件 | 要素 | 几何 | 大小 | 内容 |
 |---|---|---|---|---|

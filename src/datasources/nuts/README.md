@@ -7,9 +7,9 @@
 
 | 文件 | 内容 |
 |---|---|
-| `data/processed/nuts/regions.geojson` | 1935 个多边形要素（12.2 MB），层级 0-3 |
-| `data/processed/nuts/normalize_stats.json` | normalize 阶段丢弃/修复明细（manifest 引用） |
-| `data/processed/nuts/manifest.json` | 元数据 + 校验报告 + license + 决策记录 |
+| `data/geography/processed/nuts/regions.geojson` | 1935 个多边形要素（12.2 MB），层级 0-3 |
+| `data/geography/processed/nuts/normalize_stats.json` | normalize 阶段丢弃/修复明细（manifest 引用） |
+| `data/geography/processed/nuts/manifest.json` | 元数据 + 校验报告 + license + 决策记录 |
 
 层级分布：L0 = 48（39 NUTS 国家 + 9 GADM 补齐国家），L1 = 254，L2 = 294，L3 = 1339。
 来源构成：NUTS 1786 + GADM 149（以 `source_props.origin` 区分：`nuts` / `gadm`）。

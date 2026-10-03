@@ -1,5 +1,5 @@
 // ============================================================
-// normalize：data/raw/darmc/*.geojson -> data/processed/darmc/
+// normalize：data/geography/raw/darmc/*.geojson -> data/geography/processed/darmc/
 //   places.geojson  点（城市/定居点、中世纪城镇、主教区）
 //   regions.geojson 面（罗马行省、中世纪王国）
 //

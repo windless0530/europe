@@ -8,7 +8,7 @@ const REPO = path.dirname(fileURLToPath(import.meta.url));
 /**
  * 开发期数据通道（仅 dev server；正式构建走导出脚本产出的静态文件）：
  *   GET /config                        -> atlas.config.json（当前数据源）
- *   GET /data/processed/<src>/<file>   -> data/processed/<src>/<file>（白名单）
+ *   GET /data/geography/processed/<src>/<file>   -> data/geography/processed/<src>/<file>（白名单）
  */
 function atlasData(): Plugin {
   return {
@@ -33,7 +33,7 @@ function atlasData(): Plugin {
         }
         if (url.startsWith('/data/')) {
           const rel = decodeURIComponent(url.slice('/data/'.length)).replace(/\\/g, '/');
-          if (!/^(processed\/(awmc|darmc|nuts)|export)\/[A-Za-z0-9_.-]+$/.test(rel)) {
+          if (!/^(geography\/processed\/(awmc|darmc|nuts)|peoples\/export)\/[A-Za-z0-9_.-]+$/.test(rel)) {
             res.statusCode = 403;
             res.end('forbidden');
             return;

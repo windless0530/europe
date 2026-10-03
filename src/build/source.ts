@@ -1,5 +1,5 @@
 // ============================================================
-// 源数据（data/source/*.json）的类型、装载与校验。
+// 源数据（data/peoples/source/*.json）的类型、装载与校验。
 //
 // 源文件是本项目图谱数据的唯一真实源（文件优先，无数据库）：
 //   peoples.json   族群（含顶层 relations / claims）
@@ -182,7 +182,7 @@ export interface Bundle {
 
 /** 读取 5 个源文件（repoRoot = 仓库根目录） */
 export function loadSource(repoRoot: string): Bundle {
-  const read = (f: string) => JSON.parse(readFileSync(join(repoRoot, 'data', 'source', f), 'utf8'));
+  const read = (f: string) => JSON.parse(readFileSync(join(repoRoot, 'data', 'peoples', 'source', f), 'utf8'));
   const p = read('peoples.json') as { peoples: People[]; relations: Relation[]; claims: Claim[] };
   const r = read('regions.json') as { regions: Region[]; geometry_rules: GeometryRule[] };
   const ref = read('reference.json') as {

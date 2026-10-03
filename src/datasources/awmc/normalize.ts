@@ -1,6 +1,6 @@
 // ============================================================
 // AWMC loader · normalize
-// data/raw/awmc -> data/processed/awmc
+// data/geography/raw/awmc -> data/geography/processed/awmc
 //  - regions.geojson：帝国范围类数据集溶解为单要素 MultiPolygon；
 //    ethnonyms 逐要素输出（en_name 即族群名）
 //  - places.geojson：urban_areas 城市建成区多边形取代表点

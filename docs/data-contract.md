@@ -7,8 +7,12 @@
 
 ```
 data/
-  raw/<source>/        # 原始下载（gitignore，不提交）
-  processed/<source>/  # 规范化产物（提交，供前端导出使用）
+  peoples/
+    source/                       # 手写族群图谱真实源
+    export/                       # 图谱投影产物 atlas.json
+  geography/
+    raw/<source>/                 # 原始下载（gitignore，不提交）
+    processed/<source>/           # 规范化几何产物（提交，供前端使用）
 src/
   lib/contract.ts      # 共享类型 + 工具 + 通用校验器（冻结，禁止修改）
   datasources/<source>/
@@ -23,9 +27,9 @@ src/
 
 ```bash
 npm run <source>                          # = all
-npx tsx src/datasources/<source>/index.ts download   # 下载到 data/raw/<source>/
-npx tsx src/datasources/<source>/index.ts normalize  # raw -> processed
-npx tsx src/datasources/<source>/index.ts validate   # 校验 processed 产物
+npx tsx src/datasources/<source>/index.ts download   # 下载到 data/geography/raw/<source>/
+npx tsx src/datasources/<source>/index.ts normalize  # geography/raw -> geography/processed
+npx tsx src/datasources/<source>/index.ts validate   # 校验 geography/processed 产物
 npx tsx src/datasources/<source>/index.ts all        # 依次执行三步
 ```
 
@@ -34,7 +38,7 @@ npx tsx src/datasources/<source>/index.ts all        # 依次执行三步
 
 ## 产物文件与 Schema
 
-固定文件名（放在 `data/processed/<source>/`）：
+固定文件名（放在 `data/geography/processed/<source>/`）：
 
 | 文件 | 内容 | 是否必有 |
 |---|---|---|
@@ -66,7 +70,7 @@ npx tsx src/datasources/<source>/index.ts all        # 依次执行三步
 
 ## 硬性边界（每个 datasource agent 必须遵守）
 
-1. 只允许写：`src/datasources/<自己的源>/`、`data/raw/<自己的源>/`、`data/processed/<自己的源>/`；
+1. 只允许写：`src/datasources/<自己的源>/`、`data/geography/raw/<自己的源>/`、`data/geography/processed/<自己的源>/`；
 2. 禁止修改：`package.json`、`tsconfig.json`、`src/lib/**`、其他 datasource 目录、`docs/**`；
 3. 禁止执行 `git add` / `git commit` / `git push`（由主会话审查后统一提交）；
 4. 禁止新增 npm 依赖（已装：`@turf/turf`、`shapefile`、`adm-zip`、`proj4`、`papaparse`、`tsx`）；确需新依赖时记入 open_issues；

@@ -40,7 +40,7 @@ npm run darmc -- normalize
 npm run darmc -- validate
 ```
 
-- 产物：`data/processed/darmc/places.geojson`、`regions.geojson`、`manifest.json`
+- 产物：`data/geography/processed/darmc/places.geojson`、`regions.geojson`、`manifest.json`
 - 幂等：raw 文件已存在则跳过下载（`--force` 重下）；normalize/validate 全量重写。
 
 ## 选用的图层（17 个服务图层，5 个家族）

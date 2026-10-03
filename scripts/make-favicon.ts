@@ -24,7 +24,7 @@ mkdirSync(pub, { recursive: true });
 
 // ---------- 1. 载入 NUTS L0 国家几何，裁剪到站内地图同一欧洲范围 ----------
 const BBOX: [number, number, number, number] = [-31, 27, 45, 73]; // 与 map.ts europeRingVertices 一致
-const file = JSON.parse(readFileSync(join(root, 'data/processed/nuts/regions.geojson'), 'utf8'));
+const file = JSON.parse(readFileSync(join(root, 'data/geography/processed/nuts/regions.geojson'), 'utf8'));
 const l0: Array<Feature<Polygon | MultiPolygon>> = [];
 for (const f of file.features as Feature[]) {
   if (f.properties?.level !== 0) continue;

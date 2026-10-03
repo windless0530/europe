@@ -22,7 +22,7 @@ export const LICENSE_NOTE =
   'OpenStreetMap (https://www.openstreetmap.org/), which is under the ODC Open Database License.';
 
 // ------------------------------------------------------------
-// 直接下载的 GeoJSON / 文档文件（相对 data/raw/awmc/ 的文件名）
+// 直接下载的 GeoJSON / 文档文件（相对 data/geography/raw/awmc/ 的文件名）
 // ------------------------------------------------------------
 export interface DirectFile {
   dest: string;

@@ -1,6 +1,6 @@
 // ============================================================
 // AWMC loader · validate
-// 校验 data/processed/awmc 产物并生成 manifest.json：
+// 校验 data/geography/processed/awmc 产物并生成 manifest.json：
 //  - regions/places 用 contract 通用校验器；lines 用本地校验器
 //    （契约未定义线类型，见 README open_issues）
 //  - 追加自定义检查：无 crs 成员、name_zh=null、start/end_year=null、

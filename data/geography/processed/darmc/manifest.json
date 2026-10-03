@@ -28,7 +28,7 @@
   "retrieved_at": "2026-09-19T03:36:40.739Z",
   "files": [
     {
-      "path": "data/processed/darmc/places.geojson",
+      "path": "data/geography/processed/darmc/places.geojson",
       "kind": "places",
       "features": 18887,
       "geometry_types": [
@@ -37,7 +37,7 @@
       "bytes": 13379492
     },
     {
-      "path": "data/processed/darmc/regions.geojson",
+      "path": "data/geography/processed/darmc/regions.geojson",
       "kind": "regions",
       "features": 378,
       "geometry_types": [
@@ -50,7 +50,7 @@
   "validation": [
     {
       "source": "darmc",
-      "file": "data/processed/darmc/places.geojson",
+      "file": "data/geography/processed/darmc/places.geojson",
       "total": 18887,
       "passed": 18887,
       "fixed": 0,
@@ -77,7 +77,7 @@
     },
     {
       "source": "darmc",
-      "file": "data/processed/darmc/regions.geojson",
+      "file": "data/geography/processed/darmc/regions.geojson",
       "total": 378,
       "passed": 378,
       "fixed": 0,

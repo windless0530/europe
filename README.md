@@ -1,34 +1,39 @@
-# europe
+# Europe
 
 欧洲历史族群图谱（个人项目）：带时间轴的欧洲地图，展示各时期各地区（次国家级粒度）的族群分布、语言、宗教与族群关系，中英双语。
 
-- 数据：`data/source/*.json`（5 个手写文件，唯一真实源）→ `npm run project` 投影出前端数据；无数据库、无运行时后端
+- 数据：`data/peoples/source/*.json`（5 个手写文件，唯一真实源）→ `npm run project` 投影出前端数据；无数据库、无运行时后端
 - 技术方案：文件优先（content-as-code）+ 静态导出 + 纯前端 SPA
 
 ## 快速开始
 
 ```bash
+npm install            # 首次拉取项目或依赖变化后执行
 npm run dev            # http://localhost:5173（默认进入「族群分布」模式）
-npm run project        # data/source/*.json -> data/export/atlas.json（校验 + 投影，改数据后重跑）
+npm run project        # data/peoples/source/*.json -> data/peoples/export/atlas.json（校验 + 投影，改数据后重跑）
 npm run audit          # 覆盖审计：逐年扫描核心几何「先有族群后空白」断档
 npm run collisions     # 调色板碰撞审计：同年同国同色异族群对（目标 0）
 npm run favicon        # 由自有 NUTS 几何生成 favicon（SVG + PNG 回退）
-npm run smoke          # headless 冒烟：加载/时间轴/hover/零网络验证 + 截图
+npm run smoke          # headless 冒烟：加载/时间轴/hover/零网络验证 + 截图；需先在另一终端运行 npm run dev
 ```
+
+日常启动只需 `npm run dev`；仓库已提交 `data/peoples/export/atlas.json` 和三源
+`data/geography/processed/*/regions.geojson`，启动前无需重跑下述数据管线。
 
 ## 数据文件
 
 | 文件 | 性质 | 说明 |
 |---|---|---|
-| `data/source/peoples.json` | 手写（真实源） | 86 族群全量：双语名/简介/谱系挂点/语言/宗教/空间时间切片（slices），顶层 relations（族群关系+文献出处）与 claims |
-| `data/source/regions.json` | 手写（真实源） | 79 地区 + `geometry_rules`（80 条地区→几何映射规则；**数组顺序 = 求值候选优先序**） |
-| `data/source/events.json` | 手写（真实源） | 事件 + 参与族群 |
-| `data/source/taxonomy.json` | 手写（真实源） | 3 棵谱系树（语言 / 历史人群 / 现代族群） |
-| `data/source/reference.json` | 手写（真实源） | 语言 / 宗教 / 时期 / 枚举字典 / 文献来源 |
-| `data/export/atlas.json` | 自动生成（勿手改） | 前端投影：双语名称展开、谱系/事件/语言宗教挂接；前端与审计脚本的唯一图谱输入；多行可读（2 空格缩进） |
-| `data/processed/<源>/regions.geojson` | 自动生成 | 三源规范化几何（awmc/darmc/nuts，license 见「数据管线」一节）；全部 processed 产物（geojson/manifest/stats）均为多行可读格式——geojson 坐标行内、每环一行（`src/lib/geojson-format.ts`），其余 2 空格缩进 |
+| `data/peoples/source/peoples.json` | 手写（真实源） | 86 族群全量：双语名/简介/谱系挂点/语言/宗教/空间时间切片（slices），顶层 relations（族群关系+文献出处）与 claims |
+| `data/peoples/source/regions.json` | 手写（真实源） | 79 地区 + `geometry_rules`（80 条地区→几何映射规则；**数组顺序 = 求值候选优先序**） |
+| `data/peoples/source/events.json` | 手写（真实源） | 事件 + 参与族群 |
+| `data/peoples/source/taxonomy.json` | 手写（真实源） | 3 棵谱系树（语言 / 历史人群 / 现代族群） |
+| `data/peoples/source/reference.json` | 手写（真实源） | 语言 / 宗教 / 时期 / 枚举字典 / 文献来源 |
+| `data/peoples/export/atlas.json` | 自动生成（勿手改） | 前端投影：双语名称展开、谱系/事件/语言宗教挂接；前端与审计脚本的唯一图谱输入；多行可读（2 空格缩进） |
+| `data/geography/raw/<源>/` | 自动下载（不提交） | AWMC / DARMC / NUTS + GADM 的原始文件与下载元数据，作为几何管线输入 |
+| `data/geography/processed/<源>/regions.geojson` | 自动生成 | 三源规范化几何（awmc/darmc/nuts，license 见「数据管线」一节）；全部 processed 产物（geojson/manifest/stats）均为多行可读格式——geojson 坐标行内、每环一行（`src/lib/geojson-format.ts`），其余 2 空格缩进 |
 
-改数据只改 `data/source/`；省写约定（confidence 缺省 high、priority 缺省 0、
+改数据只改 `data/peoples/source/`；省写约定（confidence 缺省 high、priority 缺省 0、
 classification 字符串项 = member_of）与全部校验规则见 `src/build/source.ts` 头注。
 历史沿革：PostgreSQL 时代的 `sql/`、`atlas-seed.json` 及其生成链已于 2026-10
 退役（历史见 git log），数据原样迁入源文件。
@@ -37,22 +42,43 @@ classification 字符串项 = member_of）与全部校验规则见 `src/build/so
 
 | 脚本 | 作用 | 输入 | 输出 |
 |---|---|---|---|
-| `src/build/project.ts` | 校验 + 投影（`npm run project`） | `data/source/*.json` | `data/export/atlas.json` |
-| `src/build/source.ts` | 源格式类型 / 装载 / 校验器（被 project 引用，也可单独 import） | `data/source/*.json` | 校验错误列表 |
-| `src/datasources/awmc/index.ts` | AWMC 下载/规范化管线（`npm run awmc`） | AWMC 在线服务 | `data/processed/awmc/regions.geojson` |
-| `src/datasources/darmc/index.ts` | DARMC 下载/规范化管线（`npm run darmc`） | DARMC 在线服务 | `data/processed/darmc/regions.geojson` |
-| `src/datasources/nuts/index.ts` | NUTS 下载/规范化管线（`npm run nuts`） | NUTS 2024 + GADM 下载 | `data/processed/nuts/regions.geojson` |
+| `src/build/project.ts` | 校验 + 投影（`npm run project`） | `data/peoples/source/*.json` | `data/peoples/export/atlas.json` |
+| `src/build/source.ts` | 源格式类型 / 装载 / 校验器（被 project 引用，也可单独 import） | `data/peoples/source/*.json` | 校验错误列表 |
+| `src/datasources/awmc/index.ts` | AWMC 下载/规范化管线（`npm run awmc`） | AWMC GitHub 发布文件 | `data/geography/processed/awmc/regions.geojson` |
+| `src/datasources/darmc/index.ts` | DARMC 下载/规范化管线（`npm run darmc`） | DARMC ArcGIS Online Feature Service | `data/geography/processed/darmc/regions.geojson` |
+| `src/datasources/nuts/index.ts` | NUTS 下载/规范化管线（`npm run nuts`） | GISCO NUTS 2024 + GADM 发布文件 | `data/geography/processed/nuts/regions.geojson` |
+
+这些命令按以下时机执行，并非都是服务启动命令：
+
+| 命令 | 执行时机 |
+|---|---|
+| `npm install` | 首次拉取项目或 `package.json` / lockfile 变化后 |
+| `npm run dev` | 启动本地开发服务；这是唯一常规启动命令 |
+| `npm run project` | 修改 `data/peoples/source/*.json` 后，重新校验并投影 `atlas.json` |
+| `npm run awmc` / `darmc` / `nuts` | 对应几何产物缺失、上游数据更新或需要重新规范化时；下载阶段才访问外网，完成后即退出 |
+| `npm run data -- list/status/compare/check` | 按需查看数据源、产物状态及一致性 |
+| `npm run data -- use <源>` | 需要修改几何浏览的默认数据源时（写 `atlas.config.json`） |
+| `npm run audit` / `collisions` | 数据或相关渲染策略变化后执行对应审计 |
+| `npm run smoke` | `npm run dev` 已在运行时执行浏览器冒烟测试 |
+| `npm run build` / `npx tsc --noEmit` | 发布前或代码变更完成后验证构建与类型 |
+| `npm run favicon` | 仅在需要重新生成 favicon 时 |
+
+三条几何管线都是构建期 CLI 入口，流程为“联网下载到 `data/geography/raw/` →
+规范化到 `data/geography/processed/` → 校验后退出”，不会启动常驻服务。前端启动时只读取
+已经生成的本地静态产物；若相应产物缺失，请运行对应管线，而不是每次启动都重跑。
 
 改数据的完整回路：
 
 ```bash
-# 编辑器直接改 data/source/*.json
+# 编辑器直接改 data/peoples/source/*.json
 npm run project                  # 校验（错即中止）+ 投影 -> atlas.json
-git diff data/source data/export # 审阅本次数据变更（源 + 产物一起）
-npm run audit && npm run collisions && npm run smoke   # 门禁
+git diff data/peoples/source data/peoples/export # 审阅本次数据变更（源 + 产物一起）
+npm run audit && npm run collisions                     # 数据门禁
+npm run smoke                    # 浏览器门禁；另一终端需保持 npm run dev
+npm run build && npx tsc --noEmit # 构建与类型门禁
 ```
 
-最小示例——新增一个族群：在 `data/source/peoples.json` 加一个对象（`code` /
+最小示例——新增一个族群：在 `data/peoples/source/peoples.json` 加一个对象（`code` /
 `type` / `name.zh`+`name.en` 必填），`slices` 指向 `regions.json` 既有地区；
 需要新地区时先在 `regions.json` 加地区并补 `geometry_rules` 映射。跑
 `npm run project`：validator 拦漏翻/坏引用，audit 报覆盖空窗。全程无需数据库。
@@ -64,7 +90,7 @@ npm run audit && npm run collisions && npm run smoke   # 门禁
 此后**缩放/连续年份时间轴（-509 至今）/hover 全部内存运算、零网络请求**。
 着色 = `people_region` 时间切片按 render_priority 取主族群；hover 面板显示
 当年全部族群、语言、宗教、族群关系与当期事件（双语名直接来自源文件）。
-地区（粗粒度历史地理）→ 几何的近似映射规则存于 `data/source/regions.json`
+地区（粗粒度历史地理）→ 几何的近似映射规则存于 `data/peoples/source/regions.json`
 的 `geometry_rules`（80 条：NUTS L0 国家集 / 要素 id 集 / DARMC 行省名
 正则 / AWMC 帝国快照四类），随 atlas.json 的 `region_geometry` 段下发，
 求值器在 `src/frontend/region-map.ts`。
@@ -80,7 +106,7 @@ npm run audit && npm run collisions && npm run smoke   # 门禁
 国家）。历史上由多个补丁（核心覆盖补全 → 瑞士/科索沃 → 次国家级细分
 Tier 1 → 前罗马时代中欧 → 德国 Tier 2 四分 + 全面修正 → 五国 Tier 3
 细分）累积达成，现
-已全部沉淀在 `data/source/` 源文件中（数据库时代的补丁与 SQL 已退役，
+已全部沉淀在 `data/peoples/source/` 源文件中（数据库时代的补丁与 SQL 已退役，
 历史见 git log）。
 细分以族群断层线为准（比利时/瑞士三分/伊比利亚五分/布列塔尼/波兰三分/
 乌克兰五分：西部加-沃/中北部/东斯洛博达-顿巴斯/南新俄罗斯/克里米亚，
@@ -104,7 +130,7 @@ GADM 州级几何而非 L0；另有部分细分叠加单元（`OVERLAY_UNITS`：
 **几何浏览**：三源原始几何 + 快照时间轴（`src/datasources/` 各自 README）。
 
 代码：`src/frontend/`（main/map/timeline/legend/people-tree/panel/load/atlas/region-map/i18n/palette/state）。
-开发期数据经 vite 中间件白名单直读 `data/processed/` 与 `data/export/`。
+开发期数据经 vite 中间件白名单直读 `data/geography/processed/` 与 `data/peoples/export/`。
 
 ## 数据管线
 
@@ -126,11 +152,12 @@ npm run data -- compare   # 三源对比
 | `src/datasources/<源>/` | 各源 pipeline（download/normalize/validate） |
 | `src/datasources/registry.ts` | 数据源注册与加载入口（前端导出用） |
 | `src/cli.ts` | `npm run data` 管理命令 |
-| `data/processed/<源>/` | 规范化产物（regions/places/lines + manifest） |
+| `data/geography/raw/<源>/` | 原始下载缓存（gitignore） |
+| `data/geography/processed/<源>/` | 规范化产物（regions/places/lines + manifest） |
 | `docs/data-contract.md` | 管线硬性规范 |
 | `docs/data-sources.md` | 三源对比与选源指南 |
 
-原始下载在 `data/raw/`（gitignore）。各源字段映射、license、已知问题见
+原始下载在 `data/geography/raw/`（gitignore）。各源字段映射、license、已知问题见
 `src/datasources/<源>/README.md`。
 
 ## 项目沿革
@@ -138,4 +165,4 @@ npm run data -- compare   # 三源对比
 1. **MVP**：PostgreSQL 30 表图谱 + 静态导出前端；确立全量加载 / 交互期零网络 / 中英双语
 2. **五个数据补丁**累积覆盖：核心补全 → 瑞士/科索沃 → 次国家级 Tier 1 → 前罗马中欧 → 德国 Tier 2 四分；`audit` / `collisions` / `smoke` 门禁随之成型
 3. **2026-10 合并**：补丁 SQL 与 `region-map.ts` 硬编码映射全部收进两份幂等 SQL + `region_geometry_rule` 表，空库重放逐表字节一致验收
-4. **2026-10 文件优先切换**（当前形态）：PostgreSQL 退役，`data/source/` 五文件成为唯一真实源，`npm run project` 校验 + 投影；以「与旧库导出字节等价」验收迁移（唯一差异 = 修正 `other_name_zh` 误存英文名的旧 bug 14 处）
+4. **2026-10 文件优先切换**（当前形态）：PostgreSQL 退役，`data/peoples/source/` 五文件成为唯一真实源，`npm run project` 校验 + 投影；以「与旧库导出字节等价」验收迁移（唯一差异 = 修正 `other_name_zh` 误存英文名的旧 bug 14 处）

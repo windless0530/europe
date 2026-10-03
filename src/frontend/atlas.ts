@@ -579,9 +579,9 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
   return { data, peopleByCode, regionByCode, regionGeometry, geometryToRegions, regionFor, peopleColor, slotIndex, yearRange, regionsAt, paintAt, periodAt, peopleTreeAt, enumLabel };
 }
 
-/** 从 /data/export/atlas.json 拉取（带字节进度） */
+/** 从 /data/peoples/export/atlas.json 拉取（带字节进度） */
 export async function fetchAtlas(onBytes?: (loaded: number, total: number) => void): Promise<AtlasData> {
-  const res = await fetch('/data/export/atlas.json');
+  const res = await fetch('/data/peoples/export/atlas.json');
   if (!res.ok) throw new Error(`atlas.json 加载失败：HTTP ${res.status}`);
   const total = Number(res.headers.get('content-length')) || 0;
   if (!res.body || !onBytes) return (await res.json()) as AtlasData;

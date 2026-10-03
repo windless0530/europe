@@ -1,6 +1,6 @@
 // ============================================================
 // AWMC loader · download
-// 幂等下载 AWMC geodata 仓库中的选定数据集到 data/raw/awmc/：
+// 幂等下载 AWMC geodata 仓库中的选定数据集到 data/geography/raw/awmc/：
 //  - 11 个 GeoJSON + 3 个溯源文档（LICENSE / README / 属性说明）
 //  - "Cultural Shapefiles Apr 2024.zip"（解压，含 GeoJSON 目录没有的
 //    ad_14/ad_69/314 范围、ethnonyms、ba_100 行省线等）

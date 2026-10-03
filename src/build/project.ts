@@ -1,5 +1,5 @@
 // ============================================================
-// 投影器：data/source/*.json -> data/export/atlas.json
+// 投影器：data/peoples/source/*.json -> data/peoples/export/atlas.json
 //
 // 前端「族群分布模式」的唯一数据来源（全量进内存）。输出形状
 // 与键序、排序、省写展开规则均固定 —— 与 PostgreSQL 时代的
@@ -23,7 +23,7 @@ import { fileURLToPath } from 'node:url';
 import { loadSource, validate, type Bundle, type I18n, type Taxonomy } from './source.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const OUT_FILE = join(ROOT, 'data', 'export', 'atlas.json');
+const OUT_FILE = join(ROOT, 'data', 'peoples', 'export', 'atlas.json');
 
 /** code-unit 比较（与 PG C 排序一致，勿用 localeCompare） */
 const cmp = (a: string, b: string): number => (a < b ? -1 : a > b ? 1 : 0);
@@ -232,7 +232,7 @@ function main(): void {
   writeFileSync(OUT_FILE, JSON.stringify(out, null, 2) + '\n', 'utf8');
   const kb = (statSync(OUT_FILE).size / 1024).toFixed(1);
   console.log(
-    `投影完成 -> data/export/atlas.json (${kb} KB)：` +
+    `投影完成 -> data/peoples/export/atlas.json (${kb} KB)：` +
       `${(out.regions as unknown[]).length} regions, ` +
       `${(out.peoples as unknown[]).length} peoples, ` +
       `${(out.people_region as unknown[]).length} people_region, ` +

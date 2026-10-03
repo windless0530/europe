@@ -1,6 +1,6 @@
 // ============================================================
 // download：从 Harvard CGA 的 DARMC ArcGIS Hosted Feature Services
-// 分页拉取所选图层的 GeoJSON，原样落盘到 data/raw/darmc/<key>.geojson
+// 分页拉取所选图层的 GeoJSON，原样落盘到 data/geography/raw/darmc/<key>.geojson
 //
 // - 幂等：文件已存在则跳过（--force 强制重下）
 // - 分页：resultOffset + orderByFields=<OID>；页大小取服务自身的
