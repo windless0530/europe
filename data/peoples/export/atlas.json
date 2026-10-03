@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T12:42:29.629Z",
+  "generated_at": "2026-10-03T12:50:31.392Z",
   "regions": [
     {
       "code": "aegyptus",
@@ -8333,11 +8333,11 @@
       "end_year": null,
       "confidence": "medium",
       "render_priority": 50,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
+      "caveat_kind": "method",
+      "caveat_zh": "沿海有伊科西乌姆（阿尔及尔）、约尔（舍尔沙勒）、西加等布匿人城镇，处于迦太基霸权之下，努米底亚/毛里塔尼亚诸王多为其盟友；属势力范围而非领土统治，内陆按柏柏尔人着色。",
+      "caveat_en": "Punic towns on the coast such as Icosium (Algiers), Iol (Cherchell) and Siga lay under Carthaginian hegemony, and the Numidian/Mauretanian kings were mostly its allies; this was a sphere of influence rather than territorial rule, so the interior is colored Berber.",
+      "caveat_sy": -600,
+      "caveat_ey": -146
     },
     {
       "people_code": "arabs_north_africa",
@@ -8459,11 +8459,11 @@
       "end_year": null,
       "confidence": "medium",
       "render_priority": 50,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
+      "caveat_kind": "method",
+      "caveat_zh": "沿海有利克苏斯、廷吉斯（丹吉尔）、鲁萨迪尔（梅利利亚）等布匿人城镇，处于迦太基霸权之下，努米底亚/毛里塔尼亚诸王多为其盟友；属势力范围而非领土统治，内陆按柏柏尔人着色。",
+      "caveat_en": "Punic towns on the coast such as Lixus, Tingis (Tangier) and Rusaddir (Melilla) lay under Carthaginian hegemony, and the Numidian/Mauretanian kings were mostly its allies; this was a sphere of influence rather than territorial rule, so the interior is colored Berber.",
+      "caveat_sy": -600,
+      "caveat_ey": -146
     },
     {
       "people_code": "montenegrins",
@@ -8963,11 +8963,11 @@
       "end_year": null,
       "confidence": "medium",
       "render_priority": 50,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
+      "caveat_kind": "method",
+      "caveat_zh": "沿海有希波（安纳巴）、鲁西卡德（斯基克达）、伊吉尔吉利（吉杰勒）等布匿人城镇，处于迦太基霸权之下，努米底亚/毛里塔尼亚诸王多为其盟友；属势力范围而非领土统治，内陆按柏柏尔人着色。",
+      "caveat_en": "Punic towns on the coast such as Hippo Regius (Annaba), Rusicade (Skikda) and Igilgili (Jijel) lay under Carthaginian hegemony, and the Numidian/Mauretanian kings were mostly its allies; this was a sphere of influence rather than territorial rule, so the interior is colored Berber.",
+      "caveat_sy": -600,
+      "caveat_ey": -146
     },
     {
       "people_code": "germans",
