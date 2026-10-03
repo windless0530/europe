@@ -11,7 +11,7 @@ import { createTimeline } from './timeline';
 import { createControls } from './legend';
 import { createPanel } from './panel';
 import { loadConfigSource, prefetchAllSources, type RegionVm, type SourceView } from './load';
-import { atlasGeometryFeatures, buildAtlasModel, fetchAtlas, type AtlasData, type AtlasModel } from './atlas';
+import { atlasGeometryFeatures, buildAtlasModel, caveatActive, fetchAtlas, type AtlasData, type AtlasModel } from './atlas';
 import { createPeopleTree } from './people-tree';
 import { getCookie, setCookie } from './cookies';
 import { createStore } from './state';
@@ -111,10 +111,13 @@ async function boot(): Promise<void> {
       const topName = rf.state
         ? ((s.lang === 'zh' ? rf.state.top.people.name_zh : rf.state.top.people.name_en) ?? rf.state.top.people.name_en)
         : null;
+      // 当年有标注时在 tooltip 末尾提示（详情见右侧面板）
+      const cav = rf.state?.rows.filter((r) => caveatActive(r, s.year)) ?? [];
+      const cavHint = cav.length === 0 ? '' : ` · ${t(cav.some((r) => r.caveat_kind === 'disputed') ? 'caveatHintDisputed' : 'caveatHintMethod', s.lang)}`;
       return {
         name: ((s.lang === 'zh' ? region?.name_zh : region?.name_en) ?? region?.name_en) ?? rf.regionCode,
         meta: topName
-          ? `${topName} · ${model.enumLabel('presence_type', rf.state!.top.presence, s.lang)}`
+          ? `${topName} · ${model.enumLabel('presence_type', rf.state!.top.presence, s.lang)}${cavHint}`
           : t('noRegionData', s.lang),
       };
     }
@@ -134,6 +137,35 @@ async function boot(): Promise<void> {
   const panel = createPanel(document.getElementById('detail-panel')!);
 
   const treeRoot = document.getElementById('people-tree')!;
+  // 地图左下角固定说明：全图着色规则 + 纹理图例（仅族群分布模式）
+  const mapNote = document.createElement('div');
+  mapNote.className = 'map-note';
+  document.getElementById('map-wrap')!.appendChild(mapNote);
+  function renderMapNote(lang: 'zh' | 'en'): void {
+    mapNote.innerHTML = '';
+    const rule = document.createElement('div');
+    rule.className = 'map-note-rule';
+    rule.textContent = t('mapNoteRule', lang);
+    const keys = document.createElement('div');
+    keys.className = 'map-note-keys';
+    for (const [kind, key] of [['disputed', 'mapNoteDisputed'], ['method', 'mapNoteMethod']] as const) {
+      const item = document.createElement('span');
+      item.className = 'map-note-key';
+      const sw = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      sw.setAttribute('class', 'map-note-swatch');
+      sw.setAttribute('width', '18');
+      sw.setAttribute('height', '12');
+      const r = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      r.setAttribute('width', '18');
+      r.setAttribute('height', '12');
+      r.setAttribute('rx', '2');
+      r.setAttribute('fill', `url(#hatch-${kind}-key)`);
+      sw.appendChild(r);
+      item.append(sw, document.createTextNode(t(key, lang)));
+      keys.appendChild(item);
+    }
+    mapNote.append(rule, keys);
+  }
   const controlsRow = document.getElementById('controls-row')!;
 
   // 图例树聚焦：悬停谱系树叶 -> 地图只亮该族群的活动区域，其余压暗（内存操作）
@@ -164,6 +196,10 @@ async function boot(): Promise<void> {
       },
     ]);
     map.applyStyles(entries);
+    // 标注纹理：图例聚焦压暗的区域不叠纹理，避免干扰聚焦
+    const caveats = model.caveatAt(s.year);
+    if (legendFocus !== null) for (const [code, st] of entries) if (st.dim) caveats.delete(code);
+    map.applyCaveats(caveats);
   }
 
   let view: SourceView | null = null;
@@ -239,7 +275,10 @@ async function boot(): Promise<void> {
   });
 
   window.addEventListener('resize', () => {
-    if (mapMode === 'atlas') map.setGeometry(atlasFeatures);
+    if (mapMode === 'atlas') {
+      map.setGeometry(atlasFeatures);
+      applyAtlasPaint(state()); // 重建几何后重新着色并叠加标注纹理
+    }
     else if (view) map.resize(view, opts());
   });
 
@@ -256,6 +295,8 @@ async function boot(): Promise<void> {
 
   store.subscribe((s) => {
     treeRoot.style.display = s.mode === 'atlas' ? '' : 'none';
+    mapNote.style.display = s.mode === 'atlas' ? '' : 'none';
+    renderMapNote(s.lang);
     controlsRow.style.display = s.mode === 'geo' ? '' : 'none';
     if (s.mode === 'atlas') {
       if (mapMode !== 'atlas') {

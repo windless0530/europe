@@ -534,6 +534,22 @@
             "zh": "阿拉伯人",
             "en": "Arabs"
           }
+        },
+        {
+          "code": "rus",
+          "sort": 400,
+          "name": {
+            "zh": "罗斯人",
+            "en": "Rus'"
+          }
+        },
+        {
+          "code": "masurians",
+          "sort": 410,
+          "name": {
+            "zh": "马祖里人",
+            "en": "Masurians"
+          }
         }
       ]
     },

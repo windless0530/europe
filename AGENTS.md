@@ -12,13 +12,13 @@
 ## 改数据回路
 
 1. 直接编辑 `data/peoples/source/`。省写约定：`confidence` 缺省 `high`；`slice.priority` 缺省 `0`；classification 字符串项 = `{node, relation: member_of, confidence: high}`；`years: [start, end]` 两端皆空则整体省略
-2. `npm run project` —— validator 会拦截坏引用 / 非法枚举 / 年份倒置 / 谱系成环 / i18n 缺失 / 重复键。**报错必须修数据，不许绕过或放宽校验**
+2. `npm run project` —— validator 会拦截坏引用 / 非法枚举 / 年份倒置 / 时间片越出族群寿命 / 谱系成环 / i18n 缺失 / 重复键。**报错必须修数据，不许绕过或放宽校验**
 3. `git diff data/peoples/source data/peoples/export` 审阅变更
 4. 门禁全绿才算完成：
    ```bash
    npm run audit && npm run collisions && npm run smoke && npm run build && npx tsc --noEmit
    ```
-   audit 语义：核心欧洲几何在首次有族群之后的任何年份不得空白（豁免：`roman_empire` AWMC 快照、`north_africa` 551 年后）
+   audit 语义：核心欧洲几何在首次有族群之后的任何年份不得空白（豁免：`roman_empire` AWMC 快照、`north_africa` 699 年后）
 
 ## 顺序语义（易踩坑，改动前先想清楚）
 

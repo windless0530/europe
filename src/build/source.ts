@@ -51,6 +51,14 @@ export interface Slice {
   priority?: number;
   confidence?: string;
   notes?: string;
+  /** 面向用户的标注（争议 / 特殊处理说明），双语；notes 为内部注记不投影 */
+  caveat?: Caveat;
+}
+export interface Caveat {
+  kind: string;
+  text: I18n;
+  /** 显示窗口（缺省 = 整个时间片）：仅与时间片早期相关的标注据此收窄，避免长期占据地图 */
+  years?: Years;
 }
 export interface People {
   code: string;
@@ -287,6 +295,21 @@ export function validate(b: Bundle): string[] {
       checkEnum('presence_type', sl.presence, sat);
       checkEnum('confidence_level', sl.confidence ?? 'high', sat);
       checkYears(sl.years, sat);
+      // 时间片须落在族群寿命内（null = 开放端：寿命开放端不设限；寿命有终点则切片不得开放）
+      const [ls, le] = p.lifespan ?? [null, null];
+      const [ss, se] = sl.years ?? [null, null];
+      if (ls !== null && (ss === null || ss < ls)) E(`${sat}: 起点 ${ss} 早于寿命起点 ${ls}`);
+      if (le !== null && (se === null || se > le)) E(`${sat}: 终点 ${se} 晚于寿命终点 ${le}`);
+      if (sl.caveat) {
+        if (sl.caveat.kind === undefined) E(`${sat}: caveat 缺少 kind`);
+        checkEnum('caveat_kind', sl.caveat.kind, sat);
+        checkI18n(sl.caveat.text, sat, 'caveat.text');
+        checkYears(sl.caveat.years, `${sat} caveat`);
+        // 显示窗口须落在时间片内（同寿命规则：切片有终点则窗口不得开放）
+        const [cs, ce] = sl.caveat.years ?? [ss, se];
+        if ((ss !== null && (cs === null || cs < ss)) || (se !== null && (ce === null || ce > se)))
+          E(`${sat}: caveat.years [${cs},${ce}] 越出时间片 [${ss},${se}]`);
+      }
       const key = `${sl.region}|${sl.presence}|${sl.years?.[0] ?? ''}`;
       if (seenSlice.has(key)) E(`${sat}: 同 region+presence+start 重复`);
       seenSlice.add(key);

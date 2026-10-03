@@ -2,7 +2,7 @@
 // 几何模式 show()；族群分布模式 showAtlas()（SQL region + 当年族群/语言/宗教/关系/事件）。
 
 import type { RegionVm } from './load';
-import type { AtlasModel, PresenceRow } from './atlas';
+import { caveatActive, type AtlasModel, type PresenceRow } from './atlas';
 import { familyName, regionTypeName, t, fmtYear, type Lang } from './i18n';
 import { familyFill } from './palette';
 
@@ -39,7 +39,7 @@ export function createPanel(root: HTMLElement): PanelApi {
     return ((lang === 'zh' ? zh : en) ?? en ?? zh) ?? fallback;
   }
 
-  function peopleBlock(row: PresenceRow, model: AtlasModel, lang: Lang, isTop: boolean): HTMLElement {
+  function peopleBlock(row: PresenceRow, model: AtlasModel, year: number, lang: Lang, isTop: boolean): HTMLElement {
     const block = document.createElement('div');
     block.className = 'people-block' + (isTop ? ' top' : '');
     const head = document.createElement('div');
@@ -97,6 +97,20 @@ export function createPanel(root: HTMLElement): PanelApi {
       );
       block.appendChild(p);
     }
+    // 标注（争议 / 处理说明）：仅在显示窗口内的年份出现
+    if (caveatActive(row, year)) {
+      const kind = row.caveat_kind === 'disputed' ? 'disputed' : 'method';
+      const box = document.createElement('div');
+      box.className = `caveat-box caveat-${kind}`;
+      const head = document.createElement('div');
+      head.className = 'caveat-head';
+      head.textContent = `${kind === 'disputed' ? '⚠' : 'ⓘ'} ${model.enumLabel('caveat_kind', kind, lang)}`;
+      const body = document.createElement('div');
+      body.className = 'caveat-text';
+      body.textContent = label(row.caveat_zh, row.caveat_en, lang, '');
+      box.append(head, body);
+      block.appendChild(box);
+    }
     return block;
   }
 
@@ -146,7 +160,7 @@ export function createPanel(root: HTMLElement): PanelApi {
       root.appendChild(heading);
 
       for (const row of state.rows) {
-        root.appendChild(peopleBlock(row, model, lang, row === state.top));
+        root.appendChild(peopleBlock(row, model, year, lang, row === state.top));
       }
 
       const events = model.data.events.filter(

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T11:56:24.213Z",
+  "generated_at": "2026-10-03T09:26:55.088Z",
   "regions": [
     {
       "code": "albania",
@@ -472,6 +472,16 @@
       "brief_zh": null
     },
     {
+      "code": "new_castile",
+      "region_type": "cultural_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "New Castile and Extremadura",
+      "name_zh": "新卡斯蒂利亚—埃斯特雷马杜拉",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "north_africa",
       "region_type": "historical_region",
       "start_year": -1000,
@@ -836,7 +846,7 @@
       "code": "alemanni",
       "people_type": "historical",
       "start_year": 200,
-      "end_year": 506,
+      "end_year": 900,
       "status_code": "transformed",
       "name_en": "Alemanni",
       "name_zh": "阿勒曼尼人",
@@ -1169,7 +1179,7 @@
     {
       "code": "belarusians",
       "people_type": "modern",
-      "start_year": 1000,
+      "start_year": 1400,
       "end_year": null,
       "status_code": "extant",
       "name_en": "Belarusians",
@@ -1187,7 +1197,16 @@
           "relation": "member_of"
         }
       ],
-      "relations": []
+      "relations": [
+        {
+          "rel": "descended_from",
+          "direction": "out",
+          "other_code": "rus",
+          "other_name_en": "Rus' (East Slavs)",
+          "other_name_zh": "罗斯人（东斯拉夫人）",
+          "notes": "Kievan Rus'-era East Slavs are the common precursor of Russians, Ukrainians and Belarusians."
+        }
+      ]
     },
     {
       "code": "bosniaks",
@@ -1409,8 +1428,8 @@
       "status_code": "extant",
       "name_en": "Crimean Tatars",
       "name_zh": "克里米亚鞑靼人",
-      "brief_en": "People of the Crimean Khanate (1441-1783)",
-      "brief_zh": "克里米亚汗国（1441–1783）主体",
+      "brief_en": "People of the Crimean Khanate (1441-1783), deported in 1944",
+      "brief_zh": "克里米亚汗国（1441–1783）主体，1944 年遭驱逐",
       "languages": [],
       "religions": [],
       "classifications": [
@@ -1511,7 +1530,7 @@
     {
       "code": "danes",
       "people_type": "modern",
-      "start_year": 804,
+      "start_year": 500,
       "end_year": null,
       "status_code": "extant",
       "name_en": "Danes",
@@ -1584,9 +1603,9 @@
       "brief_zh": "现代英格兰的族群与文化共同体。",
       "languages": [
         {
-          "code": "french",
-          "name_en": "French",
-          "name_zh": "法语",
+          "code": "english",
+          "name_en": "English",
+          "name_zh": "英语",
           "role": "native",
           "sy": null,
           "ey": null
@@ -1689,7 +1708,7 @@
       "code": "franks",
       "people_type": "historical",
       "start_year": 200,
-      "end_year": 900,
+      "end_year": 987,
       "status_code": "transformed",
       "name_en": "Franks",
       "name_zh": "法兰克人",
@@ -1888,7 +1907,7 @@
       "code": "germanic_tribes",
       "people_type": "ancient",
       "start_year": -450,
-      "end_year": 400,
+      "end_year": 500,
       "status_code": "transformed",
       "name_en": "Early Germanic peoples",
       "name_zh": "古日耳曼人",
@@ -1949,8 +1968,8 @@
     {
       "code": "goths",
       "people_type": "historical",
-      "start_year": 100,
-      "end_year": 700,
+      "start_year": -100,
+      "end_year": 1440,
       "status_code": "transformed",
       "name_en": "Goths",
       "name_zh": "哥特人",
@@ -2431,13 +2450,13 @@
     {
       "code": "macedonians",
       "people_type": "modern",
-      "start_year": 900,
+      "start_year": 600,
       "end_year": null,
       "status_code": "extant",
       "name_en": "Macedonians",
       "name_zh": "马其顿人",
-      "brief_en": "Slavic tradition since Samuel's empire",
-      "brief_zh": "萨穆伊尔帝国以降的区域斯拉夫传统",
+      "brief_en": "Slavic population of the Macedonia region; modern national identity formed in the late 19th to mid-20th century",
+      "brief_zh": "马其顿地区的斯拉夫人口；现代民族认同形成于 19 世纪末至 20 世纪中",
       "languages": [],
       "religions": [],
       "classifications": [
@@ -2472,6 +2491,63 @@
       "religions": [],
       "classifications": [],
       "relations": []
+    },
+    {
+      "code": "masurians",
+      "people_type": "historical",
+      "start_year": 1400,
+      "end_year": 1945,
+      "status_code": "transformed",
+      "name_en": "Masurians",
+      "name_zh": "马祖里人",
+      "brief_en": "Polish-dialect-speaking Lutheran population of southern East Prussia",
+      "brief_zh": "东普鲁士南部讲波兰语方言的路德宗人群",
+      "languages": [
+        {
+          "code": "polish",
+          "name_en": "Polish",
+          "name_zh": "波兰语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "protestantism",
+          "name_en": "Protestantism",
+          "name_zh": "新教",
+          "role": "dominant",
+          "sy": 1525,
+          "ey": 1945
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "historical_people",
+          "node": "masurians",
+          "name_en": "Masurians",
+          "name_zh": "马祖里人",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "language",
+          "node": "west_slavic",
+          "name_en": "West Slavic",
+          "name_zh": "西斯拉夫",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "related_to",
+          "direction": "out",
+          "other_code": "poles",
+          "other_name_en": "Poles",
+          "other_name_zh": "波兰人",
+          "notes": "Masurians descend from Masovian Polish settlers but developed a distinct Lutheran, Prussian-oriented identity."
+        }
+      ]
     },
     {
       "code": "montenegrins",
@@ -2592,7 +2668,7 @@
       "code": "ostrogoths",
       "people_type": "historical",
       "start_year": 300,
-      "end_year": 550,
+      "end_year": 553,
       "status_code": "transformed",
       "name_en": "Ostrogoths",
       "name_zh": "东哥特人",
@@ -2713,7 +2789,16 @@
           "relation": "member_of"
         }
       ],
-      "relations": []
+      "relations": [
+        {
+          "rel": "related_to",
+          "direction": "in",
+          "other_code": "masurians",
+          "other_name_en": "Masurians",
+          "other_name_zh": "马祖里人",
+          "notes": "Masurians descend from Masovian Polish settlers but developed a distinct Lutheran, Prussian-oriented identity."
+        }
+      ]
     },
     {
       "code": "portuguese",
@@ -2813,7 +2898,7 @@
       "code": "romans",
       "people_type": "historical",
       "start_year": -500,
-      "end_year": 600,
+      "end_year": 700,
       "status_code": "transformed",
       "name_en": "Romans",
       "name_zh": "罗马人",
@@ -2858,9 +2943,90 @@
       ]
     },
     {
+      "code": "rus",
+      "people_type": "medieval",
+      "start_year": 882,
+      "end_year": 1399,
+      "status_code": "transformed",
+      "name_en": "Rus' (East Slavs)",
+      "name_zh": "罗斯人（东斯拉夫人）",
+      "brief_en": "East Slavs of the Kievan Rus' era; common precursor of Russians, Ukrainians and Belarusians",
+      "brief_zh": "基辅罗斯时代的东斯拉夫人，俄罗斯人、乌克兰人、白俄罗斯人的共同前身",
+      "languages": [
+        {
+          "code": "old_east_slavic",
+          "name_en": "Old East Slavic",
+          "name_zh": "古东斯拉夫语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "eastern_orthodoxy",
+          "name_en": "Eastern Orthodoxy",
+          "name_zh": "东正教",
+          "role": "dominant",
+          "sy": 988,
+          "ey": 1399
+        },
+        {
+          "code": "paganism",
+          "name_en": "Paganism",
+          "name_zh": "多神教 / 异教传统",
+          "role": "traditional",
+          "sy": 882,
+          "ey": 988
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "historical_people",
+          "node": "rus",
+          "name_en": "Rus'",
+          "name_zh": "罗斯人",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "language",
+          "node": "east_slavic",
+          "name_en": "East Slavic",
+          "name_zh": "东斯拉夫",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "descended_from",
+          "direction": "in",
+          "other_code": "belarusians",
+          "other_name_en": "Belarusians",
+          "other_name_zh": "白俄罗斯人",
+          "notes": "Kievan Rus'-era East Slavs are the common precursor of Russians, Ukrainians and Belarusians."
+        },
+        {
+          "rel": "descended_from",
+          "direction": "in",
+          "other_code": "russians",
+          "other_name_en": "Russians",
+          "other_name_zh": "俄罗斯人",
+          "notes": "Kievan Rus'-era East Slavs are the common precursor of Russians, Ukrainians and Belarusians."
+        },
+        {
+          "rel": "descended_from",
+          "direction": "in",
+          "other_code": "ukrainians",
+          "other_name_en": "Ukrainians",
+          "other_name_zh": "乌克兰人",
+          "notes": "Kievan Rus'-era East Slavs are the common precursor of Russians, Ukrainians and Belarusians."
+        }
+      ]
+    },
+    {
       "code": "russians",
       "people_type": "modern",
-      "start_year": 1000,
+      "start_year": 1400,
       "end_year": null,
       "status_code": "extant",
       "name_en": "Russians",
@@ -2887,7 +3053,16 @@
           "relation": "member_of"
         }
       ],
-      "relations": []
+      "relations": [
+        {
+          "rel": "descended_from",
+          "direction": "out",
+          "other_code": "rus",
+          "other_name_en": "Rus' (East Slavs)",
+          "other_name_zh": "罗斯人（东斯拉夫人）",
+          "notes": "Kievan Rus'-era East Slavs are the common precursor of Russians, Ukrainians and Belarusians."
+        }
+      ]
     },
     {
       "code": "sami",
@@ -3011,7 +3186,7 @@
     {
       "code": "scots",
       "people_type": "modern",
-      "start_year": 1000,
+      "start_year": 843,
       "end_year": null,
       "status_code": "extant",
       "name_en": "Scots",
@@ -3058,7 +3233,7 @@
       "code": "slavs",
       "people_type": "historical",
       "start_year": 400,
-      "end_year": 1000,
+      "end_year": 1160,
       "status_code": "transformed",
       "name_en": "Slavs",
       "name_zh": "斯拉夫人",
@@ -3354,7 +3529,7 @@
     {
       "code": "ukrainians",
       "people_type": "modern",
-      "start_year": 1000,
+      "start_year": 1400,
       "end_year": null,
       "status_code": "extant",
       "name_en": "Ukrainians",
@@ -3381,13 +3556,22 @@
           "relation": "member_of"
         }
       ],
-      "relations": []
+      "relations": [
+        {
+          "rel": "descended_from",
+          "direction": "out",
+          "other_code": "rus",
+          "other_name_en": "Rus' (East Slavs)",
+          "other_name_zh": "罗斯人（东斯拉夫人）",
+          "notes": "Kievan Rus'-era East Slavs are the common precursor of Russians, Ukrainians and Belarusians."
+        }
+      ]
     },
     {
       "code": "vandals",
       "people_type": "historical",
       "start_year": -100,
-      "end_year": 550,
+      "end_year": 534,
       "status_code": "transformed",
       "name_en": "Vandals",
       "name_zh": "汪达尔人",
@@ -3591,7 +3775,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "moors",
@@ -3600,16 +3789,26 @@
       "start_year": 711,
       "end_year": 1492,
       "confidence": "high",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "visigoths",
       "region_code": "andalusia",
       "presence": "political_control",
-      "start_year": 400,
+      "start_year": 456,
       "end_year": 711,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "spaniards",
@@ -3618,7 +3817,12 @@
       "start_year": 1492,
       "end_year": null,
       "confidence": "high",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "iberians",
@@ -3627,7 +3831,12 @@
       "start_year": -1000,
       "end_year": 100,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -3636,7 +3845,26 @@
       "start_year": -200,
       "end_year": 476,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "andalusia",
+      "presence": "political_control",
+      "start_year": 552,
+      "end_year": 624,
+      "confidence": "medium",
+      "render_priority": 45,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "armenians",
@@ -3645,7 +3873,12 @@
       "start_year": 500,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "franks",
@@ -3654,7 +3887,12 @@
       "start_year": 788,
       "end_year": 900,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germans",
@@ -3663,7 +3901,12 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -3672,16 +3915,40 @@
       "start_year": -15,
       "end_year": 476,
       "confidence": "high",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "franks",
+      "region_code": "austria",
+      "presence": "political_control",
+      "start_year": 536,
+      "end_year": 550,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "ostrogoths",
       "region_code": "austria",
       "presence": "political_control",
-      "start_year": 476,
-      "end_year": 552,
+      "start_year": 493,
+      "end_year": 536,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "bavarians",
@@ -3690,7 +3957,26 @@
       "start_year": 550,
       "end_year": 788,
       "confidence": "medium",
-      "render_priority": 58
+      "render_priority": 58,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "austria",
+      "presence": "settlement",
+      "start_year": 476,
+      "end_year": 493,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "azerbaijanis",
@@ -3699,7 +3985,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "illyrians",
@@ -3708,7 +3999,12 @@
       "start_year": -1000,
       "end_year": 100,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -3717,7 +4013,12 @@
       "start_year": -100,
       "end_year": 700,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "thracians",
@@ -3726,7 +4027,12 @@
       "start_year": -1000,
       "end_year": 500,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "visigoths",
@@ -3735,7 +4041,12 @@
       "start_year": 300,
       "end_year": 400,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "serbs",
@@ -3744,7 +4055,12 @@
       "start_year": 700,
       "end_year": null,
       "confidence": "low",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "goths",
@@ -3753,7 +4069,12 @@
       "start_year": 375,
       "end_year": 700,
       "confidence": "low",
-      "render_priority": 40
+      "render_priority": 40,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "basques",
@@ -3762,7 +4083,12 @@
       "start_year": -500,
       "end_year": null,
       "confidence": "high",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "franks",
@@ -3771,7 +4097,12 @@
       "start_year": 788,
       "end_year": 900,
       "confidence": "high",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germans",
@@ -3780,7 +4111,12 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -3789,7 +4125,12 @@
       "start_year": -15,
       "end_year": 476,
       "confidence": "high",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "bavarians",
@@ -3798,16 +4139,40 @@
       "start_year": 550,
       "end_year": 788,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "franks",
+      "region_code": "bavaria",
+      "presence": "political_control",
+      "start_year": 536,
+      "end_year": 550,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "ostrogoths",
       "region_code": "bavaria",
       "presence": "political_control",
-      "start_year": 476,
-      "end_year": 552,
+      "start_year": 493,
+      "end_year": 536,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "celts",
@@ -3816,16 +4181,54 @@
       "start_year": -500,
       "end_year": -15,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "bavaria",
+      "presence": "settlement",
+      "start_year": 476,
+      "end_year": 493,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "belarusians",
       "region_code": "belarus",
       "presence": "homeland",
-      "start_year": 1000,
+      "start_year": 1400,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1400 年为近似分界：东斯拉夫三族 14–16 世纪逐步分化，此前统一标示为「罗斯人」。白俄罗斯民族在立陶宛大公国治下逐步形成。",
+      "caveat_en": "1400 is an approximate boundary: the three East Slavic peoples differentiated gradually in the 14th–16th centuries and are shown jointly as \"Rus'\" before it. The Belarusian nationality developed under the Grand Duchy of Lithuania.",
+      "caveat_sy": 1400,
+      "caveat_ey": 1600
+    },
+    {
+      "people_code": "rus",
+      "region_code": "belarus",
+      "presence": "homeland",
+      "start_year": 882,
+      "end_year": 1399,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "基辅罗斯时代的东斯拉夫人统一标示为「罗斯人」，作为俄罗斯人、乌克兰人、白俄罗斯人的共同前身，不将基辅罗斯归属于其中任何一个现代民族。",
+      "caveat_en": "East Slavs of the Kievan Rus' era are shown jointly as \"Rus'\", the common precursor of Russians, Ukrainians and Belarusians, without assigning Kievan Rus' to any one modern nation.",
+      "caveat_sy": 882,
+      "caveat_ey": 1399
     },
     {
       "people_code": "bosniaks",
@@ -3834,7 +4237,12 @@
       "start_year": 1300,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "bretons",
@@ -3843,7 +4251,12 @@
       "start_year": 450,
       "end_year": null,
       "confidence": "high",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -3852,7 +4265,12 @@
       "start_year": -50,
       "end_year": 450,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "gauls",
@@ -3861,7 +4279,12 @@
       "start_year": -500,
       "end_year": -50,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "bulgarians",
@@ -3870,7 +4293,26 @@
       "start_year": 700,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "bulgaria",
+      "presence": "minority",
+      "start_year": 1396,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 40,
+      "caveat_kind": "method",
+      "caveat_zh": "按人口原则不画奥斯曼政治控制层，仅以土耳其裔/穆斯林少数族群层表示奥斯曼时代遗留人口。",
+      "caveat_en": "Following the population principle, no Ottoman political-control layer is drawn; Ottoman-era populations are shown only as a Turkish/Muslim minority layer.",
+      "caveat_sy": 1396,
+      "caveat_ey": 1878
     },
     {
       "people_code": "avars",
@@ -3879,25 +4321,40 @@
       "start_year": 567,
       "end_year": 799,
       "confidence": "medium",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "magyars",
       "region_code": "carpathian_basin",
       "presence": "homeland",
-      "start_year": 800,
+      "start_year": 895,
       "end_year": 1100,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "visigoths",
       "region_code": "castile",
       "presence": "political_control",
-      "start_year": 400,
+      "start_year": 456,
       "end_year": 711,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "spaniards",
@@ -3906,7 +4363,12 @@
       "start_year": 711,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "以现代族名标示先民人群：711 年起为阿斯图里亚斯—莱昂—卡斯蒂利亚诸王国的基督徒人口；统一的「西班牙人」认同形成于近代早期（1479 年王冠联合之后）。",
+      "caveat_en": "Modern ethnonym used for ancestral populations: from 711 the Christian population of the Asturian–Leonese–Castilian kingdoms; a unified Spanish identity formed in the early modern period (after the 1479 union of crowns).",
+      "caveat_sy": 711,
+      "caveat_ey": 1479
     },
     {
       "people_code": "celtiberians",
@@ -3915,7 +4377,12 @@
       "start_year": -500,
       "end_year": 100,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -3924,7 +4391,12 @@
       "start_year": -200,
       "end_year": 476,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "franks",
@@ -3933,7 +4405,12 @@
       "start_year": 801,
       "end_year": 987,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "moors",
@@ -3942,16 +4419,26 @@
       "start_year": 711,
       "end_year": 801,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "visigoths",
       "region_code": "catalonia",
       "presence": "political_control",
-      "start_year": 400,
+      "start_year": 415,
       "end_year": 711,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "catalans",
@@ -3960,7 +4447,12 @@
       "start_year": 987,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "iberians",
@@ -3969,7 +4461,12 @@
       "start_year": -1000,
       "end_year": 100,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -3978,7 +4475,12 @@
       "start_year": -200,
       "end_year": 476,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "celts",
@@ -3987,16 +4489,26 @@
       "start_year": -500,
       "end_year": -15,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "lombards",
       "region_code": "central_europe",
       "presence": "homeland",
       "start_year": 490,
-      "end_year": 568,
+      "end_year": 550,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "suebi",
@@ -4005,7 +4517,12 @@
       "start_year": 100,
       "end_year": 489,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germanic_tribes",
@@ -4014,7 +4531,12 @@
       "start_year": -450,
       "end_year": 100,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "arabs_crete",
@@ -4023,7 +4545,12 @@
       "start_year": 824,
       "end_year": 961,
       "confidence": "high",
-      "render_priority": 80
+      "render_priority": 80,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "greeks",
@@ -4032,7 +4559,12 @@
       "start_year": -800,
       "end_year": 824,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "greeks",
@@ -4041,25 +4573,40 @@
       "start_year": 961,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "russians",
       "region_code": "crimea",
-      "presence": "political_control",
-      "start_year": 1783,
+      "presence": "settlement",
+      "start_year": 1900,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "按人口多数着色，不涉政治归属。1897 与 1926 两次普查之间的主体交替年份按线性插值取 1900 年。",
+      "caveat_en": "Coloured by population majority, regardless of political sovereignty. The changeover between the 1897 and 1926 censuses is linearly interpolated to 1900.",
+      "caveat_sy": 1900,
+      "caveat_ey": null
     },
     {
       "people_code": "crimean_tatars",
       "region_code": "crimea",
       "presence": "homeland",
       "start_year": 1441,
-      "end_year": null,
+      "end_year": 1944,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "goths",
@@ -4068,7 +4615,54 @@
       "start_year": 250,
       "end_year": 1440,
       "confidence": "low",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "crimean_tatars",
+      "region_code": "crimea",
+      "presence": "minority",
+      "start_year": 1989,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 45,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "russians",
+      "region_code": "crimea",
+      "presence": "minority",
+      "start_year": 1783,
+      "end_year": 1899,
+      "confidence": "medium",
+      "render_priority": 40,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "ukrainians",
+      "region_code": "crimea",
+      "presence": "minority",
+      "start_year": 1783,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 40,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "croats",
@@ -4077,7 +4671,12 @@
       "start_year": 700,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "czechs",
@@ -4086,7 +4685,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "slavs",
@@ -4095,7 +4699,12 @@
       "start_year": 550,
       "end_year": 1000,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "danes",
@@ -4104,7 +4713,12 @@
       "start_year": 500,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "slavs",
@@ -4113,7 +4727,12 @@
       "start_year": 600,
       "end_year": 1000,
       "confidence": "medium",
-      "render_priority": 75
+      "render_priority": 75,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "greeks",
@@ -4122,7 +4741,26 @@
       "start_year": 700,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "east_macedonia_thrace",
+      "presence": "minority",
+      "start_year": 1371,
+      "end_year": null,
+      "confidence": "low",
+      "render_priority": 40,
+      "caveat_kind": "method",
+      "caveat_zh": "按人口原则不画奥斯曼政治控制层，仅以土耳其裔/穆斯林少数族群层表示奥斯曼时代遗留人口。",
+      "caveat_en": "Following the population principle, no Ottoman political-control layer is drawn; Ottoman-era populations are shown only as a Turkish/Muslim minority layer.",
+      "caveat_sy": 1371,
+      "caveat_ey": 1913
     },
     {
       "people_code": "greeks",
@@ -4131,7 +4769,12 @@
       "start_year": 700,
       "end_year": 1369,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "turks",
@@ -4140,7 +4783,12 @@
       "start_year": 1369,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "goths",
@@ -4149,7 +4797,12 @@
       "start_year": 100,
       "end_year": 375,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "ostrogoths",
@@ -4158,7 +4811,12 @@
       "start_year": 300,
       "end_year": 493,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "slavs",
@@ -4167,7 +4825,12 @@
       "start_year": 400,
       "end_year": 1000,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "english",
@@ -4176,7 +4839,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "britons",
@@ -4185,7 +4853,12 @@
       "start_year": -100,
       "end_year": 650,
       "confidence": "medium",
-      "render_priority": 56
+      "render_priority": 56,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "saxons",
@@ -4194,7 +4867,12 @@
       "start_year": 450,
       "end_year": 1000,
       "confidence": "high",
-      "render_priority": 54
+      "render_priority": 54,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "angles",
@@ -4203,7 +4881,12 @@
       "start_year": 450,
       "end_year": 900,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "jutes",
@@ -4212,7 +4895,12 @@
       "start_year": 450,
       "end_year": 800,
       "confidence": "low",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "danes",
@@ -4221,7 +4909,12 @@
       "start_year": 865,
       "end_year": 954,
       "confidence": "high",
-      "render_priority": 45
+      "render_priority": 45,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "estonian",
@@ -4230,7 +4923,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "以现代族名标示先民人群：古爱沙尼亚诸部；近代爱沙尼亚民族认同形成于 19 世纪民族觉醒。",
+      "caveat_en": "Modern ethnonym used for ancestral populations: the ancient Estonian tribes; modern Estonian national identity formed in the 19th-century national awakening.",
+      "caveat_sy": 1000,
+      "caveat_ey": 1850
     },
     {
       "people_code": "finns",
@@ -4239,7 +4937,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "以现代族名标示先民人群：芬兰本部、海米（塔瓦斯特）、卡累利阿诸部；近代芬兰民族认同形成于 19 世纪。",
+      "caveat_en": "Modern ethnonym used for ancestral populations: Finns proper, Tavastians and Karelians; modern Finnish national identity formed in the 19th century.",
+      "caveat_sy": 1000,
+      "caveat_ey": 1850
     },
     {
       "people_code": "franks",
@@ -4248,7 +4951,12 @@
       "start_year": 358,
       "end_year": 900,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "dutch",
@@ -4257,7 +4965,12 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "gauls",
@@ -4266,7 +4979,12 @@
       "start_year": -500,
       "end_year": 500,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "french",
@@ -4275,7 +4993,12 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "visigoths",
@@ -4284,7 +5007,12 @@
       "start_year": 585,
       "end_year": 711,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "spaniards",
@@ -4293,7 +5021,12 @@
       "start_year": 711,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "以现代族名标示先民人群：加利西亚—莱昂王国的基督徒人口（加利西亚人未单列）；统一的「西班牙人」认同形成于近代早期。",
+      "caveat_en": "Modern ethnonym used for ancestral populations: the Christian population of the Galician–Leonese kingdom (Galicians not listed separately); a unified Spanish identity formed in the early modern period.",
+      "caveat_sy": 711,
+      "caveat_ey": 1479
     },
     {
       "people_code": "suebi",
@@ -4302,7 +5035,12 @@
       "start_year": 409,
       "end_year": 585,
       "confidence": "high",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "celtiberians",
@@ -4310,8 +5048,13 @@
       "presence": "homeland",
       "start_year": -500,
       "end_year": 100,
-      "confidence": "medium",
-      "render_priority": 60
+      "confidence": "low",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -4320,16 +5063,40 @@
       "start_year": -200,
       "end_year": 476,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "rus",
+      "region_code": "galicia_volhynia",
+      "presence": "homeland",
+      "start_year": 882,
+      "end_year": 1399,
+      "confidence": "medium",
+      "render_priority": 65,
+      "caveat_kind": "method",
+      "caveat_zh": "基辅罗斯时代的东斯拉夫人统一标示为「罗斯人」，作为俄罗斯人、乌克兰人、白俄罗斯人的共同前身，不将基辅罗斯归属于其中任何一个现代民族。",
+      "caveat_en": "East Slavs of the Kievan Rus' era are shown jointly as \"Rus'\", the common precursor of Russians, Ukrainians and Belarusians, without assigning Kievan Rus' to any one modern nation.",
+      "caveat_sy": 882,
+      "caveat_ey": 1399
     },
     {
       "people_code": "ukrainians",
       "region_code": "galicia_volhynia",
       "presence": "homeland",
-      "start_year": 1000,
+      "start_year": 1400,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "slavs",
@@ -4338,7 +5105,12 @@
       "start_year": 550,
       "end_year": 1000,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "franks",
@@ -4347,7 +5119,12 @@
       "start_year": 476,
       "end_year": 900,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "gauls",
@@ -4356,7 +5133,12 @@
       "start_year": -500,
       "end_year": -51,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -4365,7 +5147,12 @@
       "start_year": -50,
       "end_year": 476,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "burgundians",
@@ -4374,7 +5161,12 @@
       "start_year": 407,
       "end_year": 600,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "french",
@@ -4383,16 +5175,26 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "low",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "visigoths",
       "region_code": "gaul",
       "presence": "settlement",
-      "start_year": 400,
-      "end_year": 500,
+      "start_year": 412,
+      "end_year": 507,
       "confidence": "high",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "georgians",
@@ -4401,7 +5203,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "greeks",
@@ -4410,7 +5217,12 @@
       "start_year": -800,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "hungarians",
@@ -4419,7 +5231,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "irish",
@@ -4428,7 +5245,12 @@
       "start_year": 700,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "gaels",
@@ -4437,16 +5259,26 @@
       "start_year": -100,
       "end_year": 1500,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "franks",
       "region_code": "italy",
       "presence": "political_control",
       "start_year": 774,
-      "end_year": 1000,
+      "end_year": 962,
       "confidence": "high",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "lombards",
@@ -4455,16 +5287,26 @@
       "start_year": 568,
       "end_year": 774,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "ostrogoths",
       "region_code": "italy",
       "presence": "political_control",
       "start_year": 493,
-      "end_year": 550,
+      "end_year": 553,
       "confidence": "high",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "italians",
@@ -4473,7 +5315,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "latins",
@@ -4482,7 +5329,12 @@
       "start_year": -800,
       "end_year": 500,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -4491,7 +5343,26 @@
       "start_year": -500,
       "end_year": -27,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "lombards",
+      "region_code": "italy",
+      "presence": "settlement",
+      "start_year": 774,
+      "end_year": 1000,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -4500,7 +5371,26 @@
       "start_year": 476,
       "end_year": 600,
       "confidence": "low",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "visigoths",
+      "region_code": "italy",
+      "presence": "migration",
+      "start_year": 401,
+      "end_year": 412,
+      "confidence": "medium",
+      "render_priority": 40,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "karelians",
@@ -4509,7 +5399,12 @@
       "start_year": 800,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "latvians",
@@ -4518,7 +5413,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "以现代族名标示先民人群：拉特加尔、瑟洛、瑟米加利亚、库尔泽姆诸部在 13–17 世纪的利沃尼亚框架下逐步融合为拉脱维亚人。",
+      "caveat_en": "Modern ethnonym used for ancestral populations: Latgalians, Selonians, Semigallians and Curonians gradually merged into Latvians within Livonia in the 13th–17th centuries.",
+      "caveat_sy": 1000,
+      "caveat_ey": 1700
     },
     {
       "people_code": "balts",
@@ -4527,7 +5427,12 @@
       "start_year": -500,
       "end_year": 1000,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "lithuanians",
@@ -4536,7 +5441,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "balts",
@@ -4545,7 +5455,12 @@
       "start_year": -500,
       "end_year": 1000,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "dacians",
@@ -4554,16 +5469,26 @@
       "start_year": -500,
       "end_year": 300,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "macedonians",
       "region_code": "macedonia",
       "presence": "homeland",
-      "start_year": 976,
+      "start_year": 600,
       "end_year": null,
-      "confidence": "medium",
-      "render_priority": 60
+      "confidence": "disputed",
+      "render_priority": 60,
+      "caveat_kind": "disputed",
+      "caveat_zh": "以现代族名「马其顿人」标示该地区自 7 世纪以来的斯拉夫人口，是人口连续标签，不是认同判断。现代马其顿民族认同形成于 19 世纪末至 20 世纪中（1903 年米西尔科夫著作、1944 年 ASNOM 宣告、1945 年标准语），保加利亚史学将此前人口视为保加利亚人。萨穆伊尔国家（976–1018）主流学术视为第一保加利亚帝国的延续。",
+      "caveat_en": "The modern name \"Macedonians\" labels the Slavic population of this region since the 7th century as a continuity label, not a judgment of identity. Modern Macedonian national identity formed in the late 19th to mid-20th century (Misirkov 1903, ASNOM 1944, standard language 1945); Bulgarian historiography regards the earlier population as Bulgarian. Samuel's state (976–1018) is regarded by mainstream scholarship as a continuation of the First Bulgarian Empire.",
+      "caveat_sy": 600,
+      "caveat_ey": 1944
     },
     {
       "people_code": "poles",
@@ -4572,7 +5497,12 @@
       "start_year": 1945,
       "end_year": null,
       "confidence": "high",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germans",
@@ -4581,7 +5511,12 @@
       "start_year": 1250,
       "end_year": 1945,
       "confidence": "medium",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "prussians",
@@ -4590,7 +5525,26 @@
       "start_year": -500,
       "end_year": 1250,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "masurians",
+      "region_code": "masuria",
+      "presence": "settlement",
+      "start_year": 1400,
+      "end_year": 1945,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": "method",
+      "caveat_zh": "马祖里人讲波兰语方言，但多数认同普鲁士（1920 年公投阿伦施泰因区逾 97% 选择留在东普鲁士），故单列而不归入波兰人；该地区按人口主色仍为德国人。",
+      "caveat_en": "Masurians spoke a Polish dialect but mostly identified with Prussia (over 97% in the Allenstein area voted to remain in East Prussia in 1920), so they are listed separately rather than as Poles; by population the region's main colour remains German.",
+      "caveat_sy": 1400,
+      "caveat_ey": 1945
     },
     {
       "people_code": "montenegrins",
@@ -4599,7 +5553,12 @@
       "start_year": 1043,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "franks",
@@ -4608,7 +5567,12 @@
       "start_year": 358,
       "end_year": 900,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "dutch",
@@ -4617,16 +5581,110 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "moors",
+      "region_code": "new_castile",
+      "presence": "political_control",
+      "start_year": 711,
+      "end_year": 1085,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "visigoths",
+      "region_code": "new_castile",
+      "presence": "political_control",
+      "start_year": 456,
+      "end_year": 711,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "spaniards",
+      "region_code": "new_castile",
+      "presence": "homeland",
+      "start_year": 1085,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "celtiberians",
+      "region_code": "new_castile",
+      "presence": "homeland",
+      "start_year": -500,
+      "end_year": 100,
+      "confidence": "low",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "new_castile",
+      "presence": "political_control",
+      "start_year": -200,
+      "end_year": 476,
+      "confidence": "high",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "north_africa",
+      "presence": "political_control",
+      "start_year": 534,
+      "end_year": 698,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "vandals",
       "region_code": "north_africa",
       "presence": "political_control",
       "start_year": 435,
-      "end_year": 550,
+      "end_year": 534,
       "confidence": "high",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "angles",
@@ -4635,7 +5693,12 @@
       "start_year": 300,
       "end_year": 450,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "jutes",
@@ -4644,7 +5707,12 @@
       "start_year": 300,
       "end_year": 450,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "saxons",
@@ -4653,7 +5721,12 @@
       "start_year": 300,
       "end_year": 450,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "saxons",
@@ -4662,7 +5735,12 @@
       "start_year": 450,
       "end_year": 804,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "norwegians",
@@ -4671,7 +5749,12 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "norse",
@@ -4680,7 +5763,12 @@
       "start_year": 200,
       "end_year": 900,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germanic_tribes",
@@ -4689,7 +5777,12 @@
       "start_year": -450,
       "end_year": 200,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germans",
@@ -4698,7 +5791,12 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "franks",
@@ -4707,7 +5805,12 @@
       "start_year": 772,
       "end_year": 900,
       "confidence": "high",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "saxons",
@@ -4716,7 +5819,12 @@
       "start_year": 300,
       "end_year": 900,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germanic_tribes",
@@ -4725,7 +5833,12 @@
       "start_year": -450,
       "end_year": 300,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "lombards",
@@ -4734,7 +5847,12 @@
       "start_year": 200,
       "end_year": 450,
       "confidence": "low",
-      "render_priority": 45
+      "render_priority": 45,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "slavs",
@@ -4743,25 +5861,40 @@
       "start_year": 600,
       "end_year": 1160,
       "confidence": "medium",
-      "render_priority": 45
+      "render_priority": 45,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "huns",
       "region_code": "pannonia",
       "presence": "political_control",
       "start_year": 425,
-      "end_year": 469,
+      "end_year": 454,
       "confidence": "high",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "gepids",
       "region_code": "pannonia",
       "presence": "homeland",
-      "start_year": 469,
+      "start_year": 454,
       "end_year": 567,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -4770,7 +5903,26 @@
       "start_year": 9,
       "end_year": 433,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "lombards",
+      "region_code": "pannonia",
+      "presence": "settlement",
+      "start_year": 526,
+      "end_year": 568,
+      "confidence": "medium",
+      "render_priority": 55,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "celts",
@@ -4779,7 +5931,26 @@
       "start_year": -450,
       "end_year": 9,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "slavs",
+      "region_code": "pannonia",
+      "presence": "settlement",
+      "start_year": 600,
+      "end_year": 895,
+      "confidence": "low",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "poles",
@@ -4788,7 +5959,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "slavs",
@@ -4797,7 +5973,12 @@
       "start_year": 450,
       "end_year": 1000,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "vandals",
@@ -4806,7 +5987,12 @@
       "start_year": -100,
       "end_year": 450,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "goths",
@@ -4815,7 +6001,12 @@
       "start_year": -100,
       "end_year": 250,
       "confidence": "low",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "celts",
@@ -4824,7 +6015,12 @@
       "start_year": -380,
       "end_year": -100,
       "confidence": "low",
-      "render_priority": 45
+      "render_priority": 45,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "moors",
@@ -4833,7 +6029,12 @@
       "start_year": 711,
       "end_year": 1249,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "visigoths",
@@ -4842,7 +6043,12 @@
       "start_year": 585,
       "end_year": 711,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "portuguese",
@@ -4851,7 +6057,12 @@
       "start_year": 1200,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "lusitanians",
@@ -4860,7 +6071,12 @@
       "start_year": -500,
       "end_year": 100,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -4869,7 +6085,12 @@
       "start_year": -200,
       "end_year": 476,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "suebi",
@@ -4878,7 +6099,12 @@
       "start_year": 409,
       "end_year": 585,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -4887,7 +6113,12 @@
       "start_year": -27,
       "end_year": 476,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romanians",
@@ -4896,7 +6127,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "dacians",
@@ -4905,7 +6141,12 @@
       "start_year": -500,
       "end_year": 300,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "slavs",
@@ -4914,7 +6155,12 @@
       "start_year": 450,
       "end_year": 1000,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "goths",
@@ -4923,16 +6169,40 @@
       "start_year": 300,
       "end_year": 450,
       "confidence": "medium",
-      "render_priority": 40
+      "render_priority": 40,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "rus",
+      "region_code": "russia",
+      "presence": "settlement",
+      "start_year": 882,
+      "end_year": 1399,
+      "confidence": "low",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "基辅罗斯时代的东斯拉夫人统一标示为「罗斯人」，作为俄罗斯人、乌克兰人、白俄罗斯人的共同前身，不将基辅罗斯归属于其中任何一个现代民族。",
+      "caveat_en": "East Slavs of the Kievan Rus' era are shown jointly as \"Rus'\", the common precursor of Russians, Ukrainians and Belarusians, without assigning Kievan Rus' to any one modern nation.",
+      "caveat_sy": 882,
+      "caveat_ey": 1399
     },
     {
       "people_code": "russians",
       "region_code": "russia",
       "presence": "homeland",
-      "start_year": 1000,
+      "start_year": 1400,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1400 年为近似分界：东斯拉夫三族 14–16 世纪逐步分化，此前统一标示为「罗斯人」。",
+      "caveat_en": "1400 is an approximate boundary: the three East Slavic peoples differentiated gradually in the 14th–16th centuries and are shown jointly as \"Rus'\" before it.",
+      "caveat_sy": 1400,
+      "caveat_ey": 1600
     },
     {
       "people_code": "sami",
@@ -4941,7 +6211,12 @@
       "start_year": 500,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "sardinians",
@@ -4950,7 +6225,12 @@
       "start_year": -500,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "scots",
@@ -4959,7 +6239,12 @@
       "start_year": 843,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "picts",
@@ -4968,7 +6253,12 @@
       "start_year": 200,
       "end_year": 843,
       "confidence": "medium",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "serbs",
@@ -4977,7 +6267,12 @@
       "start_year": 700,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "arabs_sicily",
@@ -4986,7 +6281,12 @@
       "start_year": 827,
       "end_year": 1091,
       "confidence": "high",
-      "render_priority": 80
+      "render_priority": 80,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "greeks",
@@ -4995,7 +6295,12 @@
       "start_year": -735,
       "end_year": 827,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "italians",
@@ -5004,7 +6309,12 @@
       "start_year": 1091,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "poles",
@@ -5013,7 +6323,12 @@
       "start_year": 1945,
       "end_year": null,
       "confidence": "high",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germans",
@@ -5022,7 +6337,12 @@
       "start_year": 1250,
       "end_year": 1945,
       "confidence": "medium",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "poles",
@@ -5031,7 +6351,12 @@
       "start_year": 1000,
       "end_year": 1250,
       "confidence": "medium",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "slavs",
@@ -5040,7 +6365,12 @@
       "start_year": 450,
       "end_year": 1000,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "vandals",
@@ -5049,7 +6379,12 @@
       "start_year": -100,
       "end_year": 450,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "goths",
@@ -5058,7 +6393,12 @@
       "start_year": -100,
       "end_year": 250,
       "confidence": "low",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "celts",
@@ -5067,7 +6407,12 @@
       "start_year": -380,
       "end_year": -100,
       "confidence": "low",
-      "render_priority": 45
+      "render_priority": 45,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "slovaks",
@@ -5076,7 +6421,12 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "以现代族名标示先民人群：匈牙利王国北部（上匈牙利）的斯拉夫人口；斯洛伐克民族认同形成于 18–19 世纪（贝尔诺拉克、什图尔的标准语运动）。",
+      "caveat_en": "Modern ethnonym used for ancestral populations: the Slavic population of northern Hungary (Upper Hungary); Slovak national identity formed in the 18th–19th centuries (the Bernolák and Štúr standard-language movements).",
+      "caveat_sy": 1000,
+      "caveat_ey": 1850
     },
     {
       "people_code": "slavs",
@@ -5085,7 +6435,12 @@
       "start_year": 500,
       "end_year": 1000,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "celts",
@@ -5094,7 +6449,12 @@
       "start_year": -400,
       "end_year": -50,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germanic_tribes",
@@ -5103,7 +6463,12 @@
       "start_year": -50,
       "end_year": 500,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "slovenes",
@@ -5112,7 +6477,12 @@
       "start_year": 700,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germans",
@@ -5121,7 +6491,12 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "franks",
@@ -5130,7 +6505,12 @@
       "start_year": 506,
       "end_year": 900,
       "confidence": "high",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "burgundians",
@@ -5139,7 +6519,12 @@
       "start_year": 413,
       "end_year": 443,
       "confidence": "medium",
-      "render_priority": 62
+      "render_priority": 62,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "alemanni",
@@ -5148,7 +6533,12 @@
       "start_year": 260,
       "end_year": 506,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "celts",
@@ -5157,7 +6547,12 @@
       "start_year": -500,
       "end_year": 74,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -5166,7 +6561,12 @@
       "start_year": 74,
       "end_year": 260,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "swedes",
@@ -5175,7 +6575,12 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "norse",
@@ -5184,7 +6589,12 @@
       "start_year": 200,
       "end_year": 900,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germanic_tribes",
@@ -5193,7 +6603,12 @@
       "start_year": -450,
       "end_year": 200,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "franks",
@@ -5202,16 +6617,26 @@
       "start_year": 534,
       "end_year": 900,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germans",
       "region_code": "switzerland_east",
       "presence": "settlement",
-      "start_year": 476,
+      "start_year": 900,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -5220,7 +6645,26 @@
       "start_year": -50,
       "end_year": 476,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "alemanni",
+      "region_code": "switzerland_east",
+      "presence": "settlement",
+      "start_year": 476,
+      "end_year": 900,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "gauls",
@@ -5229,7 +6673,12 @@
       "start_year": -500,
       "end_year": -50,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "franks",
@@ -5238,7 +6687,12 @@
       "start_year": 534,
       "end_year": 900,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -5247,7 +6701,12 @@
       "start_year": -50,
       "end_year": 476,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "burgundians",
@@ -5256,7 +6715,12 @@
       "start_year": 443,
       "end_year": 534,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "french",
@@ -5265,7 +6729,12 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "low",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "gauls",
@@ -5274,7 +6743,12 @@
       "start_year": -500,
       "end_year": -50,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germans",
@@ -5283,7 +6757,12 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "franks",
@@ -5292,7 +6771,12 @@
       "start_year": 531,
       "end_year": 900,
       "confidence": "high",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "thuringians",
@@ -5301,7 +6785,12 @@
       "start_year": 400,
       "end_year": 531,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "germanic_tribes",
@@ -5310,7 +6799,12 @@
       "start_year": -450,
       "end_year": 400,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "slavs",
@@ -5319,25 +6813,54 @@
       "start_year": 600,
       "end_year": 1150,
       "confidence": "medium",
-      "render_priority": 45
+      "render_priority": 45,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "franks",
+      "region_code": "ticino",
+      "presence": "political_control",
+      "start_year": 774,
+      "end_year": 962,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "lombards",
       "region_code": "ticino",
       "presence": "political_control",
       "start_year": 568,
-      "end_year": 1000,
+      "end_year": 774,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "ostrogoths",
       "region_code": "ticino",
       "presence": "political_control",
-      "start_year": 476,
-      "end_year": 568,
+      "start_year": 493,
+      "end_year": 553,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romans",
@@ -5346,7 +6869,12 @@
       "start_year": -50,
       "end_year": 476,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "gauls",
@@ -5355,7 +6883,12 @@
       "start_year": -500,
       "end_year": -50,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "italians",
@@ -5364,16 +6897,68 @@
       "start_year": 1000,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "lombards",
+      "region_code": "ticino",
+      "presence": "settlement",
+      "start_year": 774,
+      "end_year": 1000,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "ticino",
+      "presence": "settlement",
+      "start_year": 476,
+      "end_year": 568,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "hungarians",
       "region_code": "transylvania",
       "presence": "political_control",
-      "start_year": 1000,
-      "end_year": 1918,
+      "start_year": 1002,
+      "end_year": 1799,
       "confidence": "high",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "1800 年以前缺乏可靠普查数据，按统治者着色；1800 年起按人口多数着色（全图统一规则）。",
+      "caveat_en": "Before 1800, for lack of reliable census data, coloured by ruling power; from 1800 by population majority (a map-wide rule).",
+      "caveat_sy": 1002,
+      "caveat_ey": 1799
+    },
+    {
+      "people_code": "romanians",
+      "region_code": "transylvania",
+      "presence": "homeland",
+      "start_year": 1800,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1800 年起按人口多数着色（全图统一规则：有普查数据的近现代按人口，此前按统治者）。罗马尼亚人 1830–40 年代约 62.3%，1910 年 53.8%。",
+      "caveat_en": "From 1800 coloured by population majority (map-wide rule: census-era by population, earlier by ruling power). Romanians were c. 62.3% in the 1830s–40s and 53.8% in 1910.",
+      "caveat_sy": 1800,
+      "caveat_ey": 1918
     },
     {
       "people_code": "dacians",
@@ -5382,16 +6967,26 @@
       "start_year": -500,
       "end_year": 300,
       "confidence": "high",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "romanians",
       "region_code": "transylvania",
-      "presence": "homeland",
-      "start_year": 1000,
-      "end_year": null,
-      "confidence": "high",
-      "render_priority": 60
+      "presence": "settlement",
+      "start_year": 1223,
+      "end_year": 1799,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "slavs",
@@ -5400,7 +6995,54 @@
       "start_year": 450,
       "end_year": 1000,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "magyars",
+      "region_code": "transylvania",
+      "presence": "settlement",
+      "start_year": 950,
+      "end_year": 1100,
+      "confidence": "medium",
+      "render_priority": 55,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "hungarians",
+      "region_code": "transylvania",
+      "presence": "settlement",
+      "start_year": 1800,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romanians",
+      "region_code": "transylvania",
+      "presence": "settlement",
+      "start_year": 1002,
+      "end_year": 1222,
+      "confidence": "disputed",
+      "render_priority": 45,
+      "caveat_kind": "disputed",
+      "caveat_zh": "1223 年以前罗马尼亚人（弗拉赫人）是否已居住于此存在争议：达契亚—罗马延续论认为罗马化人口连续居住；移民论认为其 12–13 世纪起自多瑙河以南迁入。本图仅以低优先级层列出，不采纳任一说。",
+      "caveat_en": "Whether Romanians (Vlachs) lived here before 1223 is disputed: Daco-Roman continuity theory holds a continuous Romanized population; immigrationist theory holds they arrived from south of the Danube from the 12th–13th century. Listed here only as a low-priority layer, endorsing neither view.",
+      "caveat_sy": 1002,
+      "caveat_ey": 1222
     },
     {
       "people_code": "goths",
@@ -5409,16 +7051,40 @@
       "start_year": 300,
       "end_year": 450,
       "confidence": "medium",
-      "render_priority": 40
+      "render_priority": 40,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "rus",
+      "region_code": "ukraine",
+      "presence": "homeland",
+      "start_year": 882,
+      "end_year": 1399,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "基辅罗斯时代的东斯拉夫人统一标示为「罗斯人」，作为俄罗斯人、乌克兰人、白俄罗斯人的共同前身，不将基辅罗斯归属于其中任何一个现代民族。",
+      "caveat_en": "East Slavs of the Kievan Rus' era are shown jointly as \"Rus'\", the common precursor of Russians, Ukrainians and Belarusians, without assigning Kievan Rus' to any one modern nation.",
+      "caveat_sy": 882,
+      "caveat_ey": 1399
     },
     {
       "people_code": "ukrainians",
       "region_code": "ukraine",
       "presence": "homeland",
-      "start_year": 1000,
+      "start_year": 1400,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1400 年为近似分界：东斯拉夫三族 14–16 世纪逐步分化，此前统一标示为「罗斯人」。",
+      "caveat_en": "1400 is an approximate boundary: the three East Slavic peoples differentiated gradually in the 14th–16th centuries and are shown jointly as \"Rus'\" before it.",
+      "caveat_sy": 1400,
+      "caveat_ey": 1600
     },
     {
       "people_code": "slavs",
@@ -5427,7 +7093,12 @@
       "start_year": 400,
       "end_year": 1000,
       "confidence": "low",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "goths",
@@ -5436,7 +7107,12 @@
       "start_year": 200,
       "end_year": 400,
       "confidence": "medium",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "ukrainians",
@@ -5445,7 +7121,12 @@
       "start_year": 1650,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "russians",
@@ -5454,7 +7135,12 @@
       "start_year": 1870,
       "end_year": null,
       "confidence": "high",
-      "render_priority": 40
+      "render_priority": 40,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "ukrainians",
@@ -5463,7 +7149,12 @@
       "start_year": 1550,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 65
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "russians",
@@ -5472,7 +7163,12 @@
       "start_year": 1774,
       "end_year": null,
       "confidence": "high",
-      "render_priority": 40
+      "render_priority": 40,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "volga_bulgars",
@@ -5481,7 +7177,12 @@
       "start_year": 937,
       "end_year": 1240,
       "confidence": "medium",
-      "render_priority": 80
+      "render_priority": 80,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "tatars",
@@ -5490,7 +7191,12 @@
       "start_year": 1240,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 75
+      "render_priority": 75,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "welsh",
@@ -5499,7 +7205,12 @@
       "start_year": 700,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "britons",
@@ -5508,7 +7219,12 @@
       "start_year": -100,
       "end_year": 700,
       "confidence": "medium",
-      "render_priority": 52
+      "render_priority": 52,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "franks",
@@ -5517,7 +7233,12 @@
       "start_year": 358,
       "end_year": 900,
       "confidence": "medium",
-      "render_priority": 90
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "gauls",
@@ -5526,7 +7247,12 @@
       "start_year": -500,
       "end_year": 500,
       "confidence": "medium",
-      "render_priority": 60
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "french",
@@ -5535,7 +7261,12 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "low",
-      "render_priority": 50
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     }
   ],
   "region_geometry": [
@@ -6142,13 +7873,21 @@
         "ES12",
         "ES13",
         "ES23",
-        "ES30",
         "ES41",
-        "ES42",
-        "ES43",
         "ES70"
       ],
-      "note": "卡斯蒂利亚（含阿斯图里亚斯/马德里/加那利等，ES L2 ×8）"
+      "note": "卡斯蒂利亚北部（阿斯图里亚斯/坎塔布里亚/拉里奥哈/卡斯蒂利亚-莱昂/加那利，ES L2 ×5）"
+    },
+    {
+      "region_code": "new_castile",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "ES30",
+        "ES42",
+        "ES43"
+      ],
+      "note": "新卡斯蒂利亚—埃斯特雷马杜拉（马德里/卡斯蒂利亚-拉曼恰/埃斯特雷马杜拉，ES L2 ×3）"
     },
     {
       "region_code": "catalonia",
@@ -7054,6 +8793,20 @@
           "sort": 390,
           "name_en": "Arabs",
           "name_zh": "阿拉伯人"
+        },
+        {
+          "code": "rus",
+          "parent": null,
+          "sort": 400,
+          "name_en": "Rus'",
+          "name_zh": "罗斯人"
+        },
+        {
+          "code": "masurians",
+          "parent": null,
+          "sort": 410,
+          "name_en": "Masurians",
+          "name_zh": "马祖里人"
         }
       ]
     },
@@ -7460,6 +9213,16 @@
     }
   ],
   "enums": {
+    "caveat_kind": {
+      "disputed": {
+        "en": "Disputed",
+        "zh": "争议"
+      },
+      "method": {
+        "en": "Method note",
+        "zh": "处理说明"
+      }
+    },
     "classification_relation": {
       "associated_with": {
         "en": "Associated with",

@@ -24,8 +24,8 @@ npm run smoke          # headless 冒烟：加载/时间轴/hover/零网络验�
 
 | 文件 | 性质 | 说明 |
 |---|---|---|
-| `data/peoples/source/peoples.json` | 手写（真实源） | 86 族群全量：双语名/简介/谱系挂点/语言/宗教/空间时间切片（slices），顶层 relations（族群关系+文献出处）与 claims |
-| `data/peoples/source/regions.json` | 手写（真实源） | 79 地区 + `geometry_rules`（80 条地区→几何映射规则；**数组顺序 = 求值候选优先序**） |
+| `data/peoples/source/peoples.json` | 手写（真实源） | 88 族群全量：双语名/简介/谱系挂点/语言/宗教/空间时间切片（slices，可带双语 `caveat` 标注：`disputed` 争议 / `method` 处理说明，可选 `years` 显示窗口，投影给前端），顶层 relations（族群关系+文献出处）与 claims |
+| `data/peoples/source/regions.json` | 手写（真实源） | 80 地区 + `geometry_rules`（81 条地区→几何映射规则；**数组顺序 = 求值候选优先序**） |
 | `data/peoples/source/events.json` | 手写（真实源） | 事件 + 参与族群 |
 | `data/peoples/source/taxonomy.json` | 手写（真实源） | 3 棵谱系树（语言 / 历史人群 / 现代族群） |
 | `data/peoples/source/reference.json` | 手写（真实源） | 语言 / 宗教 / 时期 / 枚举字典 / 文献来源 |
@@ -91,7 +91,7 @@ npm run build && npx tsc --noEmit # 构建与类型门禁
 着色 = `people_region` 时间切片按 render_priority 取主族群；hover 面板显示
 当年全部族群、语言、宗教、族群关系与当期事件（双语名直接来自源文件）。
 地区（粗粒度历史地理）→ 几何的近似映射规则存于 `data/peoples/source/regions.json`
-的 `geometry_rules`（80 条：NUTS L0 国家集 / 要素 id 集 / DARMC 行省名
+的 `geometry_rules`（81 条：NUTS L0 国家集 / 要素 id 集 / DARMC 行省名
 正则 / AWMC 帝国快照四类），随 atlas.json 的 `region_geometry` 段下发，
 求值器在 `src/frontend/region-map.ts`。
 
@@ -100,8 +100,13 @@ npm run build && npx tsc --noEmit # 构建与类型门禁
 当年活动者全亮并注记活动区域、未活动者半透明；悬停树叶时地图上该族群
 区域之外全部压暗（内存操作）。
 
-当前数据为 86 个族群提供 217 条空间时间片：每个族群在自身生命周期内均有
-连续覆盖。**覆盖原则：核心欧洲几何在首次有族群之后的任何年份不得空白**——
+**标注**：时间片的 `caveat` 在其显示窗口内以地图纹理提示——交叉斜线 =
+争议、细单线 = 处理说明（纹理只覆盖少量面积，不改底色色相）；hover 时
+tooltip 提示、右侧面板显示全文。地图左下角固定显示全图着色规则与纹理图例。
+
+当前数据为 88 个族群提供 250 条空间时间片：时间片一律落在族群寿命内
+（validator 强制）；寿命内落在图外或史料空白的阶段（如马扎尔人 Etelköz
+时期、匈人 454 年后东撤）不画。**覆盖原则：核心欧洲几何在首次有族群之后的任何年份不得空白**——
 由 `npm run audit` 逐年门禁（时间轴最小步长 1 年，并报告从未覆盖的 L0
 国家）。历史上由多个补丁（核心覆盖补全 → 瑞士/科索沃 → 次国家级细分
 Tier 1 → 前罗马时代中欧 → 德国 Tier 2 四分 + 全面修正 → 五国 Tier 3
@@ -123,9 +128,15 @@ GADM 州级几何而非 L0；另有部分细分叠加单元（`OVERLAY_UNITS`：
 超出全对 CVD 可分上限，弱对由谱系树 + hover 次级编码消歧），新族群运行时
 按同年共现贪心补位，`npm run collisions` 逐年复验。
 豁免项：`roman_empire` AWMC 快照（帝国消亡即隐没）、
-`north_africa` DARMC 行省 551 年后（非欧洲核心）。历史区间和现代国家/
+`north_africa` DARMC 行省 699 年后（非欧洲核心）。历史区间和现代国家/
 构成国边界是 MVP 可视化代理，不代表精确疆界、排他领土或边界内人口
 同质；近似程度记录在 `confidence` 与 `notes` 中。
+
+**着色原则**：约 1800 年起（有普查数据）按人口多数着色，不涉政治归属
+（例：克里米亚 1900 年起为俄族、特兰西瓦尼亚 1800 年起为罗马尼亚人）；
+此前缺乏人口数据，按统治者 / 主要人群着色。奥斯曼统治不画政治层，仅以
+土耳其裔少数族群层表示。中世纪人群以现代族名标示时（如马其顿人、拉脱
+维亚人）或存在史学争议时，时间片带 `caveat` 标注说明。
 
 **几何浏览**：三源原始几何 + 快照时间轴（`src/datasources/` 各自 README）。
 

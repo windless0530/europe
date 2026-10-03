@@ -36,6 +36,21 @@ export interface AtlasPeopleRegion {
   end_year: number | null;
   confidence: string;
   render_priority: number;
+  /** 面向用户的标注：disputed（争议）/ method（特殊处理说明）；无则 null */
+  caveat_kind: string | null;
+  caveat_zh: string | null;
+  caveat_en: string | null;
+  /** 标注显示窗口（缺省即时间片区间；仅窗口内年份显示） */
+  caveat_sy: number | null;
+  caveat_ey: number | null;
+}
+
+export type CaveatKind = 'disputed' | 'method';
+
+/** 该行在 year 年是否显示标注（行本身须当年活动） */
+export function caveatActive(row: AtlasPeopleRegion, year: number): boolean {
+  if (!row.caveat_kind || !activeInYear(row, year)) return false;
+  return (row.caveat_sy ?? Number.NEGATIVE_INFINITY) <= year && year <= (row.caveat_ey ?? Number.POSITIVE_INFINITY);
 }
 
 export interface AtlasPeriod extends AtlasTrItem {
@@ -88,7 +103,7 @@ export interface AtlasData {
 }
 
 /** 分类调色板（64 槽，亮/暗两套）+ 族群→槽位写死映射 PEOPLE_SLOT。
- *  - 硬约束（同一族群颜色跨时间、跨数据版本一致）：86 族群的槽位写死在
+ *  - 硬约束（同一族群颜色跨时间、跨数据版本一致）：88 族群的槽位写死在
  *    PEOPLE_SLOT，数据重排/增补不漂移；由 scripts/palette-tune.ts 生成输出后
  *    粘贴于此，数据变更后重跑再粘贴。无槽位的新族群由 assignPaletteSlots
  *    以此为种子运行时贪心补位（对「同年同屏共现」避让）。
@@ -142,10 +157,10 @@ export const PEOPLE_SLOT: Record<string, number> = {
   'huns': 5, 'iberians': 0, 'illyrians': 2, 'irish': 30,
   'italians': 15, 'jutes': 0, 'karelians': 32, 'latins': 13,
   'latvians': 33, 'lithuanians': 34, 'lombards': 15, 'lusitanians': 12,
-  'macedonians': 35, 'magyars': 13, 'montenegrins': 20, 'moors': 1,
+  'macedonians': 35, 'magyars': 13, 'masurians': 0, 'montenegrins': 20, 'moors': 1,
   'norse': 22, 'norwegians': 38, 'ostrogoths': 2, 'picts': 23,
   'poles': 36, 'portuguese': 37, 'prussians': 37, 'romanians': 39,
-  'romans': 1, 'russians': 17, 'sami': 40, 'sardinians': 41,
+  'romans': 1, 'rus': 10, 'russians': 17, 'sami': 40, 'sardinians': 41,
   'saxons': 17, 'scots': 42, 'serbs': 7, 'slavs': 20,
   'slovaks': 44, 'slovenes': 45, 'spaniards': 2, 'suebi': 7,
   'swedes': 46, 'tatars': 43, 'thracians': 0, 'thuringians': 25,
@@ -187,6 +202,8 @@ export interface AtlasModel {
   regionsAt(year: number): Map<string, RegionYearState>;
   /** T 年 geometry code -> 填充色（主族群色；无数据区域不在结果中） */
   paintAt(year: number): Map<string, string>;
+  /** T 年 geometry code -> 标注类型（胜出区域当年任一行有标注即标记；disputed 优先于 method） */
+  caveatAt(year: number): Map<string, CaveatKind>;
   /** 时期标签：包含该年的最窄 period */
   periodAt(year: number): AtlasPeriod | null;
   /** 族群谱系树：全部族群按分类层级组织，标注当年活动状态 */
@@ -372,15 +389,16 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
     return out;
   }
 
-  function paintAt(year: number): Map<string, string> {
+  /** 每个几何当年的胜出区域状态（paintAt / caveatAt 共用） */
+  function winnersAt(year: number): Map<string, { color: string; pr: number; code: string; state: RegionYearState }> {
     // 一几何可属多区域（如 at ∈ {austria, central_europe}）：
     // 跨区域竞争与 regionFor（hover）同规则——主族群 render_priority 高者胜，
     // 平局按 people_code 字典序，避免「后写覆盖」的不确定着色。
-    const best = new Map<string, { color: string; pr: number; code: string }>();
+    const best = new Map<string, { color: string; pr: number; code: string; state: RegionYearState }>();
     for (const [, state] of regionsAt(year)) {
       const color = peopleColor.get(state.top.people_code);
       if (!color) continue;
-      const cand = { color, pr: state.top.render_priority, code: state.top.people_code };
+      const cand = { color, pr: state.top.render_priority, code: state.top.people_code, state };
       for (const gcode of regionGeometry.get(state.top.region_code) ?? []) {
         const cur = best.get(gcode);
         if (!cur || cand.pr > cur.pr || (cand.pr === cur.pr && cand.code.localeCompare(cur.code) < 0)) {
@@ -388,9 +406,30 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
         }
       }
     }
+    return best;
+  }
+
+  function paintAt(year: number): Map<string, string> {
     const paint = new Map<string, string>();
-    for (const [gcode, win] of best) paint.set(gcode, win.color);
+    for (const [gcode, win] of winnersAt(year)) paint.set(gcode, win.color);
     return paint;
+  }
+
+  function caveatAt(year: number): Map<string, CaveatKind> {
+    const out = new Map<string, CaveatKind>();
+    for (const [gcode, win] of winnersAt(year)) {
+      let kind: CaveatKind | null = null;
+      for (const row of win.state.rows) {
+        if (!caveatActive(row, year)) continue;
+        if (row.caveat_kind === 'disputed') {
+          kind = 'disputed';
+          break;
+        }
+        kind = 'method';
+      }
+      if (kind) out.set(gcode, kind);
+    }
+    return out;
   }
 
   function periodAt(year: number): AtlasPeriod | null {
@@ -576,7 +615,7 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
     return { regionCode: passive[0] ?? candidates[0]!, state: null };
   }
 
-  return { data, peopleByCode, regionByCode, regionGeometry, geometryToRegions, regionFor, peopleColor, slotIndex, yearRange, regionsAt, paintAt, periodAt, peopleTreeAt, enumLabel };
+  return { data, peopleByCode, regionByCode, regionGeometry, geometryToRegions, regionFor, peopleColor, slotIndex, yearRange, regionsAt, paintAt, caveatAt, periodAt, peopleTreeAt, enumLabel };
 }
 
 /** 从 /data/peoples/export/atlas.json 拉取（带字节进度） */

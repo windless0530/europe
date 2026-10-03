@@ -713,3 +713,90 @@ body {
     max-height: 220px;
   }
 }
+
+/* ---------- 标注（争议 / 处理说明） ---------- */
+
+/* 地图纹理：浅色描边 + 深色芯，任何底色上都可见；只盖少量面积，不改底色色相 */
+.map-wrap .hatch-halo {
+  stroke: rgba(255, 255, 255, 0.8);
+  stroke-width: 2.6;
+}
+.map-wrap .hatch-core {
+  stroke: rgba(11, 11, 11, 0.6);
+  stroke-width: 1.1;
+}
+.map-wrap .hatch-light .hatch-halo {
+  stroke: rgba(255, 255, 255, 0.6);
+  stroke-width: 1.6;
+}
+.map-wrap .hatch-light .hatch-core {
+  stroke: rgba(11, 11, 11, 0.4);
+  stroke-width: 0.7;
+}
+
+.map-note {
+  background: var(--surface-1);
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  z-index: 5;
+  max-width: 340px;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+.map-note * {
+  background: transparent;
+  color: inherit;
+}
+.map-note-keys {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+.map-note-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.map-wrap .map-note svg.map-note-swatch {
+  display: inline-block;
+  flex: none;
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+  background: var(--text-muted);
+  cursor: default;
+}
+
+.caveat-box {
+  margin-top: 6px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border-left: 3px solid var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.caveat-box * {
+  background: transparent;
+}
+.caveat-box.caveat-disputed {
+  border-left-color: var(--series-orange);
+}
+.caveat-box.caveat-method {
+  border-left-color: var(--series-blue);
+}
+.caveat-head {
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+.caveat-text {
+  color: var(--text-secondary);
+}

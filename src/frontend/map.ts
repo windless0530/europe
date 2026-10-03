@@ -31,6 +31,8 @@ export interface MapApi {
   setGeometry(features: RegionVm[]): void;
   /** 按 region_code 批量更新填充与可见性（内存操作，无网络）；dim=true 时压暗（图例联动聚焦） */
   applyStyles(entries: Iterable<[string, { fill?: string; visible: boolean; dim?: boolean }]>): void;
+  /** 标注纹理叠加层：code -> 纹理类型（disputed 交叉斜线 / method 单向斜线）；空表即清除 */
+  applyCaveats(entries: ReadonlyMap<string, 'disputed' | 'method'>): void;
   setHover(code: string | null): void;
   onHover(cb: (e: HoverEvent) => void): void;
   resize(view: SourceView, opts: MapOpts): void;
@@ -79,9 +81,38 @@ function fitProjectionToEurope(projection: GeoProjection, w: number, h: number, 
 
 export function createMap(container: HTMLElement, lang: () => Lang, describeVm?: DescribeVm): MapApi {
   const svg = select(container).append('svg');
+  // 标注纹理：底色之上叠稀疏斜线（不改变底色色相，族群颜色仍可辨识）。
+  // 线条为「浅色描边 + 深色芯」双色调，任何底色上都有对比；
+  // 缩放时 patternTransform 反向缩放，屏幕上的线宽与间距恒定。
+  // 争议：间距 6 的交叉线（醒目）；处理说明：间距 7.3 的细单线（轻）
+  const HATCH_SIZE = { disputed: 6, method: 7.3 } as const;
+  const defs = svg.append('defs');
+  const hatchPatterns: SVGPatternElement[] = [];
+  // 每种纹理两份：地图用（随缩放反向缩放）与图例色块用（-key，静态）
+  for (const [id, kind] of [
+    ['hatch-method', 'method'], ['hatch-disputed', 'disputed'], ['hatch-method-key', 'method'], ['hatch-disputed-key', 'disputed'],
+  ] as const) {
+    const size = HATCH_SIZE[kind];
+    const pat = defs
+      .append('pattern')
+      .attr('id', id)
+      .attr('class', kind === 'method' ? 'hatch-light' : null)
+      .attr('patternUnits', 'userSpaceOnUse')
+      .attr('width', size)
+      .attr('height', size)
+      .attr('patternTransform', 'rotate(45)');
+    const strokes: Array<[number, number, number, number]> = [[size / 2, 0, size / 2, size]];
+    if (kind === 'disputed') strokes.push([0, size / 2, size, size / 2]);
+    for (const [x1, y1, x2, y2] of strokes) {
+      pat.append('line').attr('class', 'hatch-halo').attr('x1', x1).attr('y1', y1).attr('x2', x2).attr('y2', y2);
+      pat.append('line').attr('class', 'hatch-core').attr('x1', x1).attr('y1', y1).attr('x2', x2).attr('y2', y2);
+    }
+    if (!id.endsWith('-key')) hatchPatterns.push(pat.node()!);
+  }
   const gRoot = svg.append('g');
   const gGraticule = gRoot.append('g');
   const gRegions = gRoot.append('g');
+  const gOutline = gRoot.append('g');
 
   const tooltip = select(container).select<HTMLDivElement>('.map-tooltip');
   tooltip.html('<div class="tt-name"></div><div class="tt-meta"></div>');
@@ -91,6 +122,8 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
   // hover 描边覆盖层：复制几何 d 而不重排 path 节点——
   // appendChild 提升被悬停节点会让 Chromium 丢失其 hover 追踪，pointerleave 不再派发。
   let outlinePath: SVGPathElement | null = null;
+  /** 标注纹理节点：插在所属几何之后（而非独立顶层），叠加单元（后绘制）因此能盖住其下 L0 的纹理 */
+  let caveatNodes: SVGPathElement[] = [];
   let currentView: SourceView | null = null;
   let currentFeatures: RegionVm[] = [];
   let currentOpts: MapOpts | null = null;
@@ -144,6 +177,7 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
       .on('zoom', (event: D3ZoomEvent<SVGSVGElement, unknown>) => {
         const { x, y, k } = event.transform;
         gRoot.attr('transform', `translate(${x},${y}) scale(${k})`);
+        for (const pat of hatchPatterns) pat.setAttribute('patternTransform', `rotate(45) scale(${1 / k})`);
       }),
   );
 
@@ -167,6 +201,8 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
     drawChrome();
     const pal = modePalette();
     gRegions.selectAll('path').remove();
+    caveatNodes = [];
+    gOutline.selectAll('path').remove();
     for (const vm of features) {
       const d = pathGen(vm.feature as unknown as GeoPermissibleObjects);
       if (!d) continue;
@@ -176,7 +212,7 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
       nodesByCode.set(vm.code, node);
       bindHover(node, vm);
     }
-    outlinePath = gRegions
+    outlinePath = gOutline
       .append('path')
       .attr('class', 'region-outline')
       .attr('fill', 'none')
@@ -223,6 +259,23 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
         if (st.fill !== undefined) node.style.fill = st.fill;
         node.style.fillOpacity = st.dim ? '0.25' : '';
         node.style.display = st.visible ? '' : 'none';
+      }
+    },
+
+    applyCaveats(entries) {
+      for (const n of caveatNodes) n.remove();
+      caveatNodes = [];
+      for (const [code, kind] of entries) {
+        const node = nodesByCode.get(code);
+        if (!node || node.style.display === 'none') continue;
+        const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        p.setAttribute('class', `caveat caveat-${kind}`);
+        p.setAttribute('data-code', code);
+        p.setAttribute('d', node.getAttribute('d') ?? '');
+        p.setAttribute('fill', `url(#hatch-${kind})`);
+        p.setAttribute('pointer-events', 'none');
+        node.after(p); // 只插入新节点、不移动被悬停节点（hover 追踪不受影响）
+        caveatNodes.push(p);
       }
     },
 

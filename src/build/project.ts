@@ -120,6 +120,11 @@ function project(b: Bundle): Record<string, unknown> {
         end_year: ey(sl.years),
         confidence: sl.confidence ?? 'high',
         render_priority: sl.priority ?? 0,
+        caveat_kind: sl.caveat?.kind ?? null,
+        caveat_zh: sl.caveat?.text.zh ?? null,
+        caveat_en: sl.caveat?.text.en ?? null,
+        caveat_sy: sl.caveat ? sy(sl.caveat.years ?? sl.years) : null,
+        caveat_ey: sl.caveat ? ey(sl.caveat.years ?? sl.years) : null,
       })),
     )
     .sort(

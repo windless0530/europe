@@ -222,6 +222,42 @@ if (new Set(Object.values(de500)).size < 3) {
 await page.screenshot({ path: 'chromium/smoke-9-germany-500.png' });
 
 // 切到几何浏览模式（DARMC + 1450）
+// ---- 标注纹理与面板：年份窗口内出现、窗口外消失、hover 面板显示标注文本 ----
+{
+  const caveatAt = async (yr) => {
+    await page.locator('#tl-range').fill(String(yr));
+    await page.waitForTimeout(400);
+    return page.evaluate(() =>
+      Object.fromEntries([...document.querySelectorAll('path.caveat')].map((p) => [p.dataset.code, p.classList.contains('caveat-disputed') ? 'disputed' : 'method'])),
+    );
+  };
+  const c1100 = await caveatAt(1100);
+  const c2026 = await caveatAt(2026);
+  const ok =
+    c1100['nuts:ro11'] === 'disputed' && // 特兰西瓦尼亚：罗马尼亚人 1223 年前争议层
+    c2026['nuts:ukr_4_1'] === 'method' && // 克里米亚：按人口着色说明
+    c1100['nuts:lv'] === 'method' && c2026['nuts:lv'] === undefined; // 拉脱维亚：窗口 1000–1700
+  console.log(`caveats: 1100 ro11=${c1100['nuts:ro11']} lv=${c1100['nuts:lv']}; 2026 crimea=${c2026['nuts:ukr_4_1']} lv=${c2026['nuts:lv'] ?? 'none'}; total@2026=${Object.keys(c2026).length} (expect disputed/method; method/none)`);
+  if (!ok) {
+    console.error('FAIL: 标注纹理窗口不符预期');
+    process.exitCode = 1;
+  }
+  await page.locator('path.region[data-code="nuts:ukr_4_1"]').hover({ force: true });
+  await page.waitForTimeout(300);
+  const box = await page.locator('#detail-panel .caveat-box').count();
+  const note = await page.locator('.map-note').isVisible();
+  console.log(`caveat panel boxes @2026 crimea: ${box}, map-note visible: ${note} (expect ≥1, true)`);
+  if (box < 1 || !note) {
+    console.error('FAIL: 面板标注或地图说明缺失');
+    process.exitCode = 1;
+  }
+  await page.screenshot({ path: 'chromium/smoke-8-caveat-crimea-2026.png' });
+  await caveatAt(1100);
+  await page.locator('path.region[data-code="nuts:ro11"]').hover({ force: true });
+  await page.waitForTimeout(300);
+  await page.screenshot({ path: 'chromium/smoke-9-caveat-transylvania-1100.png' });
+}
+
 await page.click('#mode-toggle');
 await page.waitForTimeout(800);
 await page.click('#source-seg button:nth-child(2)');

@@ -85,6 +85,20 @@
       "notes": "荷兰语。"
     },
     {
+      "code": "english",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        1150,
+        null
+      ],
+      "name": {
+        "zh": "英语",
+        "en": "English"
+      },
+      "notes": "英语（中古英语约 1150 年起承接古英语，经早期现代英语至今）。"
+    },
+    {
       "code": "estonian",
       "type": "modern",
       "status": "extant",
@@ -293,6 +307,20 @@
         "en": "Norwegian"
       },
       "notes": "挪威语。"
+    },
+    {
+      "code": "old_east_slavic",
+      "type": "medieval",
+      "status": "transformed",
+      "years": [
+        900,
+        1400
+      ],
+      "name": {
+        "zh": "古东斯拉夫语",
+        "en": "Old East Slavic"
+      },
+      "notes": "古东斯拉夫语（基辅罗斯时代），后分化为俄语、乌克兰语、白俄罗斯语。"
     },
     {
       "code": "old_english",
@@ -1176,6 +1204,30 @@
         "label": {
           "en": "Merged",
           "zh": "融合 / 合并"
+        }
+      }
+    ],
+    "caveat_kind": [
+      {
+        "code": "disputed",
+        "label": {
+          "en": "Disputed",
+          "zh": "争议"
+        },
+        "desc": {
+          "zh": "史学存在明显分歧，图上着色不代表采纳任一说。",
+          "en": "Substantially debated; the map colouring does not endorse either view."
+        }
+      },
+      {
+        "code": "method",
+        "label": {
+          "en": "Method note",
+          "zh": "处理说明"
+        },
+        "desc": {
+          "zh": "本图的特殊处理或近似规则。",
+          "en": "A special rule or approximation used by this map."
         }
       }
     ]

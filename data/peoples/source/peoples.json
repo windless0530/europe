@@ -58,6 +58,34 @@
           "notes": "示例来源；后续应进一步绑定到具体章节/页码。"
         }
       ]
+    },
+    {
+      "a": "russians",
+      "type": "descended_from",
+      "b": "rus",
+      "confidence": "medium",
+      "notes": "Kievan Rus'-era East Slavs are the common precursor of Russians, Ukrainians and Belarusians."
+    },
+    {
+      "a": "ukrainians",
+      "type": "descended_from",
+      "b": "rus",
+      "confidence": "medium",
+      "notes": "Kievan Rus'-era East Slavs are the common precursor of Russians, Ukrainians and Belarusians."
+    },
+    {
+      "a": "belarusians",
+      "type": "descended_from",
+      "b": "rus",
+      "confidence": "medium",
+      "notes": "Kievan Rus'-era East Slavs are the common precursor of Russians, Ukrainians and Belarusians."
+    },
+    {
+      "a": "masurians",
+      "type": "related_to",
+      "b": "poles",
+      "confidence": "medium",
+      "notes": "Masurians descend from Masovian Polish settlers but developed a distinct Lutheran, Prussian-oriented identity."
     }
   ],
   "claims": [
@@ -126,7 +154,7 @@
       "status": "transformed",
       "lifespan": [
         200,
-        506
+        900
       ],
       "name": {
         "zh": "阿勒曼尼人",
@@ -155,6 +183,17 @@
           ],
           "priority": 60,
           "notes": "260 年罗马弃守后占居；496 托尔比亚克/506 臣服法兰克"
+        },
+        {
+          "region": "switzerland_east",
+          "presence": "settlement",
+          "years": [
+            476,
+            900
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "阿勒曼尼人南迁瑞士高原（5 世纪末起）；506/536 年后在法兰克宗主下延续，演化为施瓦本—瑞士德语人群"
         }
       ]
     },
@@ -570,7 +609,7 @@
       "type": "modern",
       "status": "extant",
       "lifespan": [
-        1000,
+        1400,
         null
       ],
       "name": {
@@ -592,12 +631,23 @@
           "region": "belarus",
           "presence": "homeland",
           "years": [
-            1000,
+            1400,
             null
           ],
           "priority": 70,
           "confidence": "medium",
-          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1400 年为近似分界：东斯拉夫三族 14–16 世纪逐步分化，此前统一标示为「罗斯人」。白俄罗斯民族在立陶宛大公国治下逐步形成。",
+              "en": "1400 is an approximate boundary: the three East Slavic peoples differentiated gradually in the 14th–16th centuries and are shown jointly as \"Rus'\" before it. The Belarusian nationality developed under the Grand Duchy of Lithuania."
+            },
+            "years": [
+              1400,
+              1600
+            ]
+          }
         }
       ]
     },
@@ -854,7 +904,7 @@
           ],
           "priority": 70,
           "confidence": "medium",
-          "notes": "博雷利二世事实独立后加泰卢尼亚；含阿拉贡王冠（1249 后瓦伦西亚/巴利阿里）"
+          "notes": "博雷利二世事实独立后加泰卢尼亚；含阿拉贡王冠（1229 马略卡、1238 瓦伦西亚）"
         }
       ]
     },
@@ -900,8 +950,19 @@
             100
           ],
           "priority": 60,
-          "confidence": "medium",
-          "notes": "加拉伊克人（凯尔特伊比利亚）"
+          "confidence": "low",
+          "notes": "加拉埃奇人（西北伊比利亚凯尔特系，非凯尔特伊比利亚人；此处并入近似）"
+        },
+        {
+          "region": "new_castile",
+          "presence": "homeland",
+          "years": [
+            -500,
+            100
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "卡尔佩塔尼/维托内斯/奥雷塔尼诸部（凯尔特—伊比利亚混合带，近似并入）"
         }
       ]
     },
@@ -1023,10 +1084,10 @@
         "en": "Crimean Tatars"
       },
       "brief": {
-        "zh": "克里米亚汗国（1441–1783）主体",
-        "en": "People of the Crimean Khanate (1441-1783)"
+        "zh": "克里米亚汗国（1441–1783）主体，1944 年遭驱逐",
+        "en": "People of the Crimean Khanate (1441-1783), deported in 1944"
       },
-      "notes": "克里米亚鞑靼人：克里米亚汗国（1441–1783）主体，此后为少数族群。",
+      "notes": "克里米亚鞑靼人：克里米亚汗国（1441–1783）主体，1900 年前后人口上被俄族超过，1944 年遭整体驱逐，1989 年起回归，今为少数族群。",
       "classification": {
         "language": [
           "turkic",
@@ -1045,11 +1106,22 @@
           "presence": "homeland",
           "years": [
             1441,
-            null
+            1944
           ],
           "priority": 60,
           "confidence": "medium",
-          "notes": "克里米亚汗国（1441–1783）；此后处少数族群地位"
+          "notes": "克里米亚汗国（1441–1783）主体（1785 年约 84%）；1783 年后多次外迁，1897 年降为 35.6% 相对多数、1900 年前后被俄族超过；1944 年 5 月遭苏联整体驱逐"
+        },
+        {
+          "region": "crimea",
+          "presence": "minority",
+          "years": [
+            1989,
+            null
+          ],
+          "priority": 45,
+          "confidence": "medium",
+          "notes": "1989 年起自中亚回归（1989 年 1.6%，2001 年 10.8%，2014 年 12.6%）"
         }
       ]
     },
@@ -1188,7 +1260,7 @@
       "type": "modern",
       "status": "extant",
       "lifespan": [
-        804,
+        500,
         null
       ],
       "name": {
@@ -1307,7 +1379,7 @@
       "notes": "现代英格兰族群；其形成包含多个历史人群的长期融合。",
       "languages": [
         {
-          "language": "french",
+          "language": "english",
           "role": "native"
         },
         {
@@ -1373,7 +1445,18 @@
           ],
           "priority": 70,
           "confidence": "medium",
-          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "以现代族名标示先民人群：古爱沙尼亚诸部；近代爱沙尼亚民族认同形成于 19 世纪民族觉醒。",
+              "en": "Modern ethnonym used for ancestral populations: the ancient Estonian tribes; modern Estonian national identity formed in the 19th-century national awakening."
+            },
+            "years": [
+              1000,
+              1850
+            ]
+          }
         }
       ]
     },
@@ -1415,7 +1498,18 @@
           ],
           "priority": 70,
           "confidence": "medium",
-          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "以现代族名标示先民人群：芬兰本部、海米（塔瓦斯特）、卡累利阿诸部；近代芬兰民族认同形成于 19 世纪。",
+              "en": "Modern ethnonym used for ancestral populations: Finns proper, Tavastians and Karelians; modern Finnish national identity formed in the 19th century."
+            },
+            "years": [
+              1000,
+              1850
+            ]
+          }
         }
       ]
     },
@@ -1425,7 +1519,7 @@
       "status": "transformed",
       "lifespan": [
         200,
-        900
+        987
       ],
       "name": {
         "zh": "法兰克人",
@@ -1464,6 +1558,17 @@
           "notes": "788 年查理曼废黜塔西洛，巴伐利亚并入法兰克"
         },
         {
+          "region": "austria",
+          "presence": "political_control",
+          "years": [
+            536,
+            550
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "536/537 年东哥特维蒂吉斯割让诺里库姆予法兰克；550 年前后巴伐利亚公国成型"
+        },
+        {
           "region": "bavaria",
           "presence": "political_control",
           "years": [
@@ -1472,6 +1577,17 @@
           ],
           "priority": 90,
           "notes": "查理曼废黜塔西洛三世，并入法兰克"
+        },
+        {
+          "region": "bavaria",
+          "presence": "political_control",
+          "years": [
+            536,
+            550
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "536/537 年东哥特割让雷蒂亚予法兰克；550 年前后阿吉洛尔夫巴伐利亚公国成型"
         },
         {
           "region": "catalonia",
@@ -1504,17 +1620,17 @@
           ],
           "priority": 90,
           "confidence": "medium",
-          "notes": "克洛维击败西亚格里乌斯（481 定理姆斯取 476 近似）后的法兰克王国统治"
+          "notes": "克洛维 486 年苏瓦松之战击败西亚格里乌斯后的法兰克王国统治（起点取 476 西罗马终结近似）"
         },
         {
           "region": "italy",
           "presence": "political_control",
           "years": [
             774,
-            1000
+            962
           ],
           "priority": 90,
-          "notes": "查理曼征服伦巴第—加洛林意大利王国—奥托帝国意大利"
+          "notes": "查理曼征服伦巴第—加洛林意大利王国（888 年后由弗留利/斯波莱托等法兰克系贵族争位）；962 年奥托一世（萨克森王朝）加冕后转入德意志—神圣罗马框架"
         },
         {
           "region": "netherlands",
@@ -1578,6 +1694,17 @@
           ],
           "priority": 65,
           "notes": "法兰克-萨克森联合吞并后加洛林东部边区"
+        },
+        {
+          "region": "ticino",
+          "presence": "political_control",
+          "years": [
+            774,
+            962
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "查理曼征服伦巴第王国后的加洛林意大利王国（至 962 奥托一世加冕）"
         },
         {
           "region": "wallonia",
@@ -1863,7 +1990,7 @@
         "zh": "内道战役后据蒂萨河建国",
         "en": "Tisza kingdom after the Battle of Nedao"
       },
-      "notes": "格皮德人：东日耳曼部族，469 年内道战役击败匈人后据蒂萨河流域建国，567 年被阿瓦尔人灭亡。",
+      "notes": "格皮德人：东日耳曼部族，454 年内道战役击败匈人后据蒂萨河流域建国，567 年被伦巴第—阿瓦尔联军灭亡。",
       "classification": {
         "language": [
           "germanic_east"
@@ -1877,11 +2004,11 @@
           "region": "pannonia",
           "presence": "homeland",
           "years": [
-            469,
+            454,
             567
           ],
           "priority": 60,
-          "notes": "内道战役（454/469）后格皮德王国，567 年被阿瓦尔人所灭"
+          "notes": "内道战役（454）后格皮德王国（蒂萨河—锡尔米乌姆），567 年被伦巴第—阿瓦尔联军所灭"
         }
       ]
     },
@@ -1891,7 +2018,7 @@
       "status": "transformed",
       "lifespan": [
         -450,
-        400
+        500
       ],
       "name": {
         "zh": "古日耳曼人",
@@ -1953,7 +2080,7 @@
           ],
           "priority": 50,
           "confidence": "medium",
-          "notes": "夸迪人（苏维汇系，瓦尼乌斯王国 19–50）+ 多瑙河中游平原伊阿济格斯（萨尔马提亚）"
+          "notes": "夸迪人（苏维汇系，瓦尼乌斯王国 19–50）至 5 世纪赫鲁利/卢吉等部；多瑙河中游平原的伊阿济格斯为萨尔马提亚人（非日耳曼，未单列）"
         },
         {
           "region": "sweden",
@@ -2078,12 +2205,12 @@
           "region": "switzerland_east",
           "presence": "settlement",
           "years": [
-            476,
+            900,
             null
           ],
           "priority": 70,
           "confidence": "medium",
-          "notes": "阿勒曼尼定居→施瓦本→瑞士德语区（罗曼什谷地并入近似）"
+          "notes": "施瓦本公国—瑞士德语区（阿勒曼尼定居层见阿勒曼尼人；罗曼什谷地并入近似）"
         },
         {
           "region": "thuringia_lausitz",
@@ -2103,8 +2230,8 @@
       "type": "historical",
       "status": "transformed",
       "lifespan": [
-        100,
-        700
+        -100,
+        1440
       ],
       "name": {
         "zh": "哥特人",
@@ -2374,11 +2501,29 @@
           "region": "transylvania",
           "presence": "political_control",
           "years": [
-            1000,
-            1918
+            1002,
+            1799
           ],
           "priority": 90,
-          "notes": "匈牙利王国圣伊什特万王冠领（含特兰西瓦尼亚萨克森殖民未单列）"
+          "notes": "1002 年斯特凡一世击败久洛三世，特兰西瓦尼亚并入匈牙利王国；1570–1711 特兰西瓦尼亚公国、1711 年后哈布斯堡治下（未单列）",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1800 年以前缺乏可靠普查数据，按统治者着色；1800 年起按人口多数着色（全图统一规则）。",
+              "en": "Before 1800, for lack of reliable census data, coloured by ruling power; from 1800 by population majority (a map-wide rule)."
+            }
+          }
+        },
+        {
+          "region": "transylvania",
+          "presence": "settlement",
+          "years": [
+            1800,
+            null
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "匈牙利人（含塞凯伊人）：1830–40 年代约 23.3%（费涅什估计）、1869 年 24.9%、1910 年 31.6%（马扎尔化政策推高）"
         }
       ]
     },
@@ -2410,10 +2555,10 @@
           "presence": "political_control",
           "years": [
             425,
-            469
+            454
           ],
           "priority": 65,
-          "notes": "阿提拉帝国政治核心（多瑙河中游洪泛平原为宫廷驻地）"
+          "notes": "阿提拉帝国政治核心（多瑙河中游洪泛平原为宫廷驻地）；454 年内道战役败于格皮德等联军后退出盆地，残部东撤至 469 年邓吉兹奇败亡"
         }
       ]
     },
@@ -2784,7 +2929,18 @@
           ],
           "priority": 70,
           "confidence": "medium",
-          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "以现代族名标示先民人群：拉特加尔、瑟洛、瑟米加利亚、库尔泽姆诸部在 13–17 世纪的利沃尼亚框架下逐步融合为拉脱维亚人。",
+              "en": "Modern ethnonym used for ancestral populations: Latgalians, Selonians, Semigallians and Curonians gradually merged into Latvians within Livonia in the 13th–17th centuries."
+            },
+            "years": [
+              1000,
+              1700
+            ]
+          }
         }
       ]
     },
@@ -2858,11 +3014,11 @@
           "presence": "homeland",
           "years": [
             490,
-            568
+            550
           ],
           "priority": 60,
           "confidence": "low",
-          "notes": "摩拉维亚-诺里库姆迁徙期（易北河下游→卢吉兰），568 年入意大利"
+          "notes": "卢吉兰（下奥地利，489 年后）—摩拉维亚迁徙期；526/547 年主力移入潘诺尼亚，550 年起捷克盆地由斯拉夫片覆盖"
         },
         {
           "region": "italy",
@@ -2873,7 +3029,18 @@
           ],
           "priority": 90,
           "confidence": "medium",
-          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+          "notes": "伦巴第王国（568 阿尔博因入意大利—774 查理曼攻陷帕维亚）"
+        },
+        {
+          "region": "italy",
+          "presence": "settlement",
+          "years": [
+            774,
+            1000
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "加洛林征服后的伦巴第人口与南意大利伦巴第诸公国（贝内文托/萨莱诺/卡普阿，存续至 1077）"
         },
         {
           "region": "old_saxony",
@@ -2887,15 +3054,37 @@
           "notes": "易北河下游伦巴第家园（第二阶段迁出，hover 层）"
         },
         {
+          "region": "pannonia",
+          "presence": "settlement",
+          "years": [
+            526,
+            568
+          ],
+          "priority": 55,
+          "confidence": "medium",
+          "notes": "潘诺尼亚伦巴第王国（526 瓦乔南下、547 奥多因受查士丁尼封地，外多瑙地区；东侧为格皮德王国）；568 年阿尔博因率众入意大利"
+        },
+        {
           "region": "ticino",
           "presence": "political_control",
           "years": [
             568,
-            1000
+            774
           ],
           "priority": 90,
           "confidence": "medium",
-          "notes": "伦巴第王国—米兰主教区势力"
+          "notes": "伦巴第王国（568–774）"
+        },
+        {
+          "region": "ticino",
+          "presence": "settlement",
+          "years": [
+            774,
+            1000
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "伦巴第—罗曼人口（加洛林—意大利王国治下，米兰主教区势力）"
         }
       ]
     },
@@ -2935,7 +3124,7 @@
       "type": "modern",
       "status": "extant",
       "lifespan": [
-        900,
+        600,
         null
       ],
       "name": {
@@ -2943,10 +3132,10 @@
         "en": "Macedonians"
       },
       "brief": {
-        "zh": "萨穆伊尔帝国以降的区域斯拉夫传统",
-        "en": "Slavic tradition since Samuel's empire"
+        "zh": "马其顿地区的斯拉夫人口；现代民族认同形成于 19 世纪末至 20 世纪中",
+        "en": "Slavic population of the Macedonia region; modern national identity formed in the late 19th to mid-20th century"
       },
-      "notes": "马其顿人：萨穆伊尔帝国（976–1014）以降的马其顿-奥赫里德斯拉夫传统；与保加利亚认同的史学表述差异见 notes，此处取中世纪区域传统。",
+      "notes": "马其顿人：此处作为马其顿地区斯拉夫人口的连续标签（7 世纪定居起）。现代民族认同形成于 19 世纪末至 20 世纪中；萨穆伊尔国家（976–1014/1018）主流学术视为第一保加利亚帝国的延续。",
       "classification": {
         "language": [
           "south_slavic"
@@ -2960,12 +3149,23 @@
           "region": "macedonia",
           "presence": "homeland",
           "years": [
-            976,
+            600,
             null
           ],
           "priority": 60,
-          "confidence": "medium",
-          "notes": "萨穆伊尔帝国（976–1014）-奥赫里德传统"
+          "confidence": "disputed",
+          "notes": "7 世纪斯拉夫部落（Sklaviniai）定居起连续；9 世纪中起属第一保加利亚帝国，其后拜占庭/保加利亚/塞尔维亚/奥斯曼相继统治",
+          "caveat": {
+            "kind": "disputed",
+            "text": {
+              "zh": "以现代族名「马其顿人」标示该地区自 7 世纪以来的斯拉夫人口，是人口连续标签，不是认同判断。现代马其顿民族认同形成于 19 世纪末至 20 世纪中（1903 年米西尔科夫著作、1944 年 ASNOM 宣告、1945 年标准语），保加利亚史学将此前人口视为保加利亚人。萨穆伊尔国家（976–1018）主流学术视为第一保加利亚帝国的延续。",
+              "en": "The modern name \"Macedonians\" labels the Slavic population of this region since the 7th century as a continuity label, not a judgment of identity. Modern Macedonian national identity formed in the late 19th to mid-20th century (Misirkov 1903, ASNOM 1944, standard language 1945); Bulgarian historiography regards the earlier population as Bulgarian. Samuel's state (976–1018) is regarded by mainstream scholarship as a continuation of the First Bulgarian Empire."
+            },
+            "years": [
+              600,
+              1944
+            ]
+          }
         }
       ]
     },
@@ -2985,19 +3185,93 @@
         "zh": "与征服喀尔巴阡盆地及匈牙利民族形成相关的历史匈牙利语人群。",
         "en": "The historical Hungarian-speaking people associated with the Hungarian conquest of the Carpathian Basin."
       },
-      "notes": "马扎尔人，匈牙利民族形成的重要历史人群。",
+      "notes": "马扎尔人，匈牙利民族形成的重要历史人群；9 世纪居黑海北岸 Etelköz，895 年起进入喀尔巴阡盆地。",
       "classification": {},
       "slices": [
         {
           "region": "carpathian_basin",
           "presence": "homeland",
           "years": [
-            800,
+            895,
             1100
           ],
           "priority": 60,
           "confidence": "medium",
-          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+          "notes": "895 年阿尔帕德越喀尔巴阡山入盆地（此前居黑海北岸 Etelköz，未单列）；1000 年匈牙利王国建立后渐与匈牙利人重合"
+        },
+        {
+          "region": "transylvania",
+          "presence": "settlement",
+          "years": [
+            950,
+            1100
+          ],
+          "priority": 55,
+          "confidence": "medium",
+          "notes": "10 世纪由久洛家族统治，950 年代起有匈牙利部族定居（地名证据）；1002 年并入匈牙利王国"
+        }
+      ]
+    },
+    {
+      "code": "masurians",
+      "type": "historical",
+      "status": "transformed",
+      "lifespan": [
+        1400,
+        1945
+      ],
+      "name": {
+        "zh": "马祖里人",
+        "en": "Masurians"
+      },
+      "brief": {
+        "zh": "东普鲁士南部讲波兰语方言的路德宗人群",
+        "en": "Polish-dialect-speaking Lutheran population of southern East Prussia"
+      },
+      "notes": "马祖里人：14–17 世纪自马佐夫舍北部迁入条顿骑士团国南部的波兰语移民后裔，1525 年随普鲁士公国改宗路德宗；1945 年后多被列为德国人而外迁。",
+      "languages": [
+        {
+          "language": "polish",
+          "role": "native",
+          "notes": "马祖里方言"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "protestantism",
+          "role": "dominant",
+          "years": [
+            1525,
+            1945
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "west_slavic"
+        ],
+        "historical_people": [
+          "masurians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "masuria",
+          "presence": "settlement",
+          "years": [
+            1400,
+            1945
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "1910 年普查阿伦施泰因行政区讲波兰语/马祖里语者约 24.5 万、讲德语者约 28.9 万",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "马祖里人讲波兰语方言，但多数认同普鲁士（1920 年公投阿伦施泰因区逾 97% 选择留在东普鲁士），故单列而不归入波兰人；该地区按人口主色仍为德国人。",
+              "en": "Masurians spoke a Polish dialect but mostly identified with Prussia (over 97% in the Allenstein area voted to remain in East Prussia in 1920), so they are listed separately rather than as Poles; by population the region's main colour remains German."
+            }
+          }
         }
       ]
     },
@@ -3083,6 +3357,17 @@
           "priority": 90,
           "confidence": "medium",
           "notes": "安达卢斯上边区（785/801 年法兰克夺取前）"
+        },
+        {
+          "region": "new_castile",
+          "presence": "political_control",
+          "years": [
+            711,
+            1085
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "安达卢斯中边区—托莱多泰法（1085 年阿方索六世攻取托莱多；埃斯特雷马杜拉至 1230 年前后方入卡斯蒂利亚—莱昂，近似取 1085）"
         },
         {
           "region": "portugal",
@@ -3195,7 +3480,7 @@
       "status": "transformed",
       "lifespan": [
         300,
-        550
+        553
       ],
       "name": {
         "zh": "东哥特人",
@@ -3243,23 +3528,23 @@
           "region": "austria",
           "presence": "political_control",
           "years": [
-            476,
-            552
+            493,
+            536
           ],
           "priority": 60,
           "confidence": "medium",
-          "notes": "奥多亚克-东哥特王国对诺里库姆的统治（圣塞维利诺时代）"
+          "notes": "东哥特王国对诺里库姆的统治（493 接管奥多亚克遗产）；536/537 年维蒂吉斯为换取援助割让予法兰克"
         },
         {
           "region": "bavaria",
           "presence": "political_control",
           "years": [
-            476,
-            552
+            493,
+            536
           ],
           "priority": 60,
           "confidence": "medium",
-          "notes": "后罗马期东哥特王国边区（至 553 拜占庭再征服）"
+          "notes": "东哥特王国对雷蒂亚的宗主统治；536/537 年割让予法兰克"
         },
         {
           "region": "eastern_europe",
@@ -3277,21 +3562,21 @@
           "presence": "political_control",
           "years": [
             493,
-            550
+            553
           ],
           "priority": 90,
-          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+          "notes": "东哥特王国（493 狄奥多里克杀奥多亚克—553 年拉克塔留斯山之战后为拜占庭所灭）"
         },
         {
           "region": "ticino",
           "presence": "political_control",
           "years": [
-            476,
-            568
+            493,
+            553
           ],
           "priority": 90,
           "confidence": "medium",
-          "notes": "奥多亚克—东哥特王国（476 西罗马终结至伦巴第入关）"
+          "notes": "东哥特王国（493–553）；此前奥多亚克王国、此后拜占庭至 568 伦巴第入关"
         }
       ]
     },
@@ -3527,13 +3812,54 @@
         },
         {
           "region": "transylvania",
-          "presence": "homeland",
+          "presence": "settlement",
           "years": [
-            1000,
-            null
+            1002,
+            1222
+          ],
+          "priority": 45,
+          "confidence": "disputed",
+          "notes": "1223 年前的存在与否为延续论/移民论争点，仅作低优先级 hover 层",
+          "caveat": {
+            "kind": "disputed",
+            "text": {
+              "zh": "1223 年以前罗马尼亚人（弗拉赫人）是否已居住于此存在争议：达契亚—罗马延续论认为罗马化人口连续居住；移民论认为其 12–13 世纪起自多瑙河以南迁入。本图仅以低优先级层列出，不采纳任一说。",
+              "en": "Whether Romanians (Vlachs) lived here before 1223 is disputed: Daco-Roman continuity theory holds a continuous Romanized population; immigrationist theory holds they arrived from south of the Danube from the 12th–13th century. Listed here only as a low-priority layer, endorsing neither view."
+            }
+          }
+        },
+        {
+          "region": "transylvania",
+          "presence": "settlement",
+          "years": [
+            1223,
+            1799
           ],
           "priority": 60,
-          "notes": "罗马尼亚人多数（1918 联合后优先显示）"
+          "confidence": "medium",
+          "notes": "1223 年王室特许状首次明确记载（卡尔察修道院土地）；1210 年代已有弗拉赫战士随赫尔曼施塔特伯爵出征"
+        },
+        {
+          "region": "transylvania",
+          "presence": "homeland",
+          "years": [
+            1800,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "按人口多数着色：1830–40 年代约 62.3%（费涅什估计）、1869 年 59.0%、1910 年 53.8%；1918 年 12 月 1 日阿尔巴尤利亚宣布与罗马尼亚联合",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1800 年起按人口多数着色（全图统一规则：有普查数据的近现代按人口，此前按统治者）。罗马尼亚人 1830–40 年代约 62.3%，1910 年 53.8%。",
+              "en": "From 1800 coloured by population majority (map-wide rule: census-era by population, earlier by ruling power). Romanians were c. 62.3% in the 1830s–40s and 53.8% in 1910."
+            },
+            "years": [
+              1800,
+              1918
+            ]
+          }
         }
       ]
     },
@@ -3543,7 +3869,7 @@
       "status": "transformed",
       "lifespan": [
         -500,
-        600
+        700
       ],
       "name": {
         "zh": "罗马人",
@@ -3578,6 +3904,17 @@
           "notes": "倍提卡行省"
         },
         {
+          "region": "andalusia",
+          "presence": "political_control",
+          "years": [
+            552,
+            624
+          ],
+          "priority": 45,
+          "confidence": "medium",
+          "notes": "拜占庭 Spania 行省（552 年查士丁尼介入西哥特内战，沿海卡塔赫纳—马拉加带，624 年苏因提拉收复）；仅沿海，hover 层"
+        },
+        {
           "region": "austria",
           "presence": "political_control",
           "years": [
@@ -3586,6 +3923,17 @@
           ],
           "priority": 65,
           "notes": "诺里库姆王国并入（前 16/15 年，克劳狄乌斯时正式行省化）；多瑙河为北界"
+        },
+        {
+          "region": "austria",
+          "presence": "settlement",
+          "years": [
+            476,
+            493
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "西罗马终结后的诺里库姆罗马省民（圣塞维利诺时代）；奥多亚克王国名义统治，488 年撤离部分居民，493 年东哥特接管"
         },
         {
           "region": "balkans",
@@ -3606,6 +3954,17 @@
           ],
           "priority": 65,
           "notes": "雷蒂亚行省（前 15 年并入）+ 多瑙河-伊恩河界"
+        },
+        {
+          "region": "bavaria",
+          "presence": "settlement",
+          "years": [
+            476,
+            493
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "西罗马终结后的雷蒂亚罗马省民；奥多亚克王国名义统治，493 年东哥特接管"
         },
         {
           "region": "brittany",
@@ -3681,6 +4040,27 @@
           "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
         },
         {
+          "region": "new_castile",
+          "presence": "political_control",
+          "years": [
+            -200,
+            476
+          ],
+          "priority": 60,
+          "notes": "近西班牙—卢西塔尼亚行省（托莱图姆/埃梅里塔·奥古斯塔）"
+        },
+        {
+          "region": "north_africa",
+          "presence": "political_control",
+          "years": [
+            534,
+            698
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "拜占庭再征服（汪达尔战争 533–534）后的阿非利加禁卫军区—总督区，698 年迦太基陷落于倭马亚"
+        },
+        {
           "region": "pannonia",
           "presence": "political_control",
           "years": [
@@ -3750,6 +4130,141 @@
           ],
           "priority": 60,
           "notes": "意大利行省北境"
+        },
+        {
+          "region": "ticino",
+          "presence": "settlement",
+          "years": [
+            476,
+            568
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "罗马—罗曼省民层：476–493 奥多亚克王国、553–568 拜占庭再征服（哥特战争结束至伦巴第入侵）；493–553 由东哥特片覆盖"
+        }
+      ]
+    },
+    {
+      "code": "rus",
+      "type": "medieval",
+      "status": "transformed",
+      "lifespan": [
+        882,
+        1399
+      ],
+      "name": {
+        "zh": "罗斯人（东斯拉夫人）",
+        "en": "Rus' (East Slavs)"
+      },
+      "brief": {
+        "zh": "基辅罗斯时代的东斯拉夫人，俄罗斯人、乌克兰人、白俄罗斯人的共同前身",
+        "en": "East Slavs of the Kievan Rus' era; common precursor of Russians, Ukrainians and Belarusians"
+      },
+      "notes": "罗斯人：882 年奥列格定都基辅起的罗斯诸公国东斯拉夫人群，988 年受洗；1240 年蒙古征服后各部分属金帐汗国、立陶宛大公国、波兰，14–16 世纪逐步分化为俄罗斯人、乌克兰人、白俄罗斯人。",
+      "languages": [
+        {
+          "language": "old_east_slavic",
+          "role": "native"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "paganism",
+          "role": "traditional",
+          "years": [
+            882,
+            988
+          ]
+        },
+        {
+          "religion": "eastern_orthodoxy",
+          "role": "dominant",
+          "years": [
+            988,
+            1399
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "east_slavic"
+        ],
+        "historical_people": [
+          "rus"
+        ]
+      },
+      "slices": [
+        {
+          "region": "belarus",
+          "presence": "homeland",
+          "years": [
+            882,
+            1399
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "波洛茨克、图罗夫—平斯克公国（13–14 世纪并入立陶宛大公国）",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "基辅罗斯时代的东斯拉夫人统一标示为「罗斯人」，作为俄罗斯人、乌克兰人、白俄罗斯人的共同前身，不将基辅罗斯归属于其中任何一个现代民族。",
+              "en": "East Slavs of the Kievan Rus' era are shown jointly as \"Rus'\", the common precursor of Russians, Ukrainians and Belarusians, without assigning Kievan Rus' to any one modern nation."
+            }
+          }
+        },
+        {
+          "region": "galicia_volhynia",
+          "presence": "homeland",
+          "years": [
+            882,
+            1399
+          ],
+          "priority": 65,
+          "confidence": "medium",
+          "notes": "沃里尼亚、加利奇公国（1199 年合并为加利西亚—沃里尼亚，1340 年代为波兰与立陶宛瓜分）",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "基辅罗斯时代的东斯拉夫人统一标示为「罗斯人」，作为俄罗斯人、乌克兰人、白俄罗斯人的共同前身，不将基辅罗斯归属于其中任何一个现代民族。",
+              "en": "East Slavs of the Kievan Rus' era are shown jointly as \"Rus'\", the common precursor of Russians, Ukrainians and Belarusians, without assigning Kievan Rus' to any one modern nation."
+            }
+          }
+        },
+        {
+          "region": "russia",
+          "presence": "settlement",
+          "years": [
+            882,
+            1399
+          ],
+          "priority": 70,
+          "confidence": "low",
+          "notes": "诺夫哥罗德、罗斯托夫—苏兹达尔—弗拉基米尔、梁赞等北部诸公国；东北部大片当时为芬兰—乌戈尔诸部（未单列），以全俄国界近似",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "基辅罗斯时代的东斯拉夫人统一标示为「罗斯人」，作为俄罗斯人、乌克兰人、白俄罗斯人的共同前身，不将基辅罗斯归属于其中任何一个现代民族。",
+              "en": "East Slavs of the Kievan Rus' era are shown jointly as \"Rus'\", the common precursor of Russians, Ukrainians and Belarusians, without assigning Kievan Rus' to any one modern nation."
+            }
+          }
+        },
+        {
+          "region": "ukraine",
+          "presence": "homeland",
+          "years": [
+            882,
+            1399
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "基辅（882 年奥列格定都）、切尔尼戈夫、佩列亚斯拉夫诸公国",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "基辅罗斯时代的东斯拉夫人统一标示为「罗斯人」，作为俄罗斯人、乌克兰人、白俄罗斯人的共同前身，不将基辅罗斯归属于其中任何一个现代民族。",
+              "en": "East Slavs of the Kievan Rus' era are shown jointly as \"Rus'\", the common precursor of Russians, Ukrainians and Belarusians, without assigning Kievan Rus' to any one modern nation."
+            }
+          }
         }
       ]
     },
@@ -3758,7 +4273,7 @@
       "type": "modern",
       "status": "extant",
       "lifespan": [
-        1000,
+        1400,
         null
       ],
       "name": {
@@ -3784,25 +4299,54 @@
       "slices": [
         {
           "region": "crimea",
-          "presence": "political_control",
+          "presence": "minority",
           "years": [
             1783,
+            1899
+          ],
+          "priority": 40,
+          "confidence": "medium",
+          "notes": "1783 年俄国吞并后的俄族移民（1785 年约 2.2%，1897 年普查 33.1%），人口上仍次于克里米亚鞑靼人"
+        },
+        {
+          "region": "crimea",
+          "presence": "settlement",
+          "years": [
+            1900,
             null
           ],
-          "priority": 90,
+          "priority": 70,
           "confidence": "medium",
-          "notes": "俄罗斯帝国吞并（1783）；现代归属存在争议，此处仅作政治控制层"
+          "notes": "按人口多数着色（不涉政治归属）：1897 年普查鞑靼 35.6%/俄族 33.1%，1926 年俄族 42.2% 领先，交叉点按线性插值约 1900；此后 1939 年 49.6%、1959 年 71.4%、2001 年 60.4%、2014 年 67.9%",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "按人口多数着色，不涉政治归属。1897 与 1926 两次普查之间的主体交替年份按线性插值取 1900 年。",
+              "en": "Coloured by population majority, regardless of political sovereignty. The changeover between the 1897 and 1926 censuses is linearly interpolated to 1900."
+            }
+          }
         },
         {
           "region": "russia",
           "presence": "homeland",
           "years": [
-            1000,
+            1400,
             null
           ],
           "priority": 70,
           "confidence": "medium",
-          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1400 年为近似分界：东斯拉夫三族 14–16 世纪逐步分化，此前统一标示为「罗斯人」。",
+              "en": "1400 is an approximate boundary: the three East Slavic peoples differentiated gradually in the 14th–16th centuries and are shown jointly as \"Rus'\" before it."
+            },
+            "years": [
+              1400,
+              1600
+            ]
+          }
         },
         {
           "region": "ukraine_east",
@@ -3813,7 +4357,7 @@
           ],
           "priority": 40,
           "confidence": "high",
-          "notes": "顿巴斯工业化移民潮（1870s–）；2001 年普查俄族占比：顿涅茨克 38.2%、卢甘斯克 39.1%、哈尔科夫 25.6%（哈尔科夫 1654 建城即有俄驻军，此切片自工业化浪潮起算）"
+          "notes": "顿巴斯工业化移民潮（1870s–）；2001 年普查俄族占比：顿涅茨克 38.2%、卢甘斯克 39.0%、哈尔科夫 25.6%（哈尔科夫 1654 建城即有俄驻军，此切片自工业化浪潮起算）"
         },
         {
           "region": "ukraine_south",
@@ -3824,7 +4368,7 @@
           ],
           "priority": 40,
           "confidence": "high",
-          "notes": "新俄罗斯殖民（1774 年和约后叶卡捷琳娜二世招募俄/塞尔维亚/德意志殖民者）；2001 年普查俄族占比约 14–21%（敖德萨最高 20.7%）"
+          "notes": "新俄罗斯殖民（1774 年和约后叶卡捷琳娜二世招募俄/塞尔维亚/德意志殖民者）；2001 年普查俄族占比 7.5–24.7%（扎波罗热 24.7%、敖德萨 20.7%、第聂伯罗 17.6%、赫尔松/尼古拉耶夫 14.1%、基洛沃格勒 7.5%）"
         }
       ]
     },
@@ -4001,7 +4545,7 @@
       "type": "modern",
       "status": "extant",
       "lifespan": [
-        1000,
+        843,
         null
       ],
       "name": {
@@ -4085,7 +4629,7 @@
       "status": "transformed",
       "lifespan": [
         400,
-        1000
+        1160
       ],
       "name": {
         "zh": "斯拉夫人",
@@ -4156,6 +4700,17 @@
           "priority": 45,
           "confidence": "medium",
           "notes": "梅克伦堡端奥博特里特人（hover 层，斯拉夫-萨克森边界摇摆）"
+        },
+        {
+          "region": "pannonia",
+          "presence": "settlement",
+          "years": [
+            600,
+            895
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "notes": "阿瓦尔治下及其后的潘诺尼亚斯拉夫人口；796 年后法兰克东部边区宗主（普里比纳—科采尔巴拉顿公国 840s–876、大摩拉维亚东扩）；895 年马扎尔人入盆地"
         },
         {
           "region": "poland",
@@ -4268,7 +4823,18 @@
           ],
           "priority": 70,
           "confidence": "medium",
-          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "以现代族名标示先民人群：匈牙利王国北部（上匈牙利）的斯拉夫人口；斯洛伐克民族认同形成于 18–19 世纪（贝尔诺拉克、什图尔的标准语运动）。",
+              "en": "Modern ethnonym used for ancestral populations: the Slavic population of northern Hungary (Upper Hungary); Slovak national identity formed in the 18th–19th centuries (the Bernolák and Štúr standard-language movements)."
+            },
+            "years": [
+              1000,
+              1850
+            ]
+          }
         }
       ]
     },
@@ -4356,7 +4922,18 @@
           ],
           "priority": 70,
           "confidence": "medium",
-          "notes": "阿斯图里亚斯抵抗（718 科瓦东加传说）→莱昂—卡斯蒂利亚"
+          "notes": "阿斯图里亚斯抵抗（718 科瓦东加传说）→莱昂—卡斯蒂利亚（杜罗河谷 8–10 世纪逐步再殖民）",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "以现代族名标示先民人群：711 年起为阿斯图里亚斯—莱昂—卡斯蒂利亚诸王国的基督徒人口；统一的「西班牙人」认同形成于近代早期（1479 年王冠联合之后）。",
+              "en": "Modern ethnonym used for ancestral populations: from 711 the Christian population of the Asturian–Leonese–Castilian kingdoms; a unified Spanish identity formed in the early modern period (after the 1479 union of crowns)."
+            },
+            "years": [
+              711,
+              1479
+            ]
+          }
         },
         {
           "region": "galicia",
@@ -4367,7 +4944,29 @@
           ],
           "priority": 70,
           "confidence": "medium",
-          "notes": "并入阿斯图里亚斯—莱昂—卡斯蒂利亚"
+          "notes": "并入阿斯图里亚斯—莱昂—卡斯蒂利亚",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "以现代族名标示先民人群：加利西亚—莱昂王国的基督徒人口（加利西亚人未单列）；统一的「西班牙人」认同形成于近代早期。",
+              "en": "Modern ethnonym used for ancestral populations: the Christian population of the Galician–Leonese kingdom (Galicians not listed separately); a unified Spanish identity formed in the early modern period."
+            },
+            "years": [
+              711,
+              1479
+            ]
+          }
+        },
+        {
+          "region": "new_castile",
+          "presence": "homeland",
+          "years": [
+            1085,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "托莱多陷落（1085）后卡斯蒂利亚—莱昂的再殖民（新卡斯蒂利亚）"
         }
       ]
     },
@@ -4640,6 +5239,50 @@
       },
       "slices": [
         {
+          "region": "bulgaria",
+          "presence": "minority",
+          "years": [
+            1396,
+            null
+          ],
+          "priority": 40,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "按人口原则不画奥斯曼政治控制层，仅以土耳其裔/穆斯林少数族群层表示奥斯曼时代遗留人口。",
+              "en": "Following the population principle, no Ottoman political-control layer is drawn; Ottoman-era populations are shown only as a Turkish/Muslim minority layer."
+            },
+            "years": [
+              1396,
+              1878
+            ]
+          },
+          "notes": "奥斯曼统治（1396 年尼科波利斯战役后完成征服）以来的土耳其裔；1878 年后多次外迁（1989 年约 36 万人被迫离境）；2001 年普查 746,664 人，2021 年 508,375 人（约 8.4%），卡尔贾利州占多数"
+        },
+        {
+          "region": "east_macedonia_thrace",
+          "presence": "minority",
+          "years": [
+            1371,
+            null
+          ],
+          "priority": 40,
+          "confidence": "low",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "按人口原则不画奥斯曼政治控制层，仅以土耳其裔/穆斯林少数族群层表示奥斯曼时代遗留人口。",
+              "en": "Following the population principle, no Ottoman political-control layer is drawn; Ottoman-era populations are shown only as a Turkish/Muslim minority layer."
+            },
+            "years": [
+              1371,
+              1913
+            ]
+          },
+          "notes": "奥斯曼时期定居的穆斯林；1923 年洛桑条约豁免于人口交换；今约占西色雷斯人口 28.88%，其中约 50% 土耳其语者、35% 波马克人、15% 穆斯林罗姆人（希腊政府数据），此处整体以土耳其人近似"
+        },
+        {
           "region": "east_thrace",
           "presence": "homeland",
           "years": [
@@ -4657,7 +5300,7 @@
       "type": "modern",
       "status": "extant",
       "lifespan": [
-        1000,
+        1400,
         null
       ],
       "name": {
@@ -4682,26 +5325,48 @@
       },
       "slices": [
         {
+          "region": "crimea",
+          "presence": "minority",
+          "years": [
+            1783,
+            null
+          ],
+          "priority": 40,
+          "confidence": "medium",
+          "notes": "波将金时期起迁入的农民（以乌克兰籍为主）；1897 年 11.8%，1959 年 22.3%，1989 年 25.8%，2001 年 24.0%，2014 年 15.7%"
+        },
+        {
           "region": "galicia_volhynia",
           "presence": "homeland",
           "years": [
-            1000,
+            1400,
             null
           ],
           "priority": 65,
           "confidence": "medium",
-          "notes": "加利西亚—沃里尼亚公国；乌克兰西部（含外喀尔巴阡/布科维纳近似）"
+          "notes": "1340 年代后波兰—立陶宛治下的鲁塞尼亚人—乌克兰西部（含外喀尔巴阡/布科维纳近似）"
         },
         {
           "region": "ukraine",
           "presence": "homeland",
           "years": [
-            1000,
+            1400,
             null
           ],
           "priority": 70,
           "confidence": "medium",
-          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1400 年为近似分界：东斯拉夫三族 14–16 世纪逐步分化，此前统一标示为「罗斯人」。",
+              "en": "1400 is an approximate boundary: the three East Slavic peoples differentiated gradually in the 14th–16th centuries and are shown jointly as \"Rus'\" before it."
+            },
+            "years": [
+              1400,
+              1600
+            ]
+          }
         },
         {
           "region": "ukraine_east",
@@ -4733,7 +5398,7 @@
       "status": "transformed",
       "lifespan": [
         -100,
-        550
+        534
       ],
       "name": {
         "zh": "汪达尔人",
@@ -4781,10 +5446,10 @@
           "presence": "political_control",
           "years": [
             435,
-            550
+            534
           ],
           "priority": 90,
-          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+          "notes": "汪达尔王国（435 年条约—439 年取迦太基）；533 年 12 月特里卡马伦战役败于贝利撒留，534 年盖利默投降，王国终结"
         },
         {
           "region": "poland",
@@ -4826,7 +5491,7 @@
         "zh": "伏尔加-卡马河的突厥语族群及其商业国家（937–1240）。",
         "en": "Turkic people and trading state on the Volga-Kama (937-1240)."
       },
-      "notes": "伏尔加保加利亚：9 世纪末自多瑙流域迁来的保加尔人建，921/922 年皈依伊斯兰，以博尔加尔/比拉尔为枢纽掌控伏尔加商路；1236–1240 年蒙古征服后融入金帐—喀山鞑靼人。",
+      "notes": "伏尔加保加利亚：古大保加利亚（黑海—亚速草原）解体后北迁的保加尔部落（7 世纪中至 8 世纪抵伏尔加—卡马）所建，921/922 年皈依伊斯兰，以博尔加尔/比拉尔为枢纽掌控伏尔加商路；1236–1240 年蒙古征服后融入金帐—喀山鞑靼人。",
       "religions": [
         {
           "religion": "islam",
@@ -4916,12 +5581,12 @@
           "region": "andalusia",
           "presence": "political_control",
           "years": [
-            400,
+            456,
             711
           ],
           "priority": 90,
           "confidence": "medium",
-          "notes": "西哥特王国（托莱多）"
+          "notes": "西哥特王国（456 年奥尔维戈河之战后南下；科尔多瓦至 572 年莱奥维吉尔德方收服；552–624 拜占庭据沿海）"
         },
         {
           "region": "balkans",
@@ -4938,23 +5603,23 @@
           "region": "castile",
           "presence": "political_control",
           "years": [
-            400,
+            456,
             711
           ],
           "priority": 90,
           "confidence": "medium",
-          "notes": "西哥特王国核心"
+          "notes": "西哥特王国（北部梅塞塔，456 年击溃苏维汇后）"
         },
         {
           "region": "catalonia",
           "presence": "political_control",
           "years": [
-            400,
+            415,
             711
           ],
           "priority": 90,
           "confidence": "medium",
-          "notes": "西哥特王国（巴塞罗那）"
+          "notes": "西哥特王国（415 年阿陶尔夫入巴塞罗那；472–476 尤里克取塔拉科行省；507 年后王国重心南移）"
         },
         {
           "region": "galicia",
@@ -4971,11 +5636,33 @@
           "region": "gaul",
           "presence": "settlement",
           "years": [
-            400,
-            500
+            412,
+            507
           ],
           "priority": 50,
-          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+          "notes": "412 年阿陶尔夫入南高卢、418 年阿基坦定居（图卢兹王国）—507 年武耶之战败于克洛维；此后仅存塞普提马尼亚（至 720 年代）"
+        },
+        {
+          "region": "italy",
+          "presence": "migration",
+          "years": [
+            401,
+            412
+          ],
+          "priority": 40,
+          "confidence": "medium",
+          "notes": "阿拉里克入意大利（401/408），410 年攻陷罗马，412 年转入高卢"
+        },
+        {
+          "region": "new_castile",
+          "presence": "political_control",
+          "years": [
+            456,
+            711
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "西哥特王国核心（托莱多 6 世纪中起为王都）"
         },
         {
           "region": "portugal",
