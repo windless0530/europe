@@ -15,6 +15,34 @@
       "notes": "阿尔巴尼亚语。"
     },
     {
+      "code": "arabic",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        400,
+        null
+      ],
+      "name": {
+        "zh": "阿拉伯语",
+        "en": "Arabic"
+      },
+      "notes": "阿拉伯语，闪米特语族；7 世纪随伊斯兰扩张进入北非。"
+    },
+    {
+      "code": "aramaic",
+      "type": "ancient",
+      "status": "extant",
+      "years": [
+        -1100,
+        null
+      ],
+      "name": {
+        "zh": "阿拉米语（叙利亚语）",
+        "en": "Aramaic (Syriac)"
+      },
+      "notes": "阿拉米语：古代近东通用语，叙利亚语为其基督教文献形态，今存新阿拉米语诸方言。"
+    },
+    {
       "code": "armenian",
       "type": "modern",
       "status": "extant",
@@ -41,6 +69,16 @@
         "en": "Azerbaijani"
       },
       "notes": "阿塞拜疆语。"
+    },
+    {
+      "code": "berber",
+      "type": "modern",
+      "status": "extant",
+      "name": {
+        "zh": "柏柏尔语（塔马齐格特语）",
+        "en": "Berber (Tamazight)"
+      },
+      "notes": "柏柏尔诸语言，亚非语系柏柏尔语族；古代以利比亚—柏柏尔文字记录。"
     },
     {
       "code": "czech",
@@ -83,6 +121,20 @@
         "en": "Dutch"
       },
       "notes": "荷兰语。"
+    },
+    {
+      "code": "egyptian",
+      "type": "ancient",
+      "status": "extinct",
+      "years": [
+        -3100,
+        1700
+      ],
+      "name": {
+        "zh": "埃及语（科普特语）",
+        "en": "Egyptian (Coptic)"
+      },
+      "notes": "埃及语，亚非语系；末期形态科普特语约 17 世纪退出日常使用，今仅作礼拜语言。"
     },
     {
       "code": "english",
@@ -197,6 +249,20 @@
       "notes": "希腊语及其历史阶段。"
     },
     {
+      "code": "hebrew",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        -1000,
+        null
+      ],
+      "name": {
+        "zh": "希伯来语",
+        "en": "Hebrew"
+      },
+      "notes": "希伯来语，迦南语支；约 2 世纪后退出日常口语，19–20 世纪复兴。"
+    },
+    {
       "code": "hungarian",
       "type": "modern",
       "status": "extant",
@@ -251,6 +317,20 @@
         "en": "Karelian"
       },
       "notes": "卡累利阿语（13 世纪诺夫哥罗德桦皮文书首见记载）。"
+    },
+    {
+      "code": "kurdish",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        900,
+        null
+      ],
+      "name": {
+        "zh": "库尔德语",
+        "en": "Kurdish"
+      },
+      "notes": "库尔德语诸方言（库尔曼吉、索拉尼等），伊朗语支西北组。"
     },
     {
       "code": "latin",
@@ -351,6 +431,34 @@
       "notes": "古诺斯语。"
     },
     {
+      "code": "persian",
+      "type": "modern",
+      "status": "extant",
+      "years": [
+        -550,
+        null
+      ],
+      "name": {
+        "zh": "波斯语",
+        "en": "Persian"
+      },
+      "notes": "波斯语（古波斯语—中古波斯语/巴列维语—新波斯语），伊朗语支。"
+    },
+    {
+      "code": "phoenician",
+      "type": "ancient",
+      "status": "extinct",
+      "years": [
+        -1200,
+        200
+      ],
+      "name": {
+        "zh": "腓尼基语",
+        "en": "Phoenician"
+      },
+      "notes": "腓尼基语，迦南语支；布匿语为其西部方言。"
+    },
+    {
       "code": "polish",
       "type": "modern",
       "status": "extant",
@@ -377,6 +485,20 @@
         "en": "Portuguese"
       },
       "notes": "葡萄牙语。"
+    },
+    {
+      "code": "punic",
+      "type": "ancient",
+      "status": "extinct",
+      "years": [
+        -800,
+        500
+      ],
+      "name": {
+        "zh": "布匿语",
+        "en": "Punic"
+      },
+      "notes": "布匿语，迦太基的腓尼基语方言；罗马统治下沿用至 5 世纪前后。"
     },
     {
       "code": "romanian",
@@ -564,6 +686,14 @@
         "en": "Protestantism"
       },
       "notes": "新教传统"
+    },
+    {
+      "code": "zoroastrianism",
+      "name": {
+        "zh": "琐罗亚斯德教",
+        "en": "Zoroastrianism"
+      },
+      "notes": "琐罗亚斯德教（祆教），阿契美尼德—萨珊波斯的主要宗教"
     }
   ],
   "periods": [

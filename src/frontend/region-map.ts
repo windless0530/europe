@@ -35,9 +35,13 @@ function matches(rule: RegionGeometryRule, vm: RegionVm): boolean {
       const cc = countryOf(vm);
       return vm.family === 'nuts' && vm.level === 0 && cc !== null && rule.match_values.includes(cc);
     }
-    case 'source_id':
-      // 按规范化数据的原始要素 id 精确匹配（NUTS L1/L2 子区域、GADM 州级、英国构成国等）
-      return rule.match_values.includes(vm.sourceId);
+    case 'source_id': {
+      // 按规范化数据的原始要素 id 匹配（NUTS L1/L2 子区域、GADM 州级、英国构成国等）；
+      // NUTS 码按层级前缀编码，值写上级码即匹配其全部下级单元（如 DE2 = 巴伐利亚 DE21–DE27）
+      const ids = vm.memberIds ?? [vm.sourceId];
+      const nuts = vm.family === 'nuts' && typeof (vm.feature.properties.source_props as Record<string, unknown>)?.CNTR_CODE === 'string';
+      return rule.match_values.some((v) => ids.some((id) => id === v || (nuts && /^[A-Z]{2}[0-9A-Z]+$/.test(v) && id.startsWith(v))));
+    }
     case 'name_regex':
       // DARMC 行省拉丁名正则（不区分大小写，如北非诸省）
       return vm.family === 'provinces' && new RegExp(rule.match_values[0] ?? '', 'i').test(vm.nameEn ?? '');

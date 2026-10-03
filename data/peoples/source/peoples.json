@@ -86,6 +86,103 @@
       "b": "poles",
       "confidence": "medium",
       "notes": "Masurians descend from Masovian Polish settlers but developed a distinct Lutheran, Prussian-oriented identity."
+    },
+    {
+      "a": "romans",
+      "type": "conquered",
+      "b": "carthaginians",
+      "years": [
+        -146,
+        -146
+      ],
+      "notes": "Third Punic War: Carthage destroyed by Scipio Aemilianus in 146 BC; its territory became the province of Africa."
+    },
+    {
+      "a": "arabs_north_africa",
+      "type": "conquered",
+      "b": "berbers",
+      "confidence": "medium",
+      "years": [
+        647,
+        710
+      ],
+      "notes": "Arab conquest of the Maghreb (647–c. 710), followed by the Berber Revolt of 740 in the central and western Maghreb."
+    },
+    {
+      "a": "moors",
+      "type": "related_to",
+      "b": "berbers",
+      "notes": "The Moors of al-Andalus were Arab and Berber; most of the 711 invasion force under Tariq ibn Ziyad was Berber."
+    },
+    {
+      "a": "moors",
+      "type": "related_to",
+      "b": "arabs_north_africa",
+      "notes": "The conquest of al-Andalus was launched from Umayyad Ifriqiya and Tangier."
+    },
+    {
+      "a": "arabs_sicily",
+      "type": "related_to",
+      "b": "arabs_north_africa",
+      "notes": "The conquest of Sicily (827) was launched by the Aghlabid emirate of Ifriqiya."
+    },
+    {
+      "a": "carthaginians",
+      "type": "descended_from",
+      "b": "phoenicians",
+      "notes": "Carthage was founded by settlers from Tyre (traditionally 814 BC)."
+    },
+    {
+      "a": "jews",
+      "type": "related_to",
+      "b": "phoenicians",
+      "notes": "Hebrew and Phoenician are closely related Canaanite languages."
+    },
+    {
+      "a": "arabs_levant",
+      "type": "related_to",
+      "b": "arabs_north_africa",
+      "notes": "Both descend from the 7th-century Arab conquests and subsequent Arabization."
+    },
+    {
+      "a": "arabs_levant",
+      "type": "related_to",
+      "b": "arameans",
+      "notes": "The Aramaic-speaking population of Syria was gradually Arabized after the 7th century."
+    },
+    {
+      "a": "crusaders",
+      "type": "related_to",
+      "b": "french",
+      "confidence": "medium",
+      "notes": "The Crusader ruling class was predominantly French-speaking (\"Franks\")."
+    },
+    {
+      "a": "persians",
+      "type": "conquered",
+      "b": "egyptians",
+      "years": [
+        -525,
+        -525
+      ],
+      "notes": "Cambyses II conquered Egypt at Pelusium in 525 BC."
+    },
+    {
+      "a": "turks",
+      "type": "conquered",
+      "b": "greeks",
+      "years": [
+        1071,
+        1461
+      ],
+      "notes": "Turkish conquest of Byzantine Anatolia from Manzikert (1071) to the fall of Trebizond (1461)."
+    },
+    {
+      "a": "kurds",
+      "type": "related_to",
+      "b": "persians",
+      "confidence": "medium",
+      "notes": "Kurdish and Persian are both Western Iranian languages."
     }
   ],
   "claims": [
@@ -194,6 +291,24 @@
           "priority": 50,
           "confidence": "medium",
           "notes": "阿勒曼尼人南迁瑞士高原（5 世纪末起）；506/536 年后在法兰克宗主下延续，演化为施瓦本—瑞士德语人群"
+        },
+        {
+          "region": "alsace_lorraine",
+          "presence": "political_control",
+          "years": [
+            406,
+            496
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "洛林（梅斯）此期属罗马残余与法兰克，非阿勒曼尼人。",
+              "en": "Lorraine (Metz) belonged to Roman remnants and the Franks in this period, not the Alemanni."
+            }
+          },
+          "notes": "阿勒曼尼人定居阿尔萨斯；496/506 年托尔比亚克之战后归法兰克"
         }
       ]
     },
@@ -296,6 +411,650 @@
       ]
     },
     {
+      "code": "arabs_levant",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        -85,
+        null
+      ],
+      "name": {
+        "zh": "黎凡特阿拉伯人",
+        "en": "Levantine Arabs"
+      },
+      "brief": {
+        "zh": "叙利亚、黎巴嫩、巴勒斯坦、约旦的阿拉伯人：前伊斯兰的纳巴泰人与加萨尼人，636 年起的阿拉伯征服及其阿拉伯化后裔。",
+        "en": "The Arabs of Syria, Lebanon, Palestine and Jordan: the pre-Islamic Nabataeans and Ghassanids, the conquerors of 636, and the Arabized populations descended from them."
+      },
+      "notes": "黎凡特阿拉伯人：纳巴泰王国（前 85 年起据豪兰）、加萨尼联盟（6 世纪）；636 年雅尔穆克战役后正统—倭马亚（661–750 定都大马士革）—阿拔斯—哈姆丹/法蒂玛等；塞尔柱、赞吉、阿尤布、马穆鲁克为突厥/库尔德统治集团（caveat），奥斯曼 1516–1918、英法委任统治 1920–1946/48。阿拉米语人群约 9–13 世纪逐步阿拉伯化。",
+      "languages": [
+        {
+          "language": "arabic",
+          "role": "native"
+        },
+        {
+          "language": "aramaic",
+          "role": "historical",
+          "years": [
+            -85,
+            300
+          ],
+          "notes": "纳巴泰人以阿拉米语书写"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "paganism",
+          "role": "traditional",
+          "years": [
+            -85,
+            400
+          ]
+        },
+        {
+          "religion": "christianity",
+          "role": "historical",
+          "years": [
+            300,
+            null
+          ],
+          "notes": "加萨尼人、黎巴嫩马龙派等"
+        },
+        {
+          "religion": "islam",
+          "role": "dominant",
+          "years": [
+            636,
+            null
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "arabic"
+        ],
+        "historical_people": [
+          "arabs"
+        ],
+        "modern_ethnicity": [
+          "levantine_arabs"
+        ]
+      },
+      "slices": [
+        {
+          "region": "transjordan",
+          "presence": "political_control",
+          "years": [
+            -85,
+            106
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "纳巴泰王国（阿雷塔斯三世前 85 年取大马士革—豪兰，佩特拉为都）；106 年并入罗马"
+        },
+        {
+          "region": "transjordan",
+          "presence": "homeland",
+          "years": [
+            300,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1516–1918 奥斯曼、1920–1946 法国/英国委任统治：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+              "en": "1516–1918 Ottoman, 1920–1946 French/British mandates: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1516,
+              1946
+            ]
+          },
+          "notes": "豪兰与外约旦的阿拉伯部落（萨法伊特铭文人群、6 世纪加萨尼联盟）"
+        },
+        {
+          "region": "transjordan",
+          "presence": "political_control",
+          "years": [
+            636,
+            1516
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "636 年雅尔穆克战役（即在本区）；倭马亚—阿拔斯—法蒂玛—赞吉/阿尤布—马穆鲁克"
+        },
+        {
+          "region": "syria",
+          "presence": "political_control",
+          "years": [
+            636,
+            1516
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "塞尔柱（1070 年代起，突厥）、赞吉（突厥）、阿尤布（库尔德）、马穆鲁克（突厥—切尔克斯）统治集团非阿拉伯人，本图按阿拉伯化的叙利亚国家近似着色。",
+              "en": "The Seljuk (from the 1070s, Turkic), Zengid (Turkic), Ayyubid (Kurdish) and Mamluk (Turkic–Circassian) elites were not Arab; Syria is approximated as an Arabized state."
+            },
+            "years": [
+              1070,
+              1516
+            ]
+          },
+          "notes": "636 年雅尔穆克战役后取大马士革、霍姆斯、阿勒颇；倭马亚（661–750 定都大马士革）—阿拔斯—哈姆丹（阿勒颇）—法蒂玛—塞尔柱—赞吉—阿尤布—马穆鲁克"
+        },
+        {
+          "region": "syria",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1516–1918 奥斯曼、1920–1946 法国委任统治：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+              "en": "1516–1918 Ottoman, 1920–1946 French mandate: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1516,
+              1946
+            ]
+          },
+          "notes": "阿拉米语人群逐步阿拉伯化（约 9–13 世纪）；现代叙利亚人以阿拉伯语为母语（阿拉维、德鲁兹、基督徒等教派并存）"
+        },
+        {
+          "region": "phoenicia",
+          "presence": "political_control",
+          "years": [
+            636,
+            1110
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "637 年取沿海诸城；倭马亚—阿拔斯—图伦—法蒂玛"
+        },
+        {
+          "region": "phoenicia",
+          "presence": "political_control",
+          "years": [
+            1291,
+            1516
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "马穆鲁克（突厥—切尔克斯）统治集团非阿拉伯人。",
+              "en": "The Mamluk (Turkic–Circassian) elite was not Arab."
+            }
+          },
+          "notes": "1291 年马穆鲁克攻取阿卡后收复全部沿海"
+        },
+        {
+          "region": "phoenicia",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1516–1918 奥斯曼（黎巴嫩山埃米尔国自治）、1920–1943 法国委任统治：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+              "en": "1516–1918 Ottoman (autonomous Emirate of Mount Lebanon), 1920–1943 French mandate: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1516,
+              1943
+            ]
+          },
+          "notes": "阿拉伯语的黎巴嫩人（马龙派、德鲁兹、什叶派、逊尼派等）"
+        },
+        {
+          "region": "palaestina",
+          "presence": "political_control",
+          "years": [
+            636,
+            1099
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "637 年取耶路撒冷，640 年取凯撒利亚；倭马亚（圆顶清真寺 691）—阿拔斯—图伦—法蒂玛—塞尔柱"
+        },
+        {
+          "region": "palaestina",
+          "presence": "political_control",
+          "years": [
+            1187,
+            1516
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "阿尤布（库尔德）、马穆鲁克（突厥—切尔克斯）统治集团非阿拉伯人；十字军沿海残余至 1291 年。",
+              "en": "The Ayyubid (Kurdish) and Mamluk (Turkic–Circassian) elites were not Arab; a Crusader coastal remnant survived until 1291."
+            },
+            "years": [
+              1187,
+              1516
+            ]
+          },
+          "notes": "1187 年哈丁战役后萨拉丁收复耶路撒冷；阿尤布—马穆鲁克"
+        },
+        {
+          "region": "palaestina",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1516–1917 奥斯曼、1917–1948 英国委任统治：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+              "en": "1516–1917 Ottoman, 1917–1948 British mandate: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1516,
+              1947
+            ]
+          },
+          "notes": "阿拉伯化的巴勒斯坦人（穆斯林与基督徒）"
+        },
+        {
+          "region": "jazira",
+          "presence": "political_control",
+          "years": [
+            638,
+            1516
+          ],
+          "priority": 90,
+          "confidence": "low",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "12 世纪起赞吉（突厥）、阿尤布（库尔德）、马穆鲁克统治集团非阿拉伯人；1260–1303 年为蒙古—马穆鲁克拉锯区。",
+              "en": "From the 12th century the Zengid (Turkic), Ayyubid (Kurdish) and Mamluk elites were not Arab; 1260–1303 was a Mongol–Mamluk battleground."
+            },
+            "years": [
+              1127,
+              1516
+            ]
+          },
+          "notes": "639 年伊亚德·本·加纳姆征服；迪亚尔·穆达尔/迪亚尔·拉比亚阿拉伯部落区；哈姆丹—乌凯勒（阿拉伯）—赞吉—阿尤布—马穆鲁克"
+        },
+        {
+          "region": "jazira",
+          "presence": "homeland",
+          "years": [
+            700,
+            null
+          ],
+          "priority": 70,
+          "confidence": "low",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1516–1918 奥斯曼、1920–1946 法国委任统治；东北部库尔德人比例高：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+              "en": "1516–1918 Ottoman, 1920–1946 French mandate; the northeast has a large Kurdish population: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1516,
+              1946
+            ]
+          },
+          "notes": "阿拉伯部落定居（穆达尔、拉比亚）；东北部哈塞克有库尔德人与亚述人"
+        },
+        {
+          "region": "cilicia",
+          "presence": "political_control",
+          "years": [
+            700,
+            965
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "阿拉伯—拜占庭边区（图古尔）：塔尔苏斯（787 年设防）、阿达纳、马米斯特拉；965 年尼基弗鲁斯二世收复"
+        },
+        {
+          "region": "southeast_anatolia",
+          "presence": "political_control",
+          "years": [
+            638,
+            983
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "639 年阿拉伯征服埃德萨、阿米达；迪亚尔·巴克尔（拉比亚部落之巴克尔支）—哈姆丹王朝（摩苏尔/阿勒颇）"
+        }
+      ]
+    },
+    {
+      "code": "arabs_north_africa",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        641,
+        null
+      ],
+      "name": {
+        "zh": "北非阿拉伯人",
+        "en": "North African Arabs"
+      },
+      "brief": {
+        "zh": "641 年起随阿拉伯征服进入埃及与马格里布的阿拉伯人及其阿拉伯化后裔。",
+        "en": "Arabs who entered Egypt and the Maghreb with the conquests from 641, and the Arabized populations descended from them."
+      },
+      "notes": "北非阿拉伯人：正统哈里发—倭马亚征服（641 埃及、642 昔兰尼加、643 的黎波里、698 迦太基、708 丹吉尔），阿格拉布、伊德里斯、法蒂玛等王朝；1050 年代巴努·希拉勒/苏莱姆部落西迁后马格里布平原阿拉伯化。",
+      "languages": [
+        {
+          "language": "arabic",
+          "role": "native"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "islam",
+          "role": "dominant",
+          "years": [
+            641,
+            null
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "arabic"
+        ],
+        "historical_people": [
+          "arabs"
+        ],
+        "modern_ethnicity": [
+          "north_african_arabs"
+        ]
+      },
+      "slices": [
+        {
+          "region": "aegyptus",
+          "presence": "political_control",
+          "years": [
+            641,
+            1517
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "图伦/伊赫什德（868–969，突厥裔）、阿尤布（1171–1250，库尔德裔）、马穆鲁克（1250–1517，突厥—切尔克斯裔）统治集团非阿拉伯人，本图无对应族群，按阿拉伯化的埃及国家近似着色。",
+              "en": "The Tulunid/Ikhshidid (868–969, Turkic), Ayyubid (1171–1250, Kurdish) and Mamluk (1250–1517, Turkic–Circassian) ruling elites were not Arab; with no corresponding people in this atlas, Egypt is colored as an Arabized Egyptian state."
+            },
+            "years": [
+              868,
+              1517
+            ]
+          },
+          "notes": "641 年阿慕尔·本·阿斯征服；正统—倭马亚—阿拔斯总督、图伦/伊赫什德、法蒂玛（969 起定都开罗）、阿尤布、马穆鲁克；1517 年奥斯曼征服"
+        },
+        {
+          "region": "cyrenaica",
+          "presence": "political_control",
+          "years": [
+            642,
+            1551
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "642 年阿慕尔取巴尔卡；此后附属埃及诸政权（倭马亚—阿拔斯—法蒂玛—阿尤布—马穆鲁克）；1551 年奥斯曼"
+        },
+        {
+          "region": "tripolitania",
+          "presence": "political_control",
+          "years": [
+            643,
+            972
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "643 年阿慕尔取的黎波里（647 年苏费图拉战役后巩固）；倭马亚—阿拔斯—阿格拉布（800–909）—法蒂玛；972 年交齐里王朝"
+        },
+        {
+          "region": "ifriqiya",
+          "presence": "political_control",
+          "years": [
+            698,
+            972
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "698 年哈桑·本·努阿曼攻取迦太基（670 年凯鲁万已建）；倭马亚/阿拔斯总督—阿格拉布王朝（800–909）—法蒂玛王朝（909–972，依托库塔马柏柏尔军，969 年迁都开罗）"
+        },
+        {
+          "region": "numidia",
+          "presence": "political_control",
+          "years": [
+            702,
+            972
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "卡希娜败亡（约 702）后归倭马亚/阿拔斯—阿格拉布；909 年库塔马柏柏尔拥立法蒂玛王朝（发源于小卡比利亚）"
+        },
+        {
+          "region": "mauretania_caesariensis",
+          "presence": "political_control",
+          "years": [
+            710,
+            740
+          ],
+          "priority": 90,
+          "confidence": "low",
+          "notes": "穆萨·本·努赛尔征服马格里布（约 705–710）；740 年柏柏尔大起义逐出倭马亚"
+        },
+        {
+          "region": "mauretania_caesariensis",
+          "presence": "political_control",
+          "years": [
+            909,
+            972
+          ],
+          "priority": 90,
+          "confidence": "low",
+          "notes": "法蒂玛王朝对中马格里布的宗主权（鲁斯塔姆国 909 年亡）"
+        },
+        {
+          "region": "mauretania_tingitana",
+          "presence": "political_control",
+          "years": [
+            708,
+            740
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "约 708 年穆萨·本·努赛尔取丹吉尔，711 年塔里克自此渡海入西班牙；740 年柏柏尔大起义"
+        },
+        {
+          "region": "mauretania_tingitana",
+          "presence": "political_control",
+          "years": [
+            788,
+            974
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "伊德里斯王朝（788–974，非斯）：阿里后裔阿拉伯谢里夫王朝，依托奥拉巴等柏柏尔部落"
+        },
+        {
+          "region": "mauretania_tingitana",
+          "presence": "political_control",
+          "years": [
+            1549,
+            null
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1912–1956 年法国/西班牙保护国：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+              "en": "1912–1956 French/Spanish protectorate: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1912,
+              1956
+            ]
+          },
+          "notes": "萨阿德王朝（1549 年取非斯）—阿拉维王朝（1666 起）：阿拉伯谢里夫王朝；摩洛哥未入奥斯曼"
+        },
+        {
+          "region": "aegyptus",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1517–1798 奥斯曼（马穆鲁克贝伊实掌）、1805–1882 穆罕默德·阿里王朝自治、1882–1952 英国占领/保护：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+              "en": "1517–1798 Ottoman (with Mamluk beys in power), 1805–1882 autonomous Muhammad Ali dynasty, 1882–1952 British occupation/protectorate: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1517,
+              1952
+            ]
+          },
+          "notes": "埃及的阿拉伯化与伊斯兰化（约 10–14 世纪穆斯林成为多数）；现代埃及人以阿拉伯语为母语"
+        },
+        {
+          "region": "cyrenaica",
+          "presence": "homeland",
+          "years": [
+            1051,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1551–1911 奥斯曼（1711–1835 卡拉曼利王朝自治）、1911–1943 意大利：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+              "en": "1551–1911 Ottoman (autonomous Karamanli dynasty 1711–1835), 1911–1943 Italian: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1551,
+              1951
+            ]
+          },
+          "notes": "巴努·苏莱姆部落 1050 年代入迁，昔兰尼加成为阿拉伯—贝都因人主体地区"
+        },
+        {
+          "region": "tripolitania",
+          "presence": "homeland",
+          "years": [
+            1051,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1510–1551 西班牙/医院骑士团、1551–1911 奥斯曼（1711–1835 卡拉曼利王朝自治）、1911–1943 意大利：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+              "en": "1510–1551 Spain/Knights Hospitaller, 1551–1911 Ottoman (autonomous Karamanli dynasty 1711–1835), 1911–1943 Italian: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1510,
+              1951
+            ]
+          },
+          "notes": "巴努·希拉勒/苏莱姆 1050 年代入迁后平原阿拉伯化；内富萨山区保留柏柏尔语"
+        },
+        {
+          "region": "ifriqiya",
+          "presence": "homeland",
+          "years": [
+            1051,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1574–1881 奥斯曼（1705 起侯赛因王朝自治）、1881–1956 法国保护国：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+              "en": "1574–1881 Ottoman (autonomous Husainid beys from 1705), 1881–1956 French protectorate: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1574,
+              1956
+            ]
+          },
+          "notes": "1051–1057 年巴努·希拉勒入侵（海达兰战役、凯鲁万陷落）后平原与内陆阿拉伯化"
+        },
+        {
+          "region": "numidia",
+          "presence": "homeland",
+          "years": [
+            1150,
+            null
+          ],
+          "priority": 70,
+          "confidence": "low",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1529–1830 奥斯曼阿尔及尔摄政、1830–1962 法属阿尔及利亚；卡比利亚与奥雷斯山区以柏柏尔语人群为主：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+              "en": "1529–1830 Ottoman Regency of Algiers, 1830–1962 French Algeria; Kabylia and the Aurès remain predominantly Berber-speaking: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1529,
+              1962
+            ]
+          },
+          "notes": "希拉勒部落 12 世纪起深入君士坦丁高原；卡比利亚与奥雷斯山区仍以柏柏尔语人群（卡拜尔人、沙维亚人）为主"
+        },
+        {
+          "region": "mauretania_caesariensis",
+          "presence": "homeland",
+          "years": [
+            1200,
+            null
+          ],
+          "priority": 70,
+          "confidence": "low",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1556–1830 奥斯曼阿尔及尔摄政、1830–1962 法属阿尔及利亚：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+              "en": "1556–1830 Ottoman Regency of Algiers, 1830–1962 French Algeria: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1556,
+              1962
+            ]
+          },
+          "notes": "希拉勒与马基勒部落 12–13 世纪西进，奥兰—谢利夫平原阿拉伯化；山区（瓦尔塞尼斯、达赫拉）保留柏柏尔语"
+        }
+      ]
+    },
+    {
       "code": "arabs_sicily",
       "type": "medieval",
       "status": "transformed",
@@ -341,11 +1100,134 @@
       ]
     },
     {
+      "code": "arameans",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -1100,
+        null
+      ],
+      "name": {
+        "zh": "阿拉米人（叙利亚语人群）",
+        "en": "Arameans (Syriac-speaking peoples)"
+      },
+      "brief": {
+        "zh": "叙利亚与上美索不达米亚的阿拉米语人群：古代阿拉米诸国，罗马—拜占庭时代的叙利亚语基督徒，今亚述/叙利亚克人。",
+        "en": "The Aramaic-speaking peoples of Syria and Upper Mesopotamia: the ancient Aramean states, the Syriac Christians of the Roman–Byzantine era, and today's Assyrians/Syriacs."
+      },
+      "notes": "阿拉米人：前 11 世纪起在叙利亚建立大马士革（阿拉姆）、哈马、比特—阿迪尼等国，前 8 世纪为新亚述吞并；阿拉米语成为帝国通用语。罗马时代埃德萨（奥斯若恩王国）为叙利亚语文学中心。伊斯兰时代逐步阿拉伯化，图尔阿卜丁等地延续至今。",
+      "languages": [
+        {
+          "language": "aramaic",
+          "role": "native"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "paganism",
+          "role": "traditional",
+          "years": [
+            -1100,
+            400
+          ]
+        },
+        {
+          "religion": "christianity",
+          "role": "dominant",
+          "years": [
+            200,
+            1000
+          ],
+          "notes": "叙利亚正教、东方教会"
+        },
+        {
+          "religion": "christianity",
+          "role": "minority",
+          "years": [
+            1000,
+            null
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "aramaic"
+        ],
+        "historical_people": [
+          "arameans"
+        ]
+      },
+      "slices": [
+        {
+          "region": "syria",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            null
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "前 732 年起新亚述、新巴比伦先后统治叙利亚，本图无对应族群，以本地阿拉米人着色。",
+              "en": "Neo-Assyria and then Neo-Babylon ruled Syria from 732 BC; with no corresponding peoples here, Syria is colored by its native Arameans."
+            },
+            "years": [
+              -732,
+              -539
+            ]
+          },
+          "notes": "阿拉米诸国（大马士革、哈马、阿尔帕德）—帝国通用语人群—叙利亚语基督徒；伊斯兰时代逐步阿拉伯化"
+        },
+        {
+          "region": "jazira",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            null
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "notes": "比特—阿迪尼等阿拉米国（前 856 年并入亚述）；叙利亚语基督徒"
+        },
+        {
+          "region": "southeast_anatolia",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            null
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "埃德萨、哈兰、图尔阿卜丁的阿拉米/叙利亚语人群，今亚述—叙利亚克人"
+        },
+        {
+          "region": "southeast_anatolia",
+          "presence": "political_control",
+          "years": [
+            -132,
+            214
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "阿布加尔王朝或出自纳巴泰/阿拉伯系，王国以叙利亚语为文化语言。",
+              "en": "The Abgarid dynasty may have been of Nabataean/Arab origin; the kingdom's cultural language was Syriac."
+            }
+          },
+          "notes": "奥斯若恩王国（阿布加尔王朝，埃德萨）：帕提亚—罗马之间的叙利亚语王国"
+        }
+      ]
+    },
+    {
       "code": "armenians",
       "type": "modern",
       "status": "extant",
       "lifespan": [
-        500,
+        -600,
         null
       ],
       "name": {
@@ -373,12 +1255,78 @@
           "region": "armenia",
           "presence": "homeland",
           "years": [
-            500,
+            -600,
             null
           ],
           "priority": 70,
           "confidence": "medium",
-          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。；起点前推至前 6 世纪（贝希斯敦铭文 Armina；奥龙特斯王朝—阿尔塔什斯王朝亚美尼亚）"
+        },
+        {
+          "region": "armenian_highlands_north",
+          "presence": "homeland",
+          "years": [
+            -600,
+            1915
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "387 年后西部属拜占庭、东部属萨珊；7–9 世纪阿拉伯阿尔米尼亚总督区宗主；本土亚美尼亚诸侯（纳哈拉尔）与巴格拉提德王国自治，按亚美尼亚人着色。",
+              "en": "After 387 the west was Byzantine and the east Sasanian; in the 7th–9th centuries the Arab emirate of Arminiya held suzerainty. Native Armenian princes (nakharars) and the Bagratid kingdom ruled locally, so the region is colored Armenian."
+            },
+            "years": [
+              387,
+              885
+            ]
+          },
+          "notes": "西亚美尼亚北部（卡林/埃尔祖鲁姆、卡尔斯—巴格拉提德都城阿尼周边）；1915 年亚美尼亚种族灭绝"
+        },
+        {
+          "region": "armenian_highlands_south",
+          "presence": "homeland",
+          "years": [
+            -600,
+            1915
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "约 1800 年起凡湖—比特利斯一带亚美尼亚人与库尔德人混居、比例有争论，此处以亚美尼亚人近似着色。",
+              "en": "From about 1800 the Van–Bitlis area was mixed Armenian and Kurdish in disputed proportions; it is approximated as Armenian here."
+            },
+            "years": [
+              1847,
+              1915
+            ]
+          },
+          "notes": "乌拉尔图故地；瓦斯普拉坎王国（908–1021）、塔隆；1915 年亚美尼亚种族灭绝"
+        },
+        {
+          "region": "cilicia",
+          "presence": "political_control",
+          "years": [
+            1080,
+            1375
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "哈塔伊（安条克）1098–1268 年属十字军安条克公国，本区按奇里乞亚亚美尼亚着色。",
+              "en": "Hatay (Antioch) belonged to the Crusader Principality of Antioch in 1098–1268; the region is colored by Cilician Armenia."
+            },
+            "years": [
+              1098,
+              1268
+            ]
+          },
+          "notes": "鲁本王朝—赫通王朝的奇里乞亚亚美尼亚（1198 年称王，西斯为都）；1375 年亡于马穆鲁克"
         }
       ]
     },
@@ -652,6 +1600,297 @@
       ]
     },
     {
+      "code": "berbers",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        -1200,
+        null
+      ],
+      "name": {
+        "zh": "柏柏尔人（阿马齐格人）",
+        "en": "Berbers (Amazigh)"
+      },
+      "brief": {
+        "zh": "马格里布的原住民族群：古代称利比亚人、努米底亚人、摩尔人，中世纪建立阿尔摩拉维德、阿尔摩哈德等王朝。",
+        "en": "The indigenous people of the Maghreb — the Libyans, Numidians and Moors of antiquity, and founders of medieval dynasties such as the Almoravids and Almohads."
+      },
+      "notes": "柏柏尔人：埃及文献前 13 世纪起记载的利布人（利比亚人）；古典时代的努米底亚（马西里、马赛西里）与毛里塔尼亚王国；罗马—拜占庭时代的摩尔诸王国；伊斯兰时代齐里、哈马德、阿尔摩拉维德、阿尔摩哈德、哈夫斯、宰亚尼、马林诸王朝。11 世纪希拉勒人入迁后平原逐步阿拉伯化。",
+      "languages": [
+        {
+          "language": "berber",
+          "role": "native"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "paganism",
+          "role": "traditional",
+          "years": [
+            null,
+            700
+          ]
+        },
+        {
+          "religion": "christianity",
+          "role": "historical",
+          "years": [
+            200,
+            1100
+          ],
+          "notes": "罗马阿非利加基督教（多纳图派），伊斯兰化后消亡"
+        },
+        {
+          "religion": "islam",
+          "role": "dominant",
+          "years": [
+            700,
+            null
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "berber"
+        ],
+        "modern_ethnicity": [
+          "berbers"
+        ]
+      },
+      "slices": [
+        {
+          "region": "cyrenaica",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            null
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "柏柏尔（利比亚）原住人群底层，外来统治与阿拉伯化时期由更高优先级切片覆盖"
+        },
+        {
+          "region": "tripolitania",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            null
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "柏柏尔（利比亚）原住人群底层，外来统治与阿拉伯化时期由更高优先级切片覆盖"
+        },
+        {
+          "region": "ifriqiya",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            null
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "柏柏尔（利比亚）原住人群底层，外来统治与阿拉伯化时期由更高优先级切片覆盖"
+        },
+        {
+          "region": "numidia",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            null
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "柏柏尔（利比亚）原住人群底层，外来统治与阿拉伯化时期由更高优先级切片覆盖"
+        },
+        {
+          "region": "mauretania_caesariensis",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            null
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "柏柏尔（利比亚）原住人群底层，外来统治与阿拉伯化时期由更高优先级切片覆盖"
+        },
+        {
+          "region": "mauretania_tingitana",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            null
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "柏柏尔（利比亚）原住人群底层，外来统治与阿拉伯化时期由更高优先级切片覆盖"
+        },
+        {
+          "region": "tripolitania",
+          "presence": "political_control",
+          "years": [
+            -146,
+            -46
+          ],
+          "priority": 90,
+          "confidence": "low",
+          "notes": "马西尼萨及其继承者的努米底亚王国（前 162 年前后夺取恩波里亚）"
+        },
+        {
+          "region": "tripolitania",
+          "presence": "political_control",
+          "years": [
+            972,
+            1146
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "齐里王朝（972 起）与泽纳塔柏柏尔的巴努·哈兹伦（1001–1146）；1146 年诺曼西西里攻取的黎波里"
+        },
+        {
+          "region": "tripolitania",
+          "presence": "political_control",
+          "years": [
+            1158,
+            1510
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "阿尔摩哈德（1158/1160 起）—哈夫斯王朝（1229 起）；1510 年西班牙攻取的黎波里"
+        },
+        {
+          "region": "ifriqiya",
+          "presence": "political_control",
+          "years": [
+            972,
+            1574
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "齐里王朝（972–1148；1148–1160 诺曼西西里据沿海「阿非利加王国」）—阿尔摩哈德（1160）—哈夫斯王朝（1229–1574，马斯穆达柏柏尔出身）"
+        },
+        {
+          "region": "numidia",
+          "presence": "political_control",
+          "years": [
+            -202,
+            -46
+          ],
+          "priority": 90,
+          "notes": "马西尼萨统一努米底亚（前 202 年扎马战役后）至朱巴一世，前 46 年塔普苏斯战役后并入罗马"
+        },
+        {
+          "region": "numidia",
+          "presence": "political_control",
+          "years": [
+            683,
+            702
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "库塞拉（683–688）与卡希娜（约 695–702）领导的柏柏尔抵抗"
+        },
+        {
+          "region": "numidia",
+          "presence": "political_control",
+          "years": [
+            972,
+            1529
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "齐里王朝—哈马德王朝（1014–1152，贝贾亚）—阿尔摩哈德—哈夫斯王朝（君士坦丁、贝贾亚）；1529 年起奥斯曼阿尔及尔扩张"
+        },
+        {
+          "region": "mauretania_caesariensis",
+          "presence": "political_control",
+          "years": [
+            -220,
+            40
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "西法克斯的马赛西里王国（定都西加）—毛里塔尼亚王国（博库斯、朱巴二世、托勒密），40 年并入罗马"
+        },
+        {
+          "region": "mauretania_caesariensis",
+          "presence": "political_control",
+          "years": [
+            430,
+            710
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "摩尔—罗马诸王国（阿尔塔瓦的马苏纳等）；汪达尔与拜占庭均未有效控制中马格里布"
+        },
+        {
+          "region": "mauretania_caesariensis",
+          "presence": "political_control",
+          "years": [
+            740,
+            909
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "740 年柏柏尔大起义逐出倭马亚；777–909 年鲁斯塔姆伊玛目国（提亚雷特，波斯裔伊巴德派伊玛目统治柏柏尔部落）"
+        },
+        {
+          "region": "mauretania_caesariensis",
+          "presence": "political_control",
+          "years": [
+            972,
+            1556
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "齐里/马格拉瓦—哈马德—阿尔摩拉维德—阿尔摩哈德—宰亚尼王朝（1235–1556，特莱姆森）；1556 年奥斯曼攻取特莱姆森"
+        },
+        {
+          "region": "mauretania_tingitana",
+          "presence": "political_control",
+          "years": [
+            -300,
+            40
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "毛里塔尼亚王国（巴加、博库斯、朱巴二世）；沿海有布匿贸易据点（利克苏斯、廷吉斯）"
+        },
+        {
+          "region": "mauretania_tingitana",
+          "presence": "political_control",
+          "years": [
+            429,
+            708
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "后罗马时代的摩尔诸部；拜占庭仅守休达（塞普特姆）"
+        },
+        {
+          "region": "mauretania_tingitana",
+          "presence": "political_control",
+          "years": [
+            740,
+            788
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "740 年柏柏尔大起义（梅塞拉）后诸部自立（巴尔加瓦塔等）"
+        },
+        {
+          "region": "mauretania_tingitana",
+          "presence": "political_control",
+          "years": [
+            974,
+            1549
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "泽纳塔/马格拉瓦诸部—阿尔摩拉维德（1060 起，马拉喀什）—阿尔摩哈德（1147）—马林王朝（1244）—瓦塔斯王朝（1472）；1549 年萨阿德王朝取非斯"
+        }
+      ]
+    },
+    {
       "code": "bosniaks",
       "type": "modern",
       "status": "extant",
@@ -835,17 +2074,6 @@
       },
       "slices": [
         {
-          "region": "gaul",
-          "presence": "settlement",
-          "years": [
-            407,
-            600
-          ],
-          "priority": 50,
-          "confidence": "medium",
-          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
-        },
-        {
           "region": "swabia_francia",
           "presence": "political_control",
           "years": [
@@ -866,6 +2094,130 @@
           "priority": 50,
           "confidence": "medium",
           "notes": "勃艮第王国（日内瓦—洛桑一带）"
+        },
+        {
+          "region": "burgundy",
+          "presence": "political_control",
+          "years": [
+            443,
+            534
+          ],
+          "priority": 90,
+          "notes": "勃艮第王国（443 年萨保迪亚定居，里昂/日内瓦为都；《贡多巴德法典》）；534 年为克洛维诸子所灭"
+        }
+      ]
+    },
+    {
+      "code": "carthaginians",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -814,
+        -146
+      ],
+      "name": {
+        "zh": "迦太基人",
+        "en": "Carthaginians"
+      },
+      "brief": {
+        "zh": "推罗腓尼基人建立的迦太基城邦及其布匿海上帝国，前 146 年亡于罗马。",
+        "en": "The Punic city-state of Carthage, founded by Tyrian Phoenicians, and its maritime empire; destroyed by Rome in 146 BC."
+      },
+      "notes": "迦太基（传统建城年前 814 年）：西地中海布匿霸权，三次布匿战争（前 264–前 146）后覆灭；布匿语与布匿文化在罗马阿非利加延续至 5 世纪前后（此后并入罗马—阿非利加人群），不另设片。",
+      "languages": [
+        {
+          "language": "punic",
+          "role": "native"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "paganism",
+          "role": "traditional",
+          "years": [
+            -814,
+            -146
+          ],
+          "notes": "巴力·哈蒙、塔尼特崇拜"
+        }
+      ],
+      "classification": {
+        "language": [
+          "canaanite"
+        ],
+        "historical_people": [
+          "carthaginians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "ifriqiya",
+          "presence": "settlement",
+          "years": [
+            -814,
+            -146
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "迦太基城及其腹地（前 5 世纪起控制泽乌吉塔纳—拜占西乌姆农业区）；前 146 年第三次布匿战争覆灭"
+        },
+        {
+          "region": "tripolitania",
+          "presence": "political_control",
+          "years": [
+            -600,
+            -146
+          ],
+          "priority": 90,
+          "confidence": "low",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "迦太基仅控制的黎波里塔尼亚沿海城市带，内陆为柏柏尔（利比亚）部落；此处按统治者近似着色整区。",
+              "en": "Carthage held only the coastal Emporia of Tripolitania; the interior belonged to Berber (Libyan) tribes. The whole region is colored by ruler as an approximation."
+            }
+          },
+          "notes": "恩波里亚（大莱普提斯、欧伊亚、萨布拉塔）沿海贸易城市带；内陆为柏柏尔部落；前 2 世纪中叶起马西尼萨蚕食"
+        },
+        {
+          "region": "sardinia",
+          "presence": "political_control",
+          "years": [
+            -510,
+            -238
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 6 世纪末马尔库斯/马戈家族征服撒丁沿海与平原；前 238 年雇佣兵战争后为罗马夺取；山区努拉吉人未被征服"
+        },
+        {
+          "region": "andalusia",
+          "presence": "political_control",
+          "years": [
+            -237,
+            -206
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "巴卡家族的伊比利亚（前 237 年哈米尔卡登陆加德斯，新迦太基为都）；前 206 年伊利帕战役后西庇阿逐出迦太基"
+        },
+        {
+          "region": "sicily",
+          "presence": "political_control",
+          "years": [
+            -550,
+            -241
+          ],
+          "priority": 40,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "西西里西部（莫提亚、帕诺尔摩斯、利利巴厄姆）为迦太基辖区；本图西西里为整区，按东部希腊城邦着色。",
+              "en": "Western Sicily (Motya, Panormus, Lilybaeum) was a Carthaginian province; Sicily is a single region here and is colored by the eastern Greek cities."
+            }
+          },
+          "notes": "西西里西部迦太基辖区（莫提亚、帕诺尔摩斯、利利巴厄姆）；前 241 年第一次布匿战争后归罗马"
         }
       ]
     },
@@ -1068,6 +2420,17 @@
           "priority": 60,
           "confidence": "medium",
           "notes": "拉登文化：沃尔凯人/特雷维里人等"
+        },
+        {
+          "region": "galatia",
+          "presence": "settlement",
+          "years": [
+            -278,
+            -25
+          ],
+          "priority": 60,
+          "notes": "前 278 年托利斯托波伊、特罗克梅、特克托萨吉三部渡赫勒斯滂，定居安卡拉周边（加拉太人），前 25 年并入罗马；以定居层表示（凯尔特人与亚美尼亚人共用写死色槽，同屏着色会撞色），整区由希腊化政治层着色",
+          "confidence": "medium"
         }
       ]
     },
@@ -1158,6 +2521,91 @@
           "priority": 70,
           "confidence": "medium",
           "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        }
+      ]
+    },
+    {
+      "code": "crusaders",
+      "type": "medieval",
+      "status": "merged",
+      "lifespan": [
+        1098,
+        1489
+      ],
+      "name": {
+        "zh": "十字军（法兰克人）",
+        "en": "Crusaders (Franks)"
+      },
+      "brief": {
+        "zh": "十字军在东地中海建立的拉丁国家统治集团：耶路撒冷王国、的黎波里伯国、拉丁帝国、吕西尼昂塞浦路斯。",
+        "en": "The Latin ruling class of the Crusader states in the eastern Mediterranean: the Kingdom of Jerusalem, County of Tripoli, Latin Empire and Lusignan Cyprus."
+      },
+      "notes": "十字军（东方称「法兰克人」）：第一次十字军 1098–1099 年建埃德萨、安条克、耶路撒冷、的黎波里；1187 年哈丁战役后耶路撒冷失陷，1291 年阿卡陷落；第四次十字军 1204 年建君士坦丁堡拉丁帝国（至 1261）；吕西尼昂塞浦路斯王国 1192–1489。统治集团以法国、意大利贵族为主。",
+      "languages": [
+        {
+          "language": "french",
+          "role": "native"
+        },
+        {
+          "language": "latin",
+          "role": "liturgical"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "catholicism",
+          "role": "dominant"
+        }
+      ],
+      "classification": {
+        "language": [
+          "romance"
+        ],
+        "historical_people": [
+          "crusaders"
+        ]
+      },
+      "slices": [
+        {
+          "region": "palaestina",
+          "presence": "political_control",
+          "years": [
+            1099,
+            1187
+          ],
+          "priority": 90,
+          "notes": "耶路撒冷王国（1099 年攻陷耶路撒冷，1187 年哈丁战役后失陷）"
+        },
+        {
+          "region": "phoenicia",
+          "presence": "political_control",
+          "years": [
+            1110,
+            1291
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "的黎波里伯国（1109–1289）与耶路撒冷王国沿海领地（贝鲁特、西顿 1110，推罗 1124）；1291 年阿卡陷落"
+        },
+        {
+          "region": "constantinople",
+          "presence": "political_control",
+          "years": [
+            1204,
+            1261
+          ],
+          "priority": 90,
+          "notes": "第四次十字军攻陷君士坦丁堡，拉丁帝国（1204–1261），1261 年尼西亚帝国收复"
+        },
+        {
+          "region": "cyprus",
+          "presence": "political_control",
+          "years": [
+            1192,
+            1489
+          ],
+          "priority": 90,
+          "notes": "1191 年狮心王理查攻取，1192 年吕西尼昂王朝塞浦路斯王国；1489 年让与威尼斯"
         }
       ]
     },
@@ -1361,6 +2809,98 @@
       ]
     },
     {
+      "code": "egyptians",
+      "type": "modern",
+      "status": "transformed",
+      "lifespan": [
+        -3100,
+        null
+      ],
+      "name": {
+        "zh": "埃及人（古埃及—科普特）",
+        "en": "Egyptians (Ancient–Coptic)"
+      },
+      "brief": {
+        "zh": "尼罗河谷的古埃及人及其后裔科普特人；伊斯兰时代逐步阿拉伯化。",
+        "en": "The ancient Egyptians of the Nile valley and their Coptic descendants, gradually Arabized in the Islamic era."
+      },
+      "notes": "埃及人：法老时代至罗马—拜占庭时代的埃及语人群（末期为科普特语、科普特基督教）；641 年阿拉伯征服后逐步改宗与阿拉伯化，约 10–14 世纪穆斯林成为多数。现代以阿拉伯语为母语的埃及人在本图归入北非阿拉伯人近似，科普特人以此底层表示。",
+      "languages": [
+        {
+          "language": "egyptian",
+          "role": "native",
+          "years": [
+            -3100,
+            1700
+          ]
+        },
+        {
+          "language": "arabic",
+          "role": "native",
+          "years": [
+            900,
+            null
+          ]
+        }
+      ],
+      "religions": [
+        {
+          "religion": "paganism",
+          "role": "traditional",
+          "years": [
+            -3100,
+            400
+          ]
+        },
+        {
+          "religion": "christianity",
+          "role": "dominant",
+          "years": [
+            300,
+            1000
+          ],
+          "notes": "科普特正教"
+        },
+        {
+          "religion": "christianity",
+          "role": "minority",
+          "years": [
+            1000,
+            null
+          ],
+          "notes": "科普特正教"
+        },
+        {
+          "religion": "islam",
+          "role": "dominant",
+          "years": [
+            1000,
+            null
+          ]
+        }
+      ],
+      "classification": {
+        "language": [
+          "egyptian"
+        ],
+        "modern_ethnicity": [
+          "egyptians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "aegyptus",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            null
+          ],
+          "priority": 50,
+          "notes": "埃及本土人群底层（第三中间期—后期埃及—托勒密/罗马臣民—科普特人）；外来统治与阿拉伯化时期由更高优先级切片覆盖"
+        }
+      ]
+    },
+    {
       "code": "english",
       "type": "modern",
       "status": "extant",
@@ -1404,6 +2944,28 @@
           "priority": 70,
           "confidence": "medium",
           "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "aquitaine",
+          "presence": "political_control",
+          "years": [
+            1152,
+            1453
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "金雀花王朝为法语安茹贵族；1224 年后普瓦图、利穆赞相继归法，仅吉耶讷—加斯科涅（约本区西南半）属英格兰王室。",
+              "en": "The Plantagenets were French-speaking Angevins; after 1224 Poitou and the Limousin passed to France, leaving only Guyenne–Gascony (roughly the southwest half of the region) to the English crown."
+            },
+            "years": [
+              1152,
+              1453
+            ]
+          },
+          "notes": "1152 年阿基坦的埃莉诺嫁亨利二世，阿基坦归金雀花王朝；1453 年卡斯蒂永战役结束百年战争"
         }
       ]
     },
@@ -1612,27 +3174,6 @@
           "notes": "萨利安法兰克核心区（图尔奈—根特一带）"
         },
         {
-          "region": "gaul",
-          "presence": "settlement",
-          "years": [
-            476,
-            900
-          ],
-          "priority": 90,
-          "confidence": "medium",
-          "notes": "克洛维 486 年苏瓦松之战击败西亚格里乌斯后的法兰克王国统治（起点取 476 西罗马终结近似）"
-        },
-        {
-          "region": "italy",
-          "presence": "political_control",
-          "years": [
-            774,
-            962
-          ],
-          "priority": 90,
-          "notes": "查理曼征服伦巴第—加洛林意大利王国（888 年后由弗留利/斯波莱托等法兰克系贵族争位）；962 年奥托一世（萨克森王朝）加冕后转入德意志—神圣罗马框架"
-        },
-        {
           "region": "netherlands",
           "presence": "political_control",
           "years": [
@@ -1716,6 +3257,104 @@
           "priority": 90,
           "confidence": "medium",
           "notes": "里普阿里安法兰克—加洛林"
+        },
+        {
+          "region": "north_france",
+          "presence": "political_control",
+          "years": [
+            476,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "克洛维 486 年苏瓦松之战后的法兰克王国核心（纽斯特里亚，起点取 476 近似）；843 年后西法兰克"
+        },
+        {
+          "region": "aquitaine",
+          "presence": "political_control",
+          "years": [
+            507,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "507 年武耶之战后归法兰克；阿基坦—瓦斯科尼亚公国长期半独立"
+        },
+        {
+          "region": "languedoc",
+          "presence": "political_control",
+          "years": [
+            759,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "图卢兹 507 年后已属法兰克；塞蒂马尼亚 759 年收复（哥特边区）"
+        },
+        {
+          "region": "burgundy",
+          "presence": "political_control",
+          "years": [
+            534,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "法兰克勃艮第王国（墨洛温分国）；843 年凡尔登条约后分属西法兰克与洛泰尔"
+        },
+        {
+          "region": "provence",
+          "presence": "political_control",
+          "years": [
+            536,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "536 年东哥特让与；墨洛温—加洛林普罗旺斯"
+        },
+        {
+          "region": "alsace_lorraine",
+          "presence": "political_control",
+          "years": [
+            496,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "奥斯特拉西亚（梅斯为都）；843 年凡尔登条约属中法兰克（洛塔林吉亚），870 年墨尔森条约后归东法兰克"
+        },
+        {
+          "region": "luxembourg",
+          "presence": "political_control",
+          "years": [
+            450,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "里普里亚法兰克—奥斯特拉西亚"
+        },
+        {
+          "region": "north_italy",
+          "presence": "political_control",
+          "years": [
+            774,
+            962
+          ],
+          "priority": 90,
+          "notes": "查理曼征服伦巴第—加洛林意大利王国（888 年后弗留利/斯波莱托等法兰克系贵族争位）；962 年奥托一世加冕"
+        },
+        {
+          "region": "central_italy",
+          "presence": "political_control",
+          "years": [
+            756,
+            962
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "756 年丕平献土后的教皇国（法兰克保护），774 年查理曼征服伦巴第，800 年罗马加冕"
         }
       ]
     },
@@ -1749,28 +3388,6 @@
       },
       "slices": [
         {
-          "region": "france",
-          "presence": "homeland",
-          "years": [
-            900,
-            null
-          ],
-          "priority": 70,
-          "confidence": "medium",
-          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
-        },
-        {
-          "region": "gaul",
-          "presence": "settlement",
-          "years": [
-            900,
-            null
-          ],
-          "priority": 50,
-          "confidence": "low",
-          "notes": "西法兰克—法兰西王国；近似同比利时法语区（瓦隆）与卢森堡"
-        },
-        {
           "region": "switzerland_west",
           "presence": "settlement",
           "years": [
@@ -1791,6 +3408,126 @@
           "priority": 50,
           "confidence": "low",
           "notes": "瓦隆（奥伊语东渐；布鲁塞尔按法语多数近似归入）"
+        },
+        {
+          "region": "north_france",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "诺曼底：911 年封予诺斯人罗洛（诺曼公国），1066–1204 年诺曼底公爵兼英格兰国王；百年战争中北法一度为英格兰占领（1420–1435）。本区按法兰西着色。",
+              "en": "Normandy was granted to the Norseman Rollo in 911; its dukes were also kings of England in 1066–1204, and much of northern France was English-occupied in 1420–1435. The region is colored French."
+            },
+            "years": [
+              911,
+              1435
+            ]
+          },
+          "notes": "西法兰克—卡佩法兰西王国核心（987 起）"
+        },
+        {
+          "region": "aquitaine",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "阿基坦公国—吉耶讷；奥克语（利穆赞、加斯科涅方言）区"
+        },
+        {
+          "region": "languedoc",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "图卢兹伯国长期自治，1271 年并入法国王室；鲁西永 1659 年比利牛斯和约前属阿拉贡/西班牙（加泰罗尼亚语区）。",
+              "en": "The County of Toulouse was long autonomous and joined the French crown in 1271; Roussillon belonged to Aragon/Spain (Catalan-speaking) until the Treaty of the Pyrenees in 1659."
+            },
+            "years": [
+              900,
+              1659
+            ]
+          },
+          "notes": "奥克语区：图卢兹伯国（阿尔比十字军后 1271 年并入王室）"
+        },
+        {
+          "region": "burgundy",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "888–1032 年勃艮第/阿尔勒王国，1032 年后东部属神圣罗马帝国：里昂 1312、多菲内 1349、弗朗什孔泰 1678（此前属西班牙哈布斯堡）、萨伏依 1860 年方入法国。本区按法兰西着色。",
+              "en": "The Kingdom of Burgundy/Arles (888–1032), then the Holy Roman Empire, held the east: Lyon joined France in 1312, Dauphiné in 1349, Franche-Comté in 1678 (previously Spanish Habsburg) and Savoy in 1860. The region is colored French."
+            },
+            "years": [
+              900,
+              1860
+            ]
+          },
+          "notes": "勃艮第公国（法国）与阿尔勒王国北部（法兰克—普罗旺斯语区）"
+        },
+        {
+          "region": "provence",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "普罗旺斯伯国属阿尔勒王国—神圣罗马帝国（1112–1245 巴塞罗那家族、1246 起安茹家族），1481 年并入法国；尼斯属萨伏依至 1860 年；科西嘉属比萨、热那亚（意大利语区）至 1768 年。本区按法兰西着色。",
+              "en": "The County of Provence lay in the Kingdom of Arles/Holy Roman Empire (House of Barcelona 1112–1245, Anjou from 1246) and joined France in 1481; Nice was Savoyard until 1860, and Corsica belonged to Pisa and Genoa (Italian-speaking) until 1768. The region is colored French."
+            },
+            "years": [
+              900,
+              1860
+            ]
+          },
+          "notes": "普罗旺斯语（奥克语）区；1481 年普罗旺斯伯国遗赠法王"
+        },
+        {
+          "region": "alsace_lorraine",
+          "presence": "homeland",
+          "years": [
+            1648,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "阿尔萨斯与摩泽尔东北通行德语方言；1871–1918 年为德意志帝国帝国领地阿尔萨斯—洛林（1940–1944 再被吞并）。",
+              "en": "Alsace and northeastern Moselle speak German dialects; in 1871–1918 the area was the German imperial territory of Alsace–Lorraine (annexed again in 1940–1944)."
+            },
+            "years": [
+              1648,
+              1945
+            ]
+          },
+          "notes": "阿尔萨斯 1648 年威斯特伐利亚和约、洛林 1766 年并入法国"
         }
       ]
     },
@@ -1876,17 +3613,6 @@
           "notes": "比利时高卢（门奈皮/贝尔盖人）"
         },
         {
-          "region": "gaul",
-          "presence": "homeland",
-          "years": [
-            -500,
-            -51
-          ],
-          "priority": 60,
-          "confidence": "medium",
-          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
-        },
-        {
           "region": "switzerland_east",
           "presence": "settlement",
           "years": [
@@ -1929,6 +3655,101 @@
           "priority": 60,
           "confidence": "medium",
           "notes": "贝尔盖高卢"
+        },
+        {
+          "region": "north_france",
+          "presence": "homeland",
+          "years": [
+            -500,
+            -51
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "高卢凯尔特诸部（恺撒征服前 58–前 50）"
+        },
+        {
+          "region": "aquitaine",
+          "presence": "homeland",
+          "years": [
+            -500,
+            -51
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "高卢凯尔特诸部（恺撒征服前 58–前 50）"
+        },
+        {
+          "region": "burgundy",
+          "presence": "homeland",
+          "years": [
+            -500,
+            -51
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "高卢凯尔特诸部（恺撒征服前 58–前 50）"
+        },
+        {
+          "region": "alsace_lorraine",
+          "presence": "homeland",
+          "years": [
+            -500,
+            -51
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "高卢凯尔特诸部（恺撒征服前 58–前 50）"
+        },
+        {
+          "region": "luxembourg",
+          "presence": "homeland",
+          "years": [
+            -500,
+            -51
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "特雷维里人（比利时高卢）"
+        },
+        {
+          "region": "languedoc",
+          "presence": "homeland",
+          "years": [
+            -500,
+            -122
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "沃尔凯—泰克托萨吉、沃尔凯—阿雷科米奇等凯尔特部族"
+        },
+        {
+          "region": "provence",
+          "presence": "homeland",
+          "years": [
+            -500,
+            -122
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "凯尔特—利古里亚诸部（萨吕维人）"
+        },
+        {
+          "region": "north_italy",
+          "presence": "homeland",
+          "years": [
+            -400,
+            -191
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "高卢人入侵前及同期，伊特鲁里亚人（波河平原南部）、利古里亚人、威尼蒂人未单独建模。",
+              "en": "Etruscans (southern Po Valley), Ligurians and Veneti, before and alongside the Gauls, are not modeled separately."
+            }
+          },
+          "notes": "山南高卢：因苏布雷斯（米兰）、波伊（博洛尼亚）、塞农人；前 191 年罗马征服完成"
         }
       ]
     },
@@ -2222,6 +4043,42 @@
           "priority": 70,
           "confidence": "medium",
           "notes": "迈森边区-图林根方伯领（德意志东扩，索布人渐次同化）"
+        },
+        {
+          "region": "alsace_lorraine",
+          "presence": "political_control",
+          "years": [
+            900,
+            1648
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "洛林公国以法语人口为主（1766 年方并入法国），本区按神圣罗马帝国着色。",
+              "en": "The Duchy of Lorraine was mainly French-speaking (joining France only in 1766); the region is colored by the Holy Roman Empire."
+            }
+          },
+          "notes": "东法兰克—神圣罗马帝国：阿尔萨斯（施瓦本公国、帝国城市斯特拉斯堡）与上洛林公国"
+        },
+        {
+          "region": "luxembourg",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "卢森堡人以卢森堡语（摩泽尔法兰克方言）为母语，本图归入德意志人近似；1839 年起为独立国家。",
+              "en": "Luxembourgers speak Luxembourgish (a Moselle Franconian dialect) and are approximated here as Germans; Luxembourg has been independent since 1839."
+            }
+          },
+          "notes": "卢森堡伯国—公国（卢森堡王朝 1308–1437 出四位皇帝）—1815 年大公国"
         }
       ]
     },
@@ -2373,7 +4230,7 @@
         "zh": "自古希腊城邦时代延续至今的希腊语族群。",
         "en": "The Greek people, continuous from the Archaic city-states to today."
       },
-      "notes": "希腊人：自古风时代起连续的希腊语族群；西西里/克里特的殖民地—拜占庭链条单独设片，安纳托利亚主体不在本图范围。",
+      "notes": "希腊人：自古风时代起连续的希腊语族群；西西里/克里特/安纳托利亚/塞浦路斯的殖民地—拜占庭链条单独设片。",
       "languages": [
         {
           "language": "greek",
@@ -2454,6 +4311,433 @@
           "priority": 70,
           "confidence": "medium",
           "notes": "大希腊（纳克索斯建城 -735）—罗马—拜占庭的西西里希腊裔，至 827 年阿拉伯征服始"
+        },
+        {
+          "region": "cyrenaica",
+          "presence": "settlement",
+          "years": [
+            -631,
+            -74
+          ],
+          "priority": 90,
+          "notes": "前 631 年锡拉人建昔兰尼，五城（彭塔波利斯）；前 322 年起属托勒密王朝；前 74 年并入罗马"
+        },
+        {
+          "region": "aegyptus",
+          "presence": "political_control",
+          "years": [
+            -332,
+            -30
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 332 年亚历山大入埃及；前 305 年托勒密一世称王，马其顿—希腊统治集团治下的托勒密埃及，至前 30 年克娄巴特拉七世身亡"
+        },
+        {
+          "region": "constantinople",
+          "presence": "settlement",
+          "years": [
+            -667,
+            1923
+          ],
+          "priority": 70,
+          "notes": "前 667 年墨伽拉人建拜占庭；641–1453 拜占庭帝国都城；1453 后为城中希腊正教社群（法纳尔），1923 年洛桑人口交换后希腊裔基本迁出（伊斯坦布尔希腊人至 1955 年后锐减）"
+        },
+        {
+          "region": "bithynia",
+          "presence": "settlement",
+          "years": [
+            -700,
+            1923
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "基齐库斯、卡尔西顿（前 685）等沿海殖民城邦，内陆比提尼亚人为色雷斯系；拜占庭希腊人至 14 世纪，1923 年洛桑人口交换后希腊裔基本迁出"
+        },
+        {
+          "region": "bithynia",
+          "presence": "political_control",
+          "years": [
+            -334,
+            -74
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "比提尼亚王国为希腊化的色雷斯系王朝，按希腊化世界近似着色。",
+              "en": "The Bithynian kingdom was a Hellenized dynasty of Thracian origin, colored as part of the Hellenistic world."
+            }
+          },
+          "notes": "前 334 年格拉尼库斯河战役；希腊化比提尼亚王国（色雷斯系王朝，前 297 年称王）"
+        },
+        {
+          "region": "ionia",
+          "presence": "settlement",
+          "years": [
+            -800,
+            1923
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "前 6 世纪前内陆为吕底亚、卡里亚、弗里吉亚人（本图未建模），此处按沿海希腊城邦着色整区。",
+              "en": "Before the 6th century BC the interior belonged to Lydians, Carians and Phrygians (not modeled); the region is colored by the coastal Greek cities."
+            },
+            "years": [
+              -800,
+              -547
+            ]
+          },
+          "notes": "爱奥尼亚十二城、埃奥利斯与多利安殖民城邦（米利都、以弗所、士麦那）；内陆吕底亚/卡里亚/弗里吉亚人未单独建模；1923 年洛桑人口交换后希腊裔基本迁出"
+        },
+        {
+          "region": "ionia",
+          "presence": "political_control",
+          "years": [
+            -334,
+            -133
+          ],
+          "priority": 90,
+          "notes": "亚历山大解放爱奥尼亚诸城；塞琉古—帕加马阿塔罗斯王朝"
+        },
+        {
+          "region": "pamphylia",
+          "presence": "settlement",
+          "years": [
+            -700,
+            1923
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "潘菲利亚希腊城邦（阿斯彭多斯、佩尔格、西代）与吕基亚同盟；内陆皮西迪亚人；1923 年洛桑人口交换后希腊裔基本迁出"
+        },
+        {
+          "region": "pamphylia",
+          "presence": "political_control",
+          "years": [
+            -334,
+            -25
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "亚历山大—托勒密/塞琉古—帕加马"
+        },
+        {
+          "region": "cilicia",
+          "presence": "settlement",
+          "years": [
+            -700,
+            1923
+          ],
+          "priority": 55,
+          "confidence": "low",
+          "notes": "索利、马洛斯等希腊殖民城邦（内陆为卢维系奇里乞亚人）；拜占庭希腊人；1923 年洛桑人口交换后希腊裔基本迁出"
+        },
+        {
+          "region": "cilicia",
+          "presence": "political_control",
+          "years": [
+            -333,
+            -64
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 333 年伊苏斯战役；塞琉古王朝（东部平原）与山区海盗"
+        },
+        {
+          "region": "galatia",
+          "presence": "political_control",
+          "years": [
+            -334,
+            -25
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "亚历山大（前 333 年戈尔迪乌姆）—安提柯—塞琉古；前 278 年起加拉太人定居并建四分王国，后为帕加马/本都/罗马附庸，前 25 年阿明塔斯身故并入罗马",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "前 278 年起凯尔特加拉太人在此定居建国（悬停可见），整区按希腊化世界近似着色。",
+              "en": "From 278 BC the Celtic Galatians settled here and formed their own states (shown on hover); the region is approximated as part of the Hellenistic world."
+            },
+            "years": [
+              -278,
+              -25
+            ]
+          }
+        },
+        {
+          "region": "lycaonia",
+          "presence": "political_control",
+          "years": [
+            -334,
+            -25
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "亚历山大—塞琉古—帕加马（前 188 年阿帕米亚和约）—加拉太王国"
+        },
+        {
+          "region": "cappadocia",
+          "presence": "political_control",
+          "years": [
+            -331,
+            17
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "卡帕多奇亚王国为伊朗系阿里阿拉特王朝，希腊化宫廷；按希腊化世界近似着色。",
+              "en": "The Cappadocian kingdom was ruled by the Iranian Ariarathid dynasty with a Hellenized court; it is colored as part of the Hellenistic world."
+            }
+          },
+          "notes": "卡帕多奇亚王国（阿里阿拉特王朝，前 331 年起事实独立，前 255 年称王）"
+        },
+        {
+          "region": "galatia",
+          "presence": "homeland",
+          "years": [
+            641,
+            1923
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "拜占庭时代希腊语化的安纳托利亚内陆人群（含卡帕多奇亚希腊人/卡拉曼利德斯）；1923 年洛桑人口交换后希腊裔基本迁出"
+        },
+        {
+          "region": "lycaonia",
+          "presence": "homeland",
+          "years": [
+            641,
+            1923
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "拜占庭时代希腊语化的安纳托利亚内陆人群（含卡帕多奇亚希腊人/卡拉曼利德斯）；1923 年洛桑人口交换后希腊裔基本迁出"
+        },
+        {
+          "region": "cappadocia",
+          "presence": "homeland",
+          "years": [
+            641,
+            1923
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "拜占庭时代希腊语化的安纳托利亚内陆人群（含卡帕多奇亚希腊人/卡拉曼利德斯）；1923 年洛桑人口交换后希腊裔基本迁出"
+        },
+        {
+          "region": "paphlagonia",
+          "presence": "settlement",
+          "years": [
+            -631,
+            1923
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "锡诺普（前 631）、阿米索斯等米利都殖民城邦；内陆帕夫拉戈尼亚人；1923 年洛桑人口交换后希腊裔基本迁出"
+        },
+        {
+          "region": "paphlagonia",
+          "presence": "political_control",
+          "years": [
+            -334,
+            -63
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "本都王国为波斯系米特拉达梯王朝，希腊化宫廷；按希腊化世界近似着色。",
+              "en": "The Pontic kingdom was ruled by the Persian-descended Mithridatic dynasty with a Hellenized court; it is colored as part of the Hellenistic world."
+            }
+          },
+          "notes": "本都王国（米特拉达梯王朝，前 281 年称王）：波斯—希腊化王朝，前 63 年米特拉达梯六世败亡"
+        },
+        {
+          "region": "pontus",
+          "presence": "settlement",
+          "years": [
+            -756,
+            1923
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "特拉佩祖斯（前 756）；本都王国—罗马—拜占庭—特拉布宗帝国（1204–1461）；1461 后本都希腊人社群，1923 年洛桑人口交换后希腊裔基本迁出"
+        },
+        {
+          "region": "pontus",
+          "presence": "political_control",
+          "years": [
+            -281,
+            64
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "本都王国（前 281 起）—罗马附庸波列蒙本都王国（至 64 年）"
+        },
+        {
+          "region": "southeast_anatolia",
+          "presence": "political_control",
+          "years": [
+            -331,
+            -132
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "高加米拉战役后归亚历山大—塞琉古（埃德萨重建为安条克）"
+        },
+        {
+          "region": "syria",
+          "presence": "political_control",
+          "years": [
+            -332,
+            -64
+          ],
+          "priority": 90,
+          "notes": "亚历山大—塞琉古王朝（前 300 年建安条克为都）"
+        },
+        {
+          "region": "phoenicia",
+          "presence": "political_control",
+          "years": [
+            -332,
+            -64
+          ],
+          "priority": 90,
+          "notes": "前 332 年亚历山大围攻推罗；托勒密（至前 200 年帕尼乌姆战役）—塞琉古"
+        },
+        {
+          "region": "palaestina",
+          "presence": "political_control",
+          "years": [
+            -332,
+            -140
+          ],
+          "priority": 90,
+          "notes": "亚历山大—托勒密（前 301–前 200）—塞琉古；前 167 年马加比起义"
+        },
+        {
+          "region": "transjordan",
+          "presence": "political_control",
+          "years": [
+            -332,
+            -85
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "托勒密—塞琉古；德卡波利斯希腊化城市（杰拉什、佩拉）"
+        },
+        {
+          "region": "jazira",
+          "presence": "political_control",
+          "years": [
+            -331,
+            -64
+          ],
+          "priority": 90,
+          "confidence": "low",
+          "notes": "塞琉古王朝（杜拉—欧罗波斯，前 300 年建）"
+        },
+        {
+          "region": "cyprus",
+          "presence": "homeland",
+          "years": [
+            -800,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1489–1571 威尼斯、1571–1878 奥斯曼、1878–1960 英国统治；按着色原则以主体人群着色。",
+              "en": "Venetian (1489–1571), Ottoman (1571–1878) and British (1878–1960) rule; following the coloring principle the island is colored by its main population."
+            },
+            "years": [
+              1489,
+              1960
+            ]
+          },
+          "notes": "迈锡尼移民以来的希腊语塞浦路斯人（基提翁等腓尼基城邦并存）；拜占庭（641–1191）—吕西尼昂—威尼斯—奥斯曼—英国—塞浦路斯共和国"
+        },
+        {
+          "region": "provence",
+          "presence": "settlement",
+          "years": [
+            -600,
+            -49
+          ],
+          "priority": 70,
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "马萨利亚等希腊殖民城邦只控沿海，内陆为凯尔特—利古里亚人；此处按希腊城邦近似着色整区。",
+              "en": "Massalia and the other Greek colonies held only the coast; the interior was Celto-Ligurian. The region is approximated by the Greek cities."
+            }
+          },
+          "notes": "前 600 年弗凯亚人建马萨利亚（马赛），尼凯亚（尼斯）、安提波利斯等子邦；前 49 年为恺撒攻取"
+        },
+        {
+          "region": "south_italy",
+          "presence": "settlement",
+          "years": [
+            -750,
+            -272
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "希腊城邦集中于沿海，内陆为萨谟奈人、卢卡尼亚人等奥斯坎语族（未建模）。",
+              "en": "The Greek cities lay along the coasts; the interior belonged to Oscan-speaking Samnites and Lucanians (not modeled)."
+            }
+          },
+          "notes": "大希腊：库迈（约前 750）、塔兰托、锡巴里斯、克罗托内、那不勒斯；前 272 年塔兰托降罗马"
+        },
+        {
+          "region": "south_italy",
+          "presence": "political_control",
+          "years": [
+            876,
+            1071
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "萨莱诺、卡普阿、贝内文托等伦巴第亲王国仍据坎帕尼亚与内陆。",
+              "en": "The Lombard principalities of Salerno, Capua and Benevento still held Campania and the interior."
+            }
+          },
+          "notes": "876 年拜占庭收复巴里，伦巴第亚—卡拉布里亚军区（意大利卡特潘区，约 970）；1071 年巴里陷于诺曼人"
+        },
+        {
+          "region": "central_italy",
+          "presence": "political_control",
+          "years": [
+            700,
+            756
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "托斯卡纳与斯波莱托公国属伦巴第（751 年伦巴第攻陷拉文纳）；拜占庭仅保罗马公国与拉文纳走廊。",
+              "en": "Tuscany and the Duchy of Spoleto were Lombard (the Lombards took Ravenna in 751); Byzantium held only the Duchy of Rome and the Ravenna corridor."
+            }
+          },
+          "notes": "拜占庭罗马公国—拉文纳总督区（「拜占庭教宗」时代）；756 年丕平献土建教皇国"
         }
       ]
     },
@@ -2707,17 +4991,6 @@
       },
       "slices": [
         {
-          "region": "italy",
-          "presence": "homeland",
-          "years": [
-            1000,
-            null
-          ],
-          "priority": 70,
-          "confidence": "medium",
-          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
-        },
-        {
           "region": "sicily",
           "presence": "homeland",
           "years": [
@@ -2738,6 +5011,169 @@
           "priority": 50,
           "confidence": "medium",
           "notes": "提契诺（1515 年后并入瑞士邦联，意大利语区）"
+        },
+        {
+          "region": "north_italy",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "威尼斯共和国（至 1797）、西班牙米兰（1535–1714）、奥地利伦巴第—威尼托（1714/1815–1859/1866）；南蒂罗尔以德语人口为主（1919 年归意大利）。本区按意大利人着色。",
+              "en": "The Republic of Venice (to 1797), Spanish Milan (1535–1714) and Austrian Lombardy–Venetia (1714/1815–1859/1866); South Tyrol is mainly German-speaking (Italian since 1919). The region is colored Italian."
+            },
+            "years": [
+              1000,
+              1866
+            ]
+          },
+          "notes": "意大利王国（神圣罗马帝国框架）下的城市公社—领主国—公国"
+        },
+        {
+          "region": "central_italy",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "教皇国存续至 1870 年罗马并入意大利王国。",
+              "en": "The Papal States survived until Rome joined the Kingdom of Italy in 1870."
+            },
+            "years": [
+              1000,
+              1870
+            ]
+          },
+          "notes": "教皇国（756–1870）与托斯卡纳（佛罗伦萨共和国—美第奇托斯卡纳大公国）"
+        },
+        {
+          "region": "south_italy",
+          "presence": "homeland",
+          "years": [
+            1071,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "统治者依次为诺曼（1071 起）、霍亨斯陶芬、安茹、阿拉贡、西班牙总督（1504–1707）、奥地利、波旁两西西里，至 1860 年统一；按主体人群着色。",
+              "en": "Rulers were successively Norman (from 1071), Hohenstaufen, Angevin, Aragonese, Spanish viceroys (1504–1707), Austrian and Bourbon (Two Sicilies) until unification in 1860; the region is colored by its main population."
+            },
+            "years": [
+              1071,
+              1860
+            ]
+          },
+          "notes": "诺曼征服后的南意大利（1130 年西西里王国，1282 年后那不勒斯王国）"
+        }
+      ]
+    },
+    {
+      "code": "jews",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        -1200,
+        null
+      ],
+      "name": {
+        "zh": "犹太人",
+        "en": "Jews"
+      },
+      "brief": {
+        "zh": "以色列—犹大王国以来的犹太民族；135 年后主体流散，1948 年建立以色列国。",
+        "en": "The Jewish people from the kingdoms of Israel and Judah; mostly in diaspora after AD 135, founding the State of Israel in 1948."
+      },
+      "notes": "犹太人：以色列与犹大王国（前 10–前 6 世纪）、第二圣殿时代、哈斯蒙尼王朝（前 140–前 63）；66–73 与 132–135 年两次犹太战争后主体流散。19 世纪末起锡安主义移民，1948 年以色列建国。本图仅表示其在巴勒斯坦的时间片，欧洲流散社群未建模。",
+      "languages": [
+        {
+          "language": "hebrew",
+          "role": "native"
+        },
+        {
+          "language": "aramaic",
+          "role": "historical",
+          "years": [
+            -500,
+            700
+          ]
+        }
+      ],
+      "religions": [
+        {
+          "religion": "judaism",
+          "role": "dominant"
+        }
+      ],
+      "classification": {
+        "language": [
+          "canaanite"
+        ],
+        "modern_ethnicity": [
+          "jews"
+        ]
+      },
+      "slices": [
+        {
+          "region": "palaestina",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            135
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "前 732 年起新亚述、新巴比伦先后征服（前 586 年耶路撒冷陷落），本图无对应族群，以犹太人着色。",
+              "en": "Neo-Assyria and Neo-Babylon conquered the land from 732 BC (Jerusalem fell in 586 BC); with no corresponding peoples here, it is colored Jewish."
+            },
+            "years": [
+              -732,
+              -539
+            ]
+          },
+          "notes": "以色列（至前 722）与犹大（至前 586）王国—巴比伦之囚—第二圣殿时代；135 年巴尔·科赫巴起义失败后犹地亚犹太人口锐减"
+        },
+        {
+          "region": "palaestina",
+          "presence": "political_control",
+          "years": [
+            -140,
+            -63
+          ],
+          "priority": 90,
+          "notes": "哈斯蒙尼王朝（前 140 年西门获塞琉古承认独立，前 104 年称王）"
+        },
+        {
+          "region": "palaestina",
+          "presence": "homeland",
+          "years": [
+            1948,
+            null
+          ],
+          "priority": 80,
+          "caveat": {
+            "kind": "disputed",
+            "text": {
+              "zh": "本区为 303 年巴勒斯坦行省近似（含以色列、约旦河西岸、加沙，并含西奈与约旦南部），犹太人与阿拉伯人数量大致相当、政治归属有争议；按约定 1948 年起着色为犹太人，阿拉伯人见悬停第二层。",
+              "en": "This region approximates the 303 province of Palaestina (Israel, the West Bank and Gaza, plus Sinai and southern Jordan); Jewish and Arab populations are roughly comparable and sovereignty is disputed. By project decision it is colored Jewish from 1948; Arabs appear as the second layer on hover."
+            }
+          },
+          "notes": "1948 年以色列建国"
         }
       ]
     },
@@ -2850,6 +5286,101 @@
       ]
     },
     {
+      "code": "kurds",
+      "type": "modern",
+      "status": "extant",
+      "lifespan": [
+        900,
+        null
+      ],
+      "name": {
+        "zh": "库尔德人",
+        "en": "Kurds"
+      },
+      "brief": {
+        "zh": "扎格罗斯—托罗斯山区的伊朗语民族，分布于土耳其东南、伊拉克北部、伊朗西部与叙利亚东北。",
+        "en": "An Iranian-speaking people of the Zagros–Taurus highlands, living in southeastern Turkey, northern Iraq, western Iran and northeastern Syria."
+      },
+      "notes": "库尔德人：10 世纪起在上美索不达米亚建立马尔万王朝（983–1085，迪亚巴克尔）；阿尤布王朝出自库尔德人；奥斯曼时代比特利斯、哈卡里等库尔德埃米尔国自治至 1847 年前后；1915 年后成为土耳其东部多数人群。本图仅表示其在安纳托利亚的时间片。",
+      "languages": [
+        {
+          "language": "kurdish",
+          "role": "native"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "islam",
+          "role": "dominant"
+        }
+      ],
+      "classification": {
+        "language": [
+          "iranian"
+        ],
+        "modern_ethnicity": [
+          "kurds"
+        ]
+      },
+      "slices": [
+        {
+          "region": "southeast_anatolia",
+          "presence": "political_control",
+          "years": [
+            983,
+            1085
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "马尔万王朝（983–1085，迪亚巴克尔/马亚法里金）"
+        },
+        {
+          "region": "southeast_anatolia",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1514–1918 奥斯曼；加济安泰普以土耳其人为主，尚勒乌尔法阿拉伯人众多：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+              "en": "1514–1918 Ottoman; Gaziantep is mainly Turkish and Şanlıurfa has many Arabs: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1514,
+              1918
+            ]
+          },
+          "notes": "迪亚巴克尔、马尔丁、锡尔特、舍尔纳克的库尔德人"
+        },
+        {
+          "region": "armenian_highlands_south",
+          "presence": "political_control",
+          "years": [
+            1514,
+            1847
+          ],
+          "priority": 90,
+          "confidence": "low",
+          "notes": "奥斯曼宗主下自治的库尔德埃米尔国（比特利斯的罗吉基、哈卡里、宾格尔）；1847 年前后被奥斯曼废除"
+        },
+        {
+          "region": "armenian_highlands_south",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 55,
+          "confidence": "medium",
+          "notes": "凡湖—比特利斯—哈卡里—通杰利（扎扎人）的库尔德人；1915 年后成为多数"
+        }
+      ]
+    },
+    {
       "code": "latins",
       "type": "ancient",
       "status": "transformed",
@@ -2879,15 +5410,22 @@
       },
       "slices": [
         {
-          "region": "italy",
+          "region": "central_italy",
           "presence": "homeland",
           "years": [
             -800,
-            500
+            -264
           ],
           "priority": 60,
           "confidence": "medium",
-          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "托斯卡纳—拉齐奥北部为伊特鲁里亚人（本图未建模），此处按意大利语族诸部近似着色。",
+              "en": "Tuscany and northern Lazio were Etruscan (not modeled here); the region is approximated by the Italic peoples."
+            }
+          },
+          "notes": "拉丁姆的拉丁人与翁布里—萨贝利诸部；前 264 年罗马完成半岛统一"
         }
       ]
     },
@@ -3021,28 +5559,6 @@
           "notes": "卢吉兰（下奥地利，489 年后）—摩拉维亚迁徙期；526/547 年主力移入潘诺尼亚，550 年起捷克盆地由斯拉夫片覆盖"
         },
         {
-          "region": "italy",
-          "presence": "political_control",
-          "years": [
-            568,
-            774
-          ],
-          "priority": 90,
-          "confidence": "medium",
-          "notes": "伦巴第王国（568 阿尔博因入意大利—774 查理曼攻陷帕维亚）"
-        },
-        {
-          "region": "italy",
-          "presence": "settlement",
-          "years": [
-            774,
-            1000
-          ],
-          "priority": 50,
-          "confidence": "medium",
-          "notes": "加洛林征服后的伦巴第人口与南意大利伦巴第诸公国（贝内文托/萨莱诺/卡普阿，存续至 1077）"
-        },
-        {
           "region": "old_saxony",
           "presence": "settlement",
           "years": [
@@ -3085,6 +5601,68 @@
           "priority": 50,
           "confidence": "medium",
           "notes": "伦巴第—罗曼人口（加洛林—意大利王国治下，米兰主教区势力）"
+        },
+        {
+          "region": "north_italy",
+          "presence": "political_control",
+          "years": [
+            568,
+            774
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "拉文纳总督区（艾米利亚—罗马涅东部）与威尼斯潟湖属拜占庭至 751 年。",
+              "en": "The Exarchate of Ravenna (eastern Emilia-Romagna) and the Venetian lagoon remained Byzantine until 751."
+            },
+            "years": [
+              568,
+              751
+            ]
+          },
+          "notes": "伦巴第王国核心（568 阿尔博因入意大利，帕维亚为都—774 查理曼攻陷帕维亚）"
+        },
+        {
+          "region": "north_italy",
+          "presence": "settlement",
+          "years": [
+            774,
+            1000
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "加洛林征服后的伦巴第人口与贵族（意大利王国）"
+        },
+        {
+          "region": "central_italy",
+          "presence": "settlement",
+          "years": [
+            774,
+            1000
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "托斯卡纳边区的伦巴第—法兰克系贵族"
+        },
+        {
+          "region": "south_italy",
+          "presence": "political_control",
+          "years": [
+            570,
+            876
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "拜占庭保有卡拉布里亚、阿普利亚南端、那不勒斯与阿马尔菲；847–871 年巴里为阿拉伯酋长国。",
+              "en": "Byzantium kept Calabria, southern Apulia, Naples and Amalfi; Bari was an Arab emirate in 847–871."
+            }
+          },
+          "notes": "贝内文托公国（约 570，774 年后称亲王国；849 年分出萨莱诺）"
         }
       ]
     },
@@ -3379,6 +5957,17 @@
           "priority": 90,
           "confidence": "medium",
           "notes": "加尔卜（安达卢斯西部）；1249 阿尔加维陷落完成再征服"
+        },
+        {
+          "region": "languedoc",
+          "presence": "political_control",
+          "years": [
+            720,
+            759
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "720 年倭马亚攻取纳博讷（塞蒂马尼亚）；759 年丕平收复纳博讷"
         }
       ]
     },
@@ -3558,16 +6147,6 @@
           "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
         },
         {
-          "region": "italy",
-          "presence": "political_control",
-          "years": [
-            493,
-            553
-          ],
-          "priority": 90,
-          "notes": "东哥特王国（493 狄奥多里克杀奥多亚克—553 年拉克塔留斯山之战后为拜占庭所灭）"
-        },
-        {
           "region": "ticino",
           "presence": "political_control",
           "years": [
@@ -3577,6 +6156,504 @@
           "priority": 90,
           "confidence": "medium",
           "notes": "东哥特王国（493–553）；此前奥多亚克王国、此后拜占庭至 568 伦巴第入关"
+        },
+        {
+          "region": "provence",
+          "presence": "political_control",
+          "years": [
+            508,
+            536
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "508 年狄奥多里克出兵救阿尔勒，普罗旺斯归东哥特；536 年维蒂吉斯让与法兰克"
+        },
+        {
+          "region": "north_italy",
+          "presence": "political_control",
+          "years": [
+            493,
+            553
+          ],
+          "priority": 90,
+          "notes": "东哥特王国（493 狄奥多里克杀奥多亚克—553 年拉克塔留斯山之战后为拜占庭所灭）"
+        },
+        {
+          "region": "central_italy",
+          "presence": "political_control",
+          "years": [
+            493,
+            553
+          ],
+          "priority": 90,
+          "notes": "东哥特王国（493 狄奥多里克杀奥多亚克—553 年拉克塔留斯山之战后为拜占庭所灭）"
+        },
+        {
+          "region": "south_italy",
+          "presence": "political_control",
+          "years": [
+            493,
+            553
+          ],
+          "priority": 90,
+          "notes": "东哥特王国（493 狄奥多里克杀奥多亚克—553 年拉克塔留斯山之战后为拜占庭所灭）"
+        }
+      ]
+    },
+    {
+      "code": "persians",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -550,
+        651
+      ],
+      "name": {
+        "zh": "波斯人（阿契美尼德—萨珊）",
+        "en": "Persians (Achaemenid–Sasanian)"
+      },
+      "brief": {
+        "zh": "阿契美尼德帝国（前 550–前 330）与萨珊帝国（224–651）的波斯统治集团。",
+        "en": "The Persian ruling peoples of the Achaemenid (550–330 BC) and Sasanian (AD 224–651) empires."
+      },
+      "notes": "波斯人：居鲁士二世前 550 年灭米底，前 546 年灭吕底亚，前 539 年取巴比伦，冈比西斯前 525 年征埃及；前 334–前 330 年亡于亚历山大。萨珊王朝 602–628 年战争中一度占领叙利亚、巴勒斯坦与埃及。本图仅表示其在地中海东部的统治时期，伊朗本土不在范围。",
+      "languages": [
+        {
+          "language": "persian",
+          "role": "native"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "zoroastrianism",
+          "role": "dominant"
+        }
+      ],
+      "classification": {
+        "language": [
+          "iranian"
+        ],
+        "historical_people": [
+          "persians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "bithynia",
+          "presence": "political_control",
+          "years": [
+            -546,
+            -334
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 546 年居鲁士灭吕底亚后的阿契美尼德诸行省（萨迪斯、达斯基利昂、卡帕多奇亚等）；前 334–前 333 年亡于亚历山大"
+        },
+        {
+          "region": "ionia",
+          "presence": "political_control",
+          "years": [
+            -546,
+            -334
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 546 年居鲁士灭吕底亚后的阿契美尼德诸行省（萨迪斯、达斯基利昂、卡帕多奇亚等）；前 334–前 333 年亡于亚历山大"
+        },
+        {
+          "region": "pamphylia",
+          "presence": "political_control",
+          "years": [
+            -546,
+            -334
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 546 年居鲁士灭吕底亚后的阿契美尼德诸行省（萨迪斯、达斯基利昂、卡帕多奇亚等）；前 334–前 333 年亡于亚历山大"
+        },
+        {
+          "region": "cilicia",
+          "presence": "political_control",
+          "years": [
+            -546,
+            -334
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 546 年居鲁士灭吕底亚后的阿契美尼德诸行省（萨迪斯、达斯基利昂、卡帕多奇亚等）；前 334–前 333 年亡于亚历山大"
+        },
+        {
+          "region": "galatia",
+          "presence": "political_control",
+          "years": [
+            -546,
+            -334
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 546 年居鲁士灭吕底亚后的阿契美尼德诸行省（萨迪斯、达斯基利昂、卡帕多奇亚等）；前 334–前 333 年亡于亚历山大"
+        },
+        {
+          "region": "lycaonia",
+          "presence": "political_control",
+          "years": [
+            -546,
+            -334
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 546 年居鲁士灭吕底亚后的阿契美尼德诸行省（萨迪斯、达斯基利昂、卡帕多奇亚等）；前 334–前 333 年亡于亚历山大"
+        },
+        {
+          "region": "cappadocia",
+          "presence": "political_control",
+          "years": [
+            -546,
+            -331
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "阿契美尼德卡帕多奇亚行省（前 546 年起）；亚历山大未深入内陆，总督阿里阿拉特一世至前 331 年后自立"
+        },
+        {
+          "region": "paphlagonia",
+          "presence": "political_control",
+          "years": [
+            -546,
+            -334
+          ],
+          "priority": 90,
+          "confidence": "low",
+          "notes": "前 546 年居鲁士灭吕底亚后的阿契美尼德诸行省（萨迪斯、达斯基利昂、卡帕多奇亚等）；前 334–前 333 年亡于亚历山大"
+        },
+        {
+          "region": "pontus",
+          "presence": "political_control",
+          "years": [
+            -546,
+            -334
+          ],
+          "priority": 90,
+          "confidence": "low",
+          "notes": "前 546 年居鲁士灭吕底亚后的阿契美尼德诸行省（萨迪斯、达斯基利昂、卡帕多奇亚等）；前 334–前 333 年亡于亚历山大"
+        },
+        {
+          "region": "constantinople",
+          "presence": "political_control",
+          "years": [
+            -513,
+            -478
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "大流士一世斯基泰远征（前 513）后拜占庭臣属波斯，前 478 年保萨尼阿斯收复"
+        },
+        {
+          "region": "east_thrace",
+          "presence": "political_control",
+          "years": [
+            -513,
+            -479
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "阿契美尼德色雷斯行省（斯库德拉），前 479 年普拉提亚之战后撤出"
+        },
+        {
+          "region": "armenian_highlands_north",
+          "presence": "political_control",
+          "years": [
+            -550,
+            -331
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "阿契美尼德亚美尼亚行省（贝希斯敦铭文 Armina）；前 331 年高加米拉战役后奥龙特斯王朝自立"
+        },
+        {
+          "region": "armenian_highlands_south",
+          "presence": "political_control",
+          "years": [
+            -550,
+            -331
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "阿契美尼德亚美尼亚行省（贝希斯敦铭文 Armina）；前 331 年高加米拉战役后奥龙特斯王朝自立"
+        },
+        {
+          "region": "armenia",
+          "presence": "political_control",
+          "years": [
+            -550,
+            -331
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "阿契美尼德亚美尼亚行省（贝希斯敦铭文 Armina）；前 331 年高加米拉战役后奥龙特斯王朝自立"
+        },
+        {
+          "region": "southeast_anatolia",
+          "presence": "political_control",
+          "years": [
+            -539,
+            -331
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "阿契美尼德亚述/河西行省（此前属新巴比伦）"
+        },
+        {
+          "region": "southeast_anatolia",
+          "presence": "political_control",
+          "years": [
+            609,
+            628
+          ],
+          "priority": 95,
+          "confidence": "medium",
+          "notes": "萨珊 602–628 年战争：609 年取埃德萨、阿米达"
+        },
+        {
+          "region": "syria",
+          "presence": "political_control",
+          "years": [
+            -539,
+            -332
+          ],
+          "priority": 90,
+          "notes": "前 539 年取巴比伦后的河西行省（阿巴尔—纳哈拉）"
+        },
+        {
+          "region": "syria",
+          "presence": "political_control",
+          "years": [
+            613,
+            628
+          ],
+          "priority": 95,
+          "notes": "萨珊占领：611 年取安条克，613 年取大马士革；628 年和约归还"
+        },
+        {
+          "region": "phoenicia",
+          "presence": "political_control",
+          "years": [
+            -539,
+            -332
+          ],
+          "priority": 90,
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "推罗、西顿、比布鲁斯在波斯宗主下保有本地王统。",
+              "en": "Tyre, Sidon and Byblos kept their native kings under Persian suzerainty."
+            }
+          },
+          "notes": "波斯宗主下的腓尼基诸城邦（西顿为波斯舰队基地）"
+        },
+        {
+          "region": "phoenicia",
+          "presence": "political_control",
+          "years": [
+            613,
+            628
+          ],
+          "priority": 95,
+          "confidence": "medium",
+          "notes": "萨珊占领（613–628）"
+        },
+        {
+          "region": "palaestina",
+          "presence": "political_control",
+          "years": [
+            -539,
+            -332
+          ],
+          "priority": 90,
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "耶胡德行省为犹太人自治的第二圣殿时代。",
+              "en": "The province of Yehud was a self-governing Jewish community of the Second Temple period."
+            }
+          },
+          "notes": "耶胡德行省：居鲁士诏令后归回的犹太人重建圣殿（前 516）"
+        },
+        {
+          "region": "palaestina",
+          "presence": "political_control",
+          "years": [
+            614,
+            628
+          ],
+          "priority": 95,
+          "notes": "614 年萨珊攻陷耶路撒冷；628 年归还"
+        },
+        {
+          "region": "transjordan",
+          "presence": "political_control",
+          "years": [
+            -539,
+            -332
+          ],
+          "priority": 90,
+          "confidence": "low",
+          "notes": "阿契美尼德河西行省"
+        },
+        {
+          "region": "transjordan",
+          "presence": "political_control",
+          "years": [
+            614,
+            628
+          ],
+          "priority": 95,
+          "confidence": "medium",
+          "notes": "萨珊占领（614–628）"
+        },
+        {
+          "region": "jazira",
+          "presence": "political_control",
+          "years": [
+            -539,
+            -331
+          ],
+          "priority": 90,
+          "confidence": "low",
+          "notes": "阿契美尼德河西/亚述行省"
+        },
+        {
+          "region": "jazira",
+          "presence": "political_control",
+          "years": [
+            609,
+            628
+          ],
+          "priority": 95,
+          "confidence": "low",
+          "notes": "萨珊占领（609–628）"
+        },
+        {
+          "region": "cyprus",
+          "presence": "political_control",
+          "years": [
+            -545,
+            -332
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "塞浦路斯诸城邦王国在波斯宗主下保有本地王统。",
+              "en": "The city-kingdoms of Cyprus kept their native kings under Persian suzerainty."
+            }
+          },
+          "notes": "塞浦路斯诸王国臣属波斯（前 545 年前后）"
+        },
+        {
+          "region": "aegyptus",
+          "presence": "political_control",
+          "years": [
+            -525,
+            -404
+          ],
+          "priority": 90,
+          "notes": "前 525 年冈比西斯二世培琉喜阿姆战役征服埃及（第二十七王朝）；前 404 年阿米尔塔尤斯复国"
+        },
+        {
+          "region": "aegyptus",
+          "presence": "political_control",
+          "years": [
+            -343,
+            -332
+          ],
+          "priority": 90,
+          "notes": "前 343 年阿尔塔薛西斯三世再征服（第三十一王朝）；前 332 年亚历山大入埃及"
+        },
+        {
+          "region": "aegyptus",
+          "presence": "political_control",
+          "years": [
+            619,
+            629
+          ],
+          "priority": 95,
+          "notes": "萨珊占领埃及（619 年取亚历山大，629 年撤出）"
+        }
+      ]
+    },
+    {
+      "code": "phoenicians",
+      "type": "ancient",
+      "status": "transformed",
+      "lifespan": [
+        -1200,
+        -64
+      ],
+      "name": {
+        "zh": "腓尼基人",
+        "en": "Phoenicians"
+      },
+      "brief": {
+        "zh": "黎凡特北部沿海推罗、西顿、比布鲁斯等迦南城邦的航海民族，迦太基的母邦。",
+        "en": "The seafaring Canaanite city-states of the northern Levantine coast — Tyre, Sidon, Byblos — and mother cities of Carthage."
+      },
+      "notes": "腓尼基人：青铜时代晚期崩溃（约前 1200）后兴起的迦南沿海城邦，字母文字的传播者；前 814 年推罗人建迦太基。希腊化时代逐步希腊化，罗马时代并入叙利亚行省后不再单独设片。",
+      "languages": [
+        {
+          "language": "phoenician",
+          "role": "native"
+        }
+      ],
+      "religions": [
+        {
+          "religion": "paganism",
+          "role": "traditional",
+          "notes": "巴力、阿斯塔特、麦勒卡特崇拜"
+        }
+      ],
+      "classification": {
+        "language": [
+          "canaanite"
+        ],
+        "historical_people": [
+          "phoenicians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "phoenicia",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            -64
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "前 9–前 6 世纪新亚述与新巴比伦先后为宗主（前 573 年尼布甲尼撒破推罗），本图无对应族群，以腓尼基诸城邦着色。",
+              "en": "Neo-Assyria and Neo-Babylon held suzerainty in the 9th–6th centuries BC (Nebuchadnezzar took Tyre in 573 BC); with no corresponding peoples here, the cities are colored Phoenician."
+            },
+            "years": [
+              -858,
+              -539
+            ]
+          },
+          "notes": "推罗、西顿、比布鲁斯、阿瓦德诸城邦（新亚述、新巴比伦、波斯宗主下保有王统）；希腊化时代后逐步希腊化"
+        },
+        {
+          "region": "cyprus",
+          "presence": "settlement",
+          "years": [
+            -850,
+            -312
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "基提翁（约前 850 年推罗殖民）等腓尼基城邦；前 312 年托勒密一世废其王统"
         }
       ]
     },
@@ -4008,38 +7085,6 @@
           "notes": "加利西亚行省"
         },
         {
-          "region": "gaul",
-          "presence": "political_control",
-          "years": [
-            -50,
-            476
-          ],
-          "priority": 60,
-          "notes": "罗马高卢（恺撒征服前 58–50 取 -50；纳博讷早至前 121）"
-        },
-        {
-          "region": "italy",
-          "presence": "settlement",
-          "years": [
-            476,
-            600
-          ],
-          "priority": 50,
-          "confidence": "low",
-          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
-        },
-        {
-          "region": "italy",
-          "presence": "homeland",
-          "years": [
-            -500,
-            -27
-          ],
-          "priority": 60,
-          "confidence": "medium",
-          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
-        },
-        {
           "region": "new_castile",
           "presence": "political_control",
           "years": [
@@ -4048,17 +7093,6 @@
           ],
           "priority": 60,
           "notes": "近西班牙—卢西塔尼亚行省（托莱图姆/埃梅里塔·奥古斯塔）"
-        },
-        {
-          "region": "north_africa",
-          "presence": "political_control",
-          "years": [
-            534,
-            698
-          ],
-          "priority": 90,
-          "confidence": "medium",
-          "notes": "拜占庭再征服（汪达尔战争 533–534）后的阿非利加禁卫军区—总督区，698 年迦太基陷落于倭马亚"
         },
         {
           "region": "pannonia",
@@ -4079,17 +7113,6 @@
           ],
           "priority": 60,
           "notes": "卢西塔尼亚行省"
-        },
-        {
-          "region": "roman_empire",
-          "presence": "political_control",
-          "years": [
-            -27,
-            476
-          ],
-          "priority": 90,
-          "confidence": "medium",
-          "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
         },
         {
           "region": "swabia_francia",
@@ -4141,6 +7164,486 @@
           "priority": 50,
           "confidence": "medium",
           "notes": "罗马—罗曼省民层：476–493 奥多亚克王国、553–568 拜占庭再征服（哥特战争结束至伦巴第入侵）；493–553 由东哥特片覆盖"
+        },
+        {
+          "region": "ifriqiya",
+          "presence": "political_control",
+          "years": [
+            -146,
+            439
+          ],
+          "priority": 90,
+          "notes": "前 146 年迦太基覆灭，设阿非利加行省；439 年汪达尔人攻取迦太基"
+        },
+        {
+          "region": "ifriqiya",
+          "presence": "political_control",
+          "years": [
+            534,
+            698
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "拜占庭再征服（汪达尔战争 533–534）后的阿非利加禁卫军区—总督区，698 年迦太基陷落于倭马亚"
+        },
+        {
+          "region": "tripolitania",
+          "presence": "political_control",
+          "years": [
+            -46,
+            455
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 46 年并入新阿非利加；303 年戴克里先分设的黎波里塔纳行省；455 年前后归汪达尔"
+        },
+        {
+          "region": "tripolitania",
+          "presence": "political_control",
+          "years": [
+            534,
+            643
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "拜占庭再征服后属阿非利加禁卫军区；643 年阿慕尔·本·阿斯攻取的黎波里"
+        },
+        {
+          "region": "numidia",
+          "presence": "political_control",
+          "years": [
+            -46,
+            435
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 46 年塔普苏斯战役后努米底亚王国并入罗马；435 年条约割予汪达尔"
+        },
+        {
+          "region": "numidia",
+          "presence": "political_control",
+          "years": [
+            534,
+            683
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "拜占庭努米底亚（平原与城市；奥雷斯山区由柏柏尔诸王国自治）；683 年库塞拉击杀欧克巴后拜占庭内陆统治瓦解"
+        },
+        {
+          "region": "mauretania_caesariensis",
+          "presence": "political_control",
+          "years": [
+            40,
+            430
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "40 年卡利古拉处死托勒密，毛里塔尼亚王国并入罗马；实控以沿海带与谢利夫河谷为主"
+        },
+        {
+          "region": "mauretania_tingitana",
+          "presence": "political_control",
+          "years": [
+            40,
+            429
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "廷吉塔纳行省（隶属西班牙管区）；约 285 年起南部收缩至廷吉斯—利克苏斯一线，429 年汪达尔人过境"
+        },
+        {
+          "region": "cyrenaica",
+          "presence": "political_control",
+          "years": [
+            -74,
+            642
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 96 年托勒密·阿皮翁遗赠罗马，前 74 年设行省；395 年后属东罗马；642 年阿拉伯人攻取巴尔卡"
+        },
+        {
+          "region": "aegyptus",
+          "presence": "political_control",
+          "years": [
+            -30,
+            641
+          ],
+          "priority": 90,
+          "notes": "前 30 年屋大维并埃及；395 年后属东罗马；641 年亚历山大投降条约，阿拉伯征服"
+        },
+        {
+          "region": "constantinople",
+          "presence": "political_control",
+          "years": [
+            73,
+            641
+          ],
+          "priority": 90,
+          "notes": "韦斯巴芗约 73 年并拜占庭入色雷斯行省；330 年君士坦丁定都新罗马；641 年后按拜占庭希腊人表示"
+        },
+        {
+          "region": "bithynia",
+          "presence": "political_control",
+          "years": [
+            -74,
+            641
+          ],
+          "priority": 90,
+          "notes": "前 74 年尼科美德四世遗赠，设比提尼亚行省；641 年后按拜占庭希腊人表示"
+        },
+        {
+          "region": "ionia",
+          "presence": "political_control",
+          "years": [
+            -133,
+            641
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 133 年阿塔罗斯三世遗赠帕加马王国，前 129 年设亚细亚行省"
+        },
+        {
+          "region": "pamphylia",
+          "presence": "political_control",
+          "years": [
+            -25,
+            641
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 25 年加拉太行省成立（潘菲利亚/皮西迪亚并入），43 年吕基亚设省"
+        },
+        {
+          "region": "cilicia",
+          "presence": "political_control",
+          "years": [
+            -64,
+            641
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "庞培前 64 年设奇里乞亚行省；7 世纪中叶起成为阿拉伯—拜占庭边区"
+        },
+        {
+          "region": "galatia",
+          "presence": "political_control",
+          "years": [
+            -25,
+            641
+          ],
+          "priority": 90,
+          "notes": "前 25 年阿明塔斯身故，加拉太王国并为行省"
+        },
+        {
+          "region": "lycaonia",
+          "presence": "political_control",
+          "years": [
+            -25,
+            641
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 25 年随加拉太行省并入（吕考尼亚，以科尼亚/伊科尼姆为中心）"
+        },
+        {
+          "region": "cappadocia",
+          "presence": "political_control",
+          "years": [
+            17,
+            641
+          ],
+          "priority": 90,
+          "notes": "17 年阿凯劳斯身故，卡帕多奇亚王国并为行省"
+        },
+        {
+          "region": "paphlagonia",
+          "presence": "political_control",
+          "years": [
+            -63,
+            641
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 63 年米特拉达梯六世败亡，庞培设比提尼亚—本都行省"
+        },
+        {
+          "region": "pontus",
+          "presence": "political_control",
+          "years": [
+            64,
+            641
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "64 年尼禄并波列蒙本都王国入加拉太—卡帕多奇亚"
+        },
+        {
+          "region": "southeast_anatolia",
+          "presence": "political_control",
+          "years": [
+            214,
+            638
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "罗马—萨珊前线：363 年后东部（尼西比斯）属萨珊，本区按罗马侧着色。",
+              "en": "Roman–Sasanian frontier: after 363 the east (Nisibis) belonged to the Sasanians; the region is colored by the Roman side."
+            },
+            "years": [
+              363,
+              638
+            ]
+          },
+          "notes": "214 年卡拉卡拉废奥斯若恩王国设省；363 年后尼西比斯归萨珊，阿米达—达拉为罗马—波斯前线"
+        },
+        {
+          "region": "syria",
+          "presence": "political_control",
+          "years": [
+            -64,
+            636
+          ],
+          "priority": 90,
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "巴尔米拉帝国（270–272，芝诺比娅）短暂割据，本图无对应族群，按罗马着色。",
+              "en": "The Palmyrene Empire (270–272, Zenobia) briefly broke away; no corresponding people exists here, so the region stays Roman."
+            },
+            "years": [
+              270,
+              272
+            ]
+          },
+          "notes": "庞培前 64 年废塞琉古王朝设叙利亚行省；636 年雅尔穆克战役"
+        },
+        {
+          "region": "phoenicia",
+          "presence": "political_control",
+          "years": [
+            -64,
+            636
+          ],
+          "priority": 90,
+          "notes": "前 64 年并入叙利亚行省；194 年分设腓尼基行省；636–637 年阿拉伯征服"
+        },
+        {
+          "region": "palaestina",
+          "presence": "political_control",
+          "years": [
+            -63,
+            636
+          ],
+          "priority": 90,
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "前 37–前 4 年希律王国为罗马附庸王国（其后诸分封王至 44/100 年），按罗马着色。",
+              "en": "The Herodian kingdom (37–4 BC, then tetrarchies to 44/100 AD) was a Roman client state and is colored as Roman."
+            },
+            "years": [
+              -37,
+              44
+            ]
+          },
+          "notes": "前 63 年庞培攻耶路撒冷；6 年设犹地亚行省，135 年改称叙利亚—巴勒斯坦；636–640 年阿拉伯征服"
+        },
+        {
+          "region": "transjordan",
+          "presence": "political_control",
+          "years": [
+            106,
+            636
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "106 年图拉真并纳巴泰王国设阿拉伯行省（布斯拉）；6 世纪加萨尼联盟为拜占庭同盟部落"
+        },
+        {
+          "region": "jazira",
+          "presence": "political_control",
+          "years": [
+            -64,
+            638
+          ],
+          "priority": 90,
+          "confidence": "low",
+          "notes": "幼发拉底西岸自前 64 年属叙利亚行省（科马吉尼 72 年并入），河东奥斯若恩 214 年、美索不达米亚 198 年设省；639 年阿拉伯征服"
+        },
+        {
+          "region": "cyprus",
+          "presence": "political_control",
+          "years": [
+            -58,
+            641
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "前 58 年罗马并托勒密塞浦路斯；641 年后按拜占庭希腊人表示（688–965 阿拉伯—拜占庭共管）"
+        },
+        {
+          "region": "east_thrace",
+          "presence": "political_control",
+          "years": [
+            46,
+            700
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "46 年克劳狄设色雷斯行省；巴尔干拜占庭沿用 700 年转为希腊人"
+        },
+        {
+          "region": "north_france",
+          "presence": "political_control",
+          "years": [
+            -50,
+            476
+          ],
+          "priority": 60,
+          "notes": "罗马高卢（比利时、卢格敦）；476 年后苏瓦松的西亚格里乌斯残余政权至 486 年"
+        },
+        {
+          "region": "aquitaine",
+          "presence": "political_control",
+          "years": [
+            -50,
+            418
+          ],
+          "priority": 60,
+          "notes": "阿基坦尼亚行省；418 年让与西哥特"
+        },
+        {
+          "region": "languedoc",
+          "presence": "political_control",
+          "years": [
+            -121,
+            418
+          ],
+          "priority": 60,
+          "notes": "纳博讷高卢（前 121 年设省，前 106 年取图卢兹）；418 年起西哥特"
+        },
+        {
+          "region": "burgundy",
+          "presence": "political_control",
+          "years": [
+            -50,
+            443
+          ],
+          "priority": 60,
+          "notes": "卢格敦高卢（里昂为高卢首府）与纳博讷北部；443 年让勃艮第人定居萨保迪亚"
+        },
+        {
+          "region": "provence",
+          "presence": "political_control",
+          "years": [
+            -121,
+            476
+          ],
+          "priority": 90,
+          "notes": "「行省」（Provincia，前 121 年）；前 49 年恺撒攻取马萨利亚；476 年西哥特取普罗旺斯"
+        },
+        {
+          "region": "alsace_lorraine",
+          "presence": "political_control",
+          "years": [
+            -50,
+            406
+          ],
+          "priority": 60,
+          "notes": "上日耳曼尼亚与比利时高卢（斯特拉斯堡、梅斯）；406 年莱茵防线崩溃"
+        },
+        {
+          "region": "luxembourg",
+          "presence": "political_control",
+          "years": [
+            -50,
+            450
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "比利时高卢（特里尔腹地）"
+        },
+        {
+          "region": "north_italy",
+          "presence": "homeland",
+          "years": [
+            -191,
+            493
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "山南高卢罗马化（前 89 拉丁权、前 49 公民权，前 42 年并入意大利）；476–493 奥多亚克王国"
+        },
+        {
+          "region": "central_italy",
+          "presence": "homeland",
+          "years": [
+            -264,
+            493
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "罗马与意大利本土；476–493 奥多亚克王国"
+        },
+        {
+          "region": "south_italy",
+          "presence": "homeland",
+          "years": [
+            -272,
+            493
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "罗马征服大希腊与萨谟奈；476–493 奥多亚克王国"
+        },
+        {
+          "region": "north_italy",
+          "presence": "political_control",
+          "years": [
+            553,
+            568
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "哥特战争后拜占庭再征服（553 年拉克塔留斯山之战）至 568 年伦巴第入关"
+        },
+        {
+          "region": "central_italy",
+          "presence": "political_control",
+          "years": [
+            553,
+            700
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "568 年后托斯卡纳（图西亚）与斯波莱托公国属伦巴第；拜占庭仅保拉文纳—佩鲁贾—罗马走廊与五城，756 年起为教皇国。",
+              "en": "After 568 Tuscany (Tuscia) and the Duchy of Spoleto were Lombard; Byzantium kept only the Ravenna–Perugia–Rome corridor and the Pentapolis, which became the Papal States from 756."
+            },
+            "years": [
+              568,
+              700
+            ]
+          },
+          "notes": "拜占庭拉文纳总督区—罗马公国（罗马人时期至 700 年，此后按拜占庭希腊人表示，与巴尔干一致）"
+        },
+        {
+          "region": "south_italy",
+          "presence": "political_control",
+          "years": [
+            553,
+            570
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "拜占庭再征服至约 570 年伦巴第人建贝内文托公国"
         }
       ]
     },
@@ -5152,6 +8655,17 @@
           "priority": 60,
           "confidence": "low",
           "notes": "MVP 粗粒度历史空间近似；边界与转折年代存在不确定性。"
+        },
+        {
+          "region": "east_thrace",
+          "presence": "homeland",
+          "years": [
+            -1000,
+            500
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "奥德里西亚等色雷斯部落（希腊殖民城邦仅沿海）；罗马时代逐步希腊—罗马化"
         }
       ]
     },
@@ -5201,7 +8715,7 @@
       "type": "modern",
       "status": "extant",
       "lifespan": [
-        1369,
+        1071,
         null
       ],
       "name": {
@@ -5209,10 +8723,10 @@
         "en": "Turks"
       },
       "brief": {
-        "zh": "奥斯曼土耳其人，1369 年定都埃迪尔内后经营东色雷斯。",
-        "en": "Ottoman Turks, ruling Eastern Thrace from the Edirne era (1369)."
+        "zh": "安纳托利亚与东色雷斯的突厥—土耳其人：1071 年曼齐刻尔特战役后的塞尔柱突厥人、诸贝伊国与奥斯曼土耳其人，至现代土耳其人。",
+        "en": "The Turks of Anatolia and Eastern Thrace: Seljuk Turks after Manzikert (1071), the Turkmen beyliks and the Ottomans, down to the modern Turks."
       },
-      "notes": "奥斯曼土耳其人 1354 年起进入色雷斯，1369 年迁都阿德里安堡（埃迪尔内）；本图仅覆盖欧洲侧东色雷斯，安纳托利亚主体不在范围。",
+      "notes": "突厥—土耳其人：1071 年曼齐刻尔特战役后塞尔柱突厥人进入安纳托利亚（罗姆苏丹国，1077/1081—1308），13–14 世纪突厥化扩及西部沿海（诸贝伊国），奥斯曼 1354 年进入色雷斯、1453 年取君士坦丁堡；按着色原则不画奥斯曼政治层，安纳托利亚以主体人群着色。",
       "languages": [
         {
           "language": "turkish",
@@ -5292,6 +8806,268 @@
           "priority": 70,
           "confidence": "medium",
           "notes": "东色雷斯（1354–1369 奥斯曼征服；1923 人口交换后希腊裔基本迁出伊斯坦布尔以外）"
+        },
+        {
+          "region": "constantinople",
+          "presence": "homeland",
+          "years": [
+            1453,
+            null
+          ],
+          "priority": 75,
+          "notes": "1453 年穆罕默德二世攻取君士坦丁堡，奥斯曼都城（至 1923）"
+        },
+        {
+          "region": "bithynia",
+          "presence": "political_control",
+          "years": [
+            1081,
+            1097
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "罗姆苏丹国定都尼西亚（1081–1097，第一次十字军收复）"
+        },
+        {
+          "region": "bithynia",
+          "presence": "homeland",
+          "years": [
+            1326,
+            null
+          ],
+          "priority": 80,
+          "notes": "奥斯曼贝伊国：1326 年取布尔萨，1331 尼西亚，1337 尼科米底亚"
+        },
+        {
+          "region": "ionia",
+          "presence": "homeland",
+          "years": [
+            1300,
+            null
+          ],
+          "priority": 80,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "士麦那等沿海城市希腊裔人口众多，至 1922–1923 年。",
+              "en": "Smyrna and other coastal towns had large Greek populations until 1922–1923."
+            },
+            "years": [
+              1800,
+              1923
+            ]
+          },
+          "notes": "约 1300 年起艾登、萨鲁汉、门泰谢、格尔米扬等贝伊国（1390 年代并入奥斯曼）"
+        },
+        {
+          "region": "pamphylia",
+          "presence": "homeland",
+          "years": [
+            1207,
+            null
+          ],
+          "priority": 80,
+          "confidence": "medium",
+          "notes": "1207 年凯霍斯鲁一世攻取安塔利亚（内陆皮西迪亚 12 世纪末已入塞尔柱）"
+        },
+        {
+          "region": "cilicia",
+          "presence": "homeland",
+          "years": [
+            1375,
+            null
+          ],
+          "priority": 80,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1375–1517 马穆鲁克宗主下的土库曼拉马赞贝伊国；哈塔伊（安条克）1939 年前属叙利亚，阿拉伯—阿拉维人口众多。",
+              "en": "Turkmen Ramadanid beylik under Mamluk suzerainty (1375–1517); Hatay (Antioch) belonged to Syria until 1939 and has a large Arab–Alawite population."
+            },
+            "years": [
+              1375,
+              1939
+            ]
+          },
+          "notes": "1375 年马穆鲁克灭奇里乞亚亚美尼亚，拉马赞贝伊国（土库曼）治阿达纳；1517 年入奥斯曼"
+        },
+        {
+          "region": "galatia",
+          "presence": "homeland",
+          "years": [
+            1075,
+            null
+          ],
+          "priority": 80,
+          "confidence": "medium",
+          "notes": "曼齐刻尔特后塞尔柱—达尼什曼德突厥人约 1075 年取安卡拉（1101 年短暂易手）"
+        },
+        {
+          "region": "lycaonia",
+          "presence": "homeland",
+          "years": [
+            1084,
+            null
+          ],
+          "priority": 80,
+          "confidence": "medium",
+          "notes": "约 1084 年取科尼亚，1097 年起为罗姆苏丹国都城；卡拉曼贝伊国（1250–1487）"
+        },
+        {
+          "region": "cappadocia",
+          "presence": "homeland",
+          "years": [
+            1075,
+            null
+          ],
+          "priority": 80,
+          "confidence": "medium",
+          "notes": "达尼什曼德王朝（锡瓦斯、开塞利，约 1075–1178）—罗姆苏丹国"
+        },
+        {
+          "region": "paphlagonia",
+          "presence": "homeland",
+          "years": [
+            1100,
+            null
+          ],
+          "priority": 80,
+          "confidence": "low",
+          "notes": "达尼什曼德（阿马西亚、托卡特）、1214 年塞尔柱取锡诺普、坎达尔贝伊国（卡斯塔莫努）"
+        },
+        {
+          "region": "pontus",
+          "presence": "homeland",
+          "years": [
+            1461,
+            null
+          ],
+          "priority": 80,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "本都希腊人与拉兹人在沿海长期存续，希腊裔至 1923 年人口交换。",
+              "en": "Pontic Greeks and Laz remained numerous along the coast; the Greeks until the 1923 exchange."
+            },
+            "years": [
+              1461,
+              1923
+            ]
+          },
+          "notes": "1461 年穆罕默德二世灭特拉布宗帝国"
+        },
+        {
+          "region": "armenian_highlands_north",
+          "presence": "political_control",
+          "years": [
+            1071,
+            1514
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1243–1335 年伊儿汗国（蒙古）宗主统治，本图无对应族群。",
+              "en": "Ilkhanid (Mongol) suzerainty in 1243–1335; no corresponding people exists in this atlas."
+            },
+            "years": [
+              1243,
+              1335
+            ]
+          },
+          "notes": "曼齐刻尔特后萨尔图克王朝（埃尔祖鲁姆，1071–1202）—罗姆苏丹国—伊儿汗国宗主—黑羊/白羊土库曼；1514 年查尔迪兰战役后入奥斯曼"
+        },
+        {
+          "region": "armenian_highlands_north",
+          "presence": "homeland",
+          "years": [
+            1514,
+            null
+          ],
+          "priority": 65,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1514–1918 奥斯曼（卡尔斯—阿尔达汉 1878–1918 属俄国）；亚美尼亚人至 1915 年仍为显著少数：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+              "en": "1514–1918 Ottoman (Kars–Ardahan Russian 1878–1918); Armenians remained a large minority until 1915: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population."
+            },
+            "years": [
+              1514,
+              1918
+            ]
+          },
+          "notes": "奥斯曼时代埃尔祖鲁姆、卡尔斯以穆斯林（土耳其人为主，兼库尔德人）为多数；亚美尼亚人至 1915 年为显著少数"
+        },
+        {
+          "region": "armenian_highlands_south",
+          "presence": "political_control",
+          "years": [
+            1071,
+            1514
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "阿尤布（库尔德裔，1207–1230）与伊儿汗国（蒙古，1243–1335）期按突厥—土库曼统治近似着色。",
+              "en": "The Ayyubid (Kurdish, 1207–1230) and Ilkhanid (Mongol, 1243–1335) periods are approximated as Turkic–Turkmen rule."
+            },
+            "years": [
+              1207,
+              1335
+            ]
+          },
+          "notes": "沙阿—阿尔曼王朝（阿赫拉特，1100–1207）—阿尤布（1207–1230，库尔德裔）—罗姆苏丹国—伊儿汗国—黑羊/白羊土库曼"
+        },
+        {
+          "region": "southeast_anatolia",
+          "presence": "political_control",
+          "years": [
+            1085,
+            1514
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "埃德萨伯国（十字军，1098–1144）据本区西部（乌尔法—加济安泰普），按突厥侧近似着色。",
+              "en": "The County of Edessa (Crusader, 1098–1144) held the west of the region (Urfa–Gaziantep); the region is approximated as Turkic."
+            },
+            "years": [
+              1098,
+              1144
+            ]
+          },
+          "notes": "塞尔柱（1085 年灭马尔万王朝）—阿尔图格王朝（1101–1409，马尔丁/哈斯凯伊夫）—白羊土库曼（定都迪亚巴克尔）；1514–1516 年入奥斯曼"
+        },
+        {
+          "region": "cyprus",
+          "presence": "minority",
+          "years": [
+            1571,
+            null
+          ],
+          "priority": 40,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "disputed",
+            "text": {
+              "zh": "1974 年土耳其出兵后岛屿分治，北部「北塞浦路斯土耳其共和国」仅土耳其承认；本图塞浦路斯为整区，按全岛人口多数着色。",
+              "en": "Since the Turkish intervention of 1974 the island has been divided; the northern \"Turkish Republic of Northern Cyprus\" is recognized only by Turkey. Cyprus is a single region here, colored by the island-wide majority."
+            },
+            "years": [
+              1974,
+              null
+            ]
+          },
+          "notes": "1571 年奥斯曼征服后定居的土耳其裔塞浦路斯人（约 18%）"
         }
       ]
     },
@@ -5442,14 +9218,36 @@
       },
       "slices": [
         {
-          "region": "north_africa",
+          "region": "ifriqiya",
+          "presence": "political_control",
+          "years": [
+            439,
+            534
+          ],
+          "priority": 90,
+          "notes": "汪达尔王国（439 年取迦太基并定都）；533 年 12 月特里卡马伦战役败于贝利撒留，534 年盖利默投降，王国终结"
+        },
+        {
+          "region": "numidia",
           "presence": "political_control",
           "years": [
             435,
             534
           ],
           "priority": 90,
-          "notes": "汪达尔王国（435 年条约—439 年取迦太基）；533 年 12 月特里卡马伦战役败于贝利撒留，534 年盖利默投降，王国终结"
+          "confidence": "medium",
+          "notes": "435 年希波条约获努米底亚与西提菲斯毛里塔尼亚；奥雷斯山区 480 年代后由柏柏尔人自立"
+        },
+        {
+          "region": "tripolitania",
+          "presence": "political_control",
+          "years": [
+            455,
+            534
+          ],
+          "priority": 90,
+          "confidence": "low",
+          "notes": "455 年前后取的黎波里塔尼亚；内陆为劳阿塔等柏柏尔部落，汪达尔仅控沿海城市"
         },
         {
           "region": "poland",
@@ -5533,7 +9331,7 @@
       "status": "transformed",
       "lifespan": [
         300,
-        711
+        720
       ],
       "name": {
         "zh": "西哥特人",
@@ -5543,7 +9341,7 @@
         "zh": "哥特人的一个分支，在晚期罗马高卢和伊比利亚历史中非常重要。",
         "en": "A branch of the Goths prominent in late Roman Gaul and Iberia."
       },
-      "notes": "西哥特人，晚期罗马帝国及中世纪早期重要日耳曼人群。",
+      "notes": "西哥特人，晚期罗马帝国及中世纪早期重要日耳曼人群。（711 年王国覆灭后，阿尔多的塞蒂马尼亚残余政权延续至 720 年）",
       "languages": [
         {
           "language": "gothic",
@@ -5633,27 +9431,6 @@
           "notes": "西哥特吞并斯维汇王国后"
         },
         {
-          "region": "gaul",
-          "presence": "settlement",
-          "years": [
-            412,
-            507
-          ],
-          "priority": 50,
-          "notes": "412 年阿陶尔夫入南高卢、418 年阿基坦定居（图卢兹王国）—507 年武耶之战败于克洛维；此后仅存塞普提马尼亚（至 720 年代）"
-        },
-        {
-          "region": "italy",
-          "presence": "migration",
-          "years": [
-            401,
-            412
-          ],
-          "priority": 40,
-          "confidence": "medium",
-          "notes": "阿拉里克入意大利（401/408），410 年攻陷罗马，412 年转入高卢"
-        },
-        {
           "region": "new_castile",
           "presence": "political_control",
           "years": [
@@ -5674,6 +9451,59 @@
           "priority": 90,
           "confidence": "medium",
           "notes": "西哥特王国"
+        },
+        {
+          "region": "aquitaine",
+          "presence": "political_control",
+          "years": [
+            418,
+            507
+          ],
+          "priority": 90,
+          "notes": "418 年阿基坦定居—图卢兹王国；507 年武耶之战克洛维击杀阿拉里克二世"
+        },
+        {
+          "region": "languedoc",
+          "presence": "political_control",
+          "years": [
+            418,
+            720
+          ],
+          "priority": 90,
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "507 年后仅塞蒂马尼亚（朗格多克沿海，约本区东半）属西哥特，图卢兹已归法兰克。",
+              "en": "After 507 only Septimania (coastal Languedoc, roughly the east of the region) remained Visigothic; Toulouse had passed to the Franks."
+            },
+            "years": [
+              507,
+              720
+            ]
+          },
+          "notes": "图卢兹王国（418–507）；507 年后塞蒂马尼亚（纳博讷）仍属托莱多西哥特王国至 720 年"
+        },
+        {
+          "region": "provence",
+          "presence": "political_control",
+          "years": [
+            476,
+            508
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "476 年尤里克取普罗旺斯（阿尔勒）"
+        },
+        {
+          "region": "central_italy",
+          "presence": "migration",
+          "years": [
+            401,
+            412
+          ],
+          "priority": 40,
+          "confidence": "medium",
+          "notes": "阿拉里克入意大利（401/408），410 年攻陷罗马，412 年转入高卢"
         }
       ]
     },

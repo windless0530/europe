@@ -35,7 +35,7 @@ for (const y of years) {
   await page.waitForTimeout(450);
   cache[y] = await page.evaluate((keys) => {
     const out = {};
-    for (const k of keys) out[k] = document.querySelector(`path.region[data-code="nuts:${k}"]`)?.style.fill ?? null;
+    for (const k of keys) out[k] = document.querySelector(`path.region[data-code="nuts:${k}"], path.region[data-members~="${k}"]`)?.style.fill ?? null;
     return out;
   }, Object.values(KEY));
 }

@@ -121,7 +121,7 @@ const central = await page.evaluate(() => {
   const ctx = getComputedStyle(document.documentElement).getPropertyValue('--context-fill').trim();
   const out = {};
   for (const cc of ['def0', 'de11', 'deg0', 'de21', 'at', 'cz', 'sk', 'hu', 'ch01', 'ch04', 'ch07', 'xk']) {
-    const el = document.querySelector(`path.region[data-code="nuts:${cc}"]`);
+    const el = document.querySelector(`path.region[data-code="nuts:${cc}"], path.region[data-members~="${cc}"]`);
     out[cc] = el && el.style.fill && el.style.fill !== ctx ? 'painted' : 'BLANK';
   }
   return out;
@@ -148,11 +148,11 @@ for (const yr of [1300, 2026]) {
     const out = {};
     const checks = {
       castile: 'es41', andalusia: 'es61', catalonia: 'es51', basque: 'es21', galicia: 'es11',
-      brittany: 'frh', flanders: 'be2', wallonia: 'be3', samiland: 'no07', transylvania: 'ro11',
+      brittany: 'frh0', flanders: 'be2', wallonia: 'be3', samiland: 'no07', transylvania: 'ro11',
       silesia: 'pl22', masuria: 'pl62', crimea: 'ukr_4_1', eastGalicia: 'ukr_14_1', swissW: 'ch01', ticino: 'ch07',
     };
     for (const [k, cc] of Object.entries(checks)) {
-      const el = document.querySelector(`path.region[data-code="nuts:${cc}"]`);
+      const el = document.querySelector(`path.region[data-code="nuts:${cc}"], path.region[data-members~="${cc}"]`);
       out[k] = el && el.style.fill && el.style.fill !== ctx ? 'painted' : 'BLANK';
     }
     return out;
@@ -173,7 +173,7 @@ for (const yr of [-300, 0]) {
     const ctx = getComputedStyle(document.documentElement).getPropertyValue('--context-fill').trim();
     const out = {};
     for (const cc of ['def0', 'de11', 'deg0', 'de21', 'at', 'cz', 'sk', 'pl21', 'pl22']) {
-      const el = document.querySelector(`path.region[data-code="nuts:${cc}"]`);
+      const el = document.querySelector(`path.region[data-code="nuts:${cc}"], path.region[data-members~="${cc}"]`);
       out[cc] = el && el.style.fill && el.style.fill !== ctx ? 'painted' : 'BLANK';
     }
     return out;
@@ -186,8 +186,8 @@ for (const yr of [-300, 0]) {
   if (yr === 0) {
     // 公元 0 年：奥地利（罗马/诺里库姆）与德国中东部（古日耳曼）应不同色
     const fills0 = await page.evaluate(() => ({
-      at: document.querySelector('path.region[data-code="nuts:at"]')?.style.fill,
-      deg0: document.querySelector('path.region[data-code="nuts:deg0"]')?.style.fill,
+      at: document.querySelector('path.region[data-code="nuts:at"], path.region[data-members~="at"]')?.style.fill,
+      deg0: document.querySelector('path.region[data-code="nuts:deg0"], path.region[data-members~="deg0"]')?.style.fill,
     }));
     console.log(`year-0 colors: at=${fills0.at} deg0=${fills0.deg0} (expect distinct: Rome vs Germanic)`);
     if (!fills0.at || !fills0.deg0 || fills0.at === fills0.deg0) {
@@ -205,7 +205,7 @@ const de500 = await page.evaluate(() => {
   const ctx = getComputedStyle(document.documentElement).getPropertyValue('--context-fill').trim();
   const out = {};
   for (const cc of ['def0', 'de11', 'deg0', 'de21']) {
-    const el = document.querySelector(`path.region[data-code="nuts:${cc}"]`);
+    const el = document.querySelector(`path.region[data-code="nuts:${cc}"], path.region[data-members~="${cc}"]`);
     out[cc] = el && el.style.fill && el.style.fill !== ctx ? el.style.fill : 'BLANK';
   }
   return out;
@@ -227,8 +227,13 @@ await page.screenshot({ path: 'chromium/smoke-9-germany-500.png' });
   const caveatAt = async (yr) => {
     await page.locator('#tl-range').fill(String(yr));
     await page.waitForTimeout(400);
+    // 溶解要素的纹理按成员单元展开（键仍为 nuts:<单元>）
     return page.evaluate(() =>
-      Object.fromEntries([...document.querySelectorAll('path.caveat')].map((p) => [p.dataset.code, p.classList.contains('caveat-disputed') ? 'disputed' : 'method'])),
+      Object.fromEntries([...document.querySelectorAll('path.caveat')].flatMap((p) => {
+        const kind = p.classList.contains('caveat-disputed') ? 'disputed' : 'method';
+        const members = document.querySelector(`path.region[data-code="${p.dataset.code}"]`)?.dataset.members;
+        return members ? members.split(' ').map((m) => [`nuts:${m}`, kind]) : [[p.dataset.code, kind]];
+      })),
     );
   };
   const c1100 = await caveatAt(1100);
@@ -242,7 +247,7 @@ await page.screenshot({ path: 'chromium/smoke-9-germany-500.png' });
     console.error('FAIL: 标注纹理窗口不符预期');
     process.exitCode = 1;
   }
-  await page.locator('path.region[data-code="nuts:ukr_4_1"]').hover({ force: true });
+  await page.locator('path.region[data-code="nuts:ukr_4_1"], path.region[data-members~="ukr_4_1"]').hover({ force: true });
   await page.waitForTimeout(300);
   const box = await page.locator('#detail-panel .caveat-box').count();
   const note = await page.locator('.map-note').isVisible();
@@ -253,7 +258,7 @@ await page.screenshot({ path: 'chromium/smoke-9-germany-500.png' });
   }
   await page.screenshot({ path: 'chromium/smoke-8-caveat-crimea-2026.png' });
   await caveatAt(1100);
-  await page.locator('path.region[data-code="nuts:ro11"]').hover({ force: true });
+  await page.locator('path.region[data-code="nuts:ro11"], path.region[data-members~="ro11"]').hover({ force: true });
   await page.waitForTimeout(300);
   await page.screenshot({ path: 'chromium/smoke-9-caveat-transylvania-1100.png' });
 }

@@ -1,6 +1,16 @@
 {
-  "generated_at": "2026-10-03T09:26:55.088Z",
+  "generated_at": "2026-10-03T12:42:29.629Z",
   "regions": [
+    {
+      "code": "aegyptus",
+      "region_type": "historical_region",
+      "start_year": -1000,
+      "end_year": null,
+      "name_en": "Egypt",
+      "name_zh": "埃及",
+      "brief_en": null,
+      "brief_zh": null
+    },
     {
       "code": "albania",
       "region_type": "modern_country",
@@ -8,6 +18,16 @@
       "end_year": null,
       "name_en": "Albania",
       "name_zh": "阿尔巴尼亚",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "alsace_lorraine",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Alsace–Lorraine",
+      "name_zh": "阿尔萨斯—洛林",
       "brief_en": null,
       "brief_zh": null
     },
@@ -22,12 +42,42 @@
       "brief_zh": null
     },
     {
+      "code": "aquitaine",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Aquitaine (southwestern France)",
+      "name_zh": "阿基坦（法国西南）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "armenia",
       "region_type": "modern_country",
       "start_year": null,
       "end_year": null,
       "name_en": "Armenia",
       "name_zh": "亚美尼亚",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "armenian_highlands_north",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Northern Armenian Highlands (Erzurum–Kars)",
+      "name_zh": "亚美尼亚高原北部（埃尔祖鲁姆—卡尔斯）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "armenian_highlands_south",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Southern Armenian Highlands (Lake Van–upper Euphrates)",
+      "name_zh": "亚美尼亚高原南部（凡湖—幼发拉底上游）",
       "brief_en": null,
       "brief_zh": null
     },
@@ -92,6 +142,16 @@
       "brief_zh": null
     },
     {
+      "code": "bithynia",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Bithynia–Mysia (northwestern Anatolia)",
+      "name_zh": "比提尼亚—密细亚（西北安纳托利亚）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "bosnia",
       "region_type": "modern_country",
       "start_year": null,
@@ -118,6 +178,26 @@
       "end_year": null,
       "name_en": "Bulgaria",
       "name_zh": "保加利亚",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "burgundy",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Burgundy–Rhône",
+      "name_zh": "勃艮第—罗讷",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "cappadocia",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Cappadocia",
+      "name_zh": "卡帕多奇亚",
       "brief_en": null,
       "brief_zh": null
     },
@@ -162,6 +242,36 @@
       "brief_zh": null
     },
     {
+      "code": "central_italy",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Central Italy (Tuscany–Papal States)",
+      "name_zh": "中意大利（托斯卡纳—教皇国）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "cilicia",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Cilicia",
+      "name_zh": "奇里乞亚",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "constantinople",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Constantinople (Istanbul)",
+      "name_zh": "君士坦丁堡（伊斯坦布尔）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "crete",
       "region_type": "cultural_region",
       "start_year": null,
@@ -188,6 +298,26 @@
       "end_year": null,
       "name_en": "Croatia",
       "name_zh": "克罗地亚",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "cyprus",
+      "region_type": "modern_country",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Cyprus",
+      "name_zh": "塞浦路斯",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "cyrenaica",
+      "region_type": "historical_region",
+      "start_year": -1000,
+      "end_year": null,
+      "name_en": "Cyrenaica",
+      "name_zh": "昔兰尼加",
       "brief_en": null,
       "brief_zh": null
     },
@@ -292,12 +422,12 @@
       "brief_zh": null
     },
     {
-      "code": "france",
-      "region_type": "modern_country",
+      "code": "galatia",
+      "region_type": "historical_region",
       "start_year": null,
       "end_year": null,
-      "name_en": "France",
-      "name_zh": "法国",
+      "name_en": "Galatia",
+      "name_zh": "加拉太",
       "brief_en": null,
       "brief_zh": null
     },
@@ -318,16 +448,6 @@
       "end_year": null,
       "name_en": "Galicia-Volhynia",
       "name_zh": "加利西亚-沃里尼亚",
-      "brief_en": null,
-      "brief_zh": null
-    },
-    {
-      "code": "gaul",
-      "region_type": "historical_region",
-      "start_year": -500,
-      "end_year": 500,
-      "name_en": "Gaul",
-      "name_zh": "高卢",
       "brief_en": null,
       "brief_zh": null
     },
@@ -362,6 +482,26 @@
       "brief_zh": null
     },
     {
+      "code": "ifriqiya",
+      "region_type": "historical_region",
+      "start_year": -1000,
+      "end_year": null,
+      "name_en": "Ifriqiya (Tunisia)",
+      "name_zh": "伊夫里基亚（突尼斯）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "ionia",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Ionia–Lydia (western Anatolia)",
+      "name_zh": "爱奥尼亚—吕底亚（西安纳托利亚）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "ireland",
       "region_type": "modern_country",
       "start_year": null,
@@ -382,12 +522,12 @@
       "brief_zh": null
     },
     {
-      "code": "italy",
+      "code": "jazira",
       "region_type": "historical_region",
-      "start_year": -500,
+      "start_year": null,
       "end_year": null,
-      "name_en": "Italy",
-      "name_zh": "意大利",
+      "name_en": "Jazira (northern Syria–Euphrates)",
+      "name_zh": "贾兹拉（叙利亚北部—幼发拉底河）",
       "brief_en": null,
       "brief_zh": null
     },
@@ -398,6 +538,16 @@
       "end_year": null,
       "name_en": "Karelia",
       "name_zh": "卡累利阿",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "languedoc",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Languedoc (Occitania)",
+      "name_zh": "朗格多克（奥克西塔尼亚）",
       "brief_en": null,
       "brief_zh": null
     },
@@ -432,6 +582,26 @@
       "brief_zh": null
     },
     {
+      "code": "luxembourg",
+      "region_type": "modern_country",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Luxembourg",
+      "name_zh": "卢森堡",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "lycaonia",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Lycaonia (Konya)",
+      "name_zh": "吕考尼亚（科尼亚）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "macedonia",
       "region_type": "modern_country",
       "start_year": null,
@@ -448,6 +618,26 @@
       "end_year": null,
       "name_en": "Masuria (East Prussia)",
       "name_zh": "马祖里（东普鲁士）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "mauretania_caesariensis",
+      "region_type": "historical_region",
+      "start_year": -1000,
+      "end_year": null,
+      "name_en": "Central Maghreb",
+      "name_zh": "中马格里布",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "mauretania_tingitana",
+      "region_type": "historical_region",
+      "start_year": -1000,
+      "end_year": null,
+      "name_en": "Northern Morocco",
+      "name_zh": "北摩洛哥",
       "brief_en": null,
       "brief_zh": null
     },
@@ -482,12 +672,22 @@
       "brief_zh": null
     },
     {
-      "code": "north_africa",
+      "code": "north_france",
       "region_type": "historical_region",
-      "start_year": -1000,
+      "start_year": null,
       "end_year": null,
-      "name_en": "North Africa",
-      "name_zh": "北非",
+      "name_en": "Northern France (Francia)",
+      "name_zh": "北法（法兰西亚）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "north_italy",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Northern Italy (Po Valley–Alps)",
+      "name_zh": "北意大利（波河平原—阿尔卑斯）",
       "brief_en": null,
       "brief_zh": null
     },
@@ -512,12 +712,42 @@
       "brief_zh": null
     },
     {
+      "code": "numidia",
+      "region_type": "historical_region",
+      "start_year": -1000,
+      "end_year": null,
+      "name_en": "Numidia (eastern Algeria)",
+      "name_zh": "努米底亚（东阿尔及利亚）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "old_saxony",
       "region_type": "cultural_region",
       "start_year": null,
       "end_year": null,
       "name_en": "Old Saxony (NW Germany)",
       "name_zh": "旧萨克森（德国西北）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "palaestina",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Palestine (southern Levant)",
+      "name_zh": "巴勒斯坦（南黎凡特）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "pamphylia",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Lycia–Pamphylia (southern Anatolia)",
+      "name_zh": "吕基亚—潘菲利亚（南安纳托利亚）",
       "brief_en": null,
       "brief_zh": null
     },
@@ -532,12 +762,42 @@
       "brief_zh": null
     },
     {
+      "code": "paphlagonia",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Paphlagonia–western Pontus",
+      "name_zh": "帕夫拉戈尼亚—本都西部",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "phoenicia",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Phoenicia (Lebanese coast)",
+      "name_zh": "腓尼基（黎巴嫩沿海）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "poland",
       "region_type": "modern_country",
       "start_year": null,
       "end_year": null,
       "name_en": "Poland",
       "name_zh": "波兰",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "pontus",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Pontus (Trebizond)",
+      "name_zh": "本都（特拉布宗）",
       "brief_en": null,
       "brief_zh": null
     },
@@ -552,12 +812,12 @@
       "brief_zh": null
     },
     {
-      "code": "roman_empire",
-      "region_type": "political_entity",
-      "start_year": -27,
-      "end_year": 476,
-      "name_en": "Roman Empire",
-      "name_zh": "罗马帝国",
+      "code": "provence",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Provence–Corsica",
+      "name_zh": "普罗旺斯—科西嘉",
       "brief_en": null,
       "brief_zh": null
     },
@@ -662,6 +922,26 @@
       "brief_zh": null
     },
     {
+      "code": "south_italy",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Southern Italy (Mezzogiorno)",
+      "name_zh": "南意大利（梅佐焦尔诺）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "southeast_anatolia",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Southeastern Anatolia (Upper Mesopotamia)",
+      "name_zh": "东南安纳托利亚（上美索不达米亚）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "swabia_francia",
       "region_type": "cultural_region",
       "start_year": null,
@@ -702,6 +982,16 @@
       "brief_zh": null
     },
     {
+      "code": "syria",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Syria",
+      "name_zh": "叙利亚",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "thuringia_lausitz",
       "region_type": "cultural_region",
       "start_year": null,
@@ -722,12 +1012,32 @@
       "brief_zh": null
     },
     {
+      "code": "transjordan",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Arabia (Hauran–northern Transjordan)",
+      "name_zh": "阿拉伯行省（豪兰—外约旦北部）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "transylvania",
       "region_type": "historical_region",
       "start_year": null,
       "end_year": null,
       "name_en": "Transylvania",
       "name_zh": "特兰西瓦尼亚",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "tripolitania",
+      "region_type": "historical_region",
+      "start_year": -1000,
+      "end_year": null,
+      "name_en": "Tripolitania",
+      "name_zh": "的黎波里塔尼亚",
       "brief_en": null,
       "brief_zh": null
     },
@@ -758,16 +1068,6 @@
       "end_year": null,
       "name_en": "Southern Ukraine (Novorossiya)",
       "name_zh": "南乌克兰（新俄罗斯）",
-      "brief_en": null,
-      "brief_zh": null
-    },
-    {
-      "code": "vandal_kingdom",
-      "region_type": "political_entity",
-      "start_year": 435,
-      "end_year": 534,
-      "name_en": "Vandal Kingdom",
-      "name_zh": "汪达尔王国",
       "brief_en": null,
       "brief_zh": null
     },
@@ -954,6 +1254,190 @@
       "relations": []
     },
     {
+      "code": "arabs_levant",
+      "people_type": "modern",
+      "start_year": -85,
+      "end_year": null,
+      "status_code": "extant",
+      "name_en": "Levantine Arabs",
+      "name_zh": "黎凡特阿拉伯人",
+      "brief_en": "The Arabs of Syria, Lebanon, Palestine and Jordan: the pre-Islamic Nabataeans and Ghassanids, the conquerors of 636, and the Arabized populations descended from them.",
+      "brief_zh": "叙利亚、黎巴嫩、巴勒斯坦、约旦的阿拉伯人：前伊斯兰的纳巴泰人与加萨尼人，636 年起的阿拉伯征服及其阿拉伯化后裔。",
+      "languages": [
+        {
+          "code": "arabic",
+          "name_en": "Arabic",
+          "name_zh": "阿拉伯语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        },
+        {
+          "code": "aramaic",
+          "name_en": "Aramaic (Syriac)",
+          "name_zh": "阿拉米语（叙利亚语）",
+          "role": "historical",
+          "sy": -85,
+          "ey": 300
+        }
+      ],
+      "religions": [
+        {
+          "code": "christianity",
+          "name_en": "Christianity",
+          "name_zh": "基督教",
+          "role": "historical",
+          "sy": 300,
+          "ey": null
+        },
+        {
+          "code": "islam",
+          "name_en": "Islam",
+          "name_zh": "伊斯兰教",
+          "role": "dominant",
+          "sy": 636,
+          "ey": null
+        },
+        {
+          "code": "paganism",
+          "name_en": "Paganism",
+          "name_zh": "多神教 / 异教传统",
+          "role": "traditional",
+          "sy": -85,
+          "ey": 400
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "historical_people",
+          "node": "arabs",
+          "name_en": "Arabs",
+          "name_zh": "阿拉伯人",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "language",
+          "node": "arabic",
+          "name_en": "Arabic",
+          "name_zh": "阿拉伯语支",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "modern_ethnicity",
+          "node": "levantine_arabs",
+          "name_en": "Levantine Arabs",
+          "name_zh": "黎凡特阿拉伯人",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "related_to",
+          "direction": "out",
+          "other_code": "arabs_north_africa",
+          "other_name_en": "North African Arabs",
+          "other_name_zh": "北非阿拉伯人",
+          "notes": "Both descend from the 7th-century Arab conquests and subsequent Arabization."
+        },
+        {
+          "rel": "related_to",
+          "direction": "out",
+          "other_code": "arameans",
+          "other_name_en": "Arameans (Syriac-speaking peoples)",
+          "other_name_zh": "阿拉米人（叙利亚语人群）",
+          "notes": "The Aramaic-speaking population of Syria was gradually Arabized after the 7th century."
+        }
+      ]
+    },
+    {
+      "code": "arabs_north_africa",
+      "people_type": "modern",
+      "start_year": 641,
+      "end_year": null,
+      "status_code": "extant",
+      "name_en": "North African Arabs",
+      "name_zh": "北非阿拉伯人",
+      "brief_en": "Arabs who entered Egypt and the Maghreb with the conquests from 641, and the Arabized populations descended from them.",
+      "brief_zh": "641 年起随阿拉伯征服进入埃及与马格里布的阿拉伯人及其阿拉伯化后裔。",
+      "languages": [
+        {
+          "code": "arabic",
+          "name_en": "Arabic",
+          "name_zh": "阿拉伯语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "islam",
+          "name_en": "Islam",
+          "name_zh": "伊斯兰教",
+          "role": "dominant",
+          "sy": 641,
+          "ey": null
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "historical_people",
+          "node": "arabs",
+          "name_en": "Arabs",
+          "name_zh": "阿拉伯人",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "language",
+          "node": "arabic",
+          "name_en": "Arabic",
+          "name_zh": "阿拉伯语支",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "modern_ethnicity",
+          "node": "north_african_arabs",
+          "name_en": "North African Arabs",
+          "name_zh": "北非阿拉伯人",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "related_to",
+          "direction": "in",
+          "other_code": "arabs_levant",
+          "other_name_en": "Levantine Arabs",
+          "other_name_zh": "黎凡特阿拉伯人",
+          "notes": "Both descend from the 7th-century Arab conquests and subsequent Arabization."
+        },
+        {
+          "rel": "conquered",
+          "direction": "out",
+          "other_code": "berbers",
+          "other_name_en": "Berbers (Amazigh)",
+          "other_name_zh": "柏柏尔人（阿马齐格人）",
+          "notes": "Arab conquest of the Maghreb (647–c. 710), followed by the Berber Revolt of 740 in the central and western Maghreb."
+        },
+        {
+          "rel": "related_to",
+          "direction": "in",
+          "other_code": "arabs_sicily",
+          "other_name_en": "Arabs of Sicily",
+          "other_name_zh": "西西里阿拉伯人",
+          "notes": "The conquest of Sicily (827) was launched by the Aghlabid emirate of Ifriqiya."
+        },
+        {
+          "rel": "related_to",
+          "direction": "in",
+          "other_code": "moors",
+          "other_name_en": "Moors (al-Andalus)",
+          "other_name_zh": "摩尔人（安达卢斯）",
+          "notes": "The conquest of al-Andalus was launched from Umayyad Ifriqiya and Tangier."
+        }
+      ]
+    },
+    {
       "code": "arabs_sicily",
       "people_type": "medieval",
       "start_year": 827,
@@ -983,12 +1467,94 @@
           "relation": "member_of"
         }
       ],
-      "relations": []
+      "relations": [
+        {
+          "rel": "related_to",
+          "direction": "out",
+          "other_code": "arabs_north_africa",
+          "other_name_en": "North African Arabs",
+          "other_name_zh": "北非阿拉伯人",
+          "notes": "The conquest of Sicily (827) was launched by the Aghlabid emirate of Ifriqiya."
+        }
+      ]
+    },
+    {
+      "code": "arameans",
+      "people_type": "ancient",
+      "start_year": -1100,
+      "end_year": null,
+      "status_code": "transformed",
+      "name_en": "Arameans (Syriac-speaking peoples)",
+      "name_zh": "阿拉米人（叙利亚语人群）",
+      "brief_en": "The Aramaic-speaking peoples of Syria and Upper Mesopotamia: the ancient Aramean states, the Syriac Christians of the Roman–Byzantine era, and today's Assyrians/Syriacs.",
+      "brief_zh": "叙利亚与上美索不达米亚的阿拉米语人群：古代阿拉米诸国，罗马—拜占庭时代的叙利亚语基督徒，今亚述/叙利亚克人。",
+      "languages": [
+        {
+          "code": "aramaic",
+          "name_en": "Aramaic (Syriac)",
+          "name_zh": "阿拉米语（叙利亚语）",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "christianity",
+          "name_en": "Christianity",
+          "name_zh": "基督教",
+          "role": "dominant",
+          "sy": 200,
+          "ey": 1000
+        },
+        {
+          "code": "christianity",
+          "name_en": "Christianity",
+          "name_zh": "基督教",
+          "role": "minority",
+          "sy": 1000,
+          "ey": null
+        },
+        {
+          "code": "paganism",
+          "name_en": "Paganism",
+          "name_zh": "多神教 / 异教传统",
+          "role": "traditional",
+          "sy": -1100,
+          "ey": 400
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "historical_people",
+          "node": "arameans",
+          "name_en": "Arameans",
+          "name_zh": "阿拉米人",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "language",
+          "node": "aramaic",
+          "name_en": "Aramaic",
+          "name_zh": "阿拉米语支",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "related_to",
+          "direction": "in",
+          "other_code": "arabs_levant",
+          "other_name_en": "Levantine Arabs",
+          "other_name_zh": "黎凡特阿拉伯人",
+          "notes": "The Aramaic-speaking population of Syria was gradually Arabized after the 7th century."
+        }
+      ]
     },
     {
       "code": "armenians",
       "people_type": "modern",
-      "start_year": 500,
+      "start_year": -600,
       "end_year": null,
       "status_code": "extant",
       "name_en": "Armenians",
@@ -1209,6 +1775,87 @@
       ]
     },
     {
+      "code": "berbers",
+      "people_type": "modern",
+      "start_year": -1200,
+      "end_year": null,
+      "status_code": "extant",
+      "name_en": "Berbers (Amazigh)",
+      "name_zh": "柏柏尔人（阿马齐格人）",
+      "brief_en": "The indigenous people of the Maghreb — the Libyans, Numidians and Moors of antiquity, and founders of medieval dynasties such as the Almoravids and Almohads.",
+      "brief_zh": "马格里布的原住民族群：古代称利比亚人、努米底亚人、摩尔人，中世纪建立阿尔摩拉维德、阿尔摩哈德等王朝。",
+      "languages": [
+        {
+          "code": "berber",
+          "name_en": "Berber (Tamazight)",
+          "name_zh": "柏柏尔语（塔马齐格特语）",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "christianity",
+          "name_en": "Christianity",
+          "name_zh": "基督教",
+          "role": "historical",
+          "sy": 200,
+          "ey": 1100
+        },
+        {
+          "code": "islam",
+          "name_en": "Islam",
+          "name_zh": "伊斯兰教",
+          "role": "dominant",
+          "sy": 700,
+          "ey": null
+        },
+        {
+          "code": "paganism",
+          "name_en": "Paganism",
+          "name_zh": "多神教 / 异教传统",
+          "role": "traditional",
+          "sy": null,
+          "ey": 700
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "language",
+          "node": "berber",
+          "name_en": "Berber",
+          "name_zh": "柏柏尔语族",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "modern_ethnicity",
+          "node": "berbers",
+          "name_en": "Berbers",
+          "name_zh": "柏柏尔人",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "conquered",
+          "direction": "in",
+          "other_code": "arabs_north_africa",
+          "other_name_en": "North African Arabs",
+          "other_name_zh": "北非阿拉伯人",
+          "notes": "Arab conquest of the Maghreb (647–c. 710), followed by the Berber Revolt of 740 in the central and western Maghreb."
+        },
+        {
+          "rel": "related_to",
+          "direction": "in",
+          "other_code": "moors",
+          "other_name_en": "Moors (al-Andalus)",
+          "other_name_zh": "摩尔人（安达卢斯）",
+          "notes": "The Moors of al-Andalus were Arab and Berber; most of the 711 invasion force under Tariq ibn Ziyad was Berber."
+        }
+      ]
+    },
+    {
       "code": "bosniaks",
       "people_type": "modern",
       "start_year": 1300,
@@ -1336,6 +1983,71 @@
         }
       ],
       "relations": []
+    },
+    {
+      "code": "carthaginians",
+      "people_type": "ancient",
+      "start_year": -814,
+      "end_year": -146,
+      "status_code": "transformed",
+      "name_en": "Carthaginians",
+      "name_zh": "迦太基人",
+      "brief_en": "The Punic city-state of Carthage, founded by Tyrian Phoenicians, and its maritime empire; destroyed by Rome in 146 BC.",
+      "brief_zh": "推罗腓尼基人建立的迦太基城邦及其布匿海上帝国，前 146 年亡于罗马。",
+      "languages": [
+        {
+          "code": "punic",
+          "name_en": "Punic",
+          "name_zh": "布匿语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "paganism",
+          "name_en": "Paganism",
+          "name_zh": "多神教 / 异教传统",
+          "role": "traditional",
+          "sy": -814,
+          "ey": -146
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "historical_people",
+          "node": "carthaginians",
+          "name_en": "Carthaginians",
+          "name_zh": "迦太基人",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "language",
+          "node": "canaanite",
+          "name_en": "Canaanite",
+          "name_zh": "迦南语支",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "descended_from",
+          "direction": "out",
+          "other_code": "phoenicians",
+          "other_name_en": "Phoenicians",
+          "other_name_zh": "腓尼基人",
+          "notes": "Carthage was founded by settlers from Tyre (traditionally 814 BC)."
+        },
+        {
+          "rel": "conquered",
+          "direction": "in",
+          "other_code": "romans",
+          "other_name_en": "Romans",
+          "other_name_zh": "罗马人",
+          "notes": "Third Punic War: Carthage destroyed by Scipio Aemilianus in 146 BC; its territory became the province of Africa."
+        }
+      ]
     },
     {
       "code": "catalans",
@@ -1481,6 +2193,71 @@
       "relations": []
     },
     {
+      "code": "crusaders",
+      "people_type": "medieval",
+      "start_year": 1098,
+      "end_year": 1489,
+      "status_code": "merged",
+      "name_en": "Crusaders (Franks)",
+      "name_zh": "十字军（法兰克人）",
+      "brief_en": "The Latin ruling class of the Crusader states in the eastern Mediterranean: the Kingdom of Jerusalem, County of Tripoli, Latin Empire and Lusignan Cyprus.",
+      "brief_zh": "十字军在东地中海建立的拉丁国家统治集团：耶路撒冷王国、的黎波里伯国、拉丁帝国、吕西尼昂塞浦路斯。",
+      "languages": [
+        {
+          "code": "french",
+          "name_en": "French",
+          "name_zh": "法语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        },
+        {
+          "code": "latin",
+          "name_en": "Latin",
+          "name_zh": "拉丁语",
+          "role": "liturgical",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "catholicism",
+          "name_en": "Catholicism",
+          "name_zh": "天主教",
+          "role": "dominant",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "historical_people",
+          "node": "crusaders",
+          "name_en": "Crusaders",
+          "name_zh": "十字军",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "language",
+          "node": "romance",
+          "name_en": "Romance",
+          "name_zh": "罗曼语族",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "related_to",
+          "direction": "out",
+          "other_code": "french",
+          "other_name_en": "French",
+          "other_name_zh": "法国人",
+          "notes": "The Crusader ruling class was predominantly French-speaking (\"Franks\")."
+        }
+      ]
+    },
+    {
       "code": "czechs",
       "people_type": "modern",
       "start_year": 1000,
@@ -1590,6 +2367,95 @@
         }
       ],
       "relations": []
+    },
+    {
+      "code": "egyptians",
+      "people_type": "modern",
+      "start_year": -3100,
+      "end_year": null,
+      "status_code": "transformed",
+      "name_en": "Egyptians (Ancient–Coptic)",
+      "name_zh": "埃及人（古埃及—科普特）",
+      "brief_en": "The ancient Egyptians of the Nile valley and their Coptic descendants, gradually Arabized in the Islamic era.",
+      "brief_zh": "尼罗河谷的古埃及人及其后裔科普特人；伊斯兰时代逐步阿拉伯化。",
+      "languages": [
+        {
+          "code": "arabic",
+          "name_en": "Arabic",
+          "name_zh": "阿拉伯语",
+          "role": "native",
+          "sy": 900,
+          "ey": null
+        },
+        {
+          "code": "egyptian",
+          "name_en": "Egyptian (Coptic)",
+          "name_zh": "埃及语（科普特语）",
+          "role": "native",
+          "sy": -3100,
+          "ey": 1700
+        }
+      ],
+      "religions": [
+        {
+          "code": "christianity",
+          "name_en": "Christianity",
+          "name_zh": "基督教",
+          "role": "dominant",
+          "sy": 300,
+          "ey": 1000
+        },
+        {
+          "code": "christianity",
+          "name_en": "Christianity",
+          "name_zh": "基督教",
+          "role": "minority",
+          "sy": 1000,
+          "ey": null
+        },
+        {
+          "code": "islam",
+          "name_en": "Islam",
+          "name_zh": "伊斯兰教",
+          "role": "dominant",
+          "sy": 1000,
+          "ey": null
+        },
+        {
+          "code": "paganism",
+          "name_en": "Paganism",
+          "name_zh": "多神教 / 异教传统",
+          "role": "traditional",
+          "sy": -3100,
+          "ey": 400
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "language",
+          "node": "egyptian",
+          "name_en": "Egyptian",
+          "name_zh": "埃及语族",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "modern_ethnicity",
+          "node": "egyptians",
+          "name_en": "Egyptians",
+          "name_zh": "埃及人",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "conquered",
+          "direction": "in",
+          "other_code": "persians",
+          "other_name_en": "Persians (Achaemenid–Sasanian)",
+          "other_name_zh": "波斯人（阿契美尼德—萨珊）",
+          "notes": "Cambyses II conquered Egypt at Pelusium in 525 BC."
+        }
+      ]
     },
     {
       "code": "english",
@@ -1776,6 +2642,14 @@
         }
       ],
       "relations": [
+        {
+          "rel": "related_to",
+          "direction": "in",
+          "other_code": "crusaders",
+          "other_name_en": "Crusaders (Franks)",
+          "other_name_zh": "十字军（法兰克人）",
+          "notes": "The Crusader ruling class was predominantly French-speaking (\"Franks\")."
+        },
         {
           "rel": "related_to",
           "direction": "out",
@@ -2082,7 +2956,16 @@
           "relation": "member_of"
         }
       ],
-      "relations": []
+      "relations": [
+        {
+          "rel": "conquered",
+          "direction": "in",
+          "other_code": "turks",
+          "other_name_en": "Turks",
+          "other_name_zh": "土耳其人",
+          "notes": "Turkish conquest of Byzantine Anatolia from Manzikert (1071) to the fall of Trebizond (1461)."
+        }
+      ]
     },
     {
       "code": "hungarians",
@@ -2234,6 +3117,71 @@
       "relations": []
     },
     {
+      "code": "jews",
+      "people_type": "modern",
+      "start_year": -1200,
+      "end_year": null,
+      "status_code": "extant",
+      "name_en": "Jews",
+      "name_zh": "犹太人",
+      "brief_en": "The Jewish people from the kingdoms of Israel and Judah; mostly in diaspora after AD 135, founding the State of Israel in 1948.",
+      "brief_zh": "以色列—犹大王国以来的犹太民族；135 年后主体流散，1948 年建立以色列国。",
+      "languages": [
+        {
+          "code": "aramaic",
+          "name_en": "Aramaic (Syriac)",
+          "name_zh": "阿拉米语（叙利亚语）",
+          "role": "historical",
+          "sy": -500,
+          "ey": 700
+        },
+        {
+          "code": "hebrew",
+          "name_en": "Hebrew",
+          "name_zh": "希伯来语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "judaism",
+          "name_en": "Judaism",
+          "name_zh": "犹太教",
+          "role": "dominant",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "language",
+          "node": "canaanite",
+          "name_en": "Canaanite",
+          "name_zh": "迦南语支",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "modern_ethnicity",
+          "node": "jews",
+          "name_en": "Jews",
+          "name_zh": "犹太人",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "related_to",
+          "direction": "out",
+          "other_code": "phoenicians",
+          "other_name_en": "Phoenicians",
+          "other_name_zh": "腓尼基人",
+          "notes": "Hebrew and Phoenician are closely related Canaanite languages."
+        }
+      ]
+    },
+    {
       "code": "jutes",
       "people_type": "historical",
       "start_year": 300,
@@ -2312,6 +3260,63 @@
         }
       ],
       "relations": []
+    },
+    {
+      "code": "kurds",
+      "people_type": "modern",
+      "start_year": 900,
+      "end_year": null,
+      "status_code": "extant",
+      "name_en": "Kurds",
+      "name_zh": "库尔德人",
+      "brief_en": "An Iranian-speaking people of the Zagros–Taurus highlands, living in southeastern Turkey, northern Iraq, western Iran and northeastern Syria.",
+      "brief_zh": "扎格罗斯—托罗斯山区的伊朗语民族，分布于土耳其东南、伊拉克北部、伊朗西部与叙利亚东北。",
+      "languages": [
+        {
+          "code": "kurdish",
+          "name_en": "Kurdish",
+          "name_zh": "库尔德语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "islam",
+          "name_en": "Islam",
+          "name_zh": "伊斯兰教",
+          "role": "dominant",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "language",
+          "node": "iranian",
+          "name_en": "Iranian",
+          "name_zh": "伊朗语支",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "modern_ethnicity",
+          "node": "kurds",
+          "name_en": "Kurds",
+          "name_zh": "库尔德人",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "related_to",
+          "direction": "out",
+          "other_code": "persians",
+          "other_name_en": "Persians (Achaemenid–Sasanian)",
+          "other_name_zh": "波斯人（阿契美尼德—萨珊）",
+          "notes": "Kurdish and Persian are both Western Iranian languages."
+        }
+      ]
     },
     {
       "code": "latins",
@@ -2600,7 +3605,24 @@
           "relation": "member_of"
         }
       ],
-      "relations": []
+      "relations": [
+        {
+          "rel": "related_to",
+          "direction": "out",
+          "other_code": "arabs_north_africa",
+          "other_name_en": "North African Arabs",
+          "other_name_zh": "北非阿拉伯人",
+          "notes": "The conquest of al-Andalus was launched from Umayyad Ifriqiya and Tangier."
+        },
+        {
+          "rel": "related_to",
+          "direction": "out",
+          "other_code": "berbers",
+          "other_name_en": "Berbers (Amazigh)",
+          "other_name_zh": "柏柏尔人（阿马齐格人）",
+          "notes": "The Moors of al-Andalus were Arab and Berber; most of the 711 invasion force under Tariq ibn Ziyad was Berber."
+        }
+      ]
     },
     {
       "code": "norse",
@@ -2733,6 +3755,136 @@
           "other_name_en": "Goths",
           "other_name_zh": "哥特人",
           "notes": "Ostrogoths are conventionally treated as a Gothic group."
+        }
+      ]
+    },
+    {
+      "code": "persians",
+      "people_type": "ancient",
+      "start_year": -550,
+      "end_year": 651,
+      "status_code": "transformed",
+      "name_en": "Persians (Achaemenid–Sasanian)",
+      "name_zh": "波斯人（阿契美尼德—萨珊）",
+      "brief_en": "The Persian ruling peoples of the Achaemenid (550–330 BC) and Sasanian (AD 224–651) empires.",
+      "brief_zh": "阿契美尼德帝国（前 550–前 330）与萨珊帝国（224–651）的波斯统治集团。",
+      "languages": [
+        {
+          "code": "persian",
+          "name_en": "Persian",
+          "name_zh": "波斯语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "zoroastrianism",
+          "name_en": "Zoroastrianism",
+          "name_zh": "琐罗亚斯德教",
+          "role": "dominant",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "historical_people",
+          "node": "persians",
+          "name_en": "Persians",
+          "name_zh": "波斯人",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "language",
+          "node": "iranian",
+          "name_en": "Iranian",
+          "name_zh": "伊朗语支",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "related_to",
+          "direction": "in",
+          "other_code": "kurds",
+          "other_name_en": "Kurds",
+          "other_name_zh": "库尔德人",
+          "notes": "Kurdish and Persian are both Western Iranian languages."
+        },
+        {
+          "rel": "conquered",
+          "direction": "out",
+          "other_code": "egyptians",
+          "other_name_en": "Egyptians (Ancient–Coptic)",
+          "other_name_zh": "埃及人（古埃及—科普特）",
+          "notes": "Cambyses II conquered Egypt at Pelusium in 525 BC."
+        }
+      ]
+    },
+    {
+      "code": "phoenicians",
+      "people_type": "ancient",
+      "start_year": -1200,
+      "end_year": -64,
+      "status_code": "transformed",
+      "name_en": "Phoenicians",
+      "name_zh": "腓尼基人",
+      "brief_en": "The seafaring Canaanite city-states of the northern Levantine coast — Tyre, Sidon, Byblos — and mother cities of Carthage.",
+      "brief_zh": "黎凡特北部沿海推罗、西顿、比布鲁斯等迦南城邦的航海民族，迦太基的母邦。",
+      "languages": [
+        {
+          "code": "phoenician",
+          "name_en": "Phoenician",
+          "name_zh": "腓尼基语",
+          "role": "native",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "religions": [
+        {
+          "code": "paganism",
+          "name_en": "Paganism",
+          "name_zh": "多神教 / 异教传统",
+          "role": "traditional",
+          "sy": null,
+          "ey": null
+        }
+      ],
+      "classifications": [
+        {
+          "taxonomy": "historical_people",
+          "node": "phoenicians",
+          "name_en": "Phoenicians",
+          "name_zh": "腓尼基人",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "language",
+          "node": "canaanite",
+          "name_en": "Canaanite",
+          "name_zh": "迦南语支",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "descended_from",
+          "direction": "in",
+          "other_code": "carthaginians",
+          "other_name_en": "Carthaginians",
+          "other_name_zh": "迦太基人",
+          "notes": "Carthage was founded by settlers from Tyre (traditionally 814 BC)."
+        },
+        {
+          "rel": "related_to",
+          "direction": "in",
+          "other_code": "jews",
+          "other_name_en": "Jews",
+          "other_name_zh": "犹太人",
+          "notes": "Hebrew and Phoenician are closely related Canaanite languages."
         }
       ]
     },
@@ -2939,6 +4091,14 @@
           "other_name_en": "Gauls",
           "other_name_zh": "高卢人",
           "notes": "Gauls were predominantly Celtic-speaking peoples of ancient Gaul; later populations were heavily Romanized."
+        },
+        {
+          "rel": "conquered",
+          "direction": "out",
+          "other_code": "carthaginians",
+          "other_name_en": "Carthaginians",
+          "other_name_zh": "迦太基人",
+          "notes": "Third Punic War: Carthage destroyed by Scipio Aemilianus in 146 BC; its territory became the province of Africa."
         }
       ]
     },
@@ -3481,13 +4641,13 @@
     {
       "code": "turks",
       "people_type": "modern",
-      "start_year": 1369,
+      "start_year": 1071,
       "end_year": null,
       "status_code": "extant",
       "name_en": "Turks",
       "name_zh": "土耳其人",
-      "brief_en": "Ottoman Turks, ruling Eastern Thrace from the Edirne era (1369).",
-      "brief_zh": "奥斯曼土耳其人，1369 年定都埃迪尔内后经营东色雷斯。",
+      "brief_en": "The Turks of Anatolia and Eastern Thrace: Seljuk Turks after Manzikert (1071), the Turkmen beyliks and the Ottomans, down to the modern Turks.",
+      "brief_zh": "安纳托利亚与东色雷斯的突厥—土耳其人：1071 年曼齐刻尔特战役后的塞尔柱突厥人、诸贝伊国与奥斯曼土耳其人，至现代土耳其人。",
       "languages": [
         {
           "code": "turkish",
@@ -3524,7 +4684,16 @@
           "relation": "member_of"
         }
       ],
-      "relations": []
+      "relations": [
+        {
+          "rel": "conquered",
+          "direction": "out",
+          "other_code": "greeks",
+          "other_name_en": "Greeks",
+          "other_name_zh": "希腊人",
+          "notes": "Turkish conquest of Byzantine Anatolia from Manzikert (1071) to the fall of Trebizond (1461)."
+        }
+      ]
     },
     {
       "code": "ukrainians",
@@ -3627,7 +4796,7 @@
       "code": "visigoths",
       "people_type": "historical",
       "start_year": 300,
-      "end_year": 711,
+      "end_year": 720,
       "status_code": "transformed",
       "name_en": "Visigoths",
       "name_zh": "西哥特人",
@@ -3769,6 +4938,118 @@
   ],
   "people_region": [
     {
+      "people_code": "persians",
+      "region_code": "aegyptus",
+      "presence": "political_control",
+      "start_year": 619,
+      "end_year": 629,
+      "confidence": "high",
+      "render_priority": 95,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "aegyptus",
+      "presence": "political_control",
+      "start_year": 641,
+      "end_year": 1517,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "图伦/伊赫什德（868–969，突厥裔）、阿尤布（1171–1250，库尔德裔）、马穆鲁克（1250–1517，突厥—切尔克斯裔）统治集团非阿拉伯人，本图无对应族群，按阿拉伯化的埃及国家近似着色。",
+      "caveat_en": "The Tulunid/Ikhshidid (868–969, Turkic), Ayyubid (1171–1250, Kurdish) and Mamluk (1250–1517, Turkic–Circassian) ruling elites were not Arab; with no corresponding people in this atlas, Egypt is colored as an Arabized Egyptian state.",
+      "caveat_sy": 868,
+      "caveat_ey": 1517
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "aegyptus",
+      "presence": "political_control",
+      "start_year": -332,
+      "end_year": -30,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "aegyptus",
+      "presence": "political_control",
+      "start_year": -525,
+      "end_year": -404,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "aegyptus",
+      "presence": "political_control",
+      "start_year": -343,
+      "end_year": -332,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "aegyptus",
+      "presence": "political_control",
+      "start_year": -30,
+      "end_year": 641,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "aegyptus",
+      "presence": "homeland",
+      "start_year": 900,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1517–1798 奥斯曼（马穆鲁克贝伊实掌）、1805–1882 穆罕默德·阿里王朝自治、1882–1952 英国占领/保护：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+      "caveat_en": "1517–1798 Ottoman (with Mamluk beys in power), 1805–1882 autonomous Muhammad Ali dynasty, 1882–1952 British occupation/protectorate: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1517,
+      "caveat_ey": 1952
+    },
+    {
+      "people_code": "egyptians",
+      "region_code": "aegyptus",
+      "presence": "homeland",
+      "start_year": -1000,
+      "end_year": null,
+      "confidence": "high",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
       "people_code": "albanians",
       "region_code": "albania",
       "presence": "homeland",
@@ -3776,6 +5057,104 @@
       "end_year": null,
       "confidence": "medium",
       "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "alemanni",
+      "region_code": "alsace_lorraine",
+      "presence": "political_control",
+      "start_year": 406,
+      "end_year": 496,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "洛林（梅斯）此期属罗马残余与法兰克，非阿勒曼尼人。",
+      "caveat_en": "Lorraine (Metz) belonged to Roman remnants and the Franks in this period, not the Alemanni.",
+      "caveat_sy": 406,
+      "caveat_ey": 496
+    },
+    {
+      "people_code": "franks",
+      "region_code": "alsace_lorraine",
+      "presence": "political_control",
+      "start_year": 496,
+      "end_year": 900,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "germans",
+      "region_code": "alsace_lorraine",
+      "presence": "political_control",
+      "start_year": 900,
+      "end_year": 1648,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "洛林公国以法语人口为主（1766 年方并入法国），本区按神圣罗马帝国着色。",
+      "caveat_en": "The Duchy of Lorraine was mainly French-speaking (joining France only in 1766); the region is colored by the Holy Roman Empire.",
+      "caveat_sy": 900,
+      "caveat_ey": 1648
+    },
+    {
+      "people_code": "french",
+      "region_code": "alsace_lorraine",
+      "presence": "homeland",
+      "start_year": 1648,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "阿尔萨斯与摩泽尔东北通行德语方言；1871–1918 年为德意志帝国帝国领地阿尔萨斯—洛林（1940–1944 再被吞并）。",
+      "caveat_en": "Alsace and northeastern Moselle speak German dialects; in 1871–1918 the area was the German imperial territory of Alsace–Lorraine (annexed again in 1940–1944).",
+      "caveat_sy": 1648,
+      "caveat_ey": 1945
+    },
+    {
+      "people_code": "gauls",
+      "region_code": "alsace_lorraine",
+      "presence": "homeland",
+      "start_year": -500,
+      "end_year": -51,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "alsace_lorraine",
+      "presence": "political_control",
+      "start_year": -50,
+      "end_year": 406,
+      "confidence": "high",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "carthaginians",
+      "region_code": "andalusia",
+      "presence": "political_control",
+      "start_year": -237,
+      "end_year": -206,
+      "confidence": "medium",
+      "render_priority": 90,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -3867,13 +5246,237 @@
       "caveat_ey": null
     },
     {
-      "people_code": "armenians",
-      "region_code": "armenia",
+      "people_code": "english",
+      "region_code": "aquitaine",
+      "presence": "political_control",
+      "start_year": 1152,
+      "end_year": 1453,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "金雀花王朝为法语安茹贵族；1224 年后普瓦图、利穆赞相继归法，仅吉耶讷—加斯科涅（约本区西南半）属英格兰王室。",
+      "caveat_en": "The Plantagenets were French-speaking Angevins; after 1224 Poitou and the Limousin passed to France, leaving only Guyenne–Gascony (roughly the southwest half of the region) to the English crown.",
+      "caveat_sy": 1152,
+      "caveat_ey": 1453
+    },
+    {
+      "people_code": "franks",
+      "region_code": "aquitaine",
+      "presence": "political_control",
+      "start_year": 507,
+      "end_year": 900,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "visigoths",
+      "region_code": "aquitaine",
+      "presence": "political_control",
+      "start_year": 418,
+      "end_year": 507,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "french",
+      "region_code": "aquitaine",
       "presence": "homeland",
-      "start_year": 500,
+      "start_year": 900,
       "end_year": null,
       "confidence": "medium",
       "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "gauls",
+      "region_code": "aquitaine",
+      "presence": "homeland",
+      "start_year": -500,
+      "end_year": -51,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "aquitaine",
+      "presence": "political_control",
+      "start_year": -50,
+      "end_year": 418,
+      "confidence": "high",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "armenia",
+      "presence": "political_control",
+      "start_year": -550,
+      "end_year": -331,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "armenians",
+      "region_code": "armenia",
+      "presence": "homeland",
+      "start_year": -600,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "armenian_highlands_north",
+      "presence": "political_control",
+      "start_year": -550,
+      "end_year": -331,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "armenian_highlands_north",
+      "presence": "political_control",
+      "start_year": 1071,
+      "end_year": 1514,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "1243–1335 年伊儿汗国（蒙古）宗主统治，本图无对应族群。",
+      "caveat_en": "Ilkhanid (Mongol) suzerainty in 1243–1335; no corresponding people exists in this atlas.",
+      "caveat_sy": 1243,
+      "caveat_ey": 1335
+    },
+    {
+      "people_code": "turks",
+      "region_code": "armenian_highlands_north",
+      "presence": "homeland",
+      "start_year": 1514,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 65,
+      "caveat_kind": "method",
+      "caveat_zh": "1514–1918 奥斯曼（卡尔斯—阿尔达汉 1878–1918 属俄国）；亚美尼亚人至 1915 年仍为显著少数：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+      "caveat_en": "1514–1918 Ottoman (Kars–Ardahan Russian 1878–1918); Armenians remained a large minority until 1915: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1514,
+      "caveat_ey": 1918
+    },
+    {
+      "people_code": "armenians",
+      "region_code": "armenian_highlands_north",
+      "presence": "homeland",
+      "start_year": -600,
+      "end_year": 1915,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": "method",
+      "caveat_zh": "387 年后西部属拜占庭、东部属萨珊；7–9 世纪阿拉伯阿尔米尼亚总督区宗主；本土亚美尼亚诸侯（纳哈拉尔）与巴格拉提德王国自治，按亚美尼亚人着色。",
+      "caveat_en": "After 387 the west was Byzantine and the east Sasanian; in the 7th–9th centuries the Arab emirate of Arminiya held suzerainty. Native Armenian princes (nakharars) and the Bagratid kingdom ruled locally, so the region is colored Armenian.",
+      "caveat_sy": 387,
+      "caveat_ey": 885
+    },
+    {
+      "people_code": "kurds",
+      "region_code": "armenian_highlands_south",
+      "presence": "political_control",
+      "start_year": 1514,
+      "end_year": 1847,
+      "confidence": "low",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "armenian_highlands_south",
+      "presence": "political_control",
+      "start_year": -550,
+      "end_year": -331,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "armenian_highlands_south",
+      "presence": "political_control",
+      "start_year": 1071,
+      "end_year": 1514,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "阿尤布（库尔德裔，1207–1230）与伊儿汗国（蒙古，1243–1335）期按突厥—土库曼统治近似着色。",
+      "caveat_en": "The Ayyubid (Kurdish, 1207–1230) and Ilkhanid (Mongol, 1243–1335) periods are approximated as Turkic–Turkmen rule.",
+      "caveat_sy": 1207,
+      "caveat_ey": 1335
+    },
+    {
+      "people_code": "armenians",
+      "region_code": "armenian_highlands_south",
+      "presence": "homeland",
+      "start_year": -600,
+      "end_year": 1915,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": "method",
+      "caveat_zh": "约 1800 年起凡湖—比特利斯一带亚美尼亚人与库尔德人混居、比例有争论，此处以亚美尼亚人近似着色。",
+      "caveat_en": "From about 1800 the Van–Bitlis area was mixed Armenian and Kurdish in disputed proportions; it is approximated as Armenian here.",
+      "caveat_sy": 1847,
+      "caveat_ey": 1915
+    },
+    {
+      "people_code": "kurds",
+      "region_code": "armenian_highlands_south",
+      "presence": "homeland",
+      "start_year": 1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 55,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -4231,6 +5834,90 @@
       "caveat_ey": 1399
     },
     {
+      "people_code": "greeks",
+      "region_code": "bithynia",
+      "presence": "political_control",
+      "start_year": -334,
+      "end_year": -74,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "比提尼亚王国为希腊化的色雷斯系王朝，按希腊化世界近似着色。",
+      "caveat_en": "The Bithynian kingdom was a Hellenized dynasty of Thracian origin, colored as part of the Hellenistic world.",
+      "caveat_sy": -334,
+      "caveat_ey": -74
+    },
+    {
+      "people_code": "persians",
+      "region_code": "bithynia",
+      "presence": "political_control",
+      "start_year": -546,
+      "end_year": -334,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "bithynia",
+      "presence": "political_control",
+      "start_year": -74,
+      "end_year": 641,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "bithynia",
+      "presence": "political_control",
+      "start_year": 1081,
+      "end_year": 1097,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "bithynia",
+      "presence": "homeland",
+      "start_year": 1326,
+      "end_year": null,
+      "confidence": "high",
+      "render_priority": 80,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "bithynia",
+      "presence": "settlement",
+      "start_year": -700,
+      "end_year": 1923,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
       "people_code": "bosniaks",
       "region_code": "bosnia",
       "presence": "homeland",
@@ -4313,6 +6000,146 @@
       "caveat_en": "Following the population principle, no Ottoman political-control layer is drawn; Ottoman-era populations are shown only as a Turkish/Muslim minority layer.",
       "caveat_sy": 1396,
       "caveat_ey": 1878
+    },
+    {
+      "people_code": "burgundians",
+      "region_code": "burgundy",
+      "presence": "political_control",
+      "start_year": 443,
+      "end_year": 534,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "franks",
+      "region_code": "burgundy",
+      "presence": "political_control",
+      "start_year": 534,
+      "end_year": 900,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "french",
+      "region_code": "burgundy",
+      "presence": "homeland",
+      "start_year": 900,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "888–1032 年勃艮第/阿尔勒王国，1032 年后东部属神圣罗马帝国：里昂 1312、多菲内 1349、弗朗什孔泰 1678（此前属西班牙哈布斯堡）、萨伏依 1860 年方入法国。本区按法兰西着色。",
+      "caveat_en": "The Kingdom of Burgundy/Arles (888–1032), then the Holy Roman Empire, held the east: Lyon joined France in 1312, Dauphiné in 1349, Franche-Comté in 1678 (previously Spanish Habsburg) and Savoy in 1860. The region is colored French.",
+      "caveat_sy": 900,
+      "caveat_ey": 1860
+    },
+    {
+      "people_code": "gauls",
+      "region_code": "burgundy",
+      "presence": "homeland",
+      "start_year": -500,
+      "end_year": -51,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "burgundy",
+      "presence": "political_control",
+      "start_year": -50,
+      "end_year": 443,
+      "confidence": "high",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "cappadocia",
+      "presence": "political_control",
+      "start_year": -331,
+      "end_year": 17,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "卡帕多奇亚王国为伊朗系阿里阿拉特王朝，希腊化宫廷；按希腊化世界近似着色。",
+      "caveat_en": "The Cappadocian kingdom was ruled by the Iranian Ariarathid dynasty with a Hellenized court; it is colored as part of the Hellenistic world.",
+      "caveat_sy": -331,
+      "caveat_ey": 17
+    },
+    {
+      "people_code": "persians",
+      "region_code": "cappadocia",
+      "presence": "political_control",
+      "start_year": -546,
+      "end_year": -331,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "cappadocia",
+      "presence": "political_control",
+      "start_year": 17,
+      "end_year": 641,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "cappadocia",
+      "presence": "homeland",
+      "start_year": 1075,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 80,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "cappadocia",
+      "presence": "homeland",
+      "start_year": 641,
+      "end_year": 1923,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "avars",
@@ -4539,6 +6366,300 @@
       "caveat_ey": null
     },
     {
+      "people_code": "franks",
+      "region_code": "central_italy",
+      "presence": "political_control",
+      "start_year": 756,
+      "end_year": 962,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "central_italy",
+      "presence": "political_control",
+      "start_year": 700,
+      "end_year": 756,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "托斯卡纳与斯波莱托公国属伦巴第（751 年伦巴第攻陷拉文纳）；拜占庭仅保罗马公国与拉文纳走廊。",
+      "caveat_en": "Tuscany and the Duchy of Spoleto were Lombard (the Lombards took Ravenna in 751); Byzantium held only the Duchy of Rome and the Ravenna corridor.",
+      "caveat_sy": 700,
+      "caveat_ey": 756
+    },
+    {
+      "people_code": "ostrogoths",
+      "region_code": "central_italy",
+      "presence": "political_control",
+      "start_year": 493,
+      "end_year": 553,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "central_italy",
+      "presence": "political_control",
+      "start_year": 553,
+      "end_year": 700,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "568 年后托斯卡纳（图西亚）与斯波莱托公国属伦巴第；拜占庭仅保拉文纳—佩鲁贾—罗马走廊与五城，756 年起为教皇国。",
+      "caveat_en": "After 568 Tuscany (Tuscia) and the Duchy of Spoleto were Lombard; Byzantium kept only the Ravenna–Perugia–Rome corridor and the Pentapolis, which became the Papal States from 756.",
+      "caveat_sy": 568,
+      "caveat_ey": 700
+    },
+    {
+      "people_code": "italians",
+      "region_code": "central_italy",
+      "presence": "homeland",
+      "start_year": 1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "教皇国存续至 1870 年罗马并入意大利王国。",
+      "caveat_en": "The Papal States survived until Rome joined the Kingdom of Italy in 1870.",
+      "caveat_sy": 1000,
+      "caveat_ey": 1870
+    },
+    {
+      "people_code": "latins",
+      "region_code": "central_italy",
+      "presence": "homeland",
+      "start_year": -800,
+      "end_year": -264,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": "method",
+      "caveat_zh": "托斯卡纳—拉齐奥北部为伊特鲁里亚人（本图未建模），此处按意大利语族诸部近似着色。",
+      "caveat_en": "Tuscany and northern Lazio were Etruscan (not modeled here); the region is approximated by the Italic peoples.",
+      "caveat_sy": -800,
+      "caveat_ey": -264
+    },
+    {
+      "people_code": "romans",
+      "region_code": "central_italy",
+      "presence": "homeland",
+      "start_year": -264,
+      "end_year": 493,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "lombards",
+      "region_code": "central_italy",
+      "presence": "settlement",
+      "start_year": 774,
+      "end_year": 1000,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "visigoths",
+      "region_code": "central_italy",
+      "presence": "migration",
+      "start_year": 401,
+      "end_year": 412,
+      "confidence": "medium",
+      "render_priority": 40,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "cilicia",
+      "presence": "political_control",
+      "start_year": 700,
+      "end_year": 965,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "armenians",
+      "region_code": "cilicia",
+      "presence": "political_control",
+      "start_year": 1080,
+      "end_year": 1375,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "哈塔伊（安条克）1098–1268 年属十字军安条克公国，本区按奇里乞亚亚美尼亚着色。",
+      "caveat_en": "Hatay (Antioch) belonged to the Crusader Principality of Antioch in 1098–1268; the region is colored by Cilician Armenia.",
+      "caveat_sy": 1098,
+      "caveat_ey": 1268
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "cilicia",
+      "presence": "political_control",
+      "start_year": -333,
+      "end_year": -64,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "cilicia",
+      "presence": "political_control",
+      "start_year": -546,
+      "end_year": -334,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "cilicia",
+      "presence": "political_control",
+      "start_year": -64,
+      "end_year": 641,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "cilicia",
+      "presence": "homeland",
+      "start_year": 1375,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 80,
+      "caveat_kind": "method",
+      "caveat_zh": "1375–1517 马穆鲁克宗主下的土库曼拉马赞贝伊国；哈塔伊（安条克）1939 年前属叙利亚，阿拉伯—阿拉维人口众多。",
+      "caveat_en": "Turkmen Ramadanid beylik under Mamluk suzerainty (1375–1517); Hatay (Antioch) belonged to Syria until 1939 and has a large Arab–Alawite population.",
+      "caveat_sy": 1375,
+      "caveat_ey": 1939
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "cilicia",
+      "presence": "settlement",
+      "start_year": -700,
+      "end_year": 1923,
+      "confidence": "low",
+      "render_priority": 55,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "crusaders",
+      "region_code": "constantinople",
+      "presence": "political_control",
+      "start_year": 1204,
+      "end_year": 1261,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "constantinople",
+      "presence": "political_control",
+      "start_year": -513,
+      "end_year": -478,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "constantinople",
+      "presence": "political_control",
+      "start_year": 73,
+      "end_year": 641,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "constantinople",
+      "presence": "homeland",
+      "start_year": 1453,
+      "end_year": null,
+      "confidence": "high",
+      "render_priority": 75,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "constantinople",
+      "presence": "settlement",
+      "start_year": -667,
+      "end_year": 1923,
+      "confidence": "high",
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
       "people_code": "arabs_crete",
       "region_code": "crete",
       "presence": "political_control",
@@ -4679,6 +6800,160 @@
       "caveat_ey": null
     },
     {
+      "people_code": "crusaders",
+      "region_code": "cyprus",
+      "presence": "political_control",
+      "start_year": 1192,
+      "end_year": 1489,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "cyprus",
+      "presence": "political_control",
+      "start_year": -545,
+      "end_year": -332,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "塞浦路斯诸城邦王国在波斯宗主下保有本地王统。",
+      "caveat_en": "The city-kingdoms of Cyprus kept their native kings under Persian suzerainty.",
+      "caveat_sy": -545,
+      "caveat_ey": -332
+    },
+    {
+      "people_code": "romans",
+      "region_code": "cyprus",
+      "presence": "political_control",
+      "start_year": -58,
+      "end_year": 641,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "cyprus",
+      "presence": "homeland",
+      "start_year": -800,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1489–1571 威尼斯、1571–1878 奥斯曼、1878–1960 英国统治；按着色原则以主体人群着色。",
+      "caveat_en": "Venetian (1489–1571), Ottoman (1571–1878) and British (1878–1960) rule; following the coloring principle the island is colored by its main population.",
+      "caveat_sy": 1489,
+      "caveat_ey": 1960
+    },
+    {
+      "people_code": "phoenicians",
+      "region_code": "cyprus",
+      "presence": "settlement",
+      "start_year": -850,
+      "end_year": -312,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "cyprus",
+      "presence": "minority",
+      "start_year": 1571,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 40,
+      "caveat_kind": "disputed",
+      "caveat_zh": "1974 年土耳其出兵后岛屿分治，北部「北塞浦路斯土耳其共和国」仅土耳其承认；本图塞浦路斯为整区，按全岛人口多数着色。",
+      "caveat_en": "Since the Turkish intervention of 1974 the island has been divided; the northern \"Turkish Republic of Northern Cyprus\" is recognized only by Turkey. Cyprus is a single region here, colored by the island-wide majority.",
+      "caveat_sy": 1974,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "cyrenaica",
+      "presence": "political_control",
+      "start_year": 642,
+      "end_year": 1551,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "cyrenaica",
+      "presence": "settlement",
+      "start_year": -631,
+      "end_year": -74,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "cyrenaica",
+      "presence": "political_control",
+      "start_year": -74,
+      "end_year": 642,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "cyrenaica",
+      "presence": "homeland",
+      "start_year": 1051,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1551–1911 奥斯曼（1711–1835 卡拉曼利王朝自治）、1911–1943 意大利：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+      "caveat_en": "1551–1911 Ottoman (autonomous Karamanli dynasty 1711–1835), 1911–1943 Italian: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1551,
+      "caveat_ey": 1951
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "cyrenaica",
+      "presence": "homeland",
+      "start_year": -1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
       "people_code": "czechs",
       "region_code": "czechia",
       "presence": "homeland",
@@ -4763,6 +7038,34 @@
       "caveat_ey": 1913
     },
     {
+      "people_code": "persians",
+      "region_code": "east_thrace",
+      "presence": "political_control",
+      "start_year": -513,
+      "end_year": -479,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "east_thrace",
+      "presence": "political_control",
+      "start_year": 46,
+      "end_year": 700,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
       "people_code": "greeks",
       "region_code": "east_thrace",
       "presence": "homeland",
@@ -4784,6 +7087,20 @@
       "end_year": null,
       "confidence": "medium",
       "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "thracians",
+      "region_code": "east_thrace",
+      "presence": "homeland",
+      "start_year": -1000,
+      "end_year": 500,
+      "confidence": "medium",
+      "render_priority": 60,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -4987,13 +7304,83 @@
       "caveat_ey": null
     },
     {
-      "people_code": "french",
-      "region_code": "france",
+      "people_code": "greeks",
+      "region_code": "galatia",
+      "presence": "political_control",
+      "start_year": -334,
+      "end_year": -25,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "前 278 年起凯尔特加拉太人在此定居建国（悬停可见），整区按希腊化世界近似着色。",
+      "caveat_en": "From 278 BC the Celtic Galatians settled here and formed their own states (shown on hover); the region is approximated as part of the Hellenistic world.",
+      "caveat_sy": -278,
+      "caveat_ey": -25
+    },
+    {
+      "people_code": "persians",
+      "region_code": "galatia",
+      "presence": "political_control",
+      "start_year": -546,
+      "end_year": -334,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "galatia",
+      "presence": "political_control",
+      "start_year": -25,
+      "end_year": 641,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "galatia",
       "presence": "homeland",
-      "start_year": 900,
+      "start_year": 1075,
       "end_year": null,
       "confidence": "medium",
-      "render_priority": 70,
+      "render_priority": 80,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "celts",
+      "region_code": "galatia",
+      "presence": "settlement",
+      "start_year": -278,
+      "end_year": -25,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "galatia",
+      "presence": "homeland",
+      "start_year": 641,
+      "end_year": 1923,
+      "confidence": "medium",
+      "render_priority": 60,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -5113,90 +7500,6 @@
       "caveat_ey": null
     },
     {
-      "people_code": "franks",
-      "region_code": "gaul",
-      "presence": "settlement",
-      "start_year": 476,
-      "end_year": 900,
-      "confidence": "medium",
-      "render_priority": 90,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "gauls",
-      "region_code": "gaul",
-      "presence": "homeland",
-      "start_year": -500,
-      "end_year": -51,
-      "confidence": "medium",
-      "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "romans",
-      "region_code": "gaul",
-      "presence": "political_control",
-      "start_year": -50,
-      "end_year": 476,
-      "confidence": "high",
-      "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "burgundians",
-      "region_code": "gaul",
-      "presence": "settlement",
-      "start_year": 407,
-      "end_year": 600,
-      "confidence": "medium",
-      "render_priority": 50,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "french",
-      "region_code": "gaul",
-      "presence": "settlement",
-      "start_year": 900,
-      "end_year": null,
-      "confidence": "low",
-      "render_priority": 50,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "visigoths",
-      "region_code": "gaul",
-      "presence": "settlement",
-      "start_year": 412,
-      "end_year": 507,
-      "confidence": "high",
-      "render_priority": 50,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
       "people_code": "georgians",
       "region_code": "georgia",
       "presence": "homeland",
@@ -5239,6 +7542,188 @@
       "caveat_ey": null
     },
     {
+      "people_code": "arabs_north_africa",
+      "region_code": "ifriqiya",
+      "presence": "political_control",
+      "start_year": 698,
+      "end_year": 972,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "ifriqiya",
+      "presence": "political_control",
+      "start_year": 972,
+      "end_year": 1574,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "carthaginians",
+      "region_code": "ifriqiya",
+      "presence": "settlement",
+      "start_year": -814,
+      "end_year": -146,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "ifriqiya",
+      "presence": "political_control",
+      "start_year": -146,
+      "end_year": 439,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "ifriqiya",
+      "presence": "political_control",
+      "start_year": 534,
+      "end_year": 698,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "vandals",
+      "region_code": "ifriqiya",
+      "presence": "political_control",
+      "start_year": 439,
+      "end_year": 534,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "ifriqiya",
+      "presence": "homeland",
+      "start_year": 1051,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1574–1881 奥斯曼（1705 起侯赛因王朝自治）、1881–1956 法国保护国：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+      "caveat_en": "1574–1881 Ottoman (autonomous Husainid beys from 1705), 1881–1956 French protectorate: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1574,
+      "caveat_ey": 1956
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "ifriqiya",
+      "presence": "homeland",
+      "start_year": -1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "ionia",
+      "presence": "political_control",
+      "start_year": -334,
+      "end_year": -133,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "ionia",
+      "presence": "political_control",
+      "start_year": -546,
+      "end_year": -334,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "ionia",
+      "presence": "political_control",
+      "start_year": -133,
+      "end_year": 641,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "ionia",
+      "presence": "homeland",
+      "start_year": 1300,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 80,
+      "caveat_kind": "method",
+      "caveat_zh": "士麦那等沿海城市希腊裔人口众多，至 1922–1923 年。",
+      "caveat_en": "Smyrna and other coastal towns had large Greek populations until 1922–1923.",
+      "caveat_sy": 1800,
+      "caveat_ey": 1923
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "ionia",
+      "presence": "settlement",
+      "start_year": -800,
+      "end_year": 1923,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": "method",
+      "caveat_zh": "前 6 世纪前内陆为吕底亚、卡里亚、弗里吉亚人（本图未建模），此处按沿海希腊城邦着色整区。",
+      "caveat_en": "Before the 6th century BC the interior belonged to Lydians, Carians and Phrygians (not modeled); the region is colored by the coastal Greek cities.",
+      "caveat_sy": -800,
+      "caveat_ey": -547
+    },
+    {
       "people_code": "irish",
       "region_code": "ireland",
       "presence": "homeland",
@@ -5267,12 +7752,40 @@
       "caveat_ey": null
     },
     {
-      "people_code": "franks",
-      "region_code": "italy",
+      "people_code": "persians",
+      "region_code": "jazira",
       "presence": "political_control",
-      "start_year": 774,
-      "end_year": 962,
-      "confidence": "high",
+      "start_year": 609,
+      "end_year": 628,
+      "confidence": "low",
+      "render_priority": 95,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "jazira",
+      "presence": "political_control",
+      "start_year": 638,
+      "end_year": 1516,
+      "confidence": "low",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "12 世纪起赞吉（突厥）、阿尤布（库尔德）、马穆鲁克统治集团非阿拉伯人；1260–1303 年为蒙古—马穆鲁克拉锯区。",
+      "caveat_en": "From the 12th century the Zengid (Turkic), Ayyubid (Kurdish) and Mamluk elites were not Arab; 1260–1303 was a Mongol–Mamluk battleground.",
+      "caveat_sy": 1127,
+      "caveat_ey": 1516
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "jazira",
+      "presence": "political_control",
+      "start_year": -331,
+      "end_year": -64,
+      "confidence": "low",
       "render_priority": 90,
       "caveat_kind": null,
       "caveat_zh": null,
@@ -5281,12 +7794,12 @@
       "caveat_ey": null
     },
     {
-      "people_code": "lombards",
-      "region_code": "italy",
+      "people_code": "persians",
+      "region_code": "jazira",
       "presence": "political_control",
-      "start_year": 568,
-      "end_year": 774,
-      "confidence": "medium",
+      "start_year": -539,
+      "end_year": -331,
+      "confidence": "low",
       "render_priority": 90,
       "caveat_kind": null,
       "caveat_zh": null,
@@ -5295,12 +7808,12 @@
       "caveat_ey": null
     },
     {
-      "people_code": "ostrogoths",
-      "region_code": "italy",
+      "people_code": "romans",
+      "region_code": "jazira",
       "presence": "political_control",
-      "start_year": 493,
-      "end_year": 553,
-      "confidence": "high",
+      "start_year": -64,
+      "end_year": 638,
+      "confidence": "low",
       "render_priority": 90,
       "caveat_kind": null,
       "caveat_zh": null,
@@ -5309,83 +7822,27 @@
       "caveat_ey": null
     },
     {
-      "people_code": "italians",
-      "region_code": "italy",
+      "people_code": "arabs_levant",
+      "region_code": "jazira",
       "presence": "homeland",
-      "start_year": 1000,
+      "start_year": 700,
       "end_year": null,
-      "confidence": "medium",
+      "confidence": "low",
       "render_priority": 70,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
+      "caveat_kind": "method",
+      "caveat_zh": "1516–1918 奥斯曼、1920–1946 法国委任统治；东北部库尔德人比例高：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+      "caveat_en": "1516–1918 Ottoman, 1920–1946 French mandate; the northeast has a large Kurdish population: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1516,
+      "caveat_ey": 1946
     },
     {
-      "people_code": "latins",
-      "region_code": "italy",
+      "people_code": "arameans",
+      "region_code": "jazira",
       "presence": "homeland",
-      "start_year": -800,
-      "end_year": 500,
-      "confidence": "medium",
-      "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "romans",
-      "region_code": "italy",
-      "presence": "homeland",
-      "start_year": -500,
-      "end_year": -27,
-      "confidence": "medium",
-      "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "lombards",
-      "region_code": "italy",
-      "presence": "settlement",
-      "start_year": 774,
-      "end_year": 1000,
-      "confidence": "medium",
-      "render_priority": 50,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "romans",
-      "region_code": "italy",
-      "presence": "settlement",
-      "start_year": 476,
-      "end_year": 600,
+      "start_year": -1000,
+      "end_year": null,
       "confidence": "low",
       "render_priority": 50,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "visigoths",
-      "region_code": "italy",
-      "presence": "migration",
-      "start_year": 401,
-      "end_year": 412,
-      "confidence": "medium",
-      "render_priority": 40,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -5400,6 +7857,90 @@
       "end_year": null,
       "confidence": "medium",
       "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "franks",
+      "region_code": "languedoc",
+      "presence": "political_control",
+      "start_year": 759,
+      "end_year": 900,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "moors",
+      "region_code": "languedoc",
+      "presence": "political_control",
+      "start_year": 720,
+      "end_year": 759,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "visigoths",
+      "region_code": "languedoc",
+      "presence": "political_control",
+      "start_year": 418,
+      "end_year": 720,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "507 年后仅塞蒂马尼亚（朗格多克沿海，约本区东半）属西哥特，图卢兹已归法兰克。",
+      "caveat_en": "After 507 only Septimania (coastal Languedoc, roughly the east of the region) remained Visigothic; Toulouse had passed to the Franks.",
+      "caveat_sy": 507,
+      "caveat_ey": 720
+    },
+    {
+      "people_code": "french",
+      "region_code": "languedoc",
+      "presence": "homeland",
+      "start_year": 900,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "图卢兹伯国长期自治，1271 年并入法国王室；鲁西永 1659 年比利牛斯和约前属阿拉贡/西班牙（加泰罗尼亚语区）。",
+      "caveat_en": "The County of Toulouse was long autonomous and joined the French crown in 1271; Roussillon belonged to Aragon/Spain (Catalan-speaking) until the Treaty of the Pyrenees in 1659.",
+      "caveat_sy": 900,
+      "caveat_ey": 1659
+    },
+    {
+      "people_code": "gauls",
+      "region_code": "languedoc",
+      "presence": "homeland",
+      "start_year": -500,
+      "end_year": -122,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "languedoc",
+      "presence": "political_control",
+      "start_year": -121,
+      "end_year": 418,
+      "confidence": "high",
+      "render_priority": 60,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -5477,6 +8018,132 @@
       "caveat_ey": null
     },
     {
+      "people_code": "franks",
+      "region_code": "luxembourg",
+      "presence": "political_control",
+      "start_year": 450,
+      "end_year": 900,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "germans",
+      "region_code": "luxembourg",
+      "presence": "homeland",
+      "start_year": 900,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "卢森堡人以卢森堡语（摩泽尔法兰克方言）为母语，本图归入德意志人近似；1839 年起为独立国家。",
+      "caveat_en": "Luxembourgers speak Luxembourgish (a Moselle Franconian dialect) and are approximated here as Germans; Luxembourg has been independent since 1839.",
+      "caveat_sy": 900,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "gauls",
+      "region_code": "luxembourg",
+      "presence": "homeland",
+      "start_year": -500,
+      "end_year": -51,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "luxembourg",
+      "presence": "political_control",
+      "start_year": -50,
+      "end_year": 450,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "lycaonia",
+      "presence": "political_control",
+      "start_year": -334,
+      "end_year": -25,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "lycaonia",
+      "presence": "political_control",
+      "start_year": -546,
+      "end_year": -334,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "lycaonia",
+      "presence": "political_control",
+      "start_year": -25,
+      "end_year": 641,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "lycaonia",
+      "presence": "homeland",
+      "start_year": 1084,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 80,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "lycaonia",
+      "presence": "homeland",
+      "start_year": 641,
+      "end_year": 1923,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
       "people_code": "macedonians",
       "region_code": "macedonia",
       "presence": "homeland",
@@ -5545,6 +8212,258 @@
       "caveat_en": "Masurians spoke a Polish dialect but mostly identified with Prussia (over 97% in the Allenstein area voted to remain in East Prussia in 1920), so they are listed separately rather than as Poles; by population the region's main colour remains German.",
       "caveat_sy": 1400,
       "caveat_ey": 1945
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "mauretania_caesariensis",
+      "presence": "political_control",
+      "start_year": 710,
+      "end_year": 740,
+      "confidence": "low",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "mauretania_caesariensis",
+      "presence": "political_control",
+      "start_year": 909,
+      "end_year": 972,
+      "confidence": "low",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "mauretania_caesariensis",
+      "presence": "political_control",
+      "start_year": -220,
+      "end_year": 40,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "mauretania_caesariensis",
+      "presence": "political_control",
+      "start_year": 430,
+      "end_year": 710,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "mauretania_caesariensis",
+      "presence": "political_control",
+      "start_year": 740,
+      "end_year": 909,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "mauretania_caesariensis",
+      "presence": "political_control",
+      "start_year": 972,
+      "end_year": 1556,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "mauretania_caesariensis",
+      "presence": "political_control",
+      "start_year": 40,
+      "end_year": 430,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "mauretania_caesariensis",
+      "presence": "homeland",
+      "start_year": 1200,
+      "end_year": null,
+      "confidence": "low",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1556–1830 奥斯曼阿尔及尔摄政、1830–1962 法属阿尔及利亚：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+      "caveat_en": "1556–1830 Ottoman Regency of Algiers, 1830–1962 French Algeria: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1556,
+      "caveat_ey": 1962
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "mauretania_caesariensis",
+      "presence": "homeland",
+      "start_year": -1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "mauretania_tingitana",
+      "presence": "political_control",
+      "start_year": 708,
+      "end_year": 740,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "mauretania_tingitana",
+      "presence": "political_control",
+      "start_year": 788,
+      "end_year": 974,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "mauretania_tingitana",
+      "presence": "political_control",
+      "start_year": 1549,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "1912–1956 年法国/西班牙保护国：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+      "caveat_en": "1912–1956 French/Spanish protectorate: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1912,
+      "caveat_ey": 1956
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "mauretania_tingitana",
+      "presence": "political_control",
+      "start_year": -300,
+      "end_year": 40,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "mauretania_tingitana",
+      "presence": "political_control",
+      "start_year": 429,
+      "end_year": 708,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "mauretania_tingitana",
+      "presence": "political_control",
+      "start_year": 740,
+      "end_year": 788,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "mauretania_tingitana",
+      "presence": "political_control",
+      "start_year": 974,
+      "end_year": 1549,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "mauretania_tingitana",
+      "presence": "political_control",
+      "start_year": 40,
+      "end_year": 429,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "mauretania_tingitana",
+      "presence": "homeland",
+      "start_year": -1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
     },
     {
       "people_code": "montenegrins",
@@ -5659,11 +8578,11 @@
       "caveat_ey": null
     },
     {
-      "people_code": "romans",
-      "region_code": "north_africa",
+      "people_code": "franks",
+      "region_code": "north_france",
       "presence": "political_control",
-      "start_year": 534,
-      "end_year": 698,
+      "start_year": 476,
+      "end_year": 900,
       "confidence": "medium",
       "render_priority": 90,
       "caveat_kind": null,
@@ -5673,13 +8592,153 @@
       "caveat_ey": null
     },
     {
-      "people_code": "vandals",
-      "region_code": "north_africa",
+      "people_code": "french",
+      "region_code": "north_france",
+      "presence": "homeland",
+      "start_year": 900,
+      "end_year": null,
+      "confidence": "high",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "诺曼底：911 年封予诺斯人罗洛（诺曼公国），1066–1204 年诺曼底公爵兼英格兰国王；百年战争中北法一度为英格兰占领（1420–1435）。本区按法兰西着色。",
+      "caveat_en": "Normandy was granted to the Norseman Rollo in 911; its dukes were also kings of England in 1066–1204, and much of northern France was English-occupied in 1420–1435. The region is colored French.",
+      "caveat_sy": 911,
+      "caveat_ey": 1435
+    },
+    {
+      "people_code": "gauls",
+      "region_code": "north_france",
+      "presence": "homeland",
+      "start_year": -500,
+      "end_year": -51,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "north_france",
       "presence": "political_control",
-      "start_year": 435,
-      "end_year": 534,
+      "start_year": -50,
+      "end_year": 476,
+      "confidence": "high",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "franks",
+      "region_code": "north_italy",
+      "presence": "political_control",
+      "start_year": 774,
+      "end_year": 962,
       "confidence": "high",
       "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "lombards",
+      "region_code": "north_italy",
+      "presence": "political_control",
+      "start_year": 568,
+      "end_year": 774,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "拉文纳总督区（艾米利亚—罗马涅东部）与威尼斯潟湖属拜占庭至 751 年。",
+      "caveat_en": "The Exarchate of Ravenna (eastern Emilia-Romagna) and the Venetian lagoon remained Byzantine until 751.",
+      "caveat_sy": 568,
+      "caveat_ey": 751
+    },
+    {
+      "people_code": "ostrogoths",
+      "region_code": "north_italy",
+      "presence": "political_control",
+      "start_year": 493,
+      "end_year": 553,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "north_italy",
+      "presence": "political_control",
+      "start_year": 553,
+      "end_year": 568,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "italians",
+      "region_code": "north_italy",
+      "presence": "homeland",
+      "start_year": 1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "威尼斯共和国（至 1797）、西班牙米兰（1535–1714）、奥地利伦巴第—威尼托（1714/1815–1859/1866）；南蒂罗尔以德语人口为主（1919 年归意大利）。本区按意大利人着色。",
+      "caveat_en": "The Republic of Venice (to 1797), Spanish Milan (1535–1714) and Austrian Lombardy–Venetia (1714/1815–1859/1866); South Tyrol is mainly German-speaking (Italian since 1919). The region is colored Italian.",
+      "caveat_sy": 1000,
+      "caveat_ey": 1866
+    },
+    {
+      "people_code": "gauls",
+      "region_code": "north_italy",
+      "presence": "homeland",
+      "start_year": -400,
+      "end_year": -191,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": "method",
+      "caveat_zh": "高卢人入侵前及同期，伊特鲁里亚人（波河平原南部）、利古里亚人、威尼蒂人未单独建模。",
+      "caveat_en": "Etruscans (southern Po Valley), Ligurians and Veneti, before and alongside the Gauls, are not modeled separately.",
+      "caveat_sy": -400,
+      "caveat_ey": -191
+    },
+    {
+      "people_code": "romans",
+      "region_code": "north_italy",
+      "presence": "homeland",
+      "start_year": -191,
+      "end_year": 493,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "lombards",
+      "region_code": "north_italy",
+      "presence": "settlement",
+      "start_year": 774,
+      "end_year": 1000,
+      "confidence": "medium",
+      "render_priority": 50,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -5785,6 +8844,132 @@
       "caveat_ey": null
     },
     {
+      "people_code": "arabs_north_africa",
+      "region_code": "numidia",
+      "presence": "political_control",
+      "start_year": 702,
+      "end_year": 972,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "numidia",
+      "presence": "political_control",
+      "start_year": -202,
+      "end_year": -46,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "numidia",
+      "presence": "political_control",
+      "start_year": 683,
+      "end_year": 702,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "numidia",
+      "presence": "political_control",
+      "start_year": 972,
+      "end_year": 1529,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "numidia",
+      "presence": "political_control",
+      "start_year": -46,
+      "end_year": 435,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "numidia",
+      "presence": "political_control",
+      "start_year": 534,
+      "end_year": 683,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "vandals",
+      "region_code": "numidia",
+      "presence": "political_control",
+      "start_year": 435,
+      "end_year": 534,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "numidia",
+      "presence": "homeland",
+      "start_year": 1150,
+      "end_year": null,
+      "confidence": "low",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1529–1830 奥斯曼阿尔及尔摄政、1830–1962 法属阿尔及利亚；卡比利亚与奥雷斯山区以柏柏尔语人群为主：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+      "caveat_en": "1529–1830 Ottoman Regency of Algiers, 1830–1962 French Algeria; Kabylia and the Aurès remain predominantly Berber-speaking: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1529,
+      "caveat_ey": 1962
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "numidia",
+      "presence": "homeland",
+      "start_year": -1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
       "people_code": "germans",
       "region_code": "old_saxony",
       "presence": "homeland",
@@ -5862,6 +9047,230 @@
       "end_year": 1160,
       "confidence": "medium",
       "render_priority": 45,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "palaestina",
+      "presence": "political_control",
+      "start_year": 614,
+      "end_year": 628,
+      "confidence": "high",
+      "render_priority": 95,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "palaestina",
+      "presence": "political_control",
+      "start_year": 636,
+      "end_year": 1099,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "palaestina",
+      "presence": "political_control",
+      "start_year": 1187,
+      "end_year": 1516,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "阿尤布（库尔德）、马穆鲁克（突厥—切尔克斯）统治集团非阿拉伯人；十字军沿海残余至 1291 年。",
+      "caveat_en": "The Ayyubid (Kurdish) and Mamluk (Turkic–Circassian) elites were not Arab; a Crusader coastal remnant survived until 1291.",
+      "caveat_sy": 1187,
+      "caveat_ey": 1516
+    },
+    {
+      "people_code": "crusaders",
+      "region_code": "palaestina",
+      "presence": "political_control",
+      "start_year": 1099,
+      "end_year": 1187,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "palaestina",
+      "presence": "political_control",
+      "start_year": -332,
+      "end_year": -140,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "jews",
+      "region_code": "palaestina",
+      "presence": "political_control",
+      "start_year": -140,
+      "end_year": -63,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "palaestina",
+      "presence": "political_control",
+      "start_year": -539,
+      "end_year": -332,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "耶胡德行省为犹太人自治的第二圣殿时代。",
+      "caveat_en": "The province of Yehud was a self-governing Jewish community of the Second Temple period.",
+      "caveat_sy": -539,
+      "caveat_ey": -332
+    },
+    {
+      "people_code": "romans",
+      "region_code": "palaestina",
+      "presence": "political_control",
+      "start_year": -63,
+      "end_year": 636,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "前 37–前 4 年希律王国为罗马附庸王国（其后诸分封王至 44/100 年），按罗马着色。",
+      "caveat_en": "The Herodian kingdom (37–4 BC, then tetrarchies to 44/100 AD) was a Roman client state and is colored as Roman.",
+      "caveat_sy": -37,
+      "caveat_ey": 44
+    },
+    {
+      "people_code": "jews",
+      "region_code": "palaestina",
+      "presence": "homeland",
+      "start_year": 1948,
+      "end_year": null,
+      "confidence": "high",
+      "render_priority": 80,
+      "caveat_kind": "disputed",
+      "caveat_zh": "本区为 303 年巴勒斯坦行省近似（含以色列、约旦河西岸、加沙，并含西奈与约旦南部），犹太人与阿拉伯人数量大致相当、政治归属有争议；按约定 1948 年起着色为犹太人，阿拉伯人见悬停第二层。",
+      "caveat_en": "This region approximates the 303 province of Palaestina (Israel, the West Bank and Gaza, plus Sinai and southern Jordan); Jewish and Arab populations are roughly comparable and sovereignty is disputed. By project decision it is colored Jewish from 1948; Arabs appear as the second layer on hover.",
+      "caveat_sy": 1948,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "palaestina",
+      "presence": "homeland",
+      "start_year": 900,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1516–1917 奥斯曼、1917–1948 英国委任统治：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+      "caveat_en": "1516–1917 Ottoman, 1917–1948 British mandate: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1516,
+      "caveat_ey": 1947
+    },
+    {
+      "people_code": "jews",
+      "region_code": "palaestina",
+      "presence": "homeland",
+      "start_year": -1000,
+      "end_year": 135,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "前 732 年起新亚述、新巴比伦先后征服（前 586 年耶路撒冷陷落），本图无对应族群，以犹太人着色。",
+      "caveat_en": "Neo-Assyria and Neo-Babylon conquered the land from 732 BC (Jerusalem fell in 586 BC); with no corresponding peoples here, it is colored Jewish.",
+      "caveat_sy": -732,
+      "caveat_ey": -539
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "pamphylia",
+      "presence": "political_control",
+      "start_year": -334,
+      "end_year": -25,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "pamphylia",
+      "presence": "political_control",
+      "start_year": -546,
+      "end_year": -334,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "pamphylia",
+      "presence": "political_control",
+      "start_year": -25,
+      "end_year": 641,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "pamphylia",
+      "presence": "homeland",
+      "start_year": 1207,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 80,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "pamphylia",
+      "presence": "settlement",
+      "start_year": -700,
+      "end_year": 1923,
+      "confidence": "medium",
+      "render_priority": 60,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -5953,6 +9362,202 @@
       "caveat_ey": null
     },
     {
+      "people_code": "greeks",
+      "region_code": "paphlagonia",
+      "presence": "political_control",
+      "start_year": -334,
+      "end_year": -63,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "本都王国为波斯系米特拉达梯王朝，希腊化宫廷；按希腊化世界近似着色。",
+      "caveat_en": "The Pontic kingdom was ruled by the Persian-descended Mithridatic dynasty with a Hellenized court; it is colored as part of the Hellenistic world.",
+      "caveat_sy": -334,
+      "caveat_ey": -63
+    },
+    {
+      "people_code": "persians",
+      "region_code": "paphlagonia",
+      "presence": "political_control",
+      "start_year": -546,
+      "end_year": -334,
+      "confidence": "low",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "paphlagonia",
+      "presence": "political_control",
+      "start_year": -63,
+      "end_year": 641,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "paphlagonia",
+      "presence": "homeland",
+      "start_year": 1100,
+      "end_year": null,
+      "confidence": "low",
+      "render_priority": 80,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "paphlagonia",
+      "presence": "settlement",
+      "start_year": -631,
+      "end_year": 1923,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "phoenicia",
+      "presence": "political_control",
+      "start_year": 613,
+      "end_year": 628,
+      "confidence": "medium",
+      "render_priority": 95,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "phoenicia",
+      "presence": "political_control",
+      "start_year": 636,
+      "end_year": 1110,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "phoenicia",
+      "presence": "political_control",
+      "start_year": 1291,
+      "end_year": 1516,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "马穆鲁克（突厥—切尔克斯）统治集团非阿拉伯人。",
+      "caveat_en": "The Mamluk (Turkic–Circassian) elite was not Arab.",
+      "caveat_sy": 1291,
+      "caveat_ey": 1516
+    },
+    {
+      "people_code": "crusaders",
+      "region_code": "phoenicia",
+      "presence": "political_control",
+      "start_year": 1110,
+      "end_year": 1291,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "phoenicia",
+      "presence": "political_control",
+      "start_year": -332,
+      "end_year": -64,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "phoenicia",
+      "presence": "political_control",
+      "start_year": -539,
+      "end_year": -332,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "推罗、西顿、比布鲁斯在波斯宗主下保有本地王统。",
+      "caveat_en": "Tyre, Sidon and Byblos kept their native kings under Persian suzerainty.",
+      "caveat_sy": -539,
+      "caveat_ey": -332
+    },
+    {
+      "people_code": "romans",
+      "region_code": "phoenicia",
+      "presence": "political_control",
+      "start_year": -64,
+      "end_year": 636,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "phoenicia",
+      "presence": "homeland",
+      "start_year": 900,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1516–1918 奥斯曼（黎巴嫩山埃米尔国自治）、1920–1943 法国委任统治：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+      "caveat_en": "1516–1918 Ottoman (autonomous Emirate of Mount Lebanon), 1920–1943 French mandate: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1516,
+      "caveat_ey": 1943
+    },
+    {
+      "people_code": "phoenicians",
+      "region_code": "phoenicia",
+      "presence": "homeland",
+      "start_year": -1000,
+      "end_year": -64,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "前 9–前 6 世纪新亚述与新巴比伦先后为宗主（前 573 年尼布甲尼撒破推罗），本图无对应族群，以腓尼基诸城邦着色。",
+      "caveat_en": "Neo-Assyria and Neo-Babylon held suzerainty in the 9th–6th centuries BC (Nebuchadnezzar took Tyre in 573 BC); with no corresponding peoples here, the cities are colored Phoenician.",
+      "caveat_sy": -858,
+      "caveat_ey": -539
+    },
+    {
       "people_code": "poles",
       "region_code": "poland",
       "presence": "homeland",
@@ -6016,6 +9621,76 @@
       "end_year": -100,
       "confidence": "low",
       "render_priority": 45,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "pontus",
+      "presence": "political_control",
+      "start_year": -281,
+      "end_year": 64,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "pontus",
+      "presence": "political_control",
+      "start_year": -546,
+      "end_year": -334,
+      "confidence": "low",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "pontus",
+      "presence": "political_control",
+      "start_year": 64,
+      "end_year": 641,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "turks",
+      "region_code": "pontus",
+      "presence": "homeland",
+      "start_year": 1461,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 80,
+      "caveat_kind": "method",
+      "caveat_zh": "本都希腊人与拉兹人在沿海长期存续，希腊裔至 1923 年人口交换。",
+      "caveat_en": "Pontic Greeks and Laz remained numerous along the coast; the Greeks until the 1923 exchange.",
+      "caveat_sy": 1461,
+      "caveat_ey": 1923
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "pontus",
+      "presence": "settlement",
+      "start_year": -756,
+      "end_year": 1923,
+      "confidence": "medium",
+      "render_priority": 70,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -6107,13 +9782,97 @@
       "caveat_ey": null
     },
     {
-      "people_code": "romans",
-      "region_code": "roman_empire",
+      "people_code": "franks",
+      "region_code": "provence",
       "presence": "political_control",
-      "start_year": -27,
-      "end_year": 476,
+      "start_year": 536,
+      "end_year": 900,
       "confidence": "medium",
       "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "ostrogoths",
+      "region_code": "provence",
+      "presence": "political_control",
+      "start_year": 508,
+      "end_year": 536,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "provence",
+      "presence": "political_control",
+      "start_year": -121,
+      "end_year": 476,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "visigoths",
+      "region_code": "provence",
+      "presence": "political_control",
+      "start_year": 476,
+      "end_year": 508,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "french",
+      "region_code": "provence",
+      "presence": "homeland",
+      "start_year": 900,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "普罗旺斯伯国属阿尔勒王国—神圣罗马帝国（1112–1245 巴塞罗那家族、1246 起安茹家族），1481 年并入法国；尼斯属萨伏依至 1860 年；科西嘉属比萨、热那亚（意大利语区）至 1768 年。本区按法兰西着色。",
+      "caveat_en": "The County of Provence lay in the Kingdom of Arles/Holy Roman Empire (House of Barcelona 1112–1245, Anjou from 1246) and joined France in 1481; Nice was Savoyard until 1860, and Corsica belonged to Pisa and Genoa (Italian-speaking) until 1768. The region is colored French.",
+      "caveat_sy": 900,
+      "caveat_ey": 1860
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "provence",
+      "presence": "settlement",
+      "start_year": -600,
+      "end_year": -49,
+      "confidence": "high",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "马萨利亚等希腊殖民城邦只控沿海，内陆为凯尔特—利古里亚人；此处按希腊城邦近似着色整区。",
+      "caveat_en": "Massalia and the other Greek colonies held only the coast; the interior was Celto-Ligurian. The region is approximated by the Greek cities.",
+      "caveat_sy": -600,
+      "caveat_ey": -49
+    },
+    {
+      "people_code": "gauls",
+      "region_code": "provence",
+      "presence": "homeland",
+      "start_year": -500,
+      "end_year": -122,
+      "confidence": "medium",
+      "render_priority": 60,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -6219,6 +9978,20 @@
       "caveat_ey": null
     },
     {
+      "people_code": "carthaginians",
+      "region_code": "sardinia",
+      "presence": "political_control",
+      "start_year": -510,
+      "end_year": -238,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
       "people_code": "sardinians",
       "region_code": "sardinia",
       "presence": "homeland",
@@ -6315,6 +10088,20 @@
       "caveat_en": null,
       "caveat_sy": null,
       "caveat_ey": null
+    },
+    {
+      "people_code": "carthaginians",
+      "region_code": "sicily",
+      "presence": "political_control",
+      "start_year": -550,
+      "end_year": -241,
+      "confidence": "medium",
+      "render_priority": 40,
+      "caveat_kind": "method",
+      "caveat_zh": "西西里西部（莫提亚、帕诺尔摩斯、利利巴厄姆）为迦太基辖区；本图西西里为整区，按东部希腊城邦着色。",
+      "caveat_en": "Western Sicily (Motya, Panormus, Lilybaeum) was a Carthaginian province; Sicily is a single region here and is colored by the eastern Greek cities.",
+      "caveat_sy": -550,
+      "caveat_ey": -241
     },
     {
       "people_code": "poles",
@@ -6478,6 +10265,244 @@
       "end_year": null,
       "confidence": "medium",
       "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "south_italy",
+      "presence": "political_control",
+      "start_year": 876,
+      "end_year": 1071,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "萨莱诺、卡普阿、贝内文托等伦巴第亲王国仍据坎帕尼亚与内陆。",
+      "caveat_en": "The Lombard principalities of Salerno, Capua and Benevento still held Campania and the interior.",
+      "caveat_sy": 876,
+      "caveat_ey": 1071
+    },
+    {
+      "people_code": "lombards",
+      "region_code": "south_italy",
+      "presence": "political_control",
+      "start_year": 570,
+      "end_year": 876,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "拜占庭保有卡拉布里亚、阿普利亚南端、那不勒斯与阿马尔菲；847–871 年巴里为阿拉伯酋长国。",
+      "caveat_en": "Byzantium kept Calabria, southern Apulia, Naples and Amalfi; Bari was an Arab emirate in 847–871.",
+      "caveat_sy": 570,
+      "caveat_ey": 876
+    },
+    {
+      "people_code": "ostrogoths",
+      "region_code": "south_italy",
+      "presence": "political_control",
+      "start_year": 493,
+      "end_year": 553,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "south_italy",
+      "presence": "political_control",
+      "start_year": 553,
+      "end_year": 570,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "south_italy",
+      "presence": "settlement",
+      "start_year": -750,
+      "end_year": -272,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "希腊城邦集中于沿海，内陆为萨谟奈人、卢卡尼亚人等奥斯坎语族（未建模）。",
+      "caveat_en": "The Greek cities lay along the coasts; the interior belonged to Oscan-speaking Samnites and Lucanians (not modeled).",
+      "caveat_sy": -750,
+      "caveat_ey": -272
+    },
+    {
+      "people_code": "italians",
+      "region_code": "south_italy",
+      "presence": "homeland",
+      "start_year": 1071,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "统治者依次为诺曼（1071 起）、霍亨斯陶芬、安茹、阿拉贡、西班牙总督（1504–1707）、奥地利、波旁两西西里，至 1860 年统一；按主体人群着色。",
+      "caveat_en": "Rulers were successively Norman (from 1071), Hohenstaufen, Angevin, Aragonese, Spanish viceroys (1504–1707), Austrian and Bourbon (Two Sicilies) until unification in 1860; the region is colored by its main population.",
+      "caveat_sy": 1071,
+      "caveat_ey": 1860
+    },
+    {
+      "people_code": "romans",
+      "region_code": "south_italy",
+      "presence": "homeland",
+      "start_year": -272,
+      "end_year": 493,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "southeast_anatolia",
+      "presence": "political_control",
+      "start_year": 609,
+      "end_year": 628,
+      "confidence": "medium",
+      "render_priority": 95,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "southeast_anatolia",
+      "presence": "political_control",
+      "start_year": 638,
+      "end_year": 983,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arameans",
+      "region_code": "southeast_anatolia",
+      "presence": "political_control",
+      "start_year": -132,
+      "end_year": 214,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "阿布加尔王朝或出自纳巴泰/阿拉伯系，王国以叙利亚语为文化语言。",
+      "caveat_en": "The Abgarid dynasty may have been of Nabataean/Arab origin; the kingdom's cultural language was Syriac.",
+      "caveat_sy": -132,
+      "caveat_ey": 214
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "southeast_anatolia",
+      "presence": "political_control",
+      "start_year": -331,
+      "end_year": -132,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "kurds",
+      "region_code": "southeast_anatolia",
+      "presence": "political_control",
+      "start_year": 983,
+      "end_year": 1085,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "southeast_anatolia",
+      "presence": "political_control",
+      "start_year": -539,
+      "end_year": -331,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "southeast_anatolia",
+      "presence": "political_control",
+      "start_year": 214,
+      "end_year": 638,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "罗马—萨珊前线：363 年后东部（尼西比斯）属萨珊，本区按罗马侧着色。",
+      "caveat_en": "Roman–Sasanian frontier: after 363 the east (Nisibis) belonged to the Sasanians; the region is colored by the Roman side.",
+      "caveat_sy": 363,
+      "caveat_ey": 638
+    },
+    {
+      "people_code": "turks",
+      "region_code": "southeast_anatolia",
+      "presence": "political_control",
+      "start_year": 1085,
+      "end_year": 1514,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "埃德萨伯国（十字军，1098–1144）据本区西部（乌尔法—加济安泰普），按突厥侧近似着色。",
+      "caveat_en": "The County of Edessa (Crusader, 1098–1144) held the west of the region (Urfa–Gaziantep); the region is approximated as Turkic.",
+      "caveat_sy": 1098,
+      "caveat_ey": 1144
+    },
+    {
+      "people_code": "kurds",
+      "region_code": "southeast_anatolia",
+      "presence": "homeland",
+      "start_year": 1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": "method",
+      "caveat_zh": "1514–1918 奥斯曼；加济安泰普以土耳其人为主，尚勒乌尔法阿拉伯人众多：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+      "caveat_en": "1514–1918 Ottoman; Gaziantep is mainly Turkish and Şanlıurfa has many Arabs: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1514,
+      "caveat_ey": 1918
+    },
+    {
+      "people_code": "arameans",
+      "region_code": "southeast_anatolia",
+      "presence": "homeland",
+      "start_year": -1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 50,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -6751,6 +10776,104 @@
       "caveat_ey": null
     },
     {
+      "people_code": "persians",
+      "region_code": "syria",
+      "presence": "political_control",
+      "start_year": 613,
+      "end_year": 628,
+      "confidence": "high",
+      "render_priority": 95,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "syria",
+      "presence": "political_control",
+      "start_year": 636,
+      "end_year": 1516,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "塞尔柱（1070 年代起，突厥）、赞吉（突厥）、阿尤布（库尔德）、马穆鲁克（突厥—切尔克斯）统治集团非阿拉伯人，本图按阿拉伯化的叙利亚国家近似着色。",
+      "caveat_en": "The Seljuk (from the 1070s, Turkic), Zengid (Turkic), Ayyubid (Kurdish) and Mamluk (Turkic–Circassian) elites were not Arab; Syria is approximated as an Arabized state.",
+      "caveat_sy": 1070,
+      "caveat_ey": 1516
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "syria",
+      "presence": "political_control",
+      "start_year": -332,
+      "end_year": -64,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "syria",
+      "presence": "political_control",
+      "start_year": -539,
+      "end_year": -332,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "syria",
+      "presence": "political_control",
+      "start_year": -64,
+      "end_year": 636,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "巴尔米拉帝国（270–272，芝诺比娅）短暂割据，本图无对应族群，按罗马着色。",
+      "caveat_en": "The Palmyrene Empire (270–272, Zenobia) briefly broke away; no corresponding people exists here, so the region stays Roman.",
+      "caveat_sy": 270,
+      "caveat_ey": 272
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "syria",
+      "presence": "homeland",
+      "start_year": 900,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1516–1918 奥斯曼、1920–1946 法国委任统治：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+      "caveat_en": "1516–1918 Ottoman, 1920–1946 French mandate: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1516,
+      "caveat_ey": 1946
+    },
+    {
+      "people_code": "arameans",
+      "region_code": "syria",
+      "presence": "homeland",
+      "start_year": -1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": "method",
+      "caveat_zh": "前 732 年起新亚述、新巴比伦先后统治叙利亚，本图无对应族群，以本地阿拉米人着色。",
+      "caveat_en": "Neo-Assyria and then Neo-Babylon ruled Syria from 732 BC; with no corresponding peoples here, Syria is colored by its native Arameans.",
+      "caveat_sy": -732,
+      "caveat_ey": -539
+    },
+    {
       "people_code": "germans",
       "region_code": "thuringia_lausitz",
       "presence": "homeland",
@@ -6933,6 +11056,104 @@
       "caveat_ey": null
     },
     {
+      "people_code": "persians",
+      "region_code": "transjordan",
+      "presence": "political_control",
+      "start_year": 614,
+      "end_year": 628,
+      "confidence": "medium",
+      "render_priority": 95,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "transjordan",
+      "presence": "political_control",
+      "start_year": -85,
+      "end_year": 106,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "transjordan",
+      "presence": "political_control",
+      "start_year": 636,
+      "end_year": 1516,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "transjordan",
+      "presence": "political_control",
+      "start_year": -332,
+      "end_year": -85,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "transjordan",
+      "presence": "political_control",
+      "start_year": -539,
+      "end_year": -332,
+      "confidence": "low",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "transjordan",
+      "presence": "political_control",
+      "start_year": 106,
+      "end_year": 636,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_levant",
+      "region_code": "transjordan",
+      "presence": "homeland",
+      "start_year": 300,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1516–1918 奥斯曼、1920–1946 法国/英国委任统治：按着色原则不画奥斯曼与委任统治政治层，以主体人群着色。",
+      "caveat_en": "1516–1918 Ottoman, 1920–1946 French/British mandates: following the coloring principle, no Ottoman or mandate political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1516,
+      "caveat_ey": 1946
+    },
+    {
       "people_code": "hungarians",
       "region_code": "transylvania",
       "presence": "political_control",
@@ -7052,6 +11273,146 @@
       "end_year": 450,
       "confidence": "medium",
       "render_priority": 40,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "tripolitania",
+      "presence": "political_control",
+      "start_year": 643,
+      "end_year": 972,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "tripolitania",
+      "presence": "political_control",
+      "start_year": -146,
+      "end_year": -46,
+      "confidence": "low",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "tripolitania",
+      "presence": "political_control",
+      "start_year": 972,
+      "end_year": 1146,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "tripolitania",
+      "presence": "political_control",
+      "start_year": 1158,
+      "end_year": 1510,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "carthaginians",
+      "region_code": "tripolitania",
+      "presence": "political_control",
+      "start_year": -600,
+      "end_year": -146,
+      "confidence": "low",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "迦太基仅控制的黎波里塔尼亚沿海城市带，内陆为柏柏尔（利比亚）部落；此处按统治者近似着色整区。",
+      "caveat_en": "Carthage held only the coastal Emporia of Tripolitania; the interior belonged to Berber (Libyan) tribes. The whole region is colored by ruler as an approximation.",
+      "caveat_sy": -600,
+      "caveat_ey": -146
+    },
+    {
+      "people_code": "romans",
+      "region_code": "tripolitania",
+      "presence": "political_control",
+      "start_year": -46,
+      "end_year": 455,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "tripolitania",
+      "presence": "political_control",
+      "start_year": 534,
+      "end_year": 643,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "vandals",
+      "region_code": "tripolitania",
+      "presence": "political_control",
+      "start_year": 455,
+      "end_year": 534,
+      "confidence": "low",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "arabs_north_africa",
+      "region_code": "tripolitania",
+      "presence": "homeland",
+      "start_year": 1051,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1510–1551 西班牙/医院骑士团、1551–1911 奥斯曼（1711–1835 卡拉曼利王朝自治）、1911–1943 意大利：按着色原则不画奥斯曼与殖民政治层，以主体人群着色。",
+      "caveat_en": "1510–1551 Spain/Knights Hospitaller, 1551–1911 Ottoman (autonomous Karamanli dynasty 1711–1835), 1911–1943 Italian: following the coloring principle, no Ottoman or colonial political layer is drawn; the region is colored by its main population.",
+      "caveat_sy": 1510,
+      "caveat_ey": 1951
+    },
+    {
+      "people_code": "berbers",
+      "region_code": "tripolitania",
+      "presence": "homeland",
+      "start_year": -1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 50,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -7271,60 +11632,103 @@
   ],
   "region_geometry": [
     {
-      "region_code": "gaul",
+      "region_code": "north_france",
       "source_code": "nuts",
       "rule_type": "source_id",
       "match_values": [
         "FR1",
         "FRB",
-        "FRC",
         "FRD",
         "FRE",
-        "FRF",
-        "FRG",
-        "FRI",
-        "FRJ",
-        "FRK",
+        "FRF2",
+        "FRG"
+      ],
+      "note": "NUTS 法兰西岛 / 中央—卢瓦尔河谷 / 诺曼底 / 上法兰西 / 香槟—阿登 / 卢瓦尔河地区"
+    },
+    {
+      "region_code": "aquitaine",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "FRI"
+      ],
+      "note": "NUTS 新阿基坦（阿基坦 / 利穆赞 / 普瓦图—夏朗德）"
+    },
+    {
+      "region_code": "languedoc",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "FRJ"
+      ],
+      "note": "NUTS 奥克西塔尼（朗格多克—鲁西永 / 南部—比利牛斯）"
+    },
+    {
+      "region_code": "burgundy",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "FRC",
+        "FRK"
+      ],
+      "note": "NUTS 勃艮第—弗朗什孔泰 / 奥弗涅—罗讷—阿尔卑斯"
+    },
+    {
+      "region_code": "provence",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
         "FRL",
         "FRM"
       ],
-      "note": "近似为法国（不含布列塔尼）+卢森堡"
+      "note": "NUTS 普罗旺斯—阿尔卑斯—蓝色海岸 / 科西嘉"
     },
     {
-      "region_code": "gaul",
+      "region_code": "alsace_lorraine",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "FRF1",
+        "FRF3"
+      ],
+      "note": "NUTS 阿尔萨斯 / 洛林"
+    },
+    {
+      "region_code": "luxembourg",
       "source_code": "nuts",
       "rule_type": "l0_country",
       "match_values": [
         "LU"
       ],
-      "note": "近似为法国（不含布列塔尼）+卢森堡"
+      "note": "卢森堡 L0"
     },
     {
-      "region_code": "italy",
+      "region_code": "north_italy",
       "source_code": "nuts",
       "rule_type": "source_id",
       "match_values": [
-        "ITC1",
-        "ITC2",
-        "ITC3",
-        "ITC4",
-        "ITF1",
-        "ITF2",
-        "ITF3",
-        "ITF4",
-        "ITF5",
-        "ITF6",
-        "ITH1",
-        "ITH2",
-        "ITH3",
-        "ITH4",
-        "ITH5",
-        "ITI1",
-        "ITI2",
-        "ITI3",
-        "ITI4"
+        "ITC",
+        "ITH"
       ],
-      "note": "意大利大陆 NUTS L2 ×19（西北 4+南部 6+东北 5+中部 4；西西里 ITG1/撒丁 ITG2 另设）"
+      "note": "NUTS 西北意大利 ITC / 东北意大利 ITH"
+    },
+    {
+      "region_code": "central_italy",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "ITI"
+      ],
+      "note": "NUTS 中意大利 ITI"
+    },
+    {
+      "region_code": "south_italy",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "ITF"
+      ],
+      "note": "NUTS 南意大利 ITF"
     },
     {
       "region_code": "balkans",
@@ -7345,13 +11749,73 @@
       "note": "近似为现代巴尔干诸国+希腊（Eurostat 希腊码为 EL、科索沃为 XK）"
     },
     {
-      "region_code": "north_africa",
+      "region_code": "aegyptus",
       "source_code": "darmc",
-      "rule_type": "name_regex",
+      "rule_type": "source_id",
       "match_values": [
-        "AFRICA|NUMIDIA|MAURETAN|AEGYPT|CYRENA|LIBYA|TRIPOLITAN|BYZACENA"
+        "prov303:5",
+        "prov303:6",
+        "prov303:1"
       ],
-      "note": "DARMC 罗马行省中的北非诸省"
+      "note": "DARMC 303 年行省 Aegyptus Iovia / Aegyptus Herculia / Thebais（上埃及）；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region_code": "cyrenaica",
+      "source_code": "darmc",
+      "rule_type": "source_id",
+      "match_values": [
+        "prov303:3",
+        "prov303:2"
+      ],
+      "note": "DARMC 303 年行省 Libya Superior（昔兰尼加）/ Libya Inferior（马尔马里卡）；不取 117 年 Creta et Cyrene（含克里特）；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region_code": "tripolitania",
+      "source_code": "darmc",
+      "rule_type": "source_id",
+      "match_values": [
+        "prov303:4"
+      ],
+      "note": "DARMC 303 年行省 Tripolitana；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region_code": "ifriqiya",
+      "source_code": "darmc",
+      "rule_type": "source_id",
+      "match_values": [
+        "prov303:15",
+        "prov303:7"
+      ],
+      "note": "DARMC 303 年行省 Africa Proconsularis（泽乌吉塔纳）/ Byzacena；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region_code": "numidia",
+      "source_code": "darmc",
+      "rule_type": "source_id",
+      "match_values": [
+        "prov303:13",
+        "prov303:8",
+        "prov303:10"
+      ],
+      "note": "DARMC 303 年行省 Numidia Cirtensis / Numidia Militiana / Mauretania Sitifensis；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region_code": "mauretania_caesariensis",
+      "source_code": "darmc",
+      "rule_type": "source_id",
+      "match_values": [
+        "prov303:12"
+      ],
+      "note": "DARMC 303 年行省 Mauretania Caesariensis；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region_code": "mauretania_tingitana",
+      "source_code": "darmc",
+      "rule_type": "source_id",
+      "match_values": [
+        "prov303:14"
+      ],
+      "note": "DARMC 303 年行省 Mauretania Tingitana；统一取 303 年单层，几何为各时代近似代理"
     },
     {
       "region_code": "carpathian_basin",
@@ -7362,24 +11826,6 @@
         "SK"
       ],
       "note": "近似为现代匈牙利+斯洛伐克"
-    },
-    {
-      "region_code": "roman_empire",
-      "source_code": "awmc",
-      "rule_type": "awmc_snapshot",
-      "match_values": [
-        "117"
-      ],
-      "note": "AWMC 罗马帝国 117 CE 快照范围"
-    },
-    {
-      "region_code": "vandal_kingdom",
-      "source_code": "darmc",
-      "rule_type": "name_regex",
-      "match_values": [
-        "AFRICA|NUMIDIA|MAURETAN|AEGYPT|CYRENA|LIBYA|TRIPOLITAN|BYZACENA"
-      ],
-      "note": "DARMC 北非行省近似（435-534 王国期）"
     },
     {
       "region_code": "central_europe",
@@ -7474,26 +11920,6 @@
       "note": "以现代爱尔兰国界近似"
     },
     {
-      "region_code": "france",
-      "source_code": "nuts",
-      "rule_type": "source_id",
-      "match_values": [
-        "FR1",
-        "FRB",
-        "FRC",
-        "FRD",
-        "FRE",
-        "FRF",
-        "FRG",
-        "FRI",
-        "FRJ",
-        "FRK",
-        "FRL",
-        "FRM"
-      ],
-      "note": "以法国大区近似（不含布列塔尼，NUTS L1 ×12）"
-    },
-    {
       "region_code": "austria",
       "source_code": "nuts",
       "rule_type": "l0_country",
@@ -7525,11 +11951,8 @@
       "source_code": "nuts",
       "rule_type": "source_id",
       "match_values": [
-        "SE11",
-        "SE12",
-        "SE21",
-        "SE22",
-        "SE23",
+        "SE1",
+        "SE2",
         "SE31"
       ],
       "note": "以瑞典 NUTS L2（除萨普米两区）近似"
@@ -7562,12 +11985,9 @@
       "source_code": "nuts",
       "rule_type": "source_id",
       "match_values": [
-        "RO21",
-        "RO22",
-        "RO31",
-        "RO32",
-        "RO41",
-        "RO42"
+        "RO2",
+        "RO3",
+        "RO4"
       ],
       "note": "以罗马尼亚 NUTS L2（除特兰西瓦尼亚两区）近似"
     },
@@ -7579,13 +11999,9 @@
         "PL21",
         "PL41",
         "PL61",
-        "PL71",
-        "PL72",
-        "PL81",
-        "PL82",
-        "PL84",
-        "PL91",
-        "PL92"
+        "PL7",
+        "PL8",
+        "PL9"
       ],
       "note": "以波兰核心省（NUTS L2 ×10）近似"
     },
@@ -7648,17 +12064,13 @@
       "source_code": "nuts",
       "rule_type": "source_id",
       "match_values": [
-        "EL30",
+        "EL3",
         "EL41",
         "EL42",
         "EL52",
         "EL53",
         "EL54",
-        "EL61",
-        "EL62",
-        "EL63",
-        "EL64",
-        "EL65"
+        "EL6"
       ],
       "note": "希腊主体 NUTS L2 ×11（阿提卡/爱琴群岛/中-西马其顿/伊庇鲁斯/中部/伊奥尼亚/西希腊/斯泰里亚/伯罗奔尼撒；克里特 EL43 与东马其顿-色雷斯 EL51 另设）"
     },
@@ -7858,10 +12270,7 @@
       "source_code": "nuts",
       "rule_type": "source_id",
       "match_values": [
-        "ES61",
-        "ES62",
-        "ES63",
-        "ES64"
+        "ES6"
       ],
       "note": "安达卢西亚+穆尔西亚（ES61/62/63/64，安达卢斯核心）"
     },
@@ -7895,9 +12304,7 @@
       "rule_type": "source_id",
       "match_values": [
         "ES24",
-        "ES51",
-        "ES52",
-        "ES53"
+        "ES5"
       ],
       "note": "加泰罗尼亚+阿拉贡+巴伦西亚+巴利阿里（阿拉贡王冠，ES L2 ×4）"
     },
@@ -7937,8 +12344,7 @@
         "PL22",
         "PL42",
         "PL43",
-        "PL51",
-        "PL52",
+        "PL5",
         "PL63"
       ],
       "note": "西里西亚-波美拉尼亚（PL22/42/43/51/52/63，收复领土）"
@@ -7982,8 +12388,7 @@
       "source_code": "nuts",
       "rule_type": "source_id",
       "match_values": [
-        "RO11",
-        "RO12"
+        "RO1"
       ],
       "note": "特兰西瓦尼亚（NUTS L2 RO11/12 近似）"
     },
@@ -8004,17 +12409,14 @@
       "source_code": "nuts",
       "rule_type": "source_id",
       "match_values": [
-        "DE50",
-        "DE60",
-        "DE80",
-        "DE91",
-        "DE92",
-        "DE93",
-        "DE94",
+        "DE5",
+        "DE6",
+        "DE8",
+        "DE9",
         "DEA3",
         "DEA4",
         "DEA5",
-        "DEF0"
+        "DEF"
       ],
       "note": "旧萨克森（德国西北 NUTS L2 ×11：石荷/不来梅/汉堡/梅克伦堡/下萨克森/威斯特法伦三区）"
     },
@@ -8023,19 +12425,12 @@
       "source_code": "nuts",
       "rule_type": "source_id",
       "match_values": [
-        "DE11",
-        "DE12",
-        "DE13",
-        "DE14",
-        "DE71",
-        "DE72",
-        "DE73",
+        "DE1",
+        "DE7",
         "DEA1",
         "DEA2",
-        "DEB1",
-        "DEB2",
-        "DEB3",
-        "DEC0"
+        "DEB",
+        "DEC"
       ],
       "note": "施瓦本-法兰克（德国西南 NUTS L2 ×13：巴符/黑森/莱茵兰/莱法/萨尔）"
     },
@@ -8044,13 +12439,11 @@
       "source_code": "nuts",
       "rule_type": "source_id",
       "match_values": [
-        "DE30",
-        "DE40",
-        "DED2",
-        "DED4",
-        "DED5",
-        "DEE0",
-        "DEG0"
+        "DE3",
+        "DE4",
+        "DED",
+        "DEE",
+        "DEG"
       ],
       "note": "图林根-劳西茨（德国中东部 NUTS L2 ×7：柏林/勃兰登堡/萨克森/萨安/图林根）"
     },
@@ -8059,13 +12452,7 @@
       "source_code": "nuts",
       "rule_type": "source_id",
       "match_values": [
-        "DE21",
-        "DE22",
-        "DE23",
-        "DE24",
-        "DE25",
-        "DE26",
-        "DE27"
+        "DE2"
       ],
       "note": "巴伐利亚（德国东南，拜恩自由州 NUTS L2 ×7）"
     },
@@ -8169,6 +12556,182 @@
         "RUS.6_1"
       ],
       "note": "伏尔加-卡马（GADM 鞑靼斯坦 RUS.68_1 + 巴什科尔托斯坦 RUS.6_1；巴什科尔托斯坦东缘已入亚洲，按整共和国近似）"
+    },
+    {
+      "region_code": "constantinople",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TR10"
+      ],
+      "note": "NUTS L2 TR10 伊斯坦布尔省（跨博斯普鲁斯两岸）"
+    },
+    {
+      "region_code": "bithynia",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TR22",
+        "TR4"
+      ],
+      "note": "NUTS L2 TR22 巴勒克埃西尔—恰纳卡莱 / TR41 布尔萨—埃斯基谢希尔—比莱吉克 / TR42 科贾埃利等"
+    },
+    {
+      "region_code": "ionia",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TR3"
+      ],
+      "note": "NUTS L2 TR31 伊兹密尔 / TR32 艾登—代尼兹利—穆拉 / TR33 马尼萨—阿菲永—屈塔希亚—乌沙克"
+    },
+    {
+      "region_code": "pamphylia",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TR61"
+      ],
+      "note": "NUTS L2 TR61 安塔利亚—伊斯帕尔塔—布尔杜尔"
+    },
+    {
+      "region_code": "cilicia",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TR62",
+        "TR63"
+      ],
+      "note": "NUTS L2 TR62 阿达纳—梅尔辛 / TR63 哈塔伊—卡赫拉曼马拉什—奥斯曼尼耶"
+    },
+    {
+      "region_code": "galatia",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TR51"
+      ],
+      "note": "NUTS L2 TR51 安卡拉"
+    },
+    {
+      "region_code": "lycaonia",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TR52"
+      ],
+      "note": "NUTS L2 TR52 科尼亚—卡拉曼"
+    },
+    {
+      "region_code": "cappadocia",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TR7"
+      ],
+      "note": "NUTS L2 TR71 克勒克卡莱—阿克萨赖—尼代—内夫谢希尔—克尔谢希尔 / TR72 开塞利—锡瓦斯—约兹加特"
+    },
+    {
+      "region_code": "paphlagonia",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TR8"
+      ],
+      "note": "NUTS L2 TR81 宗古尔达克等 / TR82 卡斯塔莫努—锡诺普 / TR83 萨姆松—托卡特—乔鲁姆—阿马西亚"
+    },
+    {
+      "region_code": "pontus",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TR90"
+      ],
+      "note": "NUTS L2 TR90 特拉布宗—奥尔杜—吉雷松—里泽—阿尔特温—居米什哈内"
+    },
+    {
+      "region_code": "armenian_highlands_north",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TRA"
+      ],
+      "note": "NUTS L2 TRA1 埃尔祖鲁姆—埃尔津詹—巴伊布尔特 / TRA2 阿勒—卡尔斯—伊迪尔—阿尔达汉"
+    },
+    {
+      "region_code": "armenian_highlands_south",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TRB"
+      ],
+      "note": "NUTS L2 TRB1 马拉蒂亚—埃拉泽—宾格尔—通杰利 / TRB2 凡—穆什—比特利斯—哈卡里"
+    },
+    {
+      "region_code": "southeast_anatolia",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "TRC"
+      ],
+      "note": "NUTS L2 TRC1 加济安泰普等 / TRC2 尚勒乌尔法—迪亚巴克尔 / TRC3 马尔丁—巴特曼—舍尔纳克—锡尔特"
+    },
+    {
+      "region_code": "syria",
+      "source_code": "darmc",
+      "rule_type": "source_id",
+      "match_values": [
+        "prov303:26",
+        "prov303:20"
+      ],
+      "note": "DARMC 303 年行省 Syria Coele / Augusta Libanensis（土耳其境内部分被 NUTS 几何覆盖）；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region_code": "phoenicia",
+      "source_code": "darmc",
+      "rule_type": "source_id",
+      "match_values": [
+        "prov303:19"
+      ],
+      "note": "DARMC 303 年行省 Phoenice；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region_code": "palaestina",
+      "source_code": "darmc",
+      "rule_type": "source_id",
+      "match_values": [
+        "prov303:11"
+      ],
+      "note": "DARMC 303 年行省 Palaestina（含后来的 Palaestina Salutaris：内盖夫、西奈、约旦南部）；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region_code": "transjordan",
+      "source_code": "darmc",
+      "rule_type": "source_id",
+      "match_values": [
+        "prov303:16"
+      ],
+      "note": "DARMC 303 年行省 Arabia；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region_code": "jazira",
+      "source_code": "darmc",
+      "rule_type": "source_id",
+      "match_values": [
+        "prov303:41",
+        "prov303:37",
+        "prov303:45"
+      ],
+      "note": "DARMC 303 年行省 Augusta Euphratensis / Osrhoene / Mesopotamia（土耳其境内部分被 NUTS 几何覆盖，可见部分为叙利亚境内）；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region_code": "cyprus",
+      "source_code": "nuts",
+      "rule_type": "l0_country",
+      "match_values": [
+        "CY"
+      ],
+      "note": "塞浦路斯 L0（NUTS CY）"
     }
   ],
   "religions": [
@@ -8213,6 +12776,12 @@
       "parent_code": "christianity",
       "name_en": "Protestantism",
       "name_zh": "新教"
+    },
+    {
+      "code": "zoroastrianism",
+      "parent_code": null,
+      "name_en": "Zoroastrianism",
+      "name_zh": "琐罗亚斯德教"
     }
   ],
   "events": [
@@ -8238,7 +12807,7 @@
       "start_year": 400,
       "end_year": 600,
       "event_type": "conquest",
-      "region_code": "gaul",
+      "region_code": "north_france",
       "name_en": "Frankish Expansion in Gaul",
       "name_zh": "法兰克人在高卢的扩张",
       "brief_en": "The long-term expansion of Frankish power in Gaul.",
@@ -8255,7 +12824,7 @@
       "start_year": 410,
       "end_year": 410,
       "event_type": "battle",
-      "region_code": "italy",
+      "region_code": "central_italy",
       "name_en": "Visigothic Sack of Rome",
       "name_zh": "西哥特人攻陷罗马",
       "brief_en": "The sack of Rome by the Visigoths in 410.",
@@ -8272,7 +12841,7 @@
       "start_year": 418,
       "end_year": 418,
       "event_type": "settlement",
-      "region_code": "gaul",
+      "region_code": "aquitaine",
       "name_en": "Visigothic Settlement in Gaul",
       "name_zh": "西哥特人在高卢定居",
       "brief_en": "The settlement arrangement of the Visigoths in Gaul in 418.",
@@ -8289,7 +12858,7 @@
       "start_year": 429,
       "end_year": 429,
       "event_type": "migration",
-      "region_code": "north_africa",
+      "region_code": "mauretania_tingitana",
       "name_en": "Vandal Migration to North Africa",
       "name_zh": "汪达尔人迁入北非",
       "brief_en": "The Vandal movement into North Africa beginning in 429.",
@@ -8331,7 +12900,7 @@
       "start_year": 489,
       "end_year": 493,
       "event_type": "conquest",
-      "region_code": "italy",
+      "region_code": "north_italy",
       "name_en": "Ostrogothic Conquest of Italy",
       "name_zh": "东哥特征服意大利",
       "brief_en": "The Ostrogothic conquest and establishment of a kingdom in Italy.",
@@ -8348,6 +12917,13 @@
     {
       "code": "language",
       "nodes": [
+        {
+          "code": "canaanite",
+          "parent": "semitic",
+          "sort": 10,
+          "name_en": "Canaanite",
+          "name_zh": "迦南语支"
+        },
         {
           "code": "finnic",
           "parent": "uralic",
@@ -8384,6 +12960,13 @@
           "name_zh": "印欧语系"
         },
         {
+          "code": "iranian",
+          "parent": "indo_european",
+          "sort": 10,
+          "name_en": "Iranian",
+          "name_zh": "伊朗语支"
+        },
+        {
           "code": "kartvelian_core",
           "parent": "kartvelian",
           "sort": 10,
@@ -8405,11 +12988,32 @@
           "name_zh": "罗曼语族"
         },
         {
+          "code": "semitic",
+          "parent": "afroasiatic",
+          "sort": 10,
+          "name_en": "Semitic",
+          "name_zh": "闪米特语族"
+        },
+        {
           "code": "west_slavic",
           "parent": "slavic",
           "sort": 10,
           "name_en": "West Slavic",
           "name_zh": "西斯拉夫"
+        },
+        {
+          "code": "arabic",
+          "parent": "semitic",
+          "sort": 20,
+          "name_en": "Arabic",
+          "name_zh": "阿拉伯语支"
+        },
+        {
+          "code": "berber",
+          "parent": "afroasiatic",
+          "sort": 20,
+          "name_en": "Berber",
+          "name_zh": "柏柏尔语族"
         },
         {
           "code": "celtic",
@@ -8445,6 +13049,20 @@
           "sort": 20,
           "name_en": "Uralic",
           "name_zh": "乌拉尔语系"
+        },
+        {
+          "code": "aramaic",
+          "parent": "semitic",
+          "sort": 30,
+          "name_en": "Aramaic",
+          "name_zh": "阿拉米语支"
+        },
+        {
+          "code": "egyptian",
+          "parent": "afroasiatic",
+          "sort": 30,
+          "name_en": "Egyptian",
+          "name_zh": "埃及语族"
         },
         {
           "code": "germanic_east",
@@ -8487,6 +13105,13 @@
           "sort": 40,
           "name_en": "Turkic",
           "name_zh": "突厥语系"
+        },
+        {
+          "code": "afroasiatic",
+          "parent": null,
+          "sort": 50,
+          "name_en": "Afroasiatic",
+          "name_zh": "亚非语系"
         },
         {
           "code": "baltic",
@@ -8807,6 +13432,41 @@
           "sort": 410,
           "name_en": "Masurians",
           "name_zh": "马祖里人"
+        },
+        {
+          "code": "carthaginians",
+          "parent": "phoenicians",
+          "sort": 420,
+          "name_en": "Carthaginians",
+          "name_zh": "迦太基人"
+        },
+        {
+          "code": "persians",
+          "parent": null,
+          "sort": 430,
+          "name_en": "Persians",
+          "name_zh": "波斯人"
+        },
+        {
+          "code": "phoenicians",
+          "parent": null,
+          "sort": 440,
+          "name_en": "Phoenicians",
+          "name_zh": "腓尼基人"
+        },
+        {
+          "code": "arameans",
+          "parent": null,
+          "sort": 450,
+          "name_en": "Arameans",
+          "name_zh": "阿拉米人"
+        },
+        {
+          "code": "crusaders",
+          "parent": null,
+          "sort": 460,
+          "name_en": "Crusaders",
+          "name_zh": "十字军"
         }
       ]
     },
@@ -9134,6 +13794,48 @@
           "sort": 460,
           "name_en": "Turks",
           "name_zh": "土耳其人"
+        },
+        {
+          "code": "berbers",
+          "parent": null,
+          "sort": 470,
+          "name_en": "Berbers",
+          "name_zh": "柏柏尔人"
+        },
+        {
+          "code": "egyptians",
+          "parent": null,
+          "sort": 480,
+          "name_en": "Egyptians",
+          "name_zh": "埃及人"
+        },
+        {
+          "code": "north_african_arabs",
+          "parent": null,
+          "sort": 490,
+          "name_en": "North African Arabs",
+          "name_zh": "北非阿拉伯人"
+        },
+        {
+          "code": "jews",
+          "parent": null,
+          "sort": 500,
+          "name_en": "Jews",
+          "name_zh": "犹太人"
+        },
+        {
+          "code": "kurds",
+          "parent": null,
+          "sort": 510,
+          "name_en": "Kurds",
+          "name_zh": "库尔德人"
+        },
+        {
+          "code": "levantine_arabs",
+          "parent": null,
+          "sort": 520,
+          "name_en": "Levantine Arabs",
+          "name_zh": "黎凡特阿拉伯人"
         }
       ]
     }

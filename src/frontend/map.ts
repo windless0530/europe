@@ -207,6 +207,8 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
       const d = pathGen(vm.feature as unknown as GeoPermissibleObjects);
       if (!d) continue;
       const node = gRegions.append('path').attr('class', 'region').attr('data-code', vm.code).attr('d', d).node();
+      // 溶解要素：成员 slug（与单元 data-code 后缀同形）供测试按原始单元寻址
+      if (vm.memberIds) node?.setAttribute('data-members', vm.memberIds.map((id) => id.toLowerCase().replace(/[^a-z0-9]+/g, '_')).join(' '));
       if (!node) continue;
       node.style.fill = familyFill(vm.family, vm.level, pal);
       nodesByCode.set(vm.code, node);

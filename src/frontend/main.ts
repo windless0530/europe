@@ -82,9 +82,10 @@ async function boot(): Promise<void> {
   }
 
   const allFeatures: RegionVm[] = [...views.values()].flatMap((v) => v.features);
-  const allByCode = new Map(allFeatures.map((vm) => [vm.code, vm]));
-  const model: AtlasModel = buildAtlasModel(atlasData, allFeatures);
+  // 族群分布模式的实际渲染集合（含同区溶解要素）；模型按它解析地区↔几何
   const atlasFeatures = atlasGeometryFeatures(views, atlasData.region_geometry ?? []);
+  const allByCode = new Map([...allFeatures, ...atlasFeatures].map((vm) => [vm.code, vm]));
+  const model: AtlasModel = buildAtlasModel(atlasData, atlasFeatures);
 
   const initialSource = await loadConfigSource();
   const store = createStore({
@@ -191,7 +192,7 @@ async function boot(): Promise<void> {
       vm.code,
       {
         fill: paint.get(vm.code) ?? contextFill,
-        visible: true,
+        visible: model.geometryLive(vm.code, s.year),
         dim: legendFocus !== null && (geomPeople.get(vm.code) ?? null) !== legendFocus,
       },
     ]);

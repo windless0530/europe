@@ -1,8 +1,7 @@
 // 覆盖审计：以时间轴最小步长（1 年）为粒度，逐年检查每个映射几何的着色状态，
 // 找出「上一个时间片有族群、下一个时间片空白」的断档（空窗）。
-//   核心 = nuts 现代国家几何（欧洲核心区，必须零空窗）
-//   豁免 = 快照叠加层（roman_empire AWMC 多边形：帝国消亡即隐没，属设计）
-//          与范围外（north_africa DARMC 行省：非欧洲核心，仅报告）
+//   核心 = nuts 现代国家几何（欧洲核心区）+ 北非/黎凡特 DARMC 303 年行省几何，必须零空窗
+//   豁免 = 快照叠加层（AWMC 帝国快照：帝国消亡即隐没；当前无映射，段落仅在重新启用时出现）
 // 用法：npm run audit   （先 npm run export 保证 atlas.json 最新）
 // 有核心空窗时退出码 1，可作回归门禁。
 
@@ -110,7 +109,7 @@ for (const [geomCode, regionCodes] of byGeometry) {
   reports.push({
     code: geomCode,
     label: vm.nameZh ?? vm.nameEn ?? geomCode,
-    core: vm.family === 'nuts',
+    core: vm.family === 'nuts' || vm.family === 'provinces',
     firstCover,
     gaps,
   });
@@ -121,7 +120,7 @@ const core = reports.filter((r) => r.core).sort((a, b) => a.code.localeCompare(b
 const exempt = reports.filter((r) => !r.core).sort((a, b) => a.code.localeCompare(b.code));
 
 console.log(`覆盖审计：${yearMin < 0 ? `前${-yearMin}` : yearMin} – ${yearMax}，步长 1 年；映射几何 ${reports.length} 个\n`);
-console.log('== 核心几何（现代国家，必须零空窗） ==');
+console.log('== 核心几何（现代国家 + 北非/黎凡特行省，必须零空窗） ==');
 for (const r of core) {
   const gapStr = r.gaps.length === 0 ? '✓ 无空窗' : r.gaps.map(fmt).join(', ');
   console.log(`  ${r.code.padEnd(14)} ${r.label.padEnd(6)} 首覆盖 ${r.firstCover}  ${gapStr}`);
@@ -129,7 +128,7 @@ for (const r of core) {
 const coreGaps = core.filter((r) => r.gaps.length > 0);
 console.log(`\n核心空窗几何数：${coreGaps.length}`);
 if (exempt.length > 0) {
-  console.log('\n== 豁免（快照叠加层/范围外，仅报告） ==');
+  console.log('\n== 豁免（快照叠加层，仅报告） ==');
   for (const r of exempt) console.log(`  ${r.code.slice(0, 48).padEnd(48)} 首覆盖 ${r.firstCover}  ${r.gaps.map(fmt).join(', ')}`);
 }
 

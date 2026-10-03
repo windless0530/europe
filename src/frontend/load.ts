@@ -26,6 +26,8 @@ export interface RegionVm {
   /** 展示用的数据集/图层名 */
   dataset: string;
   feature: RegionFeature;
+  /** 族群分布模式下由同区几何溶解而成的要素：成员原始 source_id（规则按成员匹配） */
+  memberIds?: string[];
 }
 
 export interface SourceView {

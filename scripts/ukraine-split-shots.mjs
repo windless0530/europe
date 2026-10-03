@@ -23,7 +23,7 @@ async function zoomTo(x, y) {
   await page.waitForTimeout(500);
 }
 async function hoverCode(code) {
-  const sel = `path.region[data-code="nuts:${code}"]`;
+  const sel = `path.region[data-code="nuts:${code}"], path.region[data-members~="${code}"]`;
   const box = await page.locator(sel).boundingBox();
   const pt = await page.evaluate(({ sel, box }) => {
     for (const fx of [0.5, 0.4, 0.6, 0.35, 0.65, 0.3, 0.7, 0.45, 0.55]) {
@@ -63,7 +63,7 @@ await page.waitForSelector('path.region:visible', { timeout: 60000 });
 await page.waitForTimeout(1200);
 await setYear(2026);
 // 先取全图下顿涅茨克的屏幕位置，再以它为缩放中心
-const dk = await page.locator('path.region[data-code="nuts:ukr_6_1"]').boundingBox();
+const dk = await page.locator('path.region[data-code="nuts:ukr_6_1"], path.region[data-members~="ukr_6_1"]').boundingBox();
 await zoomTo(dk.x + dk.width / 2, dk.y + dk.height / 2);
 await hoverCode('ukr_6_1');
 await page.screenshot({ path: 'chromium/ua-04-donbas-2026-hover.png' });

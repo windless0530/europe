@@ -5,6 +5,7 @@
 //   取主族群（平局按 people_code 字典序）
 // - 全部计算在内存中完成，时间轴拖动零网络请求
 
+import { featureCollection, rewind, union } from '@turf/turf';
 import type { SourceCode } from '../lib/contract.js';
 import type { RegionVm, SourceView } from './load';
 import { resolveRegionGeometry, countryOf, type RegionGeometryRule } from './region-map';
@@ -144,21 +145,22 @@ const PALETTE_LEN = CATEGORICAL_LIGHT.length;
 
 /** 族群→槽位写死映射（scripts/palette-tune.ts 输出；同一族群颜色跨版本一致的硬约束） */
 export const PEOPLE_SLOT: Record<string, number> = {
-  'albanians': 0, 'alemanni': 24, 'angles': 3, 'arabs_crete': 0,
+  'albanians': 0, 'alemanni': 24, 'angles': 3, 'arabs_crete': 0, 'arabs_levant': 52, 'arabs_north_africa': 56,
+  'arameans': 57,
   'arabs_sicily': 43, 'armenians': 3, 'avars': 6, 'azerbaijanis': 6,
-  'balts': 19, 'basques': 9, 'bavarians': 5, 'belarusians': 10,
+  'balts': 19, 'basques': 9, 'bavarians': 5, 'belarusians': 10, 'berbers': 62,
   'bosniaks': 4, 'bretons': 11, 'britons': 10, 'bulgarians': 12,
-  'burgundians': 12, 'catalans': 14, 'celtiberians': 5, 'celts': 3,
+  'burgundians': 12, 'carthaginians': 49, 'catalans': 14, 'crusaders': 55, 'celtiberians': 5, 'celts': 3,
   'crimean_tatars': 8, 'croats': 18, 'czechs': 19, 'dacians': 11,
-  'danes': 21, 'dutch': 25, 'english': 22, 'estonian': 23,
+  'danes': 21, 'dutch': 25, 'egyptians': 58, 'english': 22, 'estonian': 23,
   'finns': 24, 'franks': 4, 'french': 26, 'gaels': 31,
   'gauls': 4, 'georgians': 28, 'gepids': 18, 'germanic_tribes': 6,
   'germans': 5, 'goths': 8, 'greeks': 16, 'hungarians': 29,
   'huns': 5, 'iberians': 0, 'illyrians': 2, 'irish': 30,
-  'italians': 15, 'jutes': 0, 'karelians': 32, 'latins': 13,
+  'italians': 15, 'jews': 50, 'jutes': 0, 'karelians': 32, 'kurds': 59, 'latins': 13,
   'latvians': 33, 'lithuanians': 34, 'lombards': 15, 'lusitanians': 12,
   'macedonians': 35, 'magyars': 13, 'masurians': 0, 'montenegrins': 20, 'moors': 1,
-  'norse': 22, 'norwegians': 38, 'ostrogoths': 2, 'picts': 23,
+  'norse': 22, 'persians': 60, 'phoenicians': 63, 'norwegians': 38, 'ostrogoths': 2, 'picts': 23,
   'poles': 36, 'portuguese': 37, 'prussians': 37, 'romanians': 39,
   'romans': 1, 'rus': 10, 'russians': 17, 'sami': 40, 'sardinians': 41,
   'saxons': 17, 'scots': 42, 'serbs': 7, 'slavs': 20,
@@ -191,8 +193,11 @@ export interface AtlasModel {
   regionGeometry: Map<string, string[]>;
   /** geometry region_code -> 候选 sql region codes（一几何可属多历史区域） */
   geometryToRegions: Map<string, string[]>;
-  /** 悬停解析：在该几何的候选 region 中，优先返回当年有活动族群者 */
+  /** 悬停解析：在该几何的候选 region 中，优先返回当年有活动族群者；地区存续期外的候选不参与 */
   regionFor(code: string, year: number): { regionCode: string; state: RegionYearState | null } | null;
+  /** 几何当年是否绘制：映射到的地区全部在存续期（region.years）外则隐藏
+   *  （如罗马帝国快照在 476 年后不再以「罗马帝国」名义占位）；未映射几何照常作中性底图 */
+  geometryLive(code: string, year: number): boolean;
   /** people -> 固定颜色槽位 */
   peopleColor: Map<string, string>;
   /** people -> 调色板槽位序（people_region 首现顺序；未上色者为 Infinity） */
@@ -601,8 +606,26 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
     return groups;
   }
 
-  function regionFor(code: string, year: number): { regionCode: string; state: RegionYearState | null } | null {
+  // 地区「存续」= 年份落在 region.years 内，或当年仍有活动时间片（region.years 与切片不一致时以切片为准，避免已着色几何被隐藏）
+  let liveCache: { year: number; active: Set<string> } | null = null;
+  const regionLive = (regionCode: string, year: number): boolean => {
+    const r = regionByCode.get(regionCode);
+    if (!r || ((r.start_year ?? Number.NEGATIVE_INFINITY) <= year && year <= (r.end_year ?? Number.POSITIVE_INFINITY))) return true;
+    if (liveCache?.year !== year) {
+      const active = new Set<string>();
+      for (const row of data.people_region) if (activeInYear(row, year)) active.add(row.region_code);
+      liveCache = { year, active };
+    }
+    return liveCache.active.has(regionCode);
+  };
+
+  function geometryLive(code: string, year: number): boolean {
     const candidates = geometryToRegions.get(code);
+    return !candidates || candidates.length === 0 || candidates.some((rc) => regionLive(rc, year));
+  }
+
+  function regionFor(code: string, year: number): { regionCode: string; state: RegionYearState | null } | null {
+    const candidates = geometryToRegions.get(code)?.filter((rc) => regionLive(rc, year));
     if (!candidates || candidates.length === 0) return null;
     const states = regionsAt(year);
     // 当年有活动族群的 region 优先（其中再按主族群 render_priority）
@@ -615,7 +638,7 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
     return { regionCode: passive[0] ?? candidates[0]!, state: null };
   }
 
-  return { data, peopleByCode, regionByCode, regionGeometry, geometryToRegions, regionFor, peopleColor, slotIndex, yearRange, regionsAt, paintAt, caveatAt, periodAt, peopleTreeAt, enumLabel };
+  return { data, peopleByCode, regionByCode, regionGeometry, geometryToRegions, regionFor, geometryLive, peopleColor, slotIndex, yearRange, regionsAt, paintAt, caveatAt, periodAt, peopleTreeAt, enumLabel };
 }
 
 /** 从 /data/peoples/export/atlas.json 拉取（带字节进度） */
@@ -646,21 +669,23 @@ export async function fetchAtlas(onBytes?: (loaded: number, total: number) => vo
 }
 
 /** 族群分布模式的几何集合（绘制顺序 = 数组顺序，后者在上）：
- *  AWMC 帝国参考层垫底 -> DARMC 北非行省 -> NUTS/GADM 几何（最上层承载着色）。
- *  AWMC/DARMC 叠加层由 region_geometry 规则推导（awmc_snapshot / name_regex），
+ *  AWMC 帝国参考层垫底（当前无映射）-> DARMC 北非/黎凡特行省 -> NUTS/GADM 几何（最上层承载着色）。
+ *  AWMC/DARMC 叠加层由 region_geometry 规则推导（awmc_snapshot / name_regex / DARMC source_id），
  *  NUTS 部分为渲染策略：未细分国家渲染 L0；已按族群断层线细分的国家
  *  （SUBNATIONAL_LEVEL）改渲染次国家级单元，其 L0 不再绘制。 */
 const SUBNATIONAL_LEVEL: Record<string, number> = {
-  BE: 1, FR: 1, UA: 1, // 大区/GADM 州级（乌克兰 GADM 国家码 UKR 归一为 UA）
+  BE: 1, UA: 1, // 大区/GADM 州级（乌克兰 GADM 国家码 UKR 归一为 UA）
+  FR: 2, // NUTS L2（旧大区×22：按北法/阿基坦/朗格多克/勃艮第/普罗旺斯/阿尔萨斯—洛林/布列塔尼归组）
   CH: 2, ES: 2, PL: 2, RO: 2, SE: 2, NO: 2, DE: 2, // NUTS L2（德国四分）
   IT: 2, EL: 2, // NUTS L2（意大利大陆×19+西西里+撒丁；希腊×13，两岛/东马其顿-色雷斯另设）
+  TR: 2, // NUTS L2（土耳其×26：东色雷斯 TR21 + 安纳托利亚按历史地区归组）
 };
 const GBR_CONSTITUENTS = ['GBR.1_1', 'GBR.3_1', 'GBR.4_1'];
 /** 部分细分叠加单元（source_id 白名单）：所属国家不整体细分（L0 照常绘制），
  *  仅这些次级单元叠加在 L0 之上，承载更细的族群切片——
- *  芬兰拉普兰（萨普米）/北卡累利阿、俄罗斯卡累利阿/鞑靼斯坦/巴什科尔托斯坦、
- *  土耳其东色雷斯（TR21）。绘制在主集合之后 = 视觉盖在 L0 上。 */
-const OVERLAY_UNITS = new Set(['FI1D7', 'FI1DC', 'RUS.26_1', 'RUS.6_1', 'RUS.68_1', 'TR21']);
+ *  芬兰拉普兰（萨普米）/北卡累利阿、俄罗斯卡累利阿/鞑靼斯坦/巴什科尔托斯坦。
+ *  绘制在主集合之后 = 视觉盖在 L0 上。 */
+const OVERLAY_UNITS = new Set(['FI1D7', 'FI1DC', 'RUS.26_1', 'RUS.6_1', 'RUS.68_1']);
 
 export function atlasGeometryFeatures(sources: Map<SourceCode, SourceView>, rules: RegionGeometryRule[]): RegionVm[] {
   const out: RegionVm[] = [];
@@ -670,12 +695,15 @@ export function atlasGeometryFeatures(sources: Map<SourceCode, SourceView>, rule
   out.push(
     ...(sources.get('awmc')?.features ?? []).filter((vm) => vm.family === 'empire' && vm.snapshot !== null && awmcSnapshots.has(vm.snapshot)),
   );
+  // DARMC 行省：name_regex 按拉丁名、source_id 按要素 id 精确挑选（同名行省在 117/303/500 各快照层重复出现，
+  // 需单层取几何时用 source_id，避免跨快照多边形互相叠盖）
   const darmcRegexes = rules
     .filter((r) => r.source_code === 'darmc' && r.rule_type === 'name_regex')
     .map((r) => new RegExp(r.match_values[0] ?? '', 'i'));
+  const darmcIds = new Set(rules.filter((r) => r.source_code === 'darmc' && r.rule_type === 'source_id').flatMap((r) => r.match_values));
   out.push(
     ...(sources.get('darmc')?.features ?? []).filter(
-      (vm) => vm.family === 'provinces' && darmcRegexes.some((re) => re.test(vm.nameEn ?? '')),
+      (vm) => vm.family === 'provinces' && (darmcIds.has(vm.sourceId) || darmcRegexes.some((re) => re.test(vm.nameEn ?? ''))),
     ),
   );
   out.push(...(sources.get('nuts')?.features ?? []).filter((vm) => {
@@ -691,5 +719,47 @@ export function atlasGeometryFeatures(sources: Map<SourceCode, SourceView>, rule
     return false;
   }));
   out.push(...(sources.get('nuts')?.features ?? []).filter((vm) => OVERLAY_UNITS.has(vm.sourceId)));
+  return dissolveSameRegion(out, rules);
+}
+
+/** 同国、候选地区集合完全相同的 NUTS/GADM 单元在族群分布模式下着色/hover 恒同，
+ *  溶解为一个要素（去掉无信息的内部边界，如德国 38 个 L2 单元 → 4 区）；
+ *  合并要素置于首成员位置（保持绘制层序），memberIds 供规则与测试按原始 id 寻址。 */
+function dissolveSameRegion(features: RegionVm[], rules: RegionGeometryRule[]): RegionVm[] {
+  const { byGeometry } = resolveRegionGeometry(features, rules);
+  const groups = new Map<string, RegionVm[]>();
+  for (const vm of features) {
+    const regions = byGeometry.get(vm.code);
+    if (vm.family !== 'nuts' || !regions) continue;
+    const key = `${countryOf(vm)}|${[...regions].sort().join('+')}`;
+    const list = groups.get(key) ?? [];
+    list.push(vm);
+    groups.set(key, list);
+  }
+  const merged = new Map<string, RegionVm | null>(); // 成员 code -> 合并要素（首成员）/ null（非首成员，丢弃）
+  for (const [key, members] of groups) {
+    if (members.length < 2) continue;
+    const unioned = union(featureCollection(members.map((m) => m.feature as never)));
+    if (!unioned) continue;
+    // turf 输出 RFC 7946 逆时针外环；d3-geo 球面约定为顺时针，否则按补集（全球减该面）绘制
+    const u = rewind(unioned, { reverse: true }) as typeof unioned;
+    const first = members[0]!;
+    const vm: RegionVm = {
+      ...first,
+      code: `nuts:merge:${key.toLowerCase()}`,
+      nameEn: null,
+      nameZh: null,
+      feature: { ...first.feature, geometry: u.geometry } as RegionVm['feature'],
+      memberIds: members.map((m) => m.sourceId),
+    };
+    merged.set(first.code, vm);
+    for (const m of members.slice(1)) merged.set(m.code, null);
+  }
+  const out: RegionVm[] = [];
+  for (const vm of features) {
+    const m = merged.get(vm.code);
+    if (m === undefined) out.push(vm);
+    else if (m !== null) out.push(m);
+  }
   return out;
 }

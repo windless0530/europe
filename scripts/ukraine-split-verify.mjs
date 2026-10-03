@@ -28,7 +28,7 @@ for (const y of years) {
   await page.waitForTimeout(400);
   cache[y] = await page.evaluate((keys) => {
     const out = {};
-    for (const k of keys) out[k] = document.querySelector(`path.region[data-code="nuts:${k}"]`)?.style.fill ?? null;
+    for (const k of keys) out[k] = document.querySelector(`path.region[data-code="nuts:${k}"], path.region[data-members~="${k}"]`)?.style.fill ?? null;
     return out;
   }, Object.values(KEY));
 }
@@ -40,7 +40,7 @@ const painted = (c) => c !== null && c !== '' && c !== 'transparent' && c !== UN
 const blank = (c) => !painted(c);
 const row = (pass, label, detail) => { if (!pass) fail++; console.log(`${pass ? 'PASS' : 'FAIL'}  ${label}  ${detail ?? ''}`); };
 const hoverCode = async (code) => {
-  const sel = `path.region[data-code="nuts:${code}"]`;
+  const sel = `path.region[data-code="nuts:${code}"], path.region[data-members~="${code}"]`;
   const box = await page.locator(sel).boundingBox();
   // 非凸/临海多边形 bbox 中心可能在外（黑海），网格采样找第一个命中自身的点
   const pt = await page.evaluate(({ sel, box }) => {

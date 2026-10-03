@@ -275,13 +275,94 @@
       "notes": "比利时弗拉芒大区（荷兰语区）"
     },
     {
-      "code": "france",
+      "code": "north_france",
+      "type": "historical_region",
+      "name": {
+        "zh": "北法（法兰西亚）",
+        "en": "Northern France (Francia)"
+      },
+      "notes": "法兰克—法兰西王国核心：巴黎盆地、卢瓦尔河、诺曼底、皮卡第—北部、香槟"
+    },
+    {
+      "code": "aquitaine",
+      "type": "historical_region",
+      "name": {
+        "zh": "阿基坦（法国西南）",
+        "en": "Aquitaine (southwestern France)"
+      },
+      "notes": "阿基坦—加斯科涅—普瓦图—利穆赞"
+    },
+    {
+      "code": "languedoc",
+      "type": "historical_region",
+      "name": {
+        "zh": "朗格多克（奥克西塔尼亚）",
+        "en": "Languedoc (Occitania)"
+      },
+      "notes": "朗格多克—鲁西永（古塞蒂马尼亚）与图卢兹—比利牛斯"
+    },
+    {
+      "code": "burgundy",
+      "type": "historical_region",
+      "name": {
+        "zh": "勃艮第—罗讷",
+        "en": "Burgundy–Rhône"
+      },
+      "notes": "勃艮第、弗朗什孔泰、里昂—罗讷—阿尔卑斯、奥弗涅"
+    },
+    {
+      "code": "provence",
+      "type": "historical_region",
+      "name": {
+        "zh": "普罗旺斯—科西嘉",
+        "en": "Provence–Corsica"
+      },
+      "notes": "普罗旺斯、尼斯—蓝色海岸与科西嘉岛"
+    },
+    {
+      "code": "alsace_lorraine",
+      "type": "historical_region",
+      "name": {
+        "zh": "阿尔萨斯—洛林",
+        "en": "Alsace–Lorraine"
+      },
+      "notes": "阿尔萨斯与洛林（莱茵河—摩泽尔河）"
+    },
+    {
+      "code": "luxembourg",
       "type": "modern_country",
       "name": {
-        "zh": "法国",
-        "en": "France"
+        "zh": "卢森堡",
+        "en": "Luxembourg"
       },
-      "notes": "法国现代国界空间代理"
+      "notes": "卢森堡（现代国界空间代理）"
+    },
+    {
+      "code": "north_italy",
+      "type": "historical_region",
+      "name": {
+        "zh": "北意大利（波河平原—阿尔卑斯）",
+        "en": "Northern Italy (Po Valley–Alps)"
+      },
+      "notes": "山南高卢—伦巴第王国核心：皮埃蒙特、利古里亚、伦巴第、特伦蒂诺—南蒂罗尔、威尼托、弗留利、艾米利亚—罗马涅"
+    },
+    {
+      "code": "central_italy",
+      "type": "historical_region",
+      "name": {
+        "zh": "中意大利（托斯卡纳—教皇国）",
+        "en": "Central Italy (Tuscany–Papal States)"
+      },
+      "notes": "托斯卡纳、翁布里亚、马尔凯、拉齐奥"
+    },
+    {
+      "code": "south_italy",
+      "type": "historical_region",
+      "name": {
+        "zh": "南意大利（梅佐焦尔诺）",
+        "en": "Southern Italy (Mezzogiorno)"
+      },
+      "notes": "大希腊—贝内文托—拜占庭—那不勒斯王国本土：阿布鲁佐至卡拉布里亚"
     },
     {
       "code": "galicia",
@@ -300,19 +381,6 @@
         "en": "Galicia-Volhynia"
       },
       "notes": "加利西亚-沃里尼亚（乌克兰西部各州近似）"
-    },
-    {
-      "code": "gaul",
-      "type": "historical_region",
-      "years": [
-        -500,
-        500
-      ],
-      "name": {
-        "zh": "高卢",
-        "en": "Gaul"
-      },
-      "notes": "古代高卢地区"
     },
     {
       "code": "georgia",
@@ -358,19 +426,6 @@
         "en": "Ireland and Gaelic Scotland"
       },
       "notes": "爱尔兰与苏格兰盖尔文化空间代理"
-    },
-    {
-      "code": "italy",
-      "type": "historical_region",
-      "years": [
-        -500,
-        null
-      ],
-      "name": {
-        "zh": "意大利",
-        "en": "Italy"
-      },
-      "notes": "意大利半岛及相关历史地区"
     },
     {
       "code": "karelia",
@@ -445,17 +500,95 @@
       "notes": "荷兰现代国界空间代理"
     },
     {
-      "code": "north_africa",
+      "code": "aegyptus",
       "type": "historical_region",
       "years": [
         -1000,
         null
       ],
       "name": {
-        "zh": "北非",
-        "en": "North Africa"
+        "zh": "埃及",
+        "en": "Egypt"
       },
-      "notes": "北非"
+      "notes": "埃及（尼罗河谷与三角洲）"
+    },
+    {
+      "code": "cyrenaica",
+      "type": "historical_region",
+      "years": [
+        -1000,
+        null
+      ],
+      "name": {
+        "zh": "昔兰尼加",
+        "en": "Cyrenaica"
+      },
+      "notes": "昔兰尼加（含马尔马里卡）"
+    },
+    {
+      "code": "tripolitania",
+      "type": "historical_region",
+      "years": [
+        -1000,
+        null
+      ],
+      "name": {
+        "zh": "的黎波里塔尼亚",
+        "en": "Tripolitania"
+      },
+      "notes": "的黎波里塔尼亚（利比亚西北部）"
+    },
+    {
+      "code": "ifriqiya",
+      "type": "historical_region",
+      "years": [
+        -1000,
+        null
+      ],
+      "name": {
+        "zh": "伊夫里基亚（突尼斯）",
+        "en": "Ifriqiya (Tunisia)"
+      },
+      "notes": "伊夫里基亚：古迦太基腹地，罗马阿非利加行省核心，今突尼斯"
+    },
+    {
+      "code": "numidia",
+      "type": "historical_region",
+      "years": [
+        -1000,
+        null
+      ],
+      "name": {
+        "zh": "努米底亚（东阿尔及利亚）",
+        "en": "Numidia (eastern Algeria)"
+      },
+      "notes": "努米底亚：今阿尔及利亚东部（含卡比利亚、奥雷斯山区）"
+    },
+    {
+      "code": "mauretania_caesariensis",
+      "type": "historical_region",
+      "years": [
+        -1000,
+        null
+      ],
+      "name": {
+        "zh": "中马格里布",
+        "en": "Central Maghreb"
+      },
+      "notes": "中马格里布：凯撒毛里塔尼亚，今阿尔及利亚中西部"
+    },
+    {
+      "code": "mauretania_tingitana",
+      "type": "historical_region",
+      "years": [
+        -1000,
+        null
+      ],
+      "name": {
+        "zh": "北摩洛哥",
+        "en": "Northern Morocco"
+      },
+      "notes": "廷吉塔纳毛里塔尼亚：今摩洛哥北部"
     },
     {
       "code": "north_sea_coast",
@@ -510,19 +643,6 @@
         "en": "Portugal"
       },
       "notes": "葡萄牙现代国界空间代理"
-    },
-    {
-      "code": "roman_empire",
-      "type": "political_entity",
-      "years": [
-        -27,
-        476
-      ],
-      "name": {
-        "zh": "罗马帝国",
-        "en": "Roman Empire"
-      },
-      "notes": "西部帝国灭亡前的罗马帝国框架；此处用于示例。"
     },
     {
       "code": "romania",
@@ -705,19 +825,6 @@
       "notes": "黑海北岸殖民带（扎波罗热/第聂伯罗/基洛沃格勒/尼古拉耶夫/赫尔松/敖德萨）；1550 年代塞契之前为「荒野」草原"
     },
     {
-      "code": "vandal_kingdom",
-      "type": "political_entity",
-      "years": [
-        435,
-        534
-      ],
-      "name": {
-        "zh": "汪达尔王国",
-        "en": "Vandal Kingdom"
-      },
-      "notes": "汪达尔王国"
-    },
-    {
       "code": "volga",
       "type": "historical_region",
       "name": {
@@ -743,64 +850,278 @@
         "en": "Wallonia"
       },
       "notes": "比利时瓦隆大区+布鲁塞尔（法语区近似）"
+    },
+    {
+      "code": "constantinople",
+      "type": "historical_region",
+      "name": {
+        "zh": "君士坦丁堡（伊斯坦布尔）",
+        "en": "Constantinople (Istanbul)"
+      },
+      "notes": "拜占庭—君士坦丁堡—伊斯坦布尔"
+    },
+    {
+      "code": "bithynia",
+      "type": "historical_region",
+      "name": {
+        "zh": "比提尼亚—密细亚（西北安纳托利亚）",
+        "en": "Bithynia–Mysia (northwestern Anatolia)"
+      },
+      "notes": "马尔马拉海南岸：比提尼亚、密细亚、特洛阿德"
+    },
+    {
+      "code": "ionia",
+      "type": "historical_region",
+      "name": {
+        "zh": "爱奥尼亚—吕底亚（西安纳托利亚）",
+        "en": "Ionia–Lydia (western Anatolia)"
+      },
+      "notes": "爱琴海东岸：爱奥尼亚、埃奥利斯、吕底亚、卡里亚、弗里吉亚西部"
+    },
+    {
+      "code": "pamphylia",
+      "type": "historical_region",
+      "name": {
+        "zh": "吕基亚—潘菲利亚（南安纳托利亚）",
+        "en": "Lycia–Pamphylia (southern Anatolia)"
+      },
+      "notes": "地中海南岸西段：吕基亚、潘菲利亚、皮西迪亚"
+    },
+    {
+      "code": "cilicia",
+      "type": "historical_region",
+      "name": {
+        "zh": "奇里乞亚",
+        "en": "Cilicia"
+      },
+      "notes": "奇里乞亚平原与托罗斯山（含哈塔伊/安条克）"
+    },
+    {
+      "code": "galatia",
+      "type": "historical_region",
+      "name": {
+        "zh": "加拉太",
+        "en": "Galatia"
+      },
+      "notes": "安纳托利亚中北部（安卡拉）"
+    },
+    {
+      "code": "lycaonia",
+      "type": "historical_region",
+      "name": {
+        "zh": "吕考尼亚（科尼亚）",
+        "en": "Lycaonia (Konya)"
+      },
+      "notes": "安纳托利亚中南部高原（科尼亚—卡拉曼）"
+    },
+    {
+      "code": "cappadocia",
+      "type": "historical_region",
+      "name": {
+        "zh": "卡帕多奇亚",
+        "en": "Cappadocia"
+      },
+      "notes": "安纳托利亚中东部（开塞利—锡瓦斯—内夫谢希尔）"
+    },
+    {
+      "code": "paphlagonia",
+      "type": "historical_region",
+      "name": {
+        "zh": "帕夫拉戈尼亚—本都西部",
+        "en": "Paphlagonia–western Pontus"
+      },
+      "notes": "黑海南岸中西段（锡诺普—萨姆松—阿马西亚）"
+    },
+    {
+      "code": "pontus",
+      "type": "historical_region",
+      "name": {
+        "zh": "本都（特拉布宗）",
+        "en": "Pontus (Trebizond)"
+      },
+      "notes": "黑海东南岸（特拉布宗—里泽）"
+    },
+    {
+      "code": "armenian_highlands_north",
+      "type": "historical_region",
+      "name": {
+        "zh": "亚美尼亚高原北部（埃尔祖鲁姆—卡尔斯）",
+        "en": "Northern Armenian Highlands (Erzurum–Kars)"
+      },
+      "notes": "西亚美尼亚北部：卡林（埃尔祖鲁姆）、卡尔斯、阿勒山"
+    },
+    {
+      "code": "armenian_highlands_south",
+      "type": "historical_region",
+      "name": {
+        "zh": "亚美尼亚高原南部（凡湖—幼发拉底上游）",
+        "en": "Southern Armenian Highlands (Lake Van–upper Euphrates)"
+      },
+      "notes": "西亚美尼亚南部：瓦斯普拉坎（凡湖）、塔隆（穆什）、索芬尼"
+    },
+    {
+      "code": "southeast_anatolia",
+      "type": "historical_region",
+      "name": {
+        "zh": "东南安纳托利亚（上美索不达米亚）",
+        "en": "Southeastern Anatolia (Upper Mesopotamia)"
+      },
+      "notes": "上美索不达米亚北部：埃德萨（乌尔法）、阿米达（迪亚巴克尔）、图尔阿卜丁"
+    },
+    {
+      "code": "syria",
+      "type": "historical_region",
+      "name": {
+        "zh": "叙利亚",
+        "en": "Syria"
+      },
+      "notes": "叙利亚内陆：大马士革、霍姆斯、阿勒颇、安条克、巴尔米拉"
+    },
+    {
+      "code": "phoenicia",
+      "type": "historical_region",
+      "name": {
+        "zh": "腓尼基（黎巴嫩沿海）",
+        "en": "Phoenicia (Lebanese coast)"
+      },
+      "notes": "黎凡特北部沿海：推罗、西顿、贝鲁特、比布鲁斯、的黎波里"
+    },
+    {
+      "code": "palaestina",
+      "type": "historical_region",
+      "name": {
+        "zh": "巴勒斯坦（南黎凡特）",
+        "en": "Palestine (southern Levant)"
+      },
+      "notes": "南黎凡特：犹地亚、撒马利亚、加利利、沿海平原，并含内盖夫与西奈（巴勒斯坦·萨卢塔里斯）"
+    },
+    {
+      "code": "transjordan",
+      "type": "historical_region",
+      "name": {
+        "zh": "阿拉伯行省（豪兰—外约旦北部）",
+        "en": "Arabia (Hauran–northern Transjordan)"
+      },
+      "notes": "豪兰—布斯拉—约旦北部（罗马阿拉伯行省北部）"
+    },
+    {
+      "code": "jazira",
+      "type": "historical_region",
+      "name": {
+        "zh": "贾兹拉（叙利亚北部—幼发拉底河）",
+        "en": "Jazira (northern Syria–Euphrates)"
+      },
+      "notes": "幼发拉底河中游与哈布尔河流域（拉卡、曼比季、哈塞克）"
+    },
+    {
+      "code": "cyprus",
+      "type": "modern_country",
+      "name": {
+        "zh": "塞浦路斯",
+        "en": "Cyprus"
+      },
+      "notes": "塞浦路斯岛（现代国界空间代理，含北部）"
     }
   ],
   "geometry_rules": [
     {
-      "region": "gaul",
+      "region": "north_france",
       "source": "nuts",
       "type": "source_id",
       "values": [
         "FR1",
         "FRB",
-        "FRC",
         "FRD",
         "FRE",
-        "FRF",
-        "FRG",
-        "FRI",
-        "FRJ",
-        "FRK",
+        "FRF2",
+        "FRG"
+      ],
+      "note": "NUTS 法兰西岛 / 中央—卢瓦尔河谷 / 诺曼底 / 上法兰西 / 香槟—阿登 / 卢瓦尔河地区"
+    },
+    {
+      "region": "aquitaine",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "FRI"
+      ],
+      "note": "NUTS 新阿基坦（阿基坦 / 利穆赞 / 普瓦图—夏朗德）"
+    },
+    {
+      "region": "languedoc",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "FRJ"
+      ],
+      "note": "NUTS 奥克西塔尼（朗格多克—鲁西永 / 南部—比利牛斯）"
+    },
+    {
+      "region": "burgundy",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "FRC",
+        "FRK"
+      ],
+      "note": "NUTS 勃艮第—弗朗什孔泰 / 奥弗涅—罗讷—阿尔卑斯"
+    },
+    {
+      "region": "provence",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
         "FRL",
         "FRM"
       ],
-      "note": "近似为法国（不含布列塔尼）+卢森堡"
+      "note": "NUTS 普罗旺斯—阿尔卑斯—蓝色海岸 / 科西嘉"
     },
     {
-      "region": "gaul",
+      "region": "alsace_lorraine",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "FRF1",
+        "FRF3"
+      ],
+      "note": "NUTS 阿尔萨斯 / 洛林"
+    },
+    {
+      "region": "luxembourg",
       "source": "nuts",
       "type": "l0_country",
       "values": [
         "LU"
       ],
-      "note": "近似为法国（不含布列塔尼）+卢森堡"
+      "note": "卢森堡 L0"
     },
     {
-      "region": "italy",
+      "region": "north_italy",
       "source": "nuts",
       "type": "source_id",
       "values": [
-        "ITC1",
-        "ITC2",
-        "ITC3",
-        "ITC4",
-        "ITF1",
-        "ITF2",
-        "ITF3",
-        "ITF4",
-        "ITF5",
-        "ITF6",
-        "ITH1",
-        "ITH2",
-        "ITH3",
-        "ITH4",
-        "ITH5",
-        "ITI1",
-        "ITI2",
-        "ITI3",
-        "ITI4"
+        "ITC",
+        "ITH"
       ],
-      "note": "意大利大陆 NUTS L2 ×19（西北 4+南部 6+东北 5+中部 4；西西里 ITG1/撒丁 ITG2 另设）"
+      "note": "NUTS 西北意大利 ITC / 东北意大利 ITH"
+    },
+    {
+      "region": "central_italy",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "ITI"
+      ],
+      "note": "NUTS 中意大利 ITI"
+    },
+    {
+      "region": "south_italy",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "ITF"
+      ],
+      "note": "NUTS 南意大利 ITF"
     },
     {
       "region": "balkans",
@@ -821,13 +1142,73 @@
       "note": "近似为现代巴尔干诸国+希腊（Eurostat 希腊码为 EL、科索沃为 XK）"
     },
     {
-      "region": "north_africa",
+      "region": "aegyptus",
       "source": "darmc",
-      "type": "name_regex",
+      "type": "source_id",
       "values": [
-        "AFRICA|NUMIDIA|MAURETAN|AEGYPT|CYRENA|LIBYA|TRIPOLITAN|BYZACENA"
+        "prov303:5",
+        "prov303:6",
+        "prov303:1"
       ],
-      "note": "DARMC 罗马行省中的北非诸省"
+      "note": "DARMC 303 年行省 Aegyptus Iovia / Aegyptus Herculia / Thebais（上埃及）；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region": "cyrenaica",
+      "source": "darmc",
+      "type": "source_id",
+      "values": [
+        "prov303:3",
+        "prov303:2"
+      ],
+      "note": "DARMC 303 年行省 Libya Superior（昔兰尼加）/ Libya Inferior（马尔马里卡）；不取 117 年 Creta et Cyrene（含克里特）；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region": "tripolitania",
+      "source": "darmc",
+      "type": "source_id",
+      "values": [
+        "prov303:4"
+      ],
+      "note": "DARMC 303 年行省 Tripolitana；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region": "ifriqiya",
+      "source": "darmc",
+      "type": "source_id",
+      "values": [
+        "prov303:15",
+        "prov303:7"
+      ],
+      "note": "DARMC 303 年行省 Africa Proconsularis（泽乌吉塔纳）/ Byzacena；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region": "numidia",
+      "source": "darmc",
+      "type": "source_id",
+      "values": [
+        "prov303:13",
+        "prov303:8",
+        "prov303:10"
+      ],
+      "note": "DARMC 303 年行省 Numidia Cirtensis / Numidia Militiana / Mauretania Sitifensis；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region": "mauretania_caesariensis",
+      "source": "darmc",
+      "type": "source_id",
+      "values": [
+        "prov303:12"
+      ],
+      "note": "DARMC 303 年行省 Mauretania Caesariensis；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region": "mauretania_tingitana",
+      "source": "darmc",
+      "type": "source_id",
+      "values": [
+        "prov303:14"
+      ],
+      "note": "DARMC 303 年行省 Mauretania Tingitana；统一取 303 年单层，几何为各时代近似代理"
     },
     {
       "region": "carpathian_basin",
@@ -838,24 +1219,6 @@
         "SK"
       ],
       "note": "近似为现代匈牙利+斯洛伐克"
-    },
-    {
-      "region": "roman_empire",
-      "source": "awmc",
-      "type": "awmc_snapshot",
-      "values": [
-        "117"
-      ],
-      "note": "AWMC 罗马帝国 117 CE 快照范围"
-    },
-    {
-      "region": "vandal_kingdom",
-      "source": "darmc",
-      "type": "name_regex",
-      "values": [
-        "AFRICA|NUMIDIA|MAURETAN|AEGYPT|CYRENA|LIBYA|TRIPOLITAN|BYZACENA"
-      ],
-      "note": "DARMC 北非行省近似（435-534 王国期）"
     },
     {
       "region": "central_europe",
@@ -950,26 +1313,6 @@
       "note": "以现代爱尔兰国界近似"
     },
     {
-      "region": "france",
-      "source": "nuts",
-      "type": "source_id",
-      "values": [
-        "FR1",
-        "FRB",
-        "FRC",
-        "FRD",
-        "FRE",
-        "FRF",
-        "FRG",
-        "FRI",
-        "FRJ",
-        "FRK",
-        "FRL",
-        "FRM"
-      ],
-      "note": "以法国大区近似（不含布列塔尼，NUTS L1 ×12）"
-    },
-    {
       "region": "austria",
       "source": "nuts",
       "type": "l0_country",
@@ -1001,11 +1344,8 @@
       "source": "nuts",
       "type": "source_id",
       "values": [
-        "SE11",
-        "SE12",
-        "SE21",
-        "SE22",
-        "SE23",
+        "SE1",
+        "SE2",
         "SE31"
       ],
       "note": "以瑞典 NUTS L2（除萨普米两区）近似"
@@ -1038,12 +1378,9 @@
       "source": "nuts",
       "type": "source_id",
       "values": [
-        "RO21",
-        "RO22",
-        "RO31",
-        "RO32",
-        "RO41",
-        "RO42"
+        "RO2",
+        "RO3",
+        "RO4"
       ],
       "note": "以罗马尼亚 NUTS L2（除特兰西瓦尼亚两区）近似"
     },
@@ -1055,13 +1392,9 @@
         "PL21",
         "PL41",
         "PL61",
-        "PL71",
-        "PL72",
-        "PL81",
-        "PL82",
-        "PL84",
-        "PL91",
-        "PL92"
+        "PL7",
+        "PL8",
+        "PL9"
       ],
       "note": "以波兰核心省（NUTS L2 ×10）近似"
     },
@@ -1124,17 +1457,13 @@
       "source": "nuts",
       "type": "source_id",
       "values": [
-        "EL30",
+        "EL3",
         "EL41",
         "EL42",
         "EL52",
         "EL53",
         "EL54",
-        "EL61",
-        "EL62",
-        "EL63",
-        "EL64",
-        "EL65"
+        "EL6"
       ],
       "note": "希腊主体 NUTS L2 ×11（阿提卡/爱琴群岛/中-西马其顿/伊庇鲁斯/中部/伊奥尼亚/西希腊/斯泰里亚/伯罗奔尼撒；克里特 EL43 与东马其顿-色雷斯 EL51 另设）"
     },
@@ -1334,10 +1663,7 @@
       "source": "nuts",
       "type": "source_id",
       "values": [
-        "ES61",
-        "ES62",
-        "ES63",
-        "ES64"
+        "ES6"
       ],
       "note": "安达卢西亚+穆尔西亚（ES61/62/63/64，安达卢斯核心）"
     },
@@ -1371,9 +1697,7 @@
       "type": "source_id",
       "values": [
         "ES24",
-        "ES51",
-        "ES52",
-        "ES53"
+        "ES5"
       ],
       "note": "加泰罗尼亚+阿拉贡+巴伦西亚+巴利阿里（阿拉贡王冠，ES L2 ×4）"
     },
@@ -1413,8 +1737,7 @@
         "PL22",
         "PL42",
         "PL43",
-        "PL51",
-        "PL52",
+        "PL5",
         "PL63"
       ],
       "note": "西里西亚-波美拉尼亚（PL22/42/43/51/52/63，收复领土）"
@@ -1458,8 +1781,7 @@
       "source": "nuts",
       "type": "source_id",
       "values": [
-        "RO11",
-        "RO12"
+        "RO1"
       ],
       "note": "特兰西瓦尼亚（NUTS L2 RO11/12 近似）"
     },
@@ -1480,17 +1802,14 @@
       "source": "nuts",
       "type": "source_id",
       "values": [
-        "DE50",
-        "DE60",
-        "DE80",
-        "DE91",
-        "DE92",
-        "DE93",
-        "DE94",
+        "DE5",
+        "DE6",
+        "DE8",
+        "DE9",
         "DEA3",
         "DEA4",
         "DEA5",
-        "DEF0"
+        "DEF"
       ],
       "note": "旧萨克森（德国西北 NUTS L2 ×11：石荷/不来梅/汉堡/梅克伦堡/下萨克森/威斯特法伦三区）"
     },
@@ -1499,19 +1818,12 @@
       "source": "nuts",
       "type": "source_id",
       "values": [
-        "DE11",
-        "DE12",
-        "DE13",
-        "DE14",
-        "DE71",
-        "DE72",
-        "DE73",
+        "DE1",
+        "DE7",
         "DEA1",
         "DEA2",
-        "DEB1",
-        "DEB2",
-        "DEB3",
-        "DEC0"
+        "DEB",
+        "DEC"
       ],
       "note": "施瓦本-法兰克（德国西南 NUTS L2 ×13：巴符/黑森/莱茵兰/莱法/萨尔）"
     },
@@ -1520,13 +1832,11 @@
       "source": "nuts",
       "type": "source_id",
       "values": [
-        "DE30",
-        "DE40",
-        "DED2",
-        "DED4",
-        "DED5",
-        "DEE0",
-        "DEG0"
+        "DE3",
+        "DE4",
+        "DED",
+        "DEE",
+        "DEG"
       ],
       "note": "图林根-劳西茨（德国中东部 NUTS L2 ×7：柏林/勃兰登堡/萨克森/萨安/图林根）"
     },
@@ -1535,13 +1845,7 @@
       "source": "nuts",
       "type": "source_id",
       "values": [
-        "DE21",
-        "DE22",
-        "DE23",
-        "DE24",
-        "DE25",
-        "DE26",
-        "DE27"
+        "DE2"
       ],
       "note": "巴伐利亚（德国东南，拜恩自由州 NUTS L2 ×7）"
     },
@@ -1645,6 +1949,182 @@
         "RUS.6_1"
       ],
       "note": "伏尔加-卡马（GADM 鞑靼斯坦 RUS.68_1 + 巴什科尔托斯坦 RUS.6_1；巴什科尔托斯坦东缘已入亚洲，按整共和国近似）"
+    },
+    {
+      "region": "constantinople",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TR10"
+      ],
+      "note": "NUTS L2 TR10 伊斯坦布尔省（跨博斯普鲁斯两岸）"
+    },
+    {
+      "region": "bithynia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TR22",
+        "TR4"
+      ],
+      "note": "NUTS L2 TR22 巴勒克埃西尔—恰纳卡莱 / TR41 布尔萨—埃斯基谢希尔—比莱吉克 / TR42 科贾埃利等"
+    },
+    {
+      "region": "ionia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TR3"
+      ],
+      "note": "NUTS L2 TR31 伊兹密尔 / TR32 艾登—代尼兹利—穆拉 / TR33 马尼萨—阿菲永—屈塔希亚—乌沙克"
+    },
+    {
+      "region": "pamphylia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TR61"
+      ],
+      "note": "NUTS L2 TR61 安塔利亚—伊斯帕尔塔—布尔杜尔"
+    },
+    {
+      "region": "cilicia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TR62",
+        "TR63"
+      ],
+      "note": "NUTS L2 TR62 阿达纳—梅尔辛 / TR63 哈塔伊—卡赫拉曼马拉什—奥斯曼尼耶"
+    },
+    {
+      "region": "galatia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TR51"
+      ],
+      "note": "NUTS L2 TR51 安卡拉"
+    },
+    {
+      "region": "lycaonia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TR52"
+      ],
+      "note": "NUTS L2 TR52 科尼亚—卡拉曼"
+    },
+    {
+      "region": "cappadocia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TR7"
+      ],
+      "note": "NUTS L2 TR71 克勒克卡莱—阿克萨赖—尼代—内夫谢希尔—克尔谢希尔 / TR72 开塞利—锡瓦斯—约兹加特"
+    },
+    {
+      "region": "paphlagonia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TR8"
+      ],
+      "note": "NUTS L2 TR81 宗古尔达克等 / TR82 卡斯塔莫努—锡诺普 / TR83 萨姆松—托卡特—乔鲁姆—阿马西亚"
+    },
+    {
+      "region": "pontus",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TR90"
+      ],
+      "note": "NUTS L2 TR90 特拉布宗—奥尔杜—吉雷松—里泽—阿尔特温—居米什哈内"
+    },
+    {
+      "region": "armenian_highlands_north",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TRA"
+      ],
+      "note": "NUTS L2 TRA1 埃尔祖鲁姆—埃尔津詹—巴伊布尔特 / TRA2 阿勒—卡尔斯—伊迪尔—阿尔达汉"
+    },
+    {
+      "region": "armenian_highlands_south",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TRB"
+      ],
+      "note": "NUTS L2 TRB1 马拉蒂亚—埃拉泽—宾格尔—通杰利 / TRB2 凡—穆什—比特利斯—哈卡里"
+    },
+    {
+      "region": "southeast_anatolia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "TRC"
+      ],
+      "note": "NUTS L2 TRC1 加济安泰普等 / TRC2 尚勒乌尔法—迪亚巴克尔 / TRC3 马尔丁—巴特曼—舍尔纳克—锡尔特"
+    },
+    {
+      "region": "syria",
+      "source": "darmc",
+      "type": "source_id",
+      "values": [
+        "prov303:26",
+        "prov303:20"
+      ],
+      "note": "DARMC 303 年行省 Syria Coele / Augusta Libanensis（土耳其境内部分被 NUTS 几何覆盖）；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region": "phoenicia",
+      "source": "darmc",
+      "type": "source_id",
+      "values": [
+        "prov303:19"
+      ],
+      "note": "DARMC 303 年行省 Phoenice；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region": "palaestina",
+      "source": "darmc",
+      "type": "source_id",
+      "values": [
+        "prov303:11"
+      ],
+      "note": "DARMC 303 年行省 Palaestina（含后来的 Palaestina Salutaris：内盖夫、西奈、约旦南部）；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region": "transjordan",
+      "source": "darmc",
+      "type": "source_id",
+      "values": [
+        "prov303:16"
+      ],
+      "note": "DARMC 303 年行省 Arabia；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region": "jazira",
+      "source": "darmc",
+      "type": "source_id",
+      "values": [
+        "prov303:41",
+        "prov303:37",
+        "prov303:45"
+      ],
+      "note": "DARMC 303 年行省 Augusta Euphratensis / Osrhoene / Mesopotamia（土耳其境内部分被 NUTS 几何覆盖，可见部分为叙利亚境内）；统一取 303 年单层，几何为各时代近似代理"
+    },
+    {
+      "region": "cyprus",
+      "source": "nuts",
+      "type": "l0_country",
+      "values": [
+        "CY"
+      ],
+      "note": "塞浦路斯 L0（NUTS CY）"
     }
   ]
 }

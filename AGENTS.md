@@ -18,7 +18,7 @@
    ```bash
    npm run audit && npm run collisions && npm run smoke && npm run build && npx tsc --noEmit
    ```
-   audit 语义：核心欧洲几何在首次有族群之后的任何年份不得空白（豁免：`roman_empire` AWMC 快照、`north_africa` 699 年后）
+   audit 语义：核心欧洲几何在首次有族群之后的任何年份不得空白（含北非/黎凡特 DARMC 行省；当前无豁免项）
 
 ## 顺序语义（易踩坑，改动前先想清楚）
 

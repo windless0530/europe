@@ -27,7 +27,7 @@
     {
       "code": "frankish_expansion_in_gaul",
       "type": "conquest",
-      "region": "gaul",
+      "region": "north_france",
       "years": [
         400,
         600
@@ -51,7 +51,7 @@
     {
       "code": "visigothic_sack_of_rome",
       "type": "battle",
-      "region": "italy",
+      "region": "central_italy",
       "years": [
         410,
         410
@@ -75,7 +75,7 @@
     {
       "code": "visigothic_settlement_in_gaul",
       "type": "settlement",
-      "region": "gaul",
+      "region": "aquitaine",
       "years": [
         418,
         418
@@ -99,7 +99,7 @@
     {
       "code": "vandal_crossing_to_north_africa",
       "type": "migration",
-      "region": "north_africa",
+      "region": "mauretania_tingitana",
       "years": [
         429,
         429
@@ -112,7 +112,7 @@
         "zh": "429年开始的汪达尔人进入北非的迁徙。",
         "en": "The Vandal movement into North Africa beginning in 429."
       },
-      "notes": "汪达尔人进入北非并最终建立王国。",
+      "notes": "429 年盖萨里克率汪达尔—阿兰人自西班牙渡海，登陆廷吉塔纳，东进努米底亚并最终建立王国。",
       "participants": [
         {
           "people": "vandals",
@@ -155,7 +155,7 @@
     {
       "code": "ostrogothic_conquest_of_italy",
       "type": "conquest",
-      "region": "italy",
+      "region": "north_italy",
       "years": [
         489,
         493
