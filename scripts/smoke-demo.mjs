@@ -120,7 +120,7 @@ await page.waitForTimeout(400);
 const central = await page.evaluate(() => {
   const ctx = getComputedStyle(document.documentElement).getPropertyValue('--context-fill').trim();
   const out = {};
-  for (const cc of ['def0', 'de11', 'deg0', 'de21', 'at', 'cz', 'sk', 'hu', 'ch01', 'ch04', 'ch07', 'xk']) {
+  for (const cc of ['def0', 'de11', 'deg0', 'de21', 'at3', 'at1', 'cz', 'sk', 'hu2', 'hu3', 'ch01', 'ch04', 'ch07', 'xk']) {
     const el = document.querySelector(`path.region[data-code="nuts:${cc}"], path.region[data-members~="${cc}"]`);
     out[cc] = el && el.style.fill && el.style.fill !== ctx ? 'painted' : 'BLANK';
   }
@@ -148,7 +148,7 @@ for (const yr of [1300, 2026]) {
     const out = {};
     const checks = {
       castile: 'es41', andalusia: 'es61', catalonia: 'es51', basque: 'es21', galicia: 'es11',
-      brittany: 'frh0', flanders: 'be2', wallonia: 'be3', samiland: 'no07', transylvania: 'ro11',
+      brittany: 'frh0', flanders: 'be2', wallonia: 'be3', northNorway: 'no07', transylvania: 'ro11',
       silesia: 'pl22', masuria: 'pl62', crimea: 'ukr_4_1', eastGalicia: 'ukr_14_1', swissW: 'ch01', ticino: 'ch07',
     };
     for (const [k, cc] of Object.entries(checks)) {
@@ -172,7 +172,7 @@ for (const yr of [-300, 0]) {
   const early = await page.evaluate(() => {
     const ctx = getComputedStyle(document.documentElement).getPropertyValue('--context-fill').trim();
     const out = {};
-    for (const cc of ['def0', 'de11', 'deg0', 'de21', 'at', 'cz', 'sk', 'pl21', 'pl22']) {
+    for (const cc of ['def0', 'de11', 'deg0', 'de21', 'at3', 'at1', 'cz', 'sk', 'pl21', 'pl22']) {
       const el = document.querySelector(`path.region[data-code="nuts:${cc}"], path.region[data-members~="${cc}"]`);
       out[cc] = el && el.style.fill && el.style.fill !== ctx ? 'painted' : 'BLANK';
     }
@@ -186,7 +186,7 @@ for (const yr of [-300, 0]) {
   if (yr === 0) {
     // 公元 0 年：奥地利（罗马/诺里库姆）与德国中东部（古日耳曼）应不同色
     const fills0 = await page.evaluate(() => ({
-      at: document.querySelector('path.region[data-code="nuts:at"], path.region[data-members~="at"]')?.style.fill,
+      at: document.querySelector('path.region[data-code="nuts:at3"], path.region[data-members~="at3"]')?.style.fill,
       deg0: document.querySelector('path.region[data-code="nuts:deg0"], path.region[data-members~="deg0"]')?.style.fill,
     }));
     console.log(`year-0 colors: at=${fills0.at} deg0=${fills0.deg0} (expect distinct: Rome vs Germanic)`);

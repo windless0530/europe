@@ -162,7 +162,7 @@ export const PEOPLE_SLOT: Record<string, number> = {
   'macedonians': 35, 'magyars': 13, 'masurians': 0, 'montenegrins': 20, 'moors': 1,
   'norse': 22, 'persians': 60, 'phoenicians': 63, 'norwegians': 38, 'ostrogoths': 2, 'picts': 23,
   'poles': 36, 'portuguese': 37, 'prussians': 37, 'romanians': 39,
-  'romans': 1, 'rus': 10, 'russians': 17, 'sami': 40, 'sardinians': 41,
+  'romans': 1, 'rus': 10, 'russians': 17, 'sami': 40, 'sardinians': 41, 'sarmatians': 51,
   'saxons': 17, 'scots': 42, 'serbs': 7, 'slavs': 20,
   'slovaks': 44, 'slovenes': 45, 'spaniards': 2, 'suebi': 7,
   'swedes': 46, 'tatars': 43, 'thracians': 0, 'thuringians': 25,
@@ -675,6 +675,7 @@ export async function fetchAtlas(onBytes?: (loaded: number, total: number) => vo
  *  （SUBNATIONAL_LEVEL）改渲染次国家级单元，其 L0 不再绘制。 */
 const SUBNATIONAL_LEVEL: Record<string, number> = {
   BE: 1, UA: 1, // 大区/GADM 州级（乌克兰 GADM 国家码 UKR 归一为 UA）
+  AT: 1, HU: 1, // NUTS L1（奥地利西/东南+东；匈牙利外多瑙/中部+大平原）
   FR: 2, // NUTS L2（旧大区×22：按北法/阿基坦/朗格多克/勃艮第/普罗旺斯/阿尔萨斯—洛林/布列塔尼归组）
   CH: 2, ES: 2, PL: 2, RO: 2, SE: 2, NO: 2, DE: 2, // NUTS L2（德国四分）
   IT: 2, EL: 2, // NUTS L2（意大利大陆×19+西西里+撒丁；希腊×13，两岛/东马其顿-色雷斯另设）

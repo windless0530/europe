@@ -183,6 +183,13 @@
       "b": "persians",
       "confidence": "medium",
       "notes": "Kurdish and Persian are both Western Iranian languages."
+    },
+    {
+      "a": "sarmatians",
+      "type": "related_to",
+      "b": "persians",
+      "confidence": "medium",
+      "notes": "Sarmatian belonged to the Iranian branch of Indo-European, like Persian."
     }
   ],
   "claims": [
@@ -242,6 +249,17 @@
           "priority": 70,
           "confidence": "medium",
           "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "south_greece",
+          "presence": "minority",
+          "years": [
+            1350,
+            null
+          ],
+          "priority": 40,
+          "confidence": "medium",
+          "notes": "阿尔瓦尼特人：14–15 世纪应拜占庭与拉丁统治者招募定居阿提卡、维奥蒂亚、阿尔戈利斯、科林西亚与诸岛，近代逐步希腊化"
         }
       ]
     },
@@ -1360,7 +1378,29 @@
       },
       "slices": [
         {
-          "region": "carpathian_basin",
+          "region": "east_austria",
+          "presence": "political_control",
+          "years": [
+            568,
+            796
+          ],
+          "priority": 65,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "克恩滕—施蒂利亚为卡兰塔尼亚斯拉夫公国（7 世纪中叶脱离阿瓦尔，745 年起臣属巴伐利亚），悬停可见。",
+              "en": "Carinthia–Styria formed the Slavic principality of Carantania (independent of the Avars from the mid-7th century, subject to Bavaria from 745); shown on hover."
+            },
+            "years": [
+              626,
+              796
+            ]
+          },
+          "notes": "阿瓦尔汗国西缘（维也纳盆地、布尔根兰，恩斯河以东）；791–796 年查理曼战役"
+        },
+        {
+          "region": "slovakia",
           "presence": "political_control",
           "years": [
             567,
@@ -1368,7 +1408,28 @@
           ],
           "priority": 65,
           "confidence": "medium",
-          "notes": "阿瓦尔汗国；796–799 年查理曼战役后瓦解"
+          "notes": "阿瓦尔汗国北缘（多瑙河—蒂萨河以北的斯洛伐克南部平原）；796–799 年瓦解"
+        },
+        {
+          "region": "transdanubia",
+          "presence": "political_control",
+          "years": [
+            568,
+            796
+          ],
+          "priority": 65,
+          "confidence": "medium",
+          "notes": "阿瓦尔汗国（568 年伦巴第让出潘诺尼亚）；791–796 年查理曼战役"
+        },
+        {
+          "region": "alfold",
+          "presence": "political_control",
+          "years": [
+            567,
+            799
+          ],
+          "priority": 65,
+          "notes": "阿瓦尔汗国核心（「环」宫帐位于多瑙河—蒂萨河之间）；796–799 年瓦解"
         }
       ]
     },
@@ -1530,17 +1591,6 @@
       },
       "slices": [
         {
-          "region": "austria",
-          "presence": "homeland",
-          "years": [
-            550,
-            788
-          ],
-          "priority": 58,
-          "confidence": "medium",
-          "notes": "阿吉洛尔夫王朝巴伐利亚公国（多瑙河上游）"
-        },
-        {
           "region": "bavaria",
           "presence": "homeland",
           "years": [
@@ -1549,6 +1599,24 @@
           ],
           "priority": 60,
           "notes": "巴伐利亚公国（阿吉洛尔家族，向法兰克称臣）"
+        },
+        {
+          "region": "west_austria",
+          "presence": "homeland",
+          "years": [
+            550,
+            788
+          ],
+          "priority": 58,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "福拉尔贝格为阿勒曼尼人定居区。",
+              "en": "Vorarlberg was settled by the Alemanni."
+            }
+          },
+          "notes": "阿吉洛尔夫王朝巴伐利亚公国（萨尔茨堡 696 年圣鲁珀特建教区）"
         }
       ]
     },
@@ -2080,6 +2148,24 @@
           "priority": 70,
           "confidence": "medium",
           "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "north_greece",
+          "presence": "political_control",
+          "years": [
+            976,
+            1018
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "塞萨洛尼基未失守；西蒙一世（893–927）时已据西马其顿一部。",
+              "en": "Thessaloniki never fell; under Simeon I (893–927) Bulgaria had already held part of western Macedonia."
+            }
+          },
+          "notes": "萨穆伊尔的保加利亚（普雷斯帕—奥赫里德），986 年取拉里萨；1014 年克莱迪翁战役后瓦解，1018 年巴西尔二世完成征服"
         }
       ]
     },
@@ -2389,28 +2475,6 @@
           "notes": "拉埃托人（雷蒂亚）与波伊人东境"
         },
         {
-          "region": "central_europe",
-          "presence": "settlement",
-          "years": [
-            -500,
-            -15
-          ],
-          "priority": 60,
-          "confidence": "medium",
-          "notes": "拉登文化：波伊人（波希米亚，Boiohaemum）、文德利奇人（巴伐利亚）、诺里库姆诸部；北德同期为亚斯托夫文化（整体近似）"
-        },
-        {
-          "region": "pannonia",
-          "presence": "settlement",
-          "years": [
-            -450,
-            9
-          ],
-          "priority": 50,
-          "confidence": "medium",
-          "notes": "埃拉维斯奇人/斯科尔迪斯克人（潘诺尼亚凯尔特）"
-        },
-        {
           "region": "poland",
           "presence": "settlement",
           "years": [
@@ -2464,6 +2528,71 @@
           "priority": 60,
           "notes": "前 278 年托利斯托波伊、特罗克梅、特克托萨吉三部渡赫勒斯滂，定居安卡拉周边（加拉太人），前 25 年并入罗马；以定居层表示（凯尔特人与亚美尼亚人共用写死色槽，同屏着色会撞色），整区由希腊化政治层着色",
           "confidence": "medium"
+        },
+        {
+          "region": "west_austria",
+          "presence": "settlement",
+          "years": [
+            -500,
+            -15
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "诺里库姆王国（凯尔特）与雷蒂亚人、文德利奇人"
+        },
+        {
+          "region": "east_austria",
+          "presence": "settlement",
+          "years": [
+            -500,
+            -15
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "诺里库姆王国（诺雷亚）与波伊人（维也纳盆地）"
+        },
+        {
+          "region": "czechia",
+          "presence": "settlement",
+          "years": [
+            -500,
+            -8
+          ],
+          "priority": 60,
+          "notes": "拉登文化波伊人（波希米亚得名 Boiohaemum）"
+        },
+        {
+          "region": "transdanubia",
+          "presence": "settlement",
+          "years": [
+            -450,
+            9
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "埃拉维斯奇人、波伊人、斯科尔迪斯克人（潘诺尼亚凯尔特）"
+        },
+        {
+          "region": "alfold",
+          "presence": "settlement",
+          "years": [
+            -450,
+            20
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "前 60–前 44 年达契亚布雷比斯塔王国一度支配蒂萨河流域。",
+              "en": "In 60–44 BC the Dacian kingdom of Burebista briefly dominated the Tisza basin."
+            },
+            "years": [
+              -60,
+              -44
+            ]
+          },
+          "notes": "拉登文化凯尔特诸部；北部与东缘有达契亚人"
         }
       ]
     },
@@ -2639,6 +2768,26 @@
           ],
           "priority": 90,
           "notes": "1191 年狮心王理查攻取，1192 年吕西尼昂王朝塞浦路斯王国；1489 年让与威尼斯"
+        },
+        {
+          "region": "north_greece",
+          "presence": "political_control",
+          "years": [
+            1204,
+            1224
+          ],
+          "priority": 90,
+          "notes": "塞萨洛尼基王国（蒙特费拉的博尼法斯，1204）；1224 年伊庇鲁斯的狄奥多尔·科穆宁·杜卡斯收复"
+        },
+        {
+          "region": "south_greece",
+          "presence": "political_control",
+          "years": [
+            1205,
+            1262
+          ],
+          "priority": 90,
+          "notes": "第四次十字军后的阿凯亚公国（维尔阿杜安家族）与雅典—底比斯公国（拉罗什家族）；1262 年米斯特拉斯等三堡让与拜占庭，摩里亚专制国兴起"
         }
       ]
     },
@@ -3105,6 +3254,24 @@
               1850
             ]
           }
+        },
+        {
+          "region": "lapland",
+          "presence": "homeland",
+          "years": [
+            1700,
+            null
+          ],
+          "priority": 75,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "最北的伊纳里、乌茨约基、埃农泰基厄以萨米人为主；1809 年前属瑞典王国，1809–1917 年属俄属芬兰大公国。本区按芬兰人着色，萨米人见悬停。",
+              "en": "The northernmost municipalities of Inari, Utsjoki and Enontekiö remain mainly Sami; the area belonged to Sweden until 1809 and to the Russian Grand Duchy of Finland in 1809–1917. The region is colored Finnish; the Sami appear on hover."
+            }
+          },
+          "notes": "17–18 世纪芬兰农民沿凯米河、托尔讷河谷定居拉普马克"
         }
       ]
     },
@@ -3141,28 +3308,6 @@
         ]
       },
       "slices": [
-        {
-          "region": "austria",
-          "presence": "political_control",
-          "years": [
-            788,
-            900
-          ],
-          "priority": 90,
-          "confidence": "medium",
-          "notes": "788 年查理曼废黜塔西洛，巴伐利亚并入法兰克"
-        },
-        {
-          "region": "austria",
-          "presence": "political_control",
-          "years": [
-            536,
-            550
-          ],
-          "priority": 60,
-          "confidence": "medium",
-          "notes": "536/537 年东哥特维蒂吉斯割让诺里库姆予法兰克；550 年前后巴伐利亚公国成型"
-        },
         {
           "region": "bavaria",
           "presence": "political_control",
@@ -3388,6 +3533,61 @@
           "priority": 90,
           "confidence": "medium",
           "notes": "756 年丕平献土后的教皇国（法兰克保护），774 年查理曼征服伦巴第，800 年罗马加冕"
+        },
+        {
+          "region": "west_austria",
+          "presence": "political_control",
+          "years": [
+            536,
+            550
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "536/537 年东哥特割让；550 年前后巴伐利亚公国成型"
+        },
+        {
+          "region": "west_austria",
+          "presence": "political_control",
+          "years": [
+            788,
+            900
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "788 年查理曼废黜塔西洛三世，巴伐利亚并入法兰克"
+        },
+        {
+          "region": "east_austria",
+          "presence": "political_control",
+          "years": [
+            796,
+            907
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "notes": "阿瓦尔边区（东部边区）与卡兰塔尼亚边区；907 年普雷斯堡之战巴伐利亚军败于马扎尔人"
+        },
+        {
+          "region": "transdanubia",
+          "presence": "political_control",
+          "years": [
+            796,
+            895
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "巴拉顿公国由斯拉夫王公治理，880 年代大摩拉维亚一度东扩至此。",
+              "en": "The Balaton principality was ruled by Slavic princes; Great Moravia briefly extended here in the 880s."
+            },
+            "years": [
+              840,
+              895
+            ]
+          },
+          "notes": "法兰克潘诺尼亚边区；下潘诺尼亚（巴拉顿）公国为斯拉夫附庸（普里比纳—科采尔，840 年代–876）"
         }
       ]
     },
@@ -3855,14 +4055,14 @@
       },
       "slices": [
         {
-          "region": "pannonia",
+          "region": "alfold",
           "presence": "homeland",
           "years": [
             454,
             567
           ],
           "priority": 60,
-          "notes": "内道战役（454）后格皮德王国（蒂萨河—锡尔米乌姆），567 年被伦巴第—阿瓦尔联军所灭"
+          "notes": "内道战役（454）后格皮德王国（蒂萨河—锡尔米乌姆）；567 年为伦巴第—阿瓦尔联军所灭"
         }
       ]
     },
@@ -3892,17 +4092,6 @@
         ]
       },
       "slices": [
-        {
-          "region": "central_europe",
-          "presence": "settlement",
-          "years": [
-            -450,
-            100
-          ],
-          "priority": 50,
-          "confidence": "medium",
-          "notes": "亚斯托夫文化扩张至中德；前 8 年马科曼尼人入波希米亚、前 6 年夸迪人随进摩拉维亚"
-        },
         {
           "region": "norway",
           "presence": "settlement",
@@ -3934,7 +4123,7 @@
           ],
           "priority": 50,
           "confidence": "medium",
-          "notes": "夸迪人（苏维汇系，瓦尼乌斯王国 19–50）至 5 世纪赫鲁利/卢吉等部；多瑙河中游平原的伊阿济格斯为萨尔马提亚人（非日耳曼，未单列）"
+          "notes": "夸迪人（苏维汇系，瓦尼乌斯王国 19–50）至 5 世纪赫鲁利/卢吉等部；多瑙河中游平原的伊阿兹吉斯为萨尔马提亚人（见匈牙利大平原区）"
         },
         {
           "region": "sweden",
@@ -3957,6 +4146,17 @@
           "priority": 50,
           "confidence": "medium",
           "notes": "日耳曼部落带（赫尔蒙德里人传统）"
+        },
+        {
+          "region": "czechia",
+          "presence": "settlement",
+          "years": [
+            -8,
+            100
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "前 8 年马博德率马科曼尼人入波希米亚、前 6 年夸迪人随进摩拉维亚"
         }
       ]
     },
@@ -3989,17 +4189,6 @@
         ]
       },
       "slices": [
-        {
-          "region": "austria",
-          "presence": "homeland",
-          "years": [
-            900,
-            null
-          ],
-          "priority": 70,
-          "confidence": "medium",
-          "notes": "东法兰克—德意志—哈布斯堡奥地利德语区"
-        },
         {
           "region": "bavaria",
           "presence": "homeland",
@@ -4112,6 +4301,39 @@
             }
           },
           "notes": "卢森堡伯国—公国（卢森堡王朝 1308–1437 出四位皇帝）—1815 年大公国"
+        },
+        {
+          "region": "west_austria",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "notes": "巴伐利亚公国—蒂罗尔伯国—萨尔茨堡大主教区—哈布斯堡奥地利德语区"
+        },
+        {
+          "region": "east_austria",
+          "presence": "homeland",
+          "years": [
+            900,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "布尔根兰 1921 年前属匈牙利王国；克恩滕南部有斯洛文尼亚语人群。",
+              "en": "Burgenland belonged to the Kingdom of Hungary until 1921; southern Carinthia has a Slovene-speaking population."
+            },
+            "years": [
+              955,
+              1921
+            ]
+          },
+          "notes": "巴本堡—哈布斯堡奥地利公国（维也纳）、施蒂利亚与克恩滕公国"
         }
       ]
     },
@@ -4322,17 +4544,6 @@
           "priority": 70,
           "confidence": "medium",
           "notes": "色雷斯希腊裔（君士坦丁堡—阿德里安堡腹地；1369 年奥斯曼迁都后渐为土耳其人主导）"
-        },
-        {
-          "region": "greece",
-          "presence": "homeland",
-          "years": [
-            -800,
-            null
-          ],
-          "priority": 70,
-          "confidence": "medium",
-          "notes": "古希腊—罗马—拜占庭—现代连续空间近似；不表示人口同质或排他领土。"
         },
         {
           "region": "sicily",
@@ -4771,6 +4982,50 @@
             }
           },
           "notes": "拜占庭罗马公国—拉文纳总督区（「拜占庭教宗」时代）；756 年丕平献土建教皇国"
+        },
+        {
+          "region": "north_greece",
+          "presence": "homeland",
+          "years": [
+            -800,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1387–1912 年奥斯曼统治（色萨利 1881、马其顿与伊庇鲁斯 1912–1913 年归希腊）；1923 年人口交换前为希腊人、斯拉夫语人群、土耳其人、阿罗蒙人与塞萨洛尼基塞法迪犹太人混居，各方统计有争议；本区按希腊人着色。",
+              "en": "Ottoman rule 1387–1912 (Thessaly joined Greece in 1881, Macedonia and Epirus in 1912–1913). Before the 1923 population exchange the population mixed Greeks, Slavic speakers, Turks, Aromanians and the Sephardic Jews of Thessaloniki, in disputed proportions; the region is colored Greek."
+            },
+            "years": [
+              1387,
+              1923
+            ]
+          },
+          "notes": "马其顿王国（阿吉德王朝）、色萨利诸邦、伊庇鲁斯（摩洛西亚）—罗马—拜占庭—伊庇鲁斯专制国—现代希腊"
+        },
+        {
+          "region": "south_greece",
+          "presence": "homeland",
+          "years": [
+            -800,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1262 年后拉丁残余并存：阿凯亚公国至 1432 年、雅典公国（1311–1388 加泰罗尼亚佣兵团，此后佛罗伦萨阿恰约利家族至 1458）；威尼斯据伊奥尼亚群岛（1386–1797）与诸岛，罗得岛骑士团（1310–1522）；奥斯曼统治 1460–1830；14–15 世纪阿尔瓦尼特人（阿尔巴尼亚人）大量定居阿提卡与伯罗奔尼撒；十二群岛 1912–1947 年属意大利。本区按希腊人着色。",
+              "en": "After 1262 Latin remnants survived: the Principality of Achaea until 1432 and the Duchy of Athens (the Catalan Company 1311–1388, then the Florentine Acciaioli to 1458); Venice held the Ionian Islands (1386–1797) and other islands, and the Knights Hospitaller held Rhodes (1310–1522); Ottoman rule 1460–1830; Arvanites (Albanians) settled widely in Attica and the Peloponnese in the 14th–15th centuries; the Dodecanese were Italian in 1912–1947. The region is colored Greek."
+            },
+            "years": [
+              1262,
+              1947
+            ]
+          },
+          "notes": "雅典、斯巴达、科林斯诸城邦—罗马阿凯亚—拜占庭希腊军区—摩里亚专制国—现代希腊"
         }
       ]
     },
@@ -4804,17 +5059,6 @@
       },
       "slices": [
         {
-          "region": "hungary",
-          "presence": "homeland",
-          "years": [
-            1000,
-            null
-          ],
-          "priority": 70,
-          "confidence": "medium",
-          "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
-        },
-        {
           "region": "transylvania",
           "presence": "political_control",
           "years": [
@@ -4841,6 +5085,50 @@
           "priority": 50,
           "confidence": "medium",
           "notes": "匈牙利人（含塞凯伊人）：1830–40 年代约 23.3%（费涅什估计）、1869 年 24.9%、1910 年 31.6%（马扎尔化政策推高）"
+        },
+        {
+          "region": "transdanubia",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1541–1686/1699 年南部与东部属奥斯曼布达帕夏辖区，西北为哈布斯堡「王室匈牙利」；按着色原则不画奥斯曼与哈布斯堡政治层，以主体人群着色。",
+              "en": "1541–1686/1699: the south and east belonged to the Ottoman eyalet of Buda, the northwest to Habsburg Royal Hungary; following the coloring principle, no Ottoman or Habsburg political layer is drawn and the region is colored by its main population."
+            },
+            "years": [
+              1541,
+              1699
+            ]
+          },
+          "notes": "匈牙利王国核心（埃斯泰尔戈姆、塞克什白堡）"
+        },
+        {
+          "region": "alfold",
+          "presence": "homeland",
+          "years": [
+            1000,
+            null
+          ],
+          "priority": 70,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "1541–1686/1699 年为奥斯曼布达、特梅什瓦尔等帕夏辖区，北部山地属王室匈牙利；按着色原则不画奥斯曼与哈布斯堡政治层，以主体人群着色。",
+              "en": "1541–1686/1699: the Ottoman eyalets of Buda and Temesvár, with the northern hills in Royal Hungary; following the coloring principle, no Ottoman or Habsburg political layer is drawn and the region is colored by its main population."
+            },
+            "years": [
+              1541,
+              1699
+            ]
+          },
+          "notes": "匈牙利王国（佩斯—布达、大平原诸州与北部山地）；13 世纪起库曼人、雅西人定居大平原并匈牙利化"
         }
       ]
     },
@@ -4868,14 +5156,24 @@
       },
       "slices": [
         {
-          "region": "pannonia",
+          "region": "transdanubia",
           "presence": "political_control",
           "years": [
-            425,
+            433,
             454
           ],
           "priority": 65,
-          "notes": "阿提拉帝国政治核心（多瑙河中游洪泛平原为宫廷驻地）；454 年内道战役败于格皮德等联军后退出盆地，残部东撤至 469 年邓吉兹奇败亡"
+          "notes": "433 年潘诺尼亚让与匈人；454 年内道战役后崩溃"
+        },
+        {
+          "region": "alfold",
+          "presence": "political_control",
+          "years": [
+            400,
+            454
+          ],
+          "priority": 65,
+          "notes": "匈人帝国政治核心（阿提拉宫廷驻蒂萨河平原）；454 年内道战役败于格皮德等联军"
         }
       ]
     },
@@ -5581,17 +5879,6 @@
       },
       "slices": [
         {
-          "region": "central_europe",
-          "presence": "homeland",
-          "years": [
-            490,
-            550
-          ],
-          "priority": 60,
-          "confidence": "low",
-          "notes": "卢吉兰（下奥地利，489 年后）—摩拉维亚迁徙期；526/547 年主力移入潘诺尼亚，550 年起捷克盆地由斯拉夫片覆盖"
-        },
-        {
           "region": "old_saxony",
           "presence": "settlement",
           "years": [
@@ -5601,17 +5888,6 @@
           "priority": 45,
           "confidence": "low",
           "notes": "易北河下游伦巴第家园（第二阶段迁出，hover 层）"
-        },
-        {
-          "region": "pannonia",
-          "presence": "settlement",
-          "years": [
-            526,
-            568
-          ],
-          "priority": 55,
-          "confidence": "medium",
-          "notes": "潘诺尼亚伦巴第王国（526 瓦乔南下、547 奥多因受查士丁尼封地，外多瑙地区；东侧为格皮德王国）；568 年阿尔博因率众入意大利"
         },
         {
           "region": "ticino",
@@ -5696,6 +5972,39 @@
             }
           },
           "notes": "贝内文托公国（约 570，774 年后称亲王国；849 年分出萨莱诺）"
+        },
+        {
+          "region": "east_austria",
+          "presence": "political_control",
+          "years": [
+            536,
+            568
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "伦巴第人据潘诺尼亚与维也纳盆地（547 年获查士丁尼封地）；内诺里库姆名义属法兰克；568 年入意大利"
+        },
+        {
+          "region": "czechia",
+          "presence": "homeland",
+          "years": [
+            490,
+            550
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "伦巴第人摩拉维亚—波希米亚迁徙期；550 年起由斯拉夫片覆盖"
+        },
+        {
+          "region": "transdanubia",
+          "presence": "political_control",
+          "years": [
+            526,
+            568
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "潘诺尼亚伦巴第王国（526 瓦乔南下、547 奥多因受查士丁尼封地）；568 年阿尔博因率众入意大利"
         }
       ]
     },
@@ -5800,17 +6109,6 @@
       "classification": {},
       "slices": [
         {
-          "region": "carpathian_basin",
-          "presence": "homeland",
-          "years": [
-            895,
-            1100
-          ],
-          "priority": 60,
-          "confidence": "medium",
-          "notes": "895 年阿尔帕德越喀尔巴阡山入盆地（此前居黑海北岸 Etelköz，未单列）；1000 年匈牙利王国建立后渐与匈牙利人重合"
-        },
-        {
           "region": "transylvania",
           "presence": "settlement",
           "years": [
@@ -5820,6 +6118,57 @@
           "priority": 55,
           "confidence": "medium",
           "notes": "10 世纪由久洛家族统治，950 年代起有匈牙利部族定居（地名证据）；1002 年并入匈牙利王国"
+        },
+        {
+          "region": "east_austria",
+          "presence": "political_control",
+          "years": [
+            907,
+            955
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "克恩滕与施蒂利亚西部未入马扎尔人控制。",
+              "en": "Carinthia and western Styria were not under Magyar control."
+            }
+          },
+          "notes": "907 年普雷斯堡之战后马扎尔人控制恩斯河以东；955 年莱希菲尔德之战后东部边区重建（976 年巴本堡家族，996 年「奥斯塔里奇」）"
+        },
+        {
+          "region": "slovakia",
+          "presence": "homeland",
+          "years": [
+            895,
+            1100
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "895 年马扎尔人入盆地，907 年后据斯洛伐克南部；1000 年起匈牙利王国北部"
+        },
+        {
+          "region": "transdanubia",
+          "presence": "homeland",
+          "years": [
+            895,
+            1100
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "895–900 年马扎尔人占据潘诺尼亚；1000 年起匈牙利王国"
+        },
+        {
+          "region": "alfold",
+          "presence": "homeland",
+          "years": [
+            895,
+            1100
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "895 年阿尔帕德越喀尔巴阡山入盆地（此前居黑海北岸 Etelköz，未单列）；1000 年匈牙利王国建立后渐与匈牙利人重合"
         }
       ]
     },
@@ -6051,6 +6400,17 @@
           "priority": 60,
           "confidence": "medium",
           "notes": "迁移时代-维京时代诺斯人（瑞典人前身，伊陶瓦尔王朝）"
+        },
+        {
+          "region": "north_norway",
+          "presence": "settlement",
+          "years": [
+            500,
+            900
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "哈洛加兰海岸的诺斯人酋长领地（9 世纪奥塔尔向阿尔弗雷德大王记述其地）"
         }
       ]
     },
@@ -6093,6 +6453,24 @@
           "priority": 70,
           "confidence": "medium",
           "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "north_norway",
+          "presence": "homeland",
+          "years": [
+            1300,
+            null
+          ],
+          "priority": 75,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "芬马克内陆（考特凯诺、卡拉绍克）至今以萨米人为多数；18–19 世纪克文人（芬兰移民）定居；1850 至 1980 年代推行挪威化政策。本区按挪威人着色，萨米人见悬停。",
+              "en": "Inner Finnmark (Kautokeino, Karasjok) still has a Sami majority; Kvens (Finnish migrants) settled in the 18th–19th centuries; a Norwegianization policy ran from the 1850s to the 1980s. The region is colored Norwegian; the Sami appear on hover."
+            }
+          },
+          "notes": "挪威王权延伸至北方：1307 年建瓦尔德胡斯要塞；海岸渔村以挪威人为主"
         }
       ]
     },
@@ -6146,17 +6524,6 @@
         ]
       },
       "slices": [
-        {
-          "region": "austria",
-          "presence": "political_control",
-          "years": [
-            493,
-            536
-          ],
-          "priority": 60,
-          "confidence": "medium",
-          "notes": "东哥特王国对诺里库姆的统治（493 接管奥多亚克遗产）；536/537 年维蒂吉斯为换取援助割让予法兰克"
-        },
         {
           "region": "bavaria",
           "presence": "political_control",
@@ -6230,6 +6597,57 @@
           ],
           "priority": 90,
           "notes": "东哥特王国（493 狄奥多里克杀奥多亚克—553 年拉克塔留斯山之战后为拜占庭所灭）"
+        },
+        {
+          "region": "west_austria",
+          "presence": "political_control",
+          "years": [
+            493,
+            536
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "东哥特王国对雷蒂亚—诺里库姆的统治；536/537 年维蒂吉斯割让予法兰克"
+        },
+        {
+          "region": "east_austria",
+          "presence": "political_control",
+          "years": [
+            493,
+            536
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "多瑙河以北的卢吉兰（下奥地利）489 年后为伦巴第人所据。",
+              "en": "Rugiland north of the Danube (Lower Austria) was held by the Lombards after 489."
+            }
+          },
+          "notes": "东哥特王国据内诺里库姆（克恩滕—施蒂利亚）"
+        },
+        {
+          "region": "transdanubia",
+          "presence": "political_control",
+          "years": [
+            455,
+            526
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "473 年东哥特主力南下巴尔干后，本区为苏维汇、赫鲁利等部与东哥特意大利（504–535 据锡尔米乌姆—萨维亚）势力交错。",
+              "en": "After the main Ostrogothic body left for the Balkans in 473, the region was contested among the Suebi, Heruli and Ostrogothic Italy (which held Sirmium–Savia in 504–535)."
+            },
+            "years": [
+              473,
+              526
+            ]
+          },
+          "notes": "潘诺尼亚东哥特（内道战役后 455/456 年受东罗马安置，瓦拉米尔、提乌德米尔三兄弟，至 473）"
         }
       ]
     },
@@ -6613,6 +7031,24 @@
           ],
           "priority": 95,
           "notes": "萨珊占领埃及（619 年取亚历山大，629 年撤出）"
+        },
+        {
+          "region": "north_greece",
+          "presence": "political_control",
+          "years": [
+            -512,
+            -479
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "马其顿为保有本地王统的波斯附庸王国。",
+              "en": "Macedon was a Persian vassal kingdom that kept its native kings."
+            }
+          },
+          "notes": "大流士一世斯基泰远征后马其顿臣属波斯（阿敏塔斯一世—亚历山大一世）；色萨利 480 年附波斯；前 479 年普拉提亚之战后撤出"
         }
       ]
     },
@@ -7025,27 +7461,6 @@
           "notes": "拜占庭 Spania 行省（552 年查士丁尼介入西哥特内战，沿海卡塔赫纳—马拉加带，624 年苏因提拉收复）；仅沿海，hover 层"
         },
         {
-          "region": "austria",
-          "presence": "political_control",
-          "years": [
-            -15,
-            476
-          ],
-          "priority": 65,
-          "notes": "诺里库姆王国并入（前 16/15 年，克劳狄乌斯时正式行省化）；多瑙河为北界"
-        },
-        {
-          "region": "austria",
-          "presence": "settlement",
-          "years": [
-            476,
-            493
-          ],
-          "priority": 50,
-          "confidence": "medium",
-          "notes": "西罗马终结后的诺里库姆罗马省民（圣塞维利诺时代）；奥多亚克王国名义统治，488 年撤离部分居民，493 年东哥特接管"
-        },
-        {
           "region": "balkans",
           "presence": "political_control",
           "years": [
@@ -7126,16 +7541,6 @@
           ],
           "priority": 60,
           "notes": "近西班牙—卢西塔尼亚行省（托莱图姆/埃梅里塔·奥古斯塔）"
-        },
-        {
-          "region": "pannonia",
-          "presence": "political_control",
-          "years": [
-            9,
-            433
-          ],
-          "priority": 60,
-          "notes": "潘诺尼亚行省（9 年大伊利里亚起义后设省）；5 世纪渐失"
         },
         {
           "region": "portugal",
@@ -7677,6 +8082,85 @@
           "priority": 90,
           "confidence": "medium",
           "notes": "拜占庭再征服至约 570 年伦巴第人建贝内文托公国"
+        },
+        {
+          "region": "west_austria",
+          "presence": "political_control",
+          "years": [
+            -15,
+            476
+          ],
+          "priority": 65,
+          "notes": "前 15 年德鲁苏斯与提比略征服雷蒂亚，诺里库姆并入（克劳狄乌斯时正式行省化）；多瑙河为北界"
+        },
+        {
+          "region": "west_austria",
+          "presence": "settlement",
+          "years": [
+            476,
+            493
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "西罗马终结后的诺里库姆/雷蒂亚罗马省民（圣塞维利诺时代）；493 年东哥特接管"
+        },
+        {
+          "region": "east_austria",
+          "presence": "political_control",
+          "years": [
+            -15,
+            476
+          ],
+          "priority": 65,
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "多瑙河以北（魏因菲尔特尔、瓦尔德菲尔特尔）为马科曼尼—夸迪人，不属罗马。",
+              "en": "North of the Danube (Weinviertel, Waldviertel) belonged to the Marcomanni and Quadi, not Rome."
+            }
+          },
+          "notes": "诺里库姆与上潘诺尼亚（文多博纳、卡农图姆为多瑙河防线重镇）"
+        },
+        {
+          "region": "east_austria",
+          "presence": "settlement",
+          "years": [
+            476,
+            493
+          ],
+          "priority": 50,
+          "confidence": "medium",
+          "notes": "诺里库姆河岸省罗马省民（圣塞维利诺）；488 年奥多亚克撤离部分居民"
+        },
+        {
+          "region": "transdanubia",
+          "presence": "political_control",
+          "years": [
+            9,
+            433
+          ],
+          "priority": 60,
+          "notes": "潘诺尼亚行省（9 年大伊利里亚起义后设省，阿昆库姆、萨瓦里亚、索皮亚奈）；433 年埃提乌斯让与匈人"
+        },
+        {
+          "region": "north_greece",
+          "presence": "political_control",
+          "years": [
+            -168,
+            580
+          ],
+          "priority": 90,
+          "notes": "前 168 年皮德纳战役灭马其顿王国，前 146 年设马其顿行省；395 年后属东罗马；580 年代斯拉夫人大举定居"
+        },
+        {
+          "region": "south_greece",
+          "presence": "political_control",
+          "years": [
+            -146,
+            587
+          ],
+          "priority": 90,
+          "notes": "前 146 年穆米乌斯毁科林斯，前 27 年设阿凯亚行省；395 年后属东罗马；587 年斯拉夫人入伯罗奔尼撒"
         }
       ]
     },
@@ -7935,15 +8419,76 @@
       },
       "slices": [
         {
-          "region": "samiland",
+          "region": "north_norway",
           "presence": "homeland",
           "years": [
             500,
             null
           ],
-          "priority": 70,
+          "priority": 60,
           "confidence": "medium",
-          "notes": "萨普米：驯鹿畜牧原住民（挪威北角+瑞典诺尔兰；芬兰拉普兰并入芬兰近似）"
+          "notes": "芬马克、特罗姆斯与诺尔兰内陆的萨米人（海岸萨米、山地萨米）"
+        },
+        {
+          "region": "upper_norrland",
+          "presence": "homeland",
+          "years": [
+            500,
+            null
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "拉普马克（托尔讷、吕勒、皮特奥、于默奥拉普马克）的萨米人"
+        },
+        {
+          "region": "lapland",
+          "presence": "homeland",
+          "years": [
+            500,
+            null
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "凯米拉普马克与伊纳里、乌茨约基、埃农泰基厄的萨米人"
+        }
+      ]
+    },
+    {
+      "code": "sarmatians",
+      "type": "ancient",
+      "status": "merged",
+      "lifespan": [
+        -400,
+        450
+      ],
+      "name": {
+        "zh": "萨尔马提亚人（伊阿兹吉斯人）",
+        "en": "Sarmatians (Iazyges)"
+      },
+      "brief": {
+        "zh": "伊朗语草原游牧民；其西支伊阿兹吉斯人约 20 年起定居多瑙河与蒂萨河之间，与罗马潘诺尼亚、达契亚隔河相望。",
+        "en": "Iranian-speaking steppe nomads; their western branch, the Iazyges, settled between the Danube and the Tisza from about AD 20, facing Roman Pannonia and Dacia."
+      },
+      "notes": "萨尔马提亚人：前 4 世纪起取代斯基泰人称雄黑海北岸草原；伊阿兹吉斯人约 20 年迁入匈牙利大平原，马科曼尼战争（166–180）中与罗马交战，175 年马可·奥勒留与之议和；4 世纪末受匈人支配并融入其联盟。本图仅表示其在大平原的时间片。",
+      "classification": {
+        "language": [
+          "iranian"
+        ],
+        "historical_people": [
+          "sarmatians"
+        ]
+      },
+      "slices": [
+        {
+          "region": "alfold",
+          "presence": "homeland",
+          "years": [
+            20,
+            400
+          ],
+          "priority": 60,
+          "confidence": "medium",
+          "notes": "伊阿兹吉斯人据多瑙河—蒂萨河之间（罗马潘诺尼亚与达契亚之间的「蛮族」走廊）；4 世纪末并入匈人联盟"
         }
       ]
     },
@@ -8156,6 +8701,24 @@
           "priority": 70,
           "confidence": "medium",
           "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "north_greece",
+          "presence": "political_control",
+          "years": [
+            1348,
+            1371
+          ],
+          "priority": 90,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "塞萨洛尼基始终属拜占庭。",
+              "en": "Thessaloniki remained Byzantine throughout."
+            }
+          },
+          "notes": "斯特凡·杜尚 1345 年称帝，1348 年取伊庇鲁斯与色萨利；1371 年马里查河战役后瓦解"
         }
       ]
     },
@@ -8191,7 +8754,18 @@
           ],
           "priority": 60,
           "confidence": "low",
-          "notes": "西斯拉夫部落迁入波希米亚盆地（捷克人前身）"
+          "notes": "西斯拉夫部落迁入波希米亚盆地（捷克人前身）",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "大摩拉维亚（833–907）以摩拉维亚为核心，890–895 年领有波希米亚；本区斯拉夫人统一着色。",
+              "en": "Great Moravia (833–907) was centered on Moravia and held Bohemia in 890–895; the Slavs of the region share one color."
+            },
+            "years": [
+              833,
+              907
+            ]
+          }
         },
         {
           "region": "east_macedonia_thrace",
@@ -8236,17 +8810,6 @@
           "priority": 45,
           "confidence": "medium",
           "notes": "梅克伦堡端奥博特里特人（hover 层，斯拉夫-萨克森边界摇摆）"
-        },
-        {
-          "region": "pannonia",
-          "presence": "settlement",
-          "years": [
-            600,
-            895
-          ],
-          "priority": 50,
-          "confidence": "low",
-          "notes": "阿瓦尔治下及其后的潘诺尼亚斯拉夫人口；796 年后法兰克东部边区宗主（普里比纳—科采尔巴拉顿公国 840s–876、大摩拉维亚东扩）；895 年马扎尔人入盆地"
         },
         {
           "region": "poland",
@@ -8324,6 +8887,86 @@
           "priority": 60,
           "confidence": "low",
           "notes": "东斯拉夫部落扩张"
+        },
+        {
+          "region": "east_austria",
+          "presence": "settlement",
+          "years": [
+            590,
+            1000
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "notes": "阿尔卑斯斯拉夫人（卡兰塔尼亚人，斯洛文尼亚人先民）与阿瓦尔治下斯拉夫人口；9–11 世纪逐步巴伐利亚化"
+        },
+        {
+          "region": "transdanubia",
+          "presence": "settlement",
+          "years": [
+            600,
+            895
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "notes": "阿瓦尔治下及其后的潘诺尼亚斯拉夫人口"
+        },
+        {
+          "region": "alfold",
+          "presence": "settlement",
+          "years": [
+            600,
+            895
+          ],
+          "priority": 50,
+          "confidence": "low",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "805 年起第一保加利亚帝国（克鲁姆）据蒂萨河以东，本区按斯拉夫人着色。",
+              "en": "From 805 the First Bulgarian Empire (Krum) held the lands east of the Tisza; the region is colored by its Slavic population."
+            },
+            "years": [
+              805,
+              895
+            ]
+          },
+          "notes": "阿瓦尔治下及其后的大平原斯拉夫人口"
+        },
+        {
+          "region": "north_greece",
+          "presence": "settlement",
+          "years": [
+            580,
+            850
+          ],
+          "priority": 75,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "塞萨洛尼基与沿海仍属拜占庭（7 世纪斯拉夫人与阿瓦尔人多次围攻塞萨洛尼基）；西马其顿斯拉夫语人群延续至近代。",
+              "en": "Thessaloniki and the coast stayed Byzantine (besieged repeatedly by Slavs and Avars in the 7th century); Slavic speakers persisted in western Macedonia into modern times."
+            }
+          },
+          "notes": "斯克拉维尼亚（德鲁古比特、萨古达特、贝勒盖齐特、斯特鲁米特诸部）；9 世纪中叶前后拜占庭设塞萨洛尼基、斯特鲁马军区，逐步再希腊化"
+        },
+        {
+          "region": "south_greece",
+          "presence": "settlement",
+          "years": [
+            587,
+            805
+          ],
+          "priority": 75,
+          "confidence": "low",
+          "caveat": {
+            "kind": "disputed",
+            "text": {
+              "zh": "斯拉夫人定居范围有争议：拜占庭始终保有雅典、科林斯、莫奈姆瓦夏、沿海与诸岛；此处按斯拉夫人着色整区，表示内陆大规模定居时期。",
+              "en": "The extent of Slavic settlement is disputed: Byzantium always kept Athens, Corinth, Monemvasia, the coasts and the islands. The region is colored Slavic to mark the period of large-scale settlement in the interior."
+            }
+          },
+          "notes": "《莫奈姆瓦夏编年史》所记斯拉夫人据伯罗奔尼撒 218 年（587–805）；805 年帕特雷之战后拜占庭设伯罗奔尼撒军区；梅林戈伊、埃泽里泰部至 13 世纪仍居泰格托斯山"
         }
       ]
     },
@@ -8530,17 +9173,6 @@
       },
       "slices": [
         {
-          "region": "central_europe",
-          "presence": "homeland",
-          "years": [
-            100,
-            489
-          ],
-          "priority": 60,
-          "confidence": "low",
-          "notes": "马科曼尼-夸迪（苏维汇系）据波希米亚-摩拉维亚至匈人时代"
-        },
-        {
           "region": "galicia",
           "presence": "homeland",
           "years": [
@@ -8559,6 +9191,17 @@
           ],
           "priority": 60,
           "notes": "斯维汇王国定都布拉加（409–585）"
+        },
+        {
+          "region": "czechia",
+          "presence": "homeland",
+          "years": [
+            100,
+            489
+          ],
+          "priority": 60,
+          "confidence": "low",
+          "notes": "马科曼尼—夸迪（苏维汇系）据波希米亚—摩拉维亚至匈人时代"
         }
       ]
     },
@@ -8601,6 +9244,24 @@
           "priority": 70,
           "confidence": "medium",
           "notes": "现代国家或构成国边界空间代理；不表示人口同质或排他领土。"
+        },
+        {
+          "region": "upper_norrland",
+          "presence": "homeland",
+          "years": [
+            1600,
+            null
+          ],
+          "priority": 75,
+          "confidence": "medium",
+          "caveat": {
+            "kind": "method",
+            "text": {
+              "zh": "沿海自 14 世纪由瑞典与芬兰（比尔卡尔）移民垦殖（皮特奥 1327 年建教区）；托尔讷河谷为芬兰语梅安基利人（托尔讷河谷人）。本区按瑞典人着色，萨米人见悬停。",
+              "en": "The coast was colonized by Swedish and Finnish (Birkarl) settlers from the 14th century (Piteå parish 1327); the Torne valley is home to the Finnish-speaking Meänkieli (Tornedalians). The region is colored Swedish; the Sami appear on hover."
+            }
+          },
+          "notes": "17 世纪拉普马克纳入瑞典王国管治（1673 年拉普马克垦殖令），19 世纪内陆以瑞典人为多数"
         }
       ]
     },
@@ -9101,6 +9762,17 @@
             ]
           },
           "notes": "1571 年奥斯曼征服后定居的土耳其裔塞浦路斯人（约 18%）"
+        },
+        {
+          "region": "north_greece",
+          "presence": "minority",
+          "years": [
+            1387,
+            1923
+          ],
+          "priority": 40,
+          "confidence": "medium",
+          "notes": "奥斯曼时代马其顿—色萨利的土耳其人/穆斯林（科尼亚尔人等）；1923 年人口交换迁出"
         }
       ]
     },

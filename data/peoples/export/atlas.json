@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T12:50:31.392Z",
+  "generated_at": "2026-10-03T13:22:57.635Z",
   "regions": [
     {
       "code": "aegyptus",
@@ -18,6 +18,16 @@
       "end_year": null,
       "name_en": "Albania",
       "name_zh": "阿尔巴尼亚",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "alfold",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Great Hungarian Plain (Alföld)",
+      "name_zh": "匈牙利大平原（阿尔弗尔德）",
       "brief_en": null,
       "brief_zh": null
     },
@@ -78,16 +88,6 @@
       "end_year": null,
       "name_en": "Southern Armenian Highlands (Lake Van–upper Euphrates)",
       "name_zh": "亚美尼亚高原南部（凡湖—幼发拉底上游）",
-      "brief_en": null,
-      "brief_zh": null
-    },
-    {
-      "code": "austria",
-      "region_type": "modern_country",
-      "start_year": null,
-      "end_year": null,
-      "name_en": "Austria",
-      "name_zh": "奥地利",
       "brief_en": null,
       "brief_zh": null
     },
@@ -202,16 +202,6 @@
       "brief_zh": null
     },
     {
-      "code": "carpathian_basin",
-      "region_type": "historical_region",
-      "start_year": null,
-      "end_year": null,
-      "name_en": "Carpathian Basin",
-      "name_zh": "喀尔巴阡盆地",
-      "brief_en": null,
-      "brief_zh": null
-    },
-    {
       "code": "castile",
       "region_type": "cultural_region",
       "start_year": null,
@@ -228,16 +218,6 @@
       "end_year": null,
       "name_en": "Catalonia",
       "name_zh": "加泰罗尼亚",
-      "brief_en": null,
-      "brief_zh": null
-    },
-    {
-      "code": "central_europe",
-      "region_type": "cultural_region",
-      "start_year": null,
-      "end_year": null,
-      "name_en": "Central Europe",
-      "name_zh": "中欧",
       "brief_en": null,
       "brief_zh": null
     },
@@ -338,6 +318,16 @@
       "end_year": null,
       "name_en": "Denmark",
       "name_zh": "丹麦",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "east_austria",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Eastern Austria (Vienna Basin–Carantania)",
+      "name_zh": "东奥地利（维也纳盆地—卡兰塔尼亚）",
       "brief_en": null,
       "brief_zh": null
     },
@@ -462,26 +452,6 @@
       "brief_zh": null
     },
     {
-      "code": "greece",
-      "region_type": "modern_country",
-      "start_year": null,
-      "end_year": null,
-      "name_en": "Greece",
-      "name_zh": "希腊",
-      "brief_en": null,
-      "brief_zh": null
-    },
-    {
-      "code": "hungary",
-      "region_type": "modern_country",
-      "start_year": null,
-      "end_year": null,
-      "name_en": "Hungary",
-      "name_zh": "匈牙利",
-      "brief_en": null,
-      "brief_zh": null
-    },
-    {
       "code": "ifriqiya",
       "region_type": "historical_region",
       "start_year": -1000,
@@ -548,6 +518,16 @@
       "end_year": null,
       "name_en": "Languedoc (Occitania)",
       "name_zh": "朗格多克（奥克西塔尼亚）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "lapland",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Finnish Lapland",
+      "name_zh": "芬兰拉普兰",
       "brief_en": null,
       "brief_zh": null
     },
@@ -682,12 +662,32 @@
       "brief_zh": null
     },
     {
+      "code": "north_greece",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Northern Greece (Macedonia–Thessaly–Epirus)",
+      "name_zh": "北希腊（马其顿—色萨利—伊庇鲁斯）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "north_italy",
       "region_type": "historical_region",
       "start_year": null,
       "end_year": null,
       "name_en": "Northern Italy (Po Valley–Alps)",
       "name_zh": "北意大利（波河平原—阿尔卑斯）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "north_norway",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Northern Norway (Hålogaland–Finnmark)",
+      "name_zh": "北挪威（哈洛加兰—芬马克）",
       "brief_en": null,
       "brief_zh": null
     },
@@ -748,16 +748,6 @@
       "end_year": null,
       "name_en": "Lycia–Pamphylia (southern Anatolia)",
       "name_zh": "吕基亚—潘菲利亚（南安纳托利亚）",
-      "brief_en": null,
-      "brief_zh": null
-    },
-    {
-      "code": "pannonia",
-      "region_type": "historical_region",
-      "start_year": null,
-      "end_year": null,
-      "name_en": "Pannonia",
-      "name_zh": "潘诺尼亚",
       "brief_en": null,
       "brief_zh": null
     },
@@ -842,16 +832,6 @@
       "brief_zh": null
     },
     {
-      "code": "samiland",
-      "region_type": "cultural_region",
-      "start_year": null,
-      "end_year": null,
-      "name_en": "Sápmi (Lapland)",
-      "name_zh": "萨普米（拉普兰）",
-      "brief_en": null,
-      "brief_zh": null
-    },
-    {
       "code": "sardinia",
       "region_type": "cultural_region",
       "start_year": null,
@@ -918,6 +898,16 @@
       "end_year": null,
       "name_en": "Slovenia",
       "name_zh": "斯洛文尼亚",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "south_greece",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Southern Greece and the islands (Central Greece–Peloponnese–Aegean)",
+      "name_zh": "南希腊与群岛（中希腊—伯罗奔尼撒—爱琴海）",
       "brief_en": null,
       "brief_zh": null
     },
@@ -1012,6 +1002,16 @@
       "brief_zh": null
     },
     {
+      "code": "transdanubia",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Transdanubia (Pannonia)",
+      "name_zh": "外多瑙（潘诺尼亚）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "transjordan",
       "region_type": "historical_region",
       "start_year": null,
@@ -1072,6 +1072,16 @@
       "brief_zh": null
     },
     {
+      "code": "upper_norrland",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Upper Norrland (Norrbotten–Västerbotten)",
+      "name_zh": "上诺尔兰（北博滕—西博滕）",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
       "code": "volga",
       "region_type": "historical_region",
       "start_year": null,
@@ -1098,6 +1108,16 @@
       "end_year": null,
       "name_en": "Wallonia",
       "name_zh": "瓦隆",
+      "brief_en": null,
+      "brief_zh": null
+    },
+    {
+      "code": "west_austria",
+      "region_type": "historical_region",
+      "start_year": null,
+      "end_year": null,
+      "name_en": "Western Austria (Raetia–northern Noricum)",
+      "name_zh": "西奥地利（雷蒂亚—诺里库姆北部）",
       "brief_en": null,
       "brief_zh": null
     }
@@ -3820,6 +3840,14 @@
           "other_name_en": "Egyptians (Ancient–Coptic)",
           "other_name_zh": "埃及人（古埃及—科普特）",
           "notes": "Cambyses II conquered Egypt at Pelusium in 525 BC."
+        },
+        {
+          "rel": "related_to",
+          "direction": "in",
+          "other_code": "sarmatians",
+          "other_name_en": "Sarmatians (Iazyges)",
+          "other_name_zh": "萨尔马提亚人（伊阿兹吉斯人）",
+          "notes": "Sarmatian belonged to the Iranian branch of Indo-European, like Persian."
         }
       ]
     },
@@ -4301,6 +4329,45 @@
         }
       ],
       "relations": []
+    },
+    {
+      "code": "sarmatians",
+      "people_type": "ancient",
+      "start_year": -400,
+      "end_year": 450,
+      "status_code": "merged",
+      "name_en": "Sarmatians (Iazyges)",
+      "name_zh": "萨尔马提亚人（伊阿兹吉斯人）",
+      "brief_en": "Iranian-speaking steppe nomads; their western branch, the Iazyges, settled between the Danube and the Tisza from about AD 20, facing Roman Pannonia and Dacia.",
+      "brief_zh": "伊朗语草原游牧民；其西支伊阿兹吉斯人约 20 年起定居多瑙河与蒂萨河之间，与罗马潘诺尼亚、达契亚隔河相望。",
+      "languages": [],
+      "religions": [],
+      "classifications": [
+        {
+          "taxonomy": "historical_people",
+          "node": "sarmatians",
+          "name_en": "Sarmatians",
+          "name_zh": "萨尔马提亚人",
+          "relation": "member_of"
+        },
+        {
+          "taxonomy": "language",
+          "node": "iranian",
+          "name_en": "Iranian",
+          "name_zh": "伊朗语支",
+          "relation": "member_of"
+        }
+      ],
+      "relations": [
+        {
+          "rel": "related_to",
+          "direction": "out",
+          "other_code": "persians",
+          "other_name_en": "Persians (Achaemenid–Sasanian)",
+          "other_name_zh": "波斯人（阿契美尼德—萨珊）",
+          "notes": "Sarmatian belonged to the Iranian branch of Indo-European, like Persian."
+        }
+      ]
     },
     {
       "code": "saxons",
@@ -5064,6 +5131,118 @@
       "caveat_ey": null
     },
     {
+      "people_code": "hungarians",
+      "region_code": "alfold",
+      "presence": "homeland",
+      "start_year": 1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1541–1686/1699 年为奥斯曼布达、特梅什瓦尔等帕夏辖区，北部山地属王室匈牙利；按着色原则不画奥斯曼与哈布斯堡政治层，以主体人群着色。",
+      "caveat_en": "1541–1686/1699: the Ottoman eyalets of Buda and Temesvár, with the northern hills in Royal Hungary; following the coloring principle, no Ottoman or Habsburg political layer is drawn and the region is colored by its main population.",
+      "caveat_sy": 1541,
+      "caveat_ey": 1699
+    },
+    {
+      "people_code": "avars",
+      "region_code": "alfold",
+      "presence": "political_control",
+      "start_year": 567,
+      "end_year": 799,
+      "confidence": "high",
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "huns",
+      "region_code": "alfold",
+      "presence": "political_control",
+      "start_year": 400,
+      "end_year": 454,
+      "confidence": "high",
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "gepids",
+      "region_code": "alfold",
+      "presence": "homeland",
+      "start_year": 454,
+      "end_year": 567,
+      "confidence": "high",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "magyars",
+      "region_code": "alfold",
+      "presence": "homeland",
+      "start_year": 895,
+      "end_year": 1100,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "sarmatians",
+      "region_code": "alfold",
+      "presence": "homeland",
+      "start_year": 20,
+      "end_year": 400,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "celts",
+      "region_code": "alfold",
+      "presence": "settlement",
+      "start_year": -450,
+      "end_year": 20,
+      "confidence": "low",
+      "render_priority": 50,
+      "caveat_kind": "method",
+      "caveat_zh": "前 60–前 44 年达契亚布雷比斯塔王国一度支配蒂萨河流域。",
+      "caveat_en": "In 60–44 BC the Dacian kingdom of Burebista briefly dominated the Tisza basin.",
+      "caveat_sy": -60,
+      "caveat_ey": -44
+    },
+    {
+      "people_code": "slavs",
+      "region_code": "alfold",
+      "presence": "settlement",
+      "start_year": 600,
+      "end_year": 895,
+      "confidence": "low",
+      "render_priority": 50,
+      "caveat_kind": "method",
+      "caveat_zh": "805 年起第一保加利亚帝国（克鲁姆）据蒂萨河以东，本区按斯拉夫人着色。",
+      "caveat_en": "From 805 the First Bulgarian Empire (Krum) held the lands east of the Tisza; the region is colored by its Slavic population.",
+      "caveat_sy": 805,
+      "caveat_ey": 895
+    },
+    {
       "people_code": "alemanni",
       "region_code": "alsace_lorraine",
       "presence": "political_control",
@@ -5477,104 +5656,6 @@
       "end_year": null,
       "confidence": "medium",
       "render_priority": 55,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "franks",
-      "region_code": "austria",
-      "presence": "political_control",
-      "start_year": 788,
-      "end_year": 900,
-      "confidence": "medium",
-      "render_priority": 90,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "germans",
-      "region_code": "austria",
-      "presence": "homeland",
-      "start_year": 900,
-      "end_year": null,
-      "confidence": "medium",
-      "render_priority": 70,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "romans",
-      "region_code": "austria",
-      "presence": "political_control",
-      "start_year": -15,
-      "end_year": 476,
-      "confidence": "high",
-      "render_priority": 65,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "franks",
-      "region_code": "austria",
-      "presence": "political_control",
-      "start_year": 536,
-      "end_year": 550,
-      "confidence": "medium",
-      "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "ostrogoths",
-      "region_code": "austria",
-      "presence": "political_control",
-      "start_year": 493,
-      "end_year": 536,
-      "confidence": "medium",
-      "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "bavarians",
-      "region_code": "austria",
-      "presence": "homeland",
-      "start_year": 550,
-      "end_year": 788,
-      "confidence": "medium",
-      "render_priority": 58,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "romans",
-      "region_code": "austria",
-      "presence": "settlement",
-      "start_year": 476,
-      "end_year": 493,
-      "confidence": "medium",
-      "render_priority": 50,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -6142,34 +6223,6 @@
       "caveat_ey": null
     },
     {
-      "people_code": "avars",
-      "region_code": "carpathian_basin",
-      "presence": "political_control",
-      "start_year": 567,
-      "end_year": 799,
-      "confidence": "medium",
-      "render_priority": 65,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "magyars",
-      "region_code": "carpathian_basin",
-      "presence": "homeland",
-      "start_year": 895,
-      "end_year": 1100,
-      "confidence": "medium",
-      "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
       "people_code": "visigoths",
       "region_code": "castile",
       "presence": "political_control",
@@ -6303,62 +6356,6 @@
       "end_year": 476,
       "confidence": "high",
       "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "celts",
-      "region_code": "central_europe",
-      "presence": "settlement",
-      "start_year": -500,
-      "end_year": -15,
-      "confidence": "medium",
-      "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "lombards",
-      "region_code": "central_europe",
-      "presence": "homeland",
-      "start_year": 490,
-      "end_year": 550,
-      "confidence": "low",
-      "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "suebi",
-      "region_code": "central_europe",
-      "presence": "homeland",
-      "start_year": 100,
-      "end_year": 489,
-      "confidence": "low",
-      "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "germanic_tribes",
-      "region_code": "central_europe",
-      "presence": "settlement",
-      "start_year": -450,
-      "end_year": 100,
-      "confidence": "medium",
-      "render_priority": 50,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -6968,11 +6965,67 @@
       "caveat_ey": null
     },
     {
+      "people_code": "celts",
+      "region_code": "czechia",
+      "presence": "settlement",
+      "start_year": -500,
+      "end_year": -8,
+      "confidence": "high",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "germanic_tribes",
+      "region_code": "czechia",
+      "presence": "settlement",
+      "start_year": -8,
+      "end_year": 100,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "lombards",
+      "region_code": "czechia",
+      "presence": "homeland",
+      "start_year": 490,
+      "end_year": 550,
+      "confidence": "low",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
       "people_code": "slavs",
       "region_code": "czechia",
       "presence": "settlement",
       "start_year": 550,
       "end_year": 1000,
+      "confidence": "low",
+      "render_priority": 60,
+      "caveat_kind": "method",
+      "caveat_zh": "大摩拉维亚（833–907）以摩拉维亚为核心，890–895 年领有波希米亚；本区斯拉夫人统一着色。",
+      "caveat_en": "Great Moravia (833–907) was centered on Moravia and held Bohemia in 890–895; the Slavs of the region share one color.",
+      "caveat_sy": 833,
+      "caveat_ey": 907
+    },
+    {
+      "people_code": "suebi",
+      "region_code": "czechia",
+      "presence": "homeland",
+      "start_year": 100,
+      "end_year": 489,
       "confidence": "low",
       "render_priority": 60,
       "caveat_kind": null,
@@ -6989,6 +7042,146 @@
       "end_year": null,
       "confidence": "medium",
       "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "franks",
+      "region_code": "east_austria",
+      "presence": "political_control",
+      "start_year": 796,
+      "end_year": 907,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "magyars",
+      "region_code": "east_austria",
+      "presence": "political_control",
+      "start_year": 907,
+      "end_year": 955,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "克恩滕与施蒂利亚西部未入马扎尔人控制。",
+      "caveat_en": "Carinthia and western Styria were not under Magyar control.",
+      "caveat_sy": 907,
+      "caveat_ey": 955
+    },
+    {
+      "people_code": "germans",
+      "region_code": "east_austria",
+      "presence": "homeland",
+      "start_year": 900,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "布尔根兰 1921 年前属匈牙利王国；克恩滕南部有斯洛文尼亚语人群。",
+      "caveat_en": "Burgenland belonged to the Kingdom of Hungary until 1921; southern Carinthia has a Slovene-speaking population.",
+      "caveat_sy": 955,
+      "caveat_ey": 1921
+    },
+    {
+      "people_code": "avars",
+      "region_code": "east_austria",
+      "presence": "political_control",
+      "start_year": 568,
+      "end_year": 796,
+      "confidence": "medium",
+      "render_priority": 65,
+      "caveat_kind": "method",
+      "caveat_zh": "克恩滕—施蒂利亚为卡兰塔尼亚斯拉夫公国（7 世纪中叶脱离阿瓦尔，745 年起臣属巴伐利亚），悬停可见。",
+      "caveat_en": "Carinthia–Styria formed the Slavic principality of Carantania (independent of the Avars from the mid-7th century, subject to Bavaria from 745); shown on hover.",
+      "caveat_sy": 626,
+      "caveat_ey": 796
+    },
+    {
+      "people_code": "romans",
+      "region_code": "east_austria",
+      "presence": "political_control",
+      "start_year": -15,
+      "end_year": 476,
+      "confidence": "high",
+      "render_priority": 65,
+      "caveat_kind": "method",
+      "caveat_zh": "多瑙河以北（魏因菲尔特尔、瓦尔德菲尔特尔）为马科曼尼—夸迪人，不属罗马。",
+      "caveat_en": "North of the Danube (Weinviertel, Waldviertel) belonged to the Marcomanni and Quadi, not Rome.",
+      "caveat_sy": -15,
+      "caveat_ey": 476
+    },
+    {
+      "people_code": "celts",
+      "region_code": "east_austria",
+      "presence": "settlement",
+      "start_year": -500,
+      "end_year": -15,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "lombards",
+      "region_code": "east_austria",
+      "presence": "political_control",
+      "start_year": 536,
+      "end_year": 568,
+      "confidence": "low",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "ostrogoths",
+      "region_code": "east_austria",
+      "presence": "political_control",
+      "start_year": 493,
+      "end_year": 536,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": "method",
+      "caveat_zh": "多瑙河以北的卢吉兰（下奥地利）489 年后为伦巴第人所据。",
+      "caveat_en": "Rugiland north of the Danube (Lower Austria) was held by the Lombards after 489.",
+      "caveat_sy": 493,
+      "caveat_ey": 536
+    },
+    {
+      "people_code": "romans",
+      "region_code": "east_austria",
+      "presence": "settlement",
+      "start_year": 476,
+      "end_year": 493,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "slavs",
+      "region_code": "east_austria",
+      "presence": "settlement",
+      "start_year": 590,
+      "end_year": 1000,
+      "confidence": "low",
+      "render_priority": 50,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -7514,34 +7707,6 @@
       "caveat_ey": null
     },
     {
-      "people_code": "greeks",
-      "region_code": "greece",
-      "presence": "homeland",
-      "start_year": -800,
-      "end_year": null,
-      "confidence": "medium",
-      "render_priority": 70,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "hungarians",
-      "region_code": "hungary",
-      "presence": "homeland",
-      "start_year": 1000,
-      "end_year": null,
-      "confidence": "medium",
-      "render_priority": 70,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
       "people_code": "arabs_north_africa",
       "region_code": "ifriqiya",
       "presence": "political_control",
@@ -7940,6 +8105,34 @@
       "start_year": -121,
       "end_year": 418,
       "confidence": "high",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "finns",
+      "region_code": "lapland",
+      "presence": "homeland",
+      "start_year": 1700,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 75,
+      "caveat_kind": "method",
+      "caveat_zh": "最北的伊纳里、乌茨约基、埃农泰基厄以萨米人为主；1809 年前属瑞典王国，1809–1917 年属俄属芬兰大公国。本区按芬兰人着色，萨米人见悬停。",
+      "caveat_en": "The northernmost municipalities of Inari, Utsjoki and Enontekiö remain mainly Sami; the area belonged to Sweden until 1809 and to the Russian Grand Duchy of Finland in 1809–1917. The region is colored Finnish; the Sami appear on hover.",
+      "caveat_sy": 1700,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "sami",
+      "region_code": "lapland",
+      "presence": "homeland",
+      "start_year": 500,
+      "end_year": null,
+      "confidence": "medium",
       "render_priority": 60,
       "caveat_kind": null,
       "caveat_zh": null,
@@ -8634,6 +8827,118 @@
       "caveat_ey": null
     },
     {
+      "people_code": "bulgarians",
+      "region_code": "north_greece",
+      "presence": "political_control",
+      "start_year": 976,
+      "end_year": 1018,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "塞萨洛尼基未失守；西蒙一世（893–927）时已据西马其顿一部。",
+      "caveat_en": "Thessaloniki never fell; under Simeon I (893–927) Bulgaria had already held part of western Macedonia.",
+      "caveat_sy": 976,
+      "caveat_ey": 1018
+    },
+    {
+      "people_code": "crusaders",
+      "region_code": "north_greece",
+      "presence": "political_control",
+      "start_year": 1204,
+      "end_year": 1224,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "persians",
+      "region_code": "north_greece",
+      "presence": "political_control",
+      "start_year": -512,
+      "end_year": -479,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "马其顿为保有本地王统的波斯附庸王国。",
+      "caveat_en": "Macedon was a Persian vassal kingdom that kept its native kings.",
+      "caveat_sy": -512,
+      "caveat_ey": -479
+    },
+    {
+      "people_code": "romans",
+      "region_code": "north_greece",
+      "presence": "political_control",
+      "start_year": -168,
+      "end_year": 580,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "serbs",
+      "region_code": "north_greece",
+      "presence": "political_control",
+      "start_year": 1348,
+      "end_year": 1371,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "塞萨洛尼基始终属拜占庭。",
+      "caveat_en": "Thessaloniki remained Byzantine throughout.",
+      "caveat_sy": 1348,
+      "caveat_ey": 1371
+    },
+    {
+      "people_code": "slavs",
+      "region_code": "north_greece",
+      "presence": "settlement",
+      "start_year": 580,
+      "end_year": 850,
+      "confidence": "medium",
+      "render_priority": 75,
+      "caveat_kind": "method",
+      "caveat_zh": "塞萨洛尼基与沿海仍属拜占庭（7 世纪斯拉夫人与阿瓦尔人多次围攻塞萨洛尼基）；西马其顿斯拉夫语人群延续至近代。",
+      "caveat_en": "Thessaloniki and the coast stayed Byzantine (besieged repeatedly by Slavs and Avars in the 7th century); Slavic speakers persisted in western Macedonia into modern times.",
+      "caveat_sy": 580,
+      "caveat_ey": 850
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "north_greece",
+      "presence": "homeland",
+      "start_year": -800,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1387–1912 年奥斯曼统治（色萨利 1881、马其顿与伊庇鲁斯 1912–1913 年归希腊）；1923 年人口交换前为希腊人、斯拉夫语人群、土耳其人、阿罗蒙人与塞萨洛尼基塞法迪犹太人混居，各方统计有争议；本区按希腊人着色。",
+      "caveat_en": "Ottoman rule 1387–1912 (Thessaly joined Greece in 1881, Macedonia and Epirus in 1912–1913). Before the 1923 population exchange the population mixed Greeks, Slavic speakers, Turks, Aromanians and the Sephardic Jews of Thessaloniki, in disputed proportions; the region is colored Greek.",
+      "caveat_sy": 1387,
+      "caveat_ey": 1923
+    },
+    {
+      "people_code": "turks",
+      "region_code": "north_greece",
+      "presence": "minority",
+      "start_year": 1387,
+      "end_year": 1923,
+      "confidence": "medium",
+      "render_priority": 40,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
       "people_code": "franks",
       "region_code": "north_italy",
       "presence": "political_control",
@@ -8737,6 +9042,48 @@
       "presence": "settlement",
       "start_year": 774,
       "end_year": 1000,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "norwegians",
+      "region_code": "north_norway",
+      "presence": "homeland",
+      "start_year": 1300,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 75,
+      "caveat_kind": "method",
+      "caveat_zh": "芬马克内陆（考特凯诺、卡拉绍克）至今以萨米人为多数；18–19 世纪克文人（芬兰移民）定居；1850 至 1980 年代推行挪威化政策。本区按挪威人着色，萨米人见悬停。",
+      "caveat_en": "Inner Finnmark (Kautokeino, Karasjok) still has a Sami majority; Kvens (Finnish migrants) settled in the 18th–19th centuries; a Norwegianization policy ran from the 1850s to the 1980s. The region is colored Norwegian; the Sami appear on hover.",
+      "caveat_sy": 1300,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "sami",
+      "region_code": "north_norway",
+      "presence": "homeland",
+      "start_year": 500,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "norse",
+      "region_code": "north_norway",
+      "presence": "settlement",
+      "start_year": 500,
+      "end_year": 900,
       "confidence": "medium",
       "render_priority": 50,
       "caveat_kind": null,
@@ -9271,90 +9618,6 @@
       "end_year": 1923,
       "confidence": "medium",
       "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "huns",
-      "region_code": "pannonia",
-      "presence": "political_control",
-      "start_year": 425,
-      "end_year": 454,
-      "confidence": "high",
-      "render_priority": 65,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "gepids",
-      "region_code": "pannonia",
-      "presence": "homeland",
-      "start_year": 454,
-      "end_year": 567,
-      "confidence": "high",
-      "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "romans",
-      "region_code": "pannonia",
-      "presence": "political_control",
-      "start_year": 9,
-      "end_year": 433,
-      "confidence": "high",
-      "render_priority": 60,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "lombards",
-      "region_code": "pannonia",
-      "presence": "settlement",
-      "start_year": 526,
-      "end_year": 568,
-      "confidence": "medium",
-      "render_priority": 55,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "celts",
-      "region_code": "pannonia",
-      "presence": "settlement",
-      "start_year": -450,
-      "end_year": 9,
-      "confidence": "medium",
-      "render_priority": 50,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
-      "people_code": "slavs",
-      "region_code": "pannonia",
-      "presence": "settlement",
-      "start_year": 600,
-      "end_year": 895,
-      "confidence": "low",
-      "render_priority": 50,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -9964,20 +10227,6 @@
       "caveat_ey": 1600
     },
     {
-      "people_code": "sami",
-      "region_code": "samiland",
-      "presence": "homeland",
-      "start_year": 500,
-      "end_year": null,
-      "confidence": "medium",
-      "render_priority": 70,
-      "caveat_kind": null,
-      "caveat_zh": null,
-      "caveat_en": null,
-      "caveat_sy": null,
-      "caveat_ey": null
-    },
-    {
       "people_code": "carthaginians",
       "region_code": "sardinia",
       "presence": "political_control",
@@ -10216,6 +10465,34 @@
       "caveat_ey": 1850
     },
     {
+      "people_code": "avars",
+      "region_code": "slovakia",
+      "presence": "political_control",
+      "start_year": 567,
+      "end_year": 799,
+      "confidence": "medium",
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "magyars",
+      "region_code": "slovakia",
+      "presence": "homeland",
+      "start_year": 895,
+      "end_year": 1100,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
       "people_code": "slavs",
       "region_code": "slovakia",
       "presence": "settlement",
@@ -10265,6 +10542,76 @@
       "end_year": null,
       "confidence": "medium",
       "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "crusaders",
+      "region_code": "south_greece",
+      "presence": "political_control",
+      "start_year": 1205,
+      "end_year": 1262,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "south_greece",
+      "presence": "political_control",
+      "start_year": -146,
+      "end_year": 587,
+      "confidence": "high",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "slavs",
+      "region_code": "south_greece",
+      "presence": "settlement",
+      "start_year": 587,
+      "end_year": 805,
+      "confidence": "low",
+      "render_priority": 75,
+      "caveat_kind": "disputed",
+      "caveat_zh": "斯拉夫人定居范围有争议：拜占庭始终保有雅典、科林斯、莫奈姆瓦夏、沿海与诸岛；此处按斯拉夫人着色整区，表示内陆大规模定居时期。",
+      "caveat_en": "The extent of Slavic settlement is disputed: Byzantium always kept Athens, Corinth, Monemvasia, the coasts and the islands. The region is colored Slavic to mark the period of large-scale settlement in the interior.",
+      "caveat_sy": 587,
+      "caveat_ey": 805
+    },
+    {
+      "people_code": "greeks",
+      "region_code": "south_greece",
+      "presence": "homeland",
+      "start_year": -800,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1262 年后拉丁残余并存：阿凯亚公国至 1432 年、雅典公国（1311–1388 加泰罗尼亚佣兵团，此后佛罗伦萨阿恰约利家族至 1458）；威尼斯据伊奥尼亚群岛（1386–1797）与诸岛，罗得岛骑士团（1310–1522）；奥斯曼统治 1460–1830；14–15 世纪阿尔瓦尼特人（阿尔巴尼亚人）大量定居阿提卡与伯罗奔尼撒；十二群岛 1912–1947 年属意大利。本区按希腊人着色。",
+      "caveat_en": "After 1262 Latin remnants survived: the Principality of Achaea until 1432 and the Duchy of Athens (the Catalan Company 1311–1388, then the Florentine Acciaioli to 1458); Venice held the Ionian Islands (1386–1797) and other islands, and the Knights Hospitaller held Rhodes (1310–1522); Ottoman rule 1460–1830; Arvanites (Albanians) settled widely in Attica and the Peloponnese in the 14th–15th centuries; the Dodecanese were Italian in 1912–1947. The region is colored Greek.",
+      "caveat_sy": 1262,
+      "caveat_ey": 1947
+    },
+    {
+      "people_code": "albanians",
+      "region_code": "south_greece",
+      "presence": "minority",
+      "start_year": 1350,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 40,
       "caveat_kind": null,
       "caveat_zh": null,
       "caveat_en": null,
@@ -11056,6 +11403,146 @@
       "caveat_ey": null
     },
     {
+      "people_code": "franks",
+      "region_code": "transdanubia",
+      "presence": "political_control",
+      "start_year": 796,
+      "end_year": 895,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": "method",
+      "caveat_zh": "巴拉顿公国由斯拉夫王公治理，880 年代大摩拉维亚一度东扩至此。",
+      "caveat_en": "The Balaton principality was ruled by Slavic princes; Great Moravia briefly extended here in the 880s.",
+      "caveat_sy": 840,
+      "caveat_ey": 895
+    },
+    {
+      "people_code": "hungarians",
+      "region_code": "transdanubia",
+      "presence": "homeland",
+      "start_year": 1000,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": "method",
+      "caveat_zh": "1541–1686/1699 年南部与东部属奥斯曼布达帕夏辖区，西北为哈布斯堡「王室匈牙利」；按着色原则不画奥斯曼与哈布斯堡政治层，以主体人群着色。",
+      "caveat_en": "1541–1686/1699: the south and east belonged to the Ottoman eyalet of Buda, the northwest to Habsburg Royal Hungary; following the coloring principle, no Ottoman or Habsburg political layer is drawn and the region is colored by its main population.",
+      "caveat_sy": 1541,
+      "caveat_ey": 1699
+    },
+    {
+      "people_code": "avars",
+      "region_code": "transdanubia",
+      "presence": "political_control",
+      "start_year": 568,
+      "end_year": 796,
+      "confidence": "medium",
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "huns",
+      "region_code": "transdanubia",
+      "presence": "political_control",
+      "start_year": 433,
+      "end_year": 454,
+      "confidence": "high",
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "lombards",
+      "region_code": "transdanubia",
+      "presence": "political_control",
+      "start_year": 526,
+      "end_year": 568,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "magyars",
+      "region_code": "transdanubia",
+      "presence": "homeland",
+      "start_year": 895,
+      "end_year": 1100,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "ostrogoths",
+      "region_code": "transdanubia",
+      "presence": "political_control",
+      "start_year": 455,
+      "end_year": 526,
+      "confidence": "low",
+      "render_priority": 60,
+      "caveat_kind": "method",
+      "caveat_zh": "473 年东哥特主力南下巴尔干后，本区为苏维汇、赫鲁利等部与东哥特意大利（504–535 据锡尔米乌姆—萨维亚）势力交错。",
+      "caveat_en": "After the main Ostrogothic body left for the Balkans in 473, the region was contested among the Suebi, Heruli and Ostrogothic Italy (which held Sirmium–Savia in 504–535).",
+      "caveat_sy": 473,
+      "caveat_ey": 526
+    },
+    {
+      "people_code": "romans",
+      "region_code": "transdanubia",
+      "presence": "political_control",
+      "start_year": 9,
+      "end_year": 433,
+      "confidence": "high",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "celts",
+      "region_code": "transdanubia",
+      "presence": "settlement",
+      "start_year": -450,
+      "end_year": 9,
+      "confidence": "medium",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "slavs",
+      "region_code": "transdanubia",
+      "presence": "settlement",
+      "start_year": 600,
+      "end_year": 895,
+      "confidence": "low",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
       "people_code": "persians",
       "region_code": "transjordan",
       "presence": "political_control",
@@ -11532,6 +12019,34 @@
       "caveat_ey": null
     },
     {
+      "people_code": "swedes",
+      "region_code": "upper_norrland",
+      "presence": "homeland",
+      "start_year": 1600,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 75,
+      "caveat_kind": "method",
+      "caveat_zh": "沿海自 14 世纪由瑞典与芬兰（比尔卡尔）移民垦殖（皮特奥 1327 年建教区）；托尔讷河谷为芬兰语梅安基利人（托尔讷河谷人）。本区按瑞典人着色，萨米人见悬停。",
+      "caveat_en": "The coast was colonized by Swedish and Finnish (Birkarl) settlers from the 14th century (Piteå parish 1327); the Torne valley is home to the Finnish-speaking Meänkieli (Tornedalians). The region is colored Swedish; the Sami appear on hover.",
+      "caveat_sy": 1600,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "sami",
+      "region_code": "upper_norrland",
+      "presence": "homeland",
+      "start_year": 500,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
       "people_code": "volga_bulgars",
       "region_code": "volga",
       "presence": "political_control",
@@ -11622,6 +12137,118 @@
       "start_year": 900,
       "end_year": null,
       "confidence": "low",
+      "render_priority": 50,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "franks",
+      "region_code": "west_austria",
+      "presence": "political_control",
+      "start_year": 788,
+      "end_year": 900,
+      "confidence": "medium",
+      "render_priority": 90,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "germans",
+      "region_code": "west_austria",
+      "presence": "homeland",
+      "start_year": 900,
+      "end_year": null,
+      "confidence": "medium",
+      "render_priority": 70,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "romans",
+      "region_code": "west_austria",
+      "presence": "political_control",
+      "start_year": -15,
+      "end_year": 476,
+      "confidence": "high",
+      "render_priority": 65,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "celts",
+      "region_code": "west_austria",
+      "presence": "settlement",
+      "start_year": -500,
+      "end_year": -15,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "franks",
+      "region_code": "west_austria",
+      "presence": "political_control",
+      "start_year": 536,
+      "end_year": 550,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "ostrogoths",
+      "region_code": "west_austria",
+      "presence": "political_control",
+      "start_year": 493,
+      "end_year": 536,
+      "confidence": "medium",
+      "render_priority": 60,
+      "caveat_kind": null,
+      "caveat_zh": null,
+      "caveat_en": null,
+      "caveat_sy": null,
+      "caveat_ey": null
+    },
+    {
+      "people_code": "bavarians",
+      "region_code": "west_austria",
+      "presence": "homeland",
+      "start_year": 550,
+      "end_year": 788,
+      "confidence": "medium",
+      "render_priority": 58,
+      "caveat_kind": "method",
+      "caveat_zh": "福拉尔贝格为阿勒曼尼人定居区。",
+      "caveat_en": "Vorarlberg was settled by the Alemanni.",
+      "caveat_sy": 550,
+      "caveat_ey": 788
+    },
+    {
+      "people_code": "romans",
+      "region_code": "west_austria",
+      "presence": "settlement",
+      "start_year": 476,
+      "end_year": 493,
+      "confidence": "medium",
       "render_priority": 50,
       "caveat_kind": null,
       "caveat_zh": null,
@@ -11818,24 +12445,42 @@
       "note": "DARMC 303 年行省 Mauretania Tingitana；统一取 303 年单层，几何为各时代近似代理"
     },
     {
-      "region_code": "carpathian_basin",
+      "region_code": "west_austria",
       "source_code": "nuts",
-      "rule_type": "l0_country",
+      "rule_type": "source_id",
       "match_values": [
-        "HU",
-        "SK"
+        "AT3"
       ],
-      "note": "近似为现代匈牙利+斯洛伐克"
+      "note": "NUTS L1 AT3 西奥地利"
     },
     {
-      "region_code": "central_europe",
+      "region_code": "east_austria",
       "source_code": "nuts",
-      "rule_type": "l0_country",
+      "rule_type": "source_id",
       "match_values": [
-        "AT",
-        "CZ"
+        "AT1",
+        "AT2"
       ],
-      "note": "以奥地利+捷克近似中欧核心（德国已四分细分）"
+      "note": "NUTS L1 AT1 东奥地利 / AT2 南奥地利"
+    },
+    {
+      "region_code": "transdanubia",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "HU2"
+      ],
+      "note": "NUTS L1 HU2 外多瑙"
+    },
+    {
+      "region_code": "alfold",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "HU1",
+        "HU3"
+      ],
+      "note": "NUTS L1 HU1 中匈牙利 / HU3 大平原与北部"
     },
     {
       "region_code": "eastern_europe",
@@ -11920,15 +12565,6 @@
       "note": "以现代爱尔兰国界近似"
     },
     {
-      "region_code": "austria",
-      "source_code": "nuts",
-      "rule_type": "l0_country",
-      "match_values": [
-        "AT"
-      ],
-      "note": "以现代奥地利国界近似"
-    },
-    {
       "region_code": "netherlands",
       "source_code": "nuts",
       "rule_type": "l0_country",
@@ -11953,9 +12589,10 @@
       "match_values": [
         "SE1",
         "SE2",
-        "SE31"
+        "SE31",
+        "SE32"
       ],
-      "note": "以瑞典 NUTS L2（除萨普米两区）近似"
+      "note": "以瑞典 NUTS L2（除上诺尔兰）近似；中诺尔兰（耶姆特兰、西诺尔兰）铁器时代以来为日耳曼—诺斯人定居区"
     },
     {
       "region_code": "norway",
@@ -12060,19 +12697,31 @@
       "note": "以现代保加利亚国界近似"
     },
     {
-      "region_code": "greece",
+      "region_code": "north_greece",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "EL52",
+        "EL53",
+        "EL54",
+        "EL61"
+      ],
+      "note": "NUTS L2 中马其顿 / 西马其顿 / 伊庇鲁斯 / 色萨利"
+    },
+    {
+      "region_code": "south_greece",
       "source_code": "nuts",
       "rule_type": "source_id",
       "match_values": [
         "EL3",
         "EL41",
         "EL42",
-        "EL52",
-        "EL53",
-        "EL54",
-        "EL6"
+        "EL62",
+        "EL63",
+        "EL64",
+        "EL65"
       ],
-      "note": "希腊主体 NUTS L2 ×11（阿提卡/爱琴群岛/中-西马其顿/伊庇鲁斯/中部/伊奥尼亚/西希腊/斯泰里亚/伯罗奔尼撒；克里特 EL43 与东马其顿-色雷斯 EL51 另设）"
+      "note": "NUTS L2 阿提卡 / 北爱琴 / 南爱琴 / 伊奥尼亚群岛 / 西希腊 / 中希腊 / 伯罗奔尼撒"
     },
     {
       "region_code": "albania",
@@ -12082,15 +12731,6 @@
         "AL"
       ],
       "note": "以现代阿尔巴尼亚国界近似"
-    },
-    {
-      "region_code": "hungary",
-      "source_code": "nuts",
-      "rule_type": "l0_country",
-      "match_values": [
-        "HU"
-      ],
-      "note": "以现代匈牙利国界近似"
     },
     {
       "region_code": "ukraine",
@@ -12393,16 +13033,31 @@
       "note": "特兰西瓦尼亚（NUTS L2 RO11/12 近似）"
     },
     {
-      "region_code": "samiland",
+      "region_code": "north_norway",
       "source_code": "nuts",
       "rule_type": "source_id",
       "match_values": [
-        "NO07",
-        "SE32",
-        "SE33",
+        "NO07"
+      ],
+      "note": "NUTS L2 NO07 北挪威"
+    },
+    {
+      "region_code": "upper_norrland",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
+        "SE33"
+      ],
+      "note": "NUTS L2 SE33 上诺尔兰"
+    },
+    {
+      "region_code": "lapland",
+      "source_code": "nuts",
+      "rule_type": "source_id",
+      "match_values": [
         "FI1D7"
       ],
-      "note": "萨普米（挪威北角 NO07 + 瑞典上/中诺尔兰 SE32/33 + 芬兰拉普兰 FI1D7）"
+      "note": "NUTS L3 FI1D7 拉普兰（叠加单元，芬兰 L0 保留）"
     },
     {
       "region_code": "old_saxony",
@@ -12455,15 +13110,6 @@
         "DE2"
       ],
       "note": "巴伐利亚（德国东南，拜恩自由州 NUTS L2 ×7）"
-    },
-    {
-      "region_code": "pannonia",
-      "source_code": "nuts",
-      "rule_type": "l0_country",
-      "match_values": [
-        "HU"
-      ],
-      "note": "潘诺尼亚（以现代匈牙利国界近似罗马行省-匈人-格皮德范围）"
     },
     {
       "region_code": "bosnia",
@@ -13467,6 +14113,13 @@
           "sort": 460,
           "name_en": "Crusaders",
           "name_zh": "十字军"
+        },
+        {
+          "code": "sarmatians",
+          "parent": null,
+          "sort": 470,
+          "name_en": "Sarmatians",
+          "name_zh": "萨尔马提亚人"
         }
       ]
     },

@@ -28,13 +28,40 @@
       "notes": "亚美尼亚现代国界空间代理"
     },
     {
-      "code": "austria",
-      "type": "modern_country",
+      "code": "west_austria",
+      "type": "historical_region",
       "name": {
-        "zh": "奥地利",
-        "en": "Austria"
+        "zh": "西奥地利（雷蒂亚—诺里库姆北部）",
+        "en": "Western Austria (Raetia–northern Noricum)"
       },
-      "notes": "奥地利现代国界空间代理"
+      "notes": "上奥地利、萨尔茨堡、蒂罗尔、福拉尔贝格"
+    },
+    {
+      "code": "east_austria",
+      "type": "historical_region",
+      "name": {
+        "zh": "东奥地利（维也纳盆地—卡兰塔尼亚）",
+        "en": "Eastern Austria (Vienna Basin–Carantania)"
+      },
+      "notes": "下奥地利、维也纳、布尔根兰、施蒂利亚、克恩滕"
+    },
+    {
+      "code": "transdanubia",
+      "type": "historical_region",
+      "name": {
+        "zh": "外多瑙（潘诺尼亚）",
+        "en": "Transdanubia (Pannonia)"
+      },
+      "notes": "多瑙河以西的匈牙利：罗马潘诺尼亚行省故地"
+    },
+    {
+      "code": "alfold",
+      "type": "historical_region",
+      "name": {
+        "zh": "匈牙利大平原（阿尔弗尔德）",
+        "en": "Great Hungarian Plain (Alföld)"
+      },
+      "notes": "多瑙河以东的匈牙利：大平原与北部山地（含布达佩斯）"
     },
     {
       "code": "azerbaijan",
@@ -113,15 +140,6 @@
       "notes": "保加利亚现代国界空间代理"
     },
     {
-      "code": "carpathian_basin",
-      "type": "historical_region",
-      "name": {
-        "zh": "喀尔巴阡盆地",
-        "en": "Carpathian Basin"
-      },
-      "notes": "喀尔巴阡盆地"
-    },
-    {
       "code": "castile",
       "type": "cultural_region",
       "name": {
@@ -147,15 +165,6 @@
         "en": "Catalonia"
       },
       "notes": "加泰罗尼亚+阿拉贡+巴伦西亚+巴利阿里（阿拉贡王冠）"
-    },
-    {
-      "code": "central_europe",
-      "type": "cultural_region",
-      "name": {
-        "zh": "中欧",
-        "en": "Central Europe"
-      },
-      "notes": "中欧历史空间代理"
     },
     {
       "code": "crimea",
@@ -392,22 +401,22 @@
       "notes": "格鲁吉亚现代国界空间代理"
     },
     {
-      "code": "greece",
-      "type": "modern_country",
+      "code": "north_greece",
+      "type": "historical_region",
       "name": {
-        "zh": "希腊",
-        "en": "Greece"
+        "zh": "北希腊（马其顿—色萨利—伊庇鲁斯）",
+        "en": "Northern Greece (Macedonia–Thessaly–Epirus)"
       },
-      "notes": "希腊现代国界空间代理"
+      "notes": "希腊马其顿（中部、西部）、色萨利、伊庇鲁斯"
     },
     {
-      "code": "hungary",
-      "type": "modern_country",
+      "code": "south_greece",
+      "type": "historical_region",
       "name": {
-        "zh": "匈牙利",
-        "en": "Hungary"
+        "zh": "南希腊与群岛（中希腊—伯罗奔尼撒—爱琴海）",
+        "en": "Southern Greece and the islands (Central Greece–Peloponnese–Aegean)"
       },
-      "notes": "匈牙利现代国界空间代理"
+      "notes": "阿提卡、中希腊、西希腊、伯罗奔尼撒、爱琴海诸岛与伊奥尼亚群岛"
     },
     {
       "code": "ireland",
@@ -618,15 +627,6 @@
       "notes": "旧萨克森（德国西北）：石荷/下萨克森/不来梅/汉堡/梅克伦堡+威斯特法伦三区，NUTS L2 ×11"
     },
     {
-      "code": "pannonia",
-      "type": "historical_region",
-      "name": {
-        "zh": "潘诺尼亚",
-        "en": "Pannonia"
-      },
-      "notes": "潘诺尼亚（现代匈牙利近似）：罗马行省-匈人-格皮德-阿瓦尔链"
-    },
-    {
       "code": "poland",
       "type": "modern_country",
       "name": {
@@ -663,13 +663,31 @@
       "notes": "俄罗斯现代国界空间代理；地图数据展示欧洲部分"
     },
     {
-      "code": "samiland",
-      "type": "cultural_region",
+      "code": "north_norway",
+      "type": "historical_region",
       "name": {
-        "zh": "萨普米（拉普兰）",
-        "en": "Sápmi (Lapland)"
+        "zh": "北挪威（哈洛加兰—芬马克）",
+        "en": "Northern Norway (Hålogaland–Finnmark)"
       },
-      "notes": "萨普米（挪威北角+瑞典上/中诺尔兰+芬兰拉普兰）"
+      "notes": "诺尔兰、特罗姆斯、芬马克"
+    },
+    {
+      "code": "upper_norrland",
+      "type": "historical_region",
+      "name": {
+        "zh": "上诺尔兰（北博滕—西博滕）",
+        "en": "Upper Norrland (Norrbotten–Västerbotten)"
+      },
+      "notes": "瑞典北博滕、西博滕（含拉普马克）"
+    },
+    {
+      "code": "lapland",
+      "type": "historical_region",
+      "name": {
+        "zh": "芬兰拉普兰",
+        "en": "Finnish Lapland"
+      },
+      "notes": "芬兰拉普兰区（凯米—托尔讷河谷至伊纳里）"
     },
     {
       "code": "sardinia",
@@ -1211,24 +1229,42 @@
       "note": "DARMC 303 年行省 Mauretania Tingitana；统一取 303 年单层，几何为各时代近似代理"
     },
     {
-      "region": "carpathian_basin",
+      "region": "west_austria",
       "source": "nuts",
-      "type": "l0_country",
+      "type": "source_id",
       "values": [
-        "HU",
-        "SK"
+        "AT3"
       ],
-      "note": "近似为现代匈牙利+斯洛伐克"
+      "note": "NUTS L1 AT3 西奥地利"
     },
     {
-      "region": "central_europe",
+      "region": "east_austria",
       "source": "nuts",
-      "type": "l0_country",
+      "type": "source_id",
       "values": [
-        "AT",
-        "CZ"
+        "AT1",
+        "AT2"
       ],
-      "note": "以奥地利+捷克近似中欧核心（德国已四分细分）"
+      "note": "NUTS L1 AT1 东奥地利 / AT2 南奥地利"
+    },
+    {
+      "region": "transdanubia",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "HU2"
+      ],
+      "note": "NUTS L1 HU2 外多瑙"
+    },
+    {
+      "region": "alfold",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "HU1",
+        "HU3"
+      ],
+      "note": "NUTS L1 HU1 中匈牙利 / HU3 大平原与北部"
     },
     {
       "region": "eastern_europe",
@@ -1313,15 +1349,6 @@
       "note": "以现代爱尔兰国界近似"
     },
     {
-      "region": "austria",
-      "source": "nuts",
-      "type": "l0_country",
-      "values": [
-        "AT"
-      ],
-      "note": "以现代奥地利国界近似"
-    },
-    {
       "region": "netherlands",
       "source": "nuts",
       "type": "l0_country",
@@ -1346,9 +1373,10 @@
       "values": [
         "SE1",
         "SE2",
-        "SE31"
+        "SE31",
+        "SE32"
       ],
-      "note": "以瑞典 NUTS L2（除萨普米两区）近似"
+      "note": "以瑞典 NUTS L2（除上诺尔兰）近似；中诺尔兰（耶姆特兰、西诺尔兰）铁器时代以来为日耳曼—诺斯人定居区"
     },
     {
       "region": "norway",
@@ -1453,19 +1481,31 @@
       "note": "以现代保加利亚国界近似"
     },
     {
-      "region": "greece",
+      "region": "north_greece",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "EL52",
+        "EL53",
+        "EL54",
+        "EL61"
+      ],
+      "note": "NUTS L2 中马其顿 / 西马其顿 / 伊庇鲁斯 / 色萨利"
+    },
+    {
+      "region": "south_greece",
       "source": "nuts",
       "type": "source_id",
       "values": [
         "EL3",
         "EL41",
         "EL42",
-        "EL52",
-        "EL53",
-        "EL54",
-        "EL6"
+        "EL62",
+        "EL63",
+        "EL64",
+        "EL65"
       ],
-      "note": "希腊主体 NUTS L2 ×11（阿提卡/爱琴群岛/中-西马其顿/伊庇鲁斯/中部/伊奥尼亚/西希腊/斯泰里亚/伯罗奔尼撒；克里特 EL43 与东马其顿-色雷斯 EL51 另设）"
+      "note": "NUTS L2 阿提卡 / 北爱琴 / 南爱琴 / 伊奥尼亚群岛 / 西希腊 / 中希腊 / 伯罗奔尼撒"
     },
     {
       "region": "albania",
@@ -1475,15 +1515,6 @@
         "AL"
       ],
       "note": "以现代阿尔巴尼亚国界近似"
-    },
-    {
-      "region": "hungary",
-      "source": "nuts",
-      "type": "l0_country",
-      "values": [
-        "HU"
-      ],
-      "note": "以现代匈牙利国界近似"
     },
     {
       "region": "ukraine",
@@ -1786,16 +1817,31 @@
       "note": "特兰西瓦尼亚（NUTS L2 RO11/12 近似）"
     },
     {
-      "region": "samiland",
+      "region": "north_norway",
       "source": "nuts",
       "type": "source_id",
       "values": [
-        "NO07",
-        "SE32",
-        "SE33",
+        "NO07"
+      ],
+      "note": "NUTS L2 NO07 北挪威"
+    },
+    {
+      "region": "upper_norrland",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
+        "SE33"
+      ],
+      "note": "NUTS L2 SE33 上诺尔兰"
+    },
+    {
+      "region": "lapland",
+      "source": "nuts",
+      "type": "source_id",
+      "values": [
         "FI1D7"
       ],
-      "note": "萨普米（挪威北角 NO07 + 瑞典上/中诺尔兰 SE32/33 + 芬兰拉普兰 FI1D7）"
+      "note": "NUTS L3 FI1D7 拉普兰（叠加单元，芬兰 L0 保留）"
     },
     {
       "region": "old_saxony",
@@ -1848,15 +1894,6 @@
         "DE2"
       ],
       "note": "巴伐利亚（德国东南，拜恩自由州 NUTS L2 ×7）"
-    },
-    {
-      "region": "pannonia",
-      "source": "nuts",
-      "type": "l0_country",
-      "values": [
-        "HU"
-      ],
-      "note": "潘诺尼亚（以现代匈牙利国界近似罗马行省-匈人-格皮德范围）"
     },
     {
       "region": "bosnia",

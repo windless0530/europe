@@ -662,6 +662,14 @@
             "zh": "十字军",
             "en": "Crusaders"
           }
+        },
+        {
+          "code": "sarmatians",
+          "sort": 470,
+          "name": {
+            "zh": "萨尔马提亚人",
+            "en": "Sarmatians"
+          }
         }
       ]
     },
