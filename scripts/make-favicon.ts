@@ -55,30 +55,28 @@ console.log(`化简后：${polys.length} 个多边形（未过滤）`);
 
 // ---------- 3. LAEA 投影（与 map.ts 同参数），fit 到剪影自身外接框 ----------
 // 不用地图的「欧洲环框」fit（含海洋边距）：图标要让大陆尽量占满芯片，
-// 16px 标签页尺寸下才可辨。
+// 16px 标签页尺寸下才可辨。尺度按全量环定（维持现状占满度），但居中延迟到
+// 步骤 4 面积过滤后按保留环重算——亚速尔/加纳利等西南碎屑会把全量外接框
+// 撑偏，令过滤后的大陆主体整体偏右上。
 const SIZE = 64;
 const FIT_BASE = 1000;
 const projection = geoAzimuthalEqualArea().rotate([-10, -52]);
-const allRings = polys.flat() as [number, number][][];
-{
-  projection.scale(FIT_BASE);
-  projection.translate([0, 0]);
-  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-  for (const ring of allRings) {
-    for (const c of ring) {
-      const p = projection(c);
-      if (!p) continue;
-      if (p[0] < x0) x0 = p[0];
-      if (p[1] < y0) y0 = p[1];
-      if (p[0] > x1) x1 = p[0];
-      if (p[1] > y1) y1 = p[1];
-    }
+projection.scale(FIT_BASE);
+projection.translate([0, 0]);
+let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+for (const ring of polys.flat() as [number, number][][]) {
+  for (const c of ring) {
+    const p = projection(c);
+    if (!p) continue;
+    if (p[0] < x0) x0 = p[0];
+    if (p[1] < y0) y0 = p[1];
+    if (p[0] > x1) x1 = p[0];
+    if (p[1] > y1) y1 = p[1];
   }
-  const pad = 2.5;
-  const k = Math.min((SIZE - pad * 2) / (x1 - x0), (SIZE - pad * 2) / (y1 - y0));
-  projection.scale(FIT_BASE * k);
-  projection.translate([SIZE / 2 - ((x0 + x1) / 2) * k, SIZE / 2 - ((y0 + y1) / 2) * k]);
 }
+const pad = 2.5;
+const k = Math.min((SIZE - pad * 2) / (x1 - x0), (SIZE - pad * 2) / (y1 - y0));
+projection.scale(FIT_BASE * k);
 
 // ---------- 4. 投影 + 像素面积过滤（去小岛碎屑与小孔洞）+ 生成 SVG path ----------
 // 64px 画布上：主大陆/不列颠/爱尔兰/冰岛 ≥ 3px² 保留，
@@ -90,6 +88,10 @@ const shoelace = (pts: [number, number][]): number =>
   }, 0) / 2);
 
 const paths: string[] = [];
+// 面积与平移无关：先在 translate=[0,0] 下完成过滤并记录保留环，
+// 再把保留环外接框中心平移到画心（全量框居中会被碎屑岛带偏）。
+const keptRings: [number, number][][] = [];
+let kx0 = Infinity, ky0 = Infinity, kx1 = -Infinity, ky1 = -Infinity;
 for (const poly of polys) {
   const projected = (poly as [number, number][][])
     .map((ring) => ring.map((c) => projection(c)).filter((p): p is [number, number] => !!p))
@@ -105,9 +107,20 @@ for (const poly of polys) {
       `lon ${Math.min(...lons).toFixed(0)}~${Math.max(...lons).toFixed(0)} / lat ${Math.min(...lats).toFixed(0)}~${Math.max(...lats).toFixed(0)}`,
   );
   const rings = [outer!, ...holes.filter((h) => shoelace(h) >= 1.5)];
+  keptRings.push(...rings);
   for (const ring of rings) {
-    paths.push(`M${ring.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join('L')}Z`);
+    for (const [px, py] of ring) {
+      if (px < kx0) kx0 = px;
+      if (py < ky0) ky0 = py;
+      if (px > kx1) kx1 = px;
+      if (py > ky1) ky1 = py;
+    }
   }
+}
+const tx = SIZE / 2 - (kx0 + kx1) / 2;
+const ty = SIZE / 2 - (ky0 + ky1) / 2;
+for (const ring of keptRings) {
+  paths.push(`M${ring.map(([x, y]) => `${(x + tx).toFixed(1)} ${(y + ty).toFixed(1)}`).join('L')}Z`);
 }
 
 // 配色：series-blue 芯片 + 近页面色剪影——明/暗浏览器标签页上都醒目
