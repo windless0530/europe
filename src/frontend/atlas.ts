@@ -515,9 +515,9 @@ export function atlasGeometryFeatures(sources: Map<SourceCode, SourceView>, rule
   return dissolveSameRegion(atlasGeometrySelection(sources, rules), rules);
 }
 
-/** 族群分布模式用到的原始几何要素（溶解前，绘制顺序）。逐要素判定，故对子集求值结果不变——
- *  npm run project 据此从三源全量几何抽出 data/peoples/export/atlas-geometry.geojson，
- *  前端启动只加载该子集（几何浏览所需的全量三源按需加载）。 */
+/** 族群分布模式用到的原始几何要素（溶解前，绘制顺序），atlasGeometryFeatures 的第一步。
+ *  npm run project 把溶解结果（atlasGeometryFeatures）写进 data/peoples/export/atlas-geometry.geojson，
+ *  前端启动只加载该子集、按文件序直接绘制（几何浏览所需的全量三源按需加载）。 */
 export function atlasGeometrySelection(sources: Map<SourceCode, Pick<SourceView, 'features'>>, rules: RegionGeometryRule[]): RegionVm[] {
   const out: RegionVm[] = [];
   const awmcSnapshots = new Set(
@@ -555,7 +555,9 @@ export function atlasGeometrySelection(sources: Map<SourceCode, Pick<SourceView,
 
 /** 同国、候选地区集合完全相同的 NUTS/GADM 单元在族群分布模式下着色/hover 恒同，
  *  溶解为一个要素（去掉无信息的内部边界，如德国 38 个 L2 单元 → 4 区）；
- *  合并要素置于首成员位置（保持绘制层序），memberIds 供规则与测试按原始 id 寻址。 */
+ *  合并要素置于首成员位置（保持绘制层序），memberIds 供规则与测试按原始 id 寻址，
+ *  并随 properties.members 下发（npm run project 把溶解结果写进导出子集，
+ *  前端启动直接使用、不再运行时溶解）。 */
 function dissolveSameRegion(features: RegionVm[], rules: RegionGeometryRule[]): RegionVm[] {
   const { byGeometry } = resolveRegionGeometry(features, rules);
   const groups = new Map<string, RegionVm[]>();
@@ -575,13 +577,18 @@ function dissolveSameRegion(features: RegionVm[], rules: RegionGeometryRule[]): 
     // turf 输出 RFC 7946 逆时针外环；d3-geo 球面约定为顺时针，否则按补集（全球减该面）绘制
     const u = rewind(unioned, { reverse: true }) as typeof unioned;
     const first = members[0]!;
+    const memberIds = members.map((m) => m.sourceId);
     const vm: RegionVm = {
       ...first,
       code: `nuts:merge:${key.toLowerCase()}`,
       nameEn: null,
       nameZh: null,
-      feature: { ...first.feature, geometry: u.geometry } as RegionVm['feature'],
-      memberIds: members.map((m) => m.sourceId),
+      feature: {
+        ...first.feature,
+        properties: { ...first.feature.properties, name_en: null, name_zh: null, members: memberIds },
+        geometry: u.geometry,
+      } as RegionVm['feature'],
+      memberIds,
     };
     merged.set(first.code, vm);
     for (const m of members.slice(1)) merged.set(m.code, null);

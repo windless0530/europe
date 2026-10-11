@@ -73,6 +73,12 @@ export interface RegionFeatureProps {
   end_year: number | null;
   /** 上级区域的 region_code，无则 null */
   parent_code: string | null;
+  /**
+   * 同区溶解要素的成员 source_id 列表（构建期合并写入；region_code /
+   * source_id 取首成员）。仅族群分布导出子集（atlas-geometry.geojson）
+   * 的合并要素携带，源文件与几何浏览全量文件不出现。
+   */
+  members?: string[];
   /** 原始属性原样保留（键名保持原样，不做翻译/改名） */
   source_props: Record<string, unknown>;
 }

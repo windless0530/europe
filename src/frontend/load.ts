@@ -69,8 +69,8 @@ function snapshotOf(f: RegionFeature): number | null {
   return null;
 }
 
-export function buildView(code: SourceCode, file: RegionsFile): SourceView {
-  const features: RegionVm[] = file.features.map((f) => ({
+function toVm(code: SourceCode, f: RegionFeature): RegionVm {
+  return {
     source: code,
     code: f.properties.region_code,
     nameEn: f.properties.name_en,
@@ -82,7 +82,12 @@ export function buildView(code: SourceCode, file: RegionsFile): SourceView {
     sourceId: f.properties.source_id,
     dataset: String(prop(f, 'awmc_dataset') ?? prop(f, 'layer') ?? prop(f, 'layer_title') ?? code),
     feature: f,
-  }));
+    memberIds: f.properties.members,
+  };
+}
+
+export function buildView(code: SourceCode, file: RegionsFile): SourceView {
+  const features: RegionVm[] = file.features.map((f) => toVm(code, f));
 
   const familySnapshots = new Map<Family, number[]>();
   const eraSet = new Set<number>();
@@ -190,13 +195,10 @@ export async function fetchJsonBatch(urls: string[], onBytes?: (loaded: number, 
   );
 }
 
-/** 族群分布几何子集（多源混合，按 properties.source 拆回各源视图；仅供 atlasGeometryFeatures，不进几何浏览缓存） */
-export function atlasGeometryViews(file: RegionsFile): Map<SourceCode, SourceView> {
-  const views = new Map<SourceCode, SourceView>();
-  for (const code of ['awmc', 'darmc', 'nuts'] as SourceCode[]) {
-    views.set(code, buildView(code, { type: 'FeatureCollection', features: file.features.filter((f) => f.properties.source === code) }));
-  }
-  return views;
+/** 族群分布几何子集（多源混合、构建期已溶解）直接建绘制 VM：
+ *  文件序 = 构建期确定的绘制顺序，启动加载后零几何运算。不进几何浏览缓存。 */
+export function atlasGeometryVms(file: RegionsFile): RegionVm[] {
+  return file.features.map((f) => toVm(f.properties.source, f));
 }
 
 const cache = new Map<SourceCode, SourceView>();

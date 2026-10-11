@@ -254,7 +254,7 @@ function main(): void {
   const geoFile = join(ROOT, ATLAS_GEOMETRY_REL);
   writeFileSync(geoFile, geo.text, 'utf8');
   const mbSize = (statSync(geoFile).size / 1024 / 1024).toFixed(1);
-  console.log(`几何子集 -> ${ATLAS_GEOMETRY_REL} (${mbSize} MB)：族群分布用到的 ${geo.count} 个原始要素`);
+  console.log(`几何子集 -> ${ATLAS_GEOMETRY_REL} (${mbSize} MB)：族群分布绘制集合 ${geo.count} 个要素（已同区溶解，文件序 = 绘制顺序）`);
 }
 
 main();

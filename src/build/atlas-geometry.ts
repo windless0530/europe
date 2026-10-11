@@ -3,10 +3,12 @@
 //   -> data/peoples/export/atlas-geometry.geojson
 //
 // 前端启动只加载 atlas.json + 本子集（约为三源全量的 1/4），几何浏览所需的
-// 全量三源在进入该模式时按需加载。子集 = atlasGeometrySelection（与前端同一套
-// 逐要素挑选规则：region_geometry 规则 + atlas.ts 渲染策略 SUBNATIONAL_LEVEL /
-// GBR_CONSTITUENTS / OVERLAY_UNITS）选中的原始要素，要素内容与源文件逐字相同、
-// 顺序保持「源 awmc → darmc → nuts，源内文件序」，故前端对子集求值与对全量求值结果一致。
+// 全量三源在进入该模式时按需加载。子集 = atlasGeometryFeatures（与前端同一套
+// 规则：region_geometry 规则 + atlas.ts 渲染策略 SUBNATIONAL_LEVEL /
+// GBR_CONSTITUENTS / OVERLAY_UNITS 挑选，再同区溶解合并）。**文件序 = 绘制顺序**
+// （awmc → darmc → nuts 主体，叠加单元置尾，合并要素占首成员位），前端按文件序
+// 直接绘制、不做任何运行时几何运算。合并要素携带 properties.members（成员 source_id），
+// source_id 类规则与测试按成员寻址不受影响。
 //
 // 生成：npm run project（与 atlas.json 一起写出）。过期校验：npm run audit
 // （几何管线重跑、region_geometry 或渲染策略变更后须重跑 project）。勿手改。
@@ -17,7 +19,7 @@ import { join } from 'node:path';
 import type { RegionsFile, SourceCode } from '../lib/contract.js';
 import { formatGeoJson } from '../lib/geojson-format.js';
 import { buildView } from '../frontend/load.js';
-import { atlasGeometrySelection } from '../frontend/atlas.js';
+import { atlasGeometryFeatures } from '../frontend/atlas.js';
 import type { RegionGeometryRule } from '../frontend/region-map.js';
 
 export const ATLAS_GEOMETRY_REL = 'data/peoples/export/atlas-geometry.geojson';
@@ -31,9 +33,8 @@ export function renderAtlasGeometry(root: string, rules: RegionGeometryRule[]): 
     const file = JSON.parse(readFileSync(join(root, `data/geography/processed/${code}/regions.geojson`), 'utf8')) as RegionsFile;
     views.set(code, buildView(code, file));
   }
-  const picked = new Set(atlasGeometrySelection(views, rules).map((vm) => vm.code));
-  // 按源顺序、源内文件序输出（与选择结果的绘制顺序无关，前端重新求值）
-  const features = SOURCES.flatMap((code) => views.get(code)!.features.filter((vm) => picked.has(vm.code)).map((vm) => vm.feature));
+  // 已溶解的绘制集合：文件序 = 绘制顺序，前端启动直接使用（不再运行时溶解）
+  const features = atlasGeometryFeatures(views, rules).map((vm) => vm.feature);
   const out: RegionsFile = { type: 'FeatureCollection', features };
   return { text: formatGeoJson(out), count: features.length };
 }

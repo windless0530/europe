@@ -35,7 +35,8 @@ export interface MapApi {
   applyCaveats(entries: ReadonlyMap<string, 'disputed' | 'method'>): void;
   setHover(code: string | null): void;
   onHover(cb: (e: HoverEvent) => void): void;
-  resize(view: SourceView, opts: MapOpts): void;
+  /** 重投影当前几何：复用既有节点就地更新 d（不重建 DOM/监听器），调用方负责重着色叠加层 */
+  resize(): void;
 }
 
 /** tooltip 内容渲染器（由 main 依据当前模式提供） */
@@ -126,7 +127,6 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
   let caveatNodes: SVGPathElement[] = [];
   let currentView: SourceView | null = null;
   let currentFeatures: RegionVm[] = [];
-  let currentOpts: MapOpts | null = null;
 
   const projection = geoAzimuthalEqualArea().rotate([-10, -52]);
   const pathGen = geoPath(projection);
@@ -226,14 +226,12 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
   return {
     render(view, opts) {
       currentView = view;
-      currentOpts = opts;
       currentFeatures = view.features;
       rebuild(view.features);
       this.updateVisibility(view, opts);
     },
 
     updateVisibility(view, opts) {
-      currentOpts = opts;
       for (const vm of view.features) {
         const node = nodesByCode.get(vm.code);
         if (!node) continue;
@@ -303,7 +301,7 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
       hoverCb = cb;
     },
 
-    resize(view, opts) {
+    resize() {
       if (currentFeatures.length === 0) return;
       fit();
       drawChrome();
@@ -313,7 +311,6 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
         const d = pathGen(vm.feature as unknown as GeoPermissibleObjects);
         if (d) node.setAttribute('d', d);
       }
-      currentOpts = opts;
       this.setHover(hovered); // 几何 d 已变，覆盖层描边需重建
     },
   };

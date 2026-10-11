@@ -32,7 +32,7 @@ atlas-geometry.geojson）和三源 `data/geography/processed/*/regions.geojson`�
 | `data/peoples/source/taxonomy.json` | 手写（真实源） | 3 棵谱系树（语言 / 历史人群 / 现代族群） |
 | `data/peoples/source/reference.json` | 手写（真实源） | 语言 / 宗教 / 时期 / 枚举字典 / 文献来源 |
 | `data/peoples/export/atlas.json` | 自动生成（勿手改） | 前端投影：双语名称展开、谱系/事件/语言宗教挂接；前端与审计脚本的唯一图谱输入；多行可读（2 空格缩进） |
-| `data/peoples/export/atlas-geometry.geojson` | 自动生成（勿手改） | 族群分布模式启动加载的几何子集：三源全量中该模式用到的原始要素（约 1/4 体量），由 `npm run project` 与 atlas.json 一起写出，`npm run audit` 校验未过期 |
+| `data/peoples/export/atlas-geometry.geojson` | 自动生成（勿手改） | 族群分布模式启动加载的几何子集：三源全量中该模式用到的要素**及构建期同区溶解结果**（约 1/4 体量，文件序 = 绘制顺序），由 `npm run project` 与 atlas.json 一起写出，`npm run audit` 校验未过期 |
 | `data/geography/raw/<源>/` | 自动下载（不提交） | AWMC / DARMC / NUTS + GADM 的原始文件与下载元数据，作为几何管线输入 |
 | `data/geography/processed/<源>/regions.geojson` | 自动生成 | 三源规范化几何（awmc/darmc/nuts，license 见「数据管线」一节）；全部 processed 产物（geojson/manifest/stats）均为多行可读格式——geojson 坐标行内、每环一行（`src/lib/geojson-format.ts`），其余 2 空格缩进 |
 
@@ -98,8 +98,10 @@ atlas-geometry.geojson（三源全量的约 1/4，带进度条），此后**缩�
 地区（粗粒度历史地理）→ 几何的近似映射规则存于 `data/peoples/source/regions.json`
 的 `geometry_rules`（112 条：NUTS L0 国家集 / 要素 id 集（NUTS 码可写上级码匹配全部下级单元；含 DARMC 303 年行省 id）/ DARMC 行省名
 正则 / AWMC 帝国快照四类），随 atlas.json 的 `region_geometry` 段下发，
-求值器在 `src/frontend/region-map.ts`。同国且所属地区完全相同的渲染单元在启动时溶解为
-一个要素（`atlasGeometryFeatures` → `dissolveSameRegion`），地图只画有信息的边界（如德国 38 个 L2 单元显示为 4 区）。
+求值器在 `src/frontend/region-map.ts`。同国且所属地区完全相同的渲染单元由
+`npm run project` 在**构建期**溶解为一个要素（`atlasGeometryFeatures` →
+`dissolveSameRegion`，合并要素携带 `properties.members` 成员表），前端启动按文件序
+直接绘制、零几何运算，地图只画有信息的边界（如德国 38 个 L2 单元显示为 4 区）。
 
 图例为左侧「族群谱系」树（`src/frontend/people-tree.ts`）：按 `taxonomy.json`
 谱系层级组织全部族群（如 印欧语系 → 日耳曼 → 东日耳曼 → 哥特 → 东/西哥特人），

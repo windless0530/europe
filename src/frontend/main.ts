@@ -16,14 +16,14 @@ import {
   ATLAS_GEOMETRY_URL,
   ATLAS_URL,
   SOURCE_LABELS,
-  atlasGeometryViews,
+  atlasGeometryVms,
   fetchJsonBatch,
   loadConfigSource,
   loadSource,
   type RegionVm,
   type SourceView,
 } from './load';
-import { atlasGeometryFeatures, buildAtlasModel, caveatActive, type AtlasData, type AtlasModel } from './atlas';
+import { buildAtlasModel, caveatActive, type AtlasData, type AtlasModel } from './atlas';
 import { createPeopleTree } from './people-tree';
 import { getCookie, setCookie } from './cookies';
 import { createStore } from './state';
@@ -76,6 +76,8 @@ async function boot(): Promise<void> {
 
   const bootLabel = 'atlas.json + atlas-geometry.geojson';
   setProgress(0.01, `${bootLabel} …`);
+  // /config 只决定几何浏览模式的初始数据源，与数据下载并行、不阻塞首渲染
+  const configReady = loadConfigSource();
   let atlasData: AtlasData;
   let atlasGeometry: RegionsFile;
   try {
@@ -87,15 +89,14 @@ async function boot(): Promise<void> {
     return;
   }
 
-  // 族群分布模式的实际渲染集合（含同区溶解要素）；模型按它解析地区↔几何
-  const atlasViews = atlasGeometryViews(atlasGeometry);
-  const atlasFeatures = atlasGeometryFeatures(atlasViews, atlasData.region_geometry ?? []);
-  const allByCode = new Map<string, RegionVm>([...[...atlasViews.values()].flatMap((v) => v.features), ...atlasFeatures].map((vm) => [vm.code, vm]));
+  // 族群分布模式的绘制集合：构建期已选定并溶解，文件序 = 绘制顺序，启动零几何运算
+  const atlasFeatures = atlasGeometryVms(atlasGeometry);
+  const allByCode = new Map<string, RegionVm>(atlasFeatures.map((vm) => [vm.code, vm]));
   /** 几何浏览数据源（全量）：按需加载后放入 */
   const geoViews = new Map<SourceCode, SourceView>();
   const model: AtlasModel = buildAtlasModel(atlasData, atlasFeatures);
 
-  const initialSource = await loadConfigSource();
+  const initialSource = await configReady;
   const store = createStore({
     lang: 'zh',
     mode: 'atlas',
@@ -324,12 +325,17 @@ async function boot(): Promise<void> {
     store.set({ hoverCode: vm ? vm.code : null });
   });
 
+  // resize 防抖：全量重投影开销大，拖动窗口期间不逐事件重算；就地在既有节点上更新 d，
+  // 不重建 DOM/监听器。标注纹理层复制几何节点的 d，重投影后由 applyAtlasPaint 重建
+  let resizeTimer = 0;
   window.addEventListener('resize', () => {
-    if (mapMode === 'atlas') {
-      map.setGeometry(atlasFeatures);
-      applyAtlasPaint(state()); // 重建几何后重新着色并叠加标注纹理
-    }
-    else if (view) map.resize(view, opts());
+    clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(() => {
+      if (mapMode === 'atlas') {
+        map.resize();
+        applyAtlasPaint(state());
+      } else if (view) map.resize();
+    }, 150);
   });
 
   onModeChange(() => {
