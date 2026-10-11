@@ -1,5 +1,6 @@
 // ============================================================
 // 投影器：data/peoples/source/*.json -> data/peoples/export/atlas.json
+//   （随后由 atlas-geometry.ts 抽出族群分布几何子集 atlas-geometry.geojson）
 //
 // 前端「族群分布模式」的唯一数据来源（全量进内存）。输出形状
 // 与键序、排序、省写展开规则均固定 —— 与 PostgreSQL 时代的
@@ -21,6 +22,8 @@ import { mkdirSync, writeFileSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadSource, validate, type Bundle, type I18n, type Taxonomy } from './source.js';
+import { ATLAS_GEOMETRY_REL, renderAtlasGeometry } from './atlas-geometry.js';
+import type { RegionGeometryRule } from '../frontend/region-map.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const OUT_FILE = join(ROOT, 'data', 'peoples', 'export', 'atlas.json');
@@ -246,6 +249,12 @@ function main(): void {
       `${(out.periods as unknown[]).length} periods, ` +
       `${(out.taxonomies as unknown[]).length} taxonomies`,
   );
+
+  const geo = renderAtlasGeometry(ROOT, out.region_geometry as RegionGeometryRule[]);
+  const geoFile = join(ROOT, ATLAS_GEOMETRY_REL);
+  writeFileSync(geoFile, geo.text, 'utf8');
+  const mbSize = (statSync(geoFile).size / 1024 / 1024).toFixed(1);
+  console.log(`几何子集 -> ${ATLAS_GEOMETRY_REL} (${mbSize} MB)：族群分布用到的 ${geo.count} 个原始要素`);
 }
 
 main();

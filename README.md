@@ -18,8 +18,9 @@ npm run favicon        # 由自有 NUTS 几何生成 favicon（SVG + PNG 回退�
 npm run smoke          # headless 冒烟：加载/时间轴/hover/零网络验证 + 截图；需先在另一终端运行 npm run dev
 ```
 
-日常启动只需 `npm run dev`；仓库已提交 `data/peoples/export/atlas.json` 和三源
-`data/geography/processed/*/regions.geojson`，启动前无需重跑下述数据管线。
+日常启动只需 `npm run dev`；仓库已提交 `data/peoples/export/`（atlas.json +
+atlas-geometry.geojson）和三源 `data/geography/processed/*/regions.geojson`，
+启动前无需重跑下述数据管线。
 
 ## 数据文件
 
@@ -31,6 +32,7 @@ npm run smoke          # headless 冒烟：加载/时间轴/hover/零网络验�
 | `data/peoples/source/taxonomy.json` | 手写（真实源） | 3 棵谱系树（语言 / 历史人群 / 现代族群） |
 | `data/peoples/source/reference.json` | 手写（真实源） | 语言 / 宗教 / 时期 / 枚举字典 / 文献来源 |
 | `data/peoples/export/atlas.json` | 自动生成（勿手改） | 前端投影：双语名称展开、谱系/事件/语言宗教挂接；前端与审计脚本的唯一图谱输入；多行可读（2 空格缩进） |
+| `data/peoples/export/atlas-geometry.geojson` | 自动生成（勿手改） | 族群分布模式启动加载的几何子集：三源全量中该模式用到的原始要素（约 1/4 体量），由 `npm run project` 与 atlas.json 一起写出，`npm run audit` 校验未过期 |
 | `data/geography/raw/<源>/` | 自动下载（不提交） | AWMC / DARMC / NUTS + GADM 的原始文件与下载元数据，作为几何管线输入 |
 | `data/geography/processed/<源>/regions.geojson` | 自动生成 | 三源规范化几何（awmc/darmc/nuts，license 见「数据管线」一节）；全部 processed 产物（geojson/manifest/stats）均为多行可读格式——geojson 坐标行内、每环一行（`src/lib/geojson-format.ts`），其余 2 空格缩进 |
 
@@ -88,8 +90,9 @@ npm run build && npx tsc --noEmit # 构建与类型门禁
 
 ## 前端（两种模式）
 
-**族群分布（默认，源数据驱动）**：启动全量加载 atlas.json + 三源几何（带进度条），
-此后**缩放/连续年份时间轴（-509 至今）/hover 全部内存运算、零网络请求**。
+**族群分布（默认，源数据驱动）**：启动加载 atlas.json + 几何子集
+atlas-geometry.geojson（三源全量的约 1/4，带进度条），此后**缩放/连续年份
+时间轴（-509 至今）/hover 全部内存运算、零网络请求**。
 着色 = `people_region` 时间切片按 render_priority 取主族群；hover 面板显示
 当年全部族群、语言、宗教、族群关系与当期事件（双语名直接来自源文件）。
 地区（粗粒度历史地理）→ 几何的近似映射规则存于 `data/peoples/source/regions.json`
@@ -153,6 +156,8 @@ OKLab ΔE + Machado CVD 模拟，对同年同屏族群避让，结果可复现�
 维亚人）或存在史学争议时，时间片带 `caveat` 标注说明。
 
 **几何浏览**：三源原始几何 + 快照时间轴（`src/datasources/` 各自 README）。
+全量几何按需加载：首次进入该模式或首次切到某数据源时加载一次（独立进度条），
+此后缓存复用，加载前后的交互均为纯内存运算。
 
 代码：`src/frontend/`（main/map/timeline/legend/people-tree/panel/load/atlas/region-map/i18n/palette/state）。
 开发期数据经 vite 中间件白名单直读 `data/geography/processed/` 与 `data/peoples/export/`。

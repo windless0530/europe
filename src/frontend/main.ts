@@ -1,8 +1,9 @@
-// 应用入口：启动全量加载（进度条）→ 装配 地图/时间轴/图例/面板/状态。
+// 应用入口：启动加载族群分布数据（进度条）→ 装配 地图/时间轴/图例/面板/状态。
 // 两种模式：
 //   atlas 族群分布（默认）：SQL people_region 驱动着色 + 连续年份时间轴
 //   geo   几何浏览：三源几何 + 快照时间轴
-// 全部数据启动时进内存，此后缩放/时间轴/hover 零网络请求。
+// 分段加载：启动只加载 atlas.json + atlas-geometry.geojson（族群分布所需全部数据）；
+// 几何浏览首次进入 / 首次切到某数据源时加载该源（独立进度，缓存）。载入后缩放/时间轴/hover 零网络请求。
 
 import './styles.css';
 import type { SourceCode } from '../lib/contract.js';
@@ -10,8 +11,19 @@ import { createMap, type DescribeVm } from './map';
 import { createTimeline } from './timeline';
 import { createControls } from './legend';
 import { createPanel } from './panel';
-import { loadConfigSource, prefetchAllSources, type RegionVm, type SourceView } from './load';
-import { atlasGeometryFeatures, buildAtlasModel, caveatActive, fetchAtlas, type AtlasData, type AtlasModel } from './atlas';
+import type { RegionsFile } from '../lib/contract.js';
+import {
+  ATLAS_GEOMETRY_URL,
+  ATLAS_URL,
+  SOURCE_LABELS,
+  atlasGeometryViews,
+  fetchJsonBatch,
+  loadConfigSource,
+  loadSource,
+  type RegionVm,
+  type SourceView,
+} from './load';
+import { atlasGeometryFeatures, buildAtlasModel, caveatActive, type AtlasData, type AtlasModel } from './atlas';
 import { createPeopleTree } from './people-tree';
 import { getCookie, setCookie } from './cookies';
 import { createStore } from './state';
@@ -52,28 +64,22 @@ async function boot(): Promise<void> {
   const fill = document.getElementById('boot-fill') as HTMLDivElement;
   const text = document.getElementById('boot-text')!;
   const hint = document.getElementById('boot-hint')!;
+  const title = overlay.querySelector<HTMLElement>('.boot-title')!;
   hint.textContent = t('bootHint', 'zh');
   const setProgress = (frac: number, label: string): void => {
     fill.style.width = `${Math.min(100, Math.round(frac * 100))}%`;
     text.textContent = label;
   };
+  /** 进度回调：本段数据（启动 = 族群分布数据；几何浏览 = 单个数据源）加载完即 100% */
+  const byteProgress = (label: string) => (loaded: number, total: number): void =>
+    setProgress(total > 0 ? loaded / total : 0, `${label} ${mb(loaded)}${total > 0 ? ` / ${mb(total)}` : ''}`);
 
-  setProgress(0.01, 'atlas.json …');
+  const bootLabel = 'atlas.json + atlas-geometry.geojson';
+  setProgress(0.01, `${bootLabel} …`);
   let atlasData: AtlasData;
-  let views: Map<SourceCode, SourceView>;
+  let atlasGeometry: RegionsFile;
   try {
-    atlasData = await fetchAtlas((loaded, total) => {
-      if (total > 0) setProgress(0.4 * (loaded / total), `atlas.json ${mb(loaded)} / ${mb(total)}`);
-    });
-    let done = 0;
-    views = await prefetchAllSources((step) => {
-      const w = 0.6 / 3;
-      const base = 0.4 + w * done;
-      const inner = step.total > 0 ? step.loaded / step.total : 0.4;
-      const label = step.done ? `${step.label} ✓` : `${step.label} ${mb(step.loaded)}${step.total > 0 ? ` / ${mb(step.total)}` : ''}`;
-      setProgress(base + w * (step.done ? 1 : inner), label);
-      if (step.done) done++;
-    });
+    [atlasData, atlasGeometry] = (await fetchJsonBatch([ATLAS_URL, ATLAS_GEOMETRY_URL], byteProgress(bootLabel))) as [AtlasData, RegionsFile];
     setProgress(1, 'OK');
   } catch (err) {
     overlay.classList.add('failed');
@@ -81,10 +87,12 @@ async function boot(): Promise<void> {
     return;
   }
 
-  const allFeatures: RegionVm[] = [...views.values()].flatMap((v) => v.features);
   // 族群分布模式的实际渲染集合（含同区溶解要素）；模型按它解析地区↔几何
-  const atlasFeatures = atlasGeometryFeatures(views, atlasData.region_geometry ?? []);
-  const allByCode = new Map([...allFeatures, ...atlasFeatures].map((vm) => [vm.code, vm]));
+  const atlasViews = atlasGeometryViews(atlasGeometry);
+  const atlasFeatures = atlasGeometryFeatures(atlasViews, atlasData.region_geometry ?? []);
+  const allByCode = new Map<string, RegionVm>([...[...atlasViews.values()].flatMap((v) => v.features), ...atlasFeatures].map((vm) => [vm.code, vm]));
+  /** 几何浏览数据源（全量）：按需加载后放入 */
+  const geoViews = new Map<SourceCode, SourceView>();
   const model: AtlasModel = buildAtlasModel(atlasData, atlasFeatures);
 
   const initialSource = await loadConfigSource();
@@ -207,6 +215,47 @@ async function boot(): Promise<void> {
   let mapMode: Mode | null = null;
   let tlKind: 'steps' | 'continuous' | null = null;
 
+  /** 几何浏览数据源按需加载：复用启动进度层，只显示该数据源自身的进度（加载完即 100%）。
+   *  成功后重新渲染；失败时点击进度层返回（回到上一个已加载的数据源，否则回族群分布）。 */
+  let lastGeoSource: SourceCode | null = null;
+  let loadingGeo: SourceCode | null = null;
+  async function ensureGeoSource(code: SourceCode): Promise<void> {
+    if (loadingGeo === code) return; // 加载中的重复触发（如期间的其他状态更新）
+    loadingGeo = code;
+    const lang = state().lang;
+    const label = `${SOURCE_LABELS[code]} regions.geojson`;
+    title.textContent = t('geoLoadTitle', lang);
+    hint.textContent = t('geoLoadHint', lang);
+    overlay.classList.remove('failed', 'hidden');
+    setProgress(0, `${label} …`);
+    try {
+      const loaded = await loadSource(code, byteProgress(label));
+      if (!geoViews.has(code)) {
+        geoViews.set(code, loaded);
+        for (const vm of loaded.features) if (!allByCode.has(vm.code)) allByCode.set(vm.code, vm);
+      }
+      setProgress(1, 'OK');
+      overlay.classList.add('hidden');
+      store.set({}); // 重入 geo 分支完成渲染
+    } catch (err) {
+      overlay.classList.add('failed');
+      text.textContent = `${t('geoLoadFail', lang)}：${(err as Error).message}`;
+      hint.textContent = t('geoLoadDismiss', lang);
+      overlay.addEventListener(
+        'click',
+        () => {
+          overlay.classList.add('hidden');
+          overlay.classList.remove('failed');
+          if (lastGeoSource && geoViews.has(lastGeoSource)) store.set({ source: lastGeoSource, eraIndex: 0, hoverCode: null });
+          else store.set({ mode: 'atlas', hoverCode: null });
+        },
+        { once: true },
+      );
+    } finally {
+      loadingGeo = null;
+    }
+  }
+
   function opts() {
     const s = state();
     const era = view ? view.eras[Math.min(s.eraIndex, view.eras.length - 1)]! : 2024;
@@ -315,16 +364,20 @@ async function boot(): Promise<void> {
       const vm = s.hoverCode ? (allByCode.get(s.hoverCode) ?? null) : null;
       panel.showAtlas(vm, model, s.year, s.lang);
     } else {
-      if (mapMode !== 'geo') mapMode = 'geo';
-      if (!view || view.code !== s.source) {
-        view = views.get(s.source) ?? null;
-        if (view) {
-          map.render(view, opts());
-          tlKind = 'steps';
-          timeline.buildSteps(view.eras, Math.min(s.eraIndex, view.eras.length - 1));
-        }
+      const entering = mapMode !== 'geo';
+      mapMode = 'geo';
+      const loaded = geoViews.get(s.source);
+      if (!loaded) {
+        void ensureGeoSource(s.source); // 首次进入该数据源：加载完成后 store.set({}) 重入本分支
+      } else if (entering || view !== loaded) {
+        // 每次进入几何浏览（或切换数据源）都重建几何与快照时间轴——族群分布模式会替换地图几何与时间轴
+        view = loaded;
+        lastGeoSource = s.source;
+        map.render(view, opts());
+        tlKind = 'steps';
+        timeline.buildSteps(view.eras, Math.min(s.eraIndex, view.eras.length - 1));
       }
-      if (view) {
+      if (view && view === loaded) {
         map.updateVisibility(view, opts());
         timeline.update(view.eras[Math.min(s.eraIndex, view.eras.length - 1)]!);
         controls.render(view, opts(), s.lang);

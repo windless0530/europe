@@ -141,78 +141,82 @@ export function isVisible(vm: RegionVm, view: SourceView, era: number, opts: { n
   }
 }
 
-const cache = new Map<SourceCode, SourceView>();
-
-export async function loadSource(code: SourceCode): Promise<SourceView> {
-  const hit = cache.get(code);
-  if (hit) return hit;
-  const res = await fetch(`/data/geography/processed/${code}/regions.geojson`);
-  if (!res.ok) throw new Error(`加载 ${code} 数据失败：HTTP ${res.status}`);
-  const file = (await res.json()) as RegionsFile;
-  const view = buildView(code, file);
-  cache.set(code, view);
-  return view;
-}
-
 // ------------------------------------------------------------
-// 启动全量预取（带字节进度）：atlas.json + 三源几何，
-// 完成后所有交互零网络请求
+// 按模式分段加载（带字节进度），载入后全部内存运算：
+//   启动：atlas.json + atlas-geometry.geojson（族群分布模式所需的全部数据）
+//   几何浏览：首次进入 / 首次切到某数据源时加载该源 regions.geojson，缓存后不再请求
 // ------------------------------------------------------------
 
-export interface PrefetchStep {
-  label: string;
-  loaded: number;
-  total: number;
-  done: boolean;
-}
+export const ATLAS_URL = '/data/peoples/export/atlas.json';
+export const ATLAS_GEOMETRY_URL = '/data/peoples/export/atlas-geometry.geojson';
+export const SOURCE_LABELS: Record<SourceCode, string> = { awmc: 'AWMC', darmc: 'DARMC', nuts: 'NUTS' };
 
-async function fetchJsonWithProgress(url: string, onBytes?: (loaded: number, total: number) => void): Promise<unknown> {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`${url} 加载失败：HTTP ${res.status}`);
-  if (!res.body || !onBytes) return res.json();
-  const total = Number(res.headers.get('content-length')) || 0;
-  const reader = res.body.getReader();
-  const chunks: Uint8Array[] = [];
+/** 并发拉取多个 JSON，按合计字节回报进度。total = 各响应 content-length 之和；任一缺失则为 0（进度未知） */
+export async function fetchJsonBatch(urls: string[], onBytes?: (loaded: number, total: number) => void): Promise<unknown[]> {
+  const responses = await Promise.all(
+    urls.map(async (url) => {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`${url} 加载失败：HTTP ${res.status}`);
+      return res;
+    }),
+  );
+  const lengths = responses.map((r) => Number(r.headers.get('content-length')) || 0);
+  const total = lengths.every((n) => n > 0) ? lengths.reduce((a, b) => a + b, 0) : 0;
   let loaded = 0;
-  for (;;) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    if (value) {
-      chunks.push(value);
-      loaded += value.byteLength;
-      onBytes(loaded, total);
-    }
-  }
-  const merged = new Uint8Array(loaded);
-  let offset = 0;
-  for (const c of chunks) {
-    merged.set(c, offset);
-    offset += c.byteLength;
-  }
-  return JSON.parse(new TextDecoder().decode(merged));
+  return Promise.all(
+    responses.map(async (res) => {
+      if (!res.body || !onBytes) return res.json();
+      const reader = res.body.getReader();
+      const chunks: Uint8Array[] = [];
+      let size = 0;
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        if (value) {
+          chunks.push(value);
+          size += value.byteLength;
+          loaded += value.byteLength;
+          onBytes(loaded, total);
+        }
+      }
+      const merged = new Uint8Array(size);
+      let offset = 0;
+      for (const c of chunks) {
+        merged.set(c, offset);
+        offset += c.byteLength;
+      }
+      return JSON.parse(new TextDecoder().decode(merged));
+    }),
+  );
 }
 
-const LABELS: Record<SourceCode, string> = { awmc: 'AWMC', darmc: 'DARMC', nuts: 'NUTS' };
-
-/** 顺序预取三源几何到缓存，逐步回报进度 */
-export async function prefetchAllSources(onStep?: (step: PrefetchStep) => void): Promise<Map<SourceCode, SourceView>> {
+/** 族群分布几何子集（多源混合，按 properties.source 拆回各源视图；仅供 atlasGeometryFeatures，不进几何浏览缓存） */
+export function atlasGeometryViews(file: RegionsFile): Map<SourceCode, SourceView> {
   const views = new Map<SourceCode, SourceView>();
   for (const code of ['awmc', 'darmc', 'nuts'] as SourceCode[]) {
-    const label = `${LABELS[code]} regions.geojson`;
-    onStep?.({ label, loaded: 0, total: 0, done: false });
-    let lastLoaded = 0;
-    let lastTotal = 0;
-    const file = (await fetchJsonWithProgress(`/data/geography/processed/${code}/regions.geojson`, (loaded, total) => {
-      lastLoaded = loaded;
-      lastTotal = total;
-      onStep?.({ label, loaded, total, done: false });
-    })) as RegionsFile;
-    const view = buildView(code, file);
-    cache.set(code, view);
-    views.set(code, view);
-    onStep?.({ label, loaded: lastLoaded, total: lastTotal || lastLoaded, done: true });
+    views.set(code, buildView(code, { type: 'FeatureCollection', features: file.features.filter((f) => f.properties.source === code) }));
   }
   return views;
+}
+
+const cache = new Map<SourceCode, SourceView>();
+const pending = new Map<SourceCode, Promise<SourceView>>();
+
+/** 几何浏览数据源（全量 regions.geojson）：首次加载带进度，之后命中缓存；同源并发请求只发一次 */
+export function loadSource(code: SourceCode, onBytes?: (loaded: number, total: number) => void): Promise<SourceView> {
+  const hit = cache.get(code);
+  if (hit) return Promise.resolve(hit);
+  const inflight = pending.get(code);
+  if (inflight) return inflight;
+  const p = fetchJsonBatch([`/data/geography/processed/${code}/regions.geojson`], onBytes)
+    .then(([file]) => {
+      const view = buildView(code, file as RegionsFile);
+      cache.set(code, view);
+      return view;
+    })
+    .finally(() => pending.delete(code));
+  pending.set(code, p);
+  return p;
 }
 
 export async function loadConfigSource(): Promise<SourceCode> {

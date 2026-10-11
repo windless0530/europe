@@ -2,16 +2,19 @@
 // 找出「上一个时间片有族群、下一个时间片空白」的断档（空窗）。
 //   核心 = nuts 现代国家几何（欧洲核心区）+ 北非/黎凡特 DARMC 303 年行省几何，必须零空窗
 //   豁免 = 快照叠加层（AWMC 帝国快照：帝国消亡即隐没；当前无映射，段落仅在重新启用时出现）
-// 用法：npm run audit   （先 npm run export 保证 atlas.json 最新）
-// 有核心空窗时退出码 1，可作回归门禁。
+// 另校验 data/peoples/export/atlas-geometry.geojson（前端启动加载的族群分布几何子集）未过期：
+// 须与由三源全量几何 + 当前 region_geometry / 渲染策略重新生成的内容逐字节一致。
+// 用法：npm run audit   （先 npm run project 保证 atlas.json 与几何子集最新）
+// 有核心空窗或几何子集过期时退出码 1，可作回归门禁。
 
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { buildView, type RegionVm } from '../src/frontend/load.js';
 import { resolveRegionGeometry, type RegionGeometryRule } from '../src/frontend/region-map.js';
 import { atlasGeometryFeatures } from '../src/frontend/atlas.js';
 import type { SourceCode } from '../src/lib/contract.js';
+import { ATLAS_GEOMETRY_REL, renderAtlasGeometry } from '../src/build/atlas-geometry.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
@@ -143,8 +146,12 @@ if (neverCovered.length > 0) {
   console.log(`  共 ${neverCovered.length} 个`);
 }
 
-if (coreGaps.length > 0) {
-  console.error('\nFAIL: 核心几何存在空窗（见上）');
-  process.exit(1);
-}
-console.log('\nOK: 核心几何零空窗');
+// 几何子集过期校验（前端族群分布只读子集；子集与全量求值结果一致的前提是子集为最新）
+const geoPath = join(root, ATLAS_GEOMETRY_REL);
+const geoFresh = existsSync(geoPath) && readFileSync(geoPath, 'utf8') === renderAtlasGeometry(root, atlas.region_geometry ?? []).text;
+console.log(`\n几何子集 ${ATLAS_GEOMETRY_REL}：${geoFresh ? '✓ 最新' : '✗ 缺失或过期'}`);
+
+if (coreGaps.length > 0) console.error('\nFAIL: 核心几何存在空窗（见上）');
+if (!geoFresh) console.error('FAIL: 几何子集缺失或过期——运行 npm run project 重新生成');
+if (coreGaps.length > 0 || !geoFresh) process.exit(1);
+console.log('\nOK: 核心几何零空窗，几何子集最新');

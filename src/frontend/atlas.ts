@@ -491,33 +491,6 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
   return { data, peopleByCode, regionByCode, regionGeometry, geometryToRegions, regionFor, geometryLive, peopleColor, firstSeenIndex, yearRange, regionsAt, paintAt, caveatAt, periodAt, peopleTreeAt, enumLabel };
 }
 
-/** 从 /data/peoples/export/atlas.json 拉取（带字节进度） */
-export async function fetchAtlas(onBytes?: (loaded: number, total: number) => void): Promise<AtlasData> {
-  const res = await fetch('/data/peoples/export/atlas.json');
-  if (!res.ok) throw new Error(`atlas.json 加载失败：HTTP ${res.status}`);
-  const total = Number(res.headers.get('content-length')) || 0;
-  if (!res.body || !onBytes) return (await res.json()) as AtlasData;
-  const reader = res.body.getReader();
-  const chunks: Uint8Array[] = [];
-  let loaded = 0;
-  for (;;) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    if (value) {
-      chunks.push(value);
-      loaded += value.byteLength;
-      onBytes(loaded, total);
-    }
-  }
-  const merged = new Uint8Array(loaded);
-  let offset = 0;
-  for (const c of chunks) {
-    merged.set(c, offset);
-    offset += c.byteLength;
-  }
-  return JSON.parse(new TextDecoder().decode(merged)) as AtlasData;
-}
-
 /** 族群分布模式的几何集合（绘制顺序 = 数组顺序，后者在上）：
  *  AWMC 帝国参考层垫底（当前无映射）-> DARMC 北非/黎凡特行省 -> NUTS/GADM 几何（最上层承载着色）。
  *  AWMC/DARMC 叠加层由 region_geometry 规则推导（awmc_snapshot / name_regex / DARMC source_id），
@@ -539,6 +512,13 @@ const GBR_CONSTITUENTS = ['GBR.1_1', 'GBR.3_1', 'GBR.4_1'];
 const OVERLAY_UNITS = new Set(['FI1D7', 'FI1DC', 'RUS.26_1', 'RUS.6_1', 'RUS.68_1']);
 
 export function atlasGeometryFeatures(sources: Map<SourceCode, SourceView>, rules: RegionGeometryRule[]): RegionVm[] {
+  return dissolveSameRegion(atlasGeometrySelection(sources, rules), rules);
+}
+
+/** 族群分布模式用到的原始几何要素（溶解前，绘制顺序）。逐要素判定，故对子集求值结果不变——
+ *  npm run project 据此从三源全量几何抽出 data/peoples/export/atlas-geometry.geojson，
+ *  前端启动只加载该子集（几何浏览所需的全量三源按需加载）。 */
+export function atlasGeometrySelection(sources: Map<SourceCode, Pick<SourceView, 'features'>>, rules: RegionGeometryRule[]): RegionVm[] {
   const out: RegionVm[] = [];
   const awmcSnapshots = new Set(
     rules.filter((r) => r.source_code === 'awmc' && r.rule_type === 'awmc_snapshot').flatMap((r) => r.match_values.map(Number)),
@@ -570,7 +550,7 @@ export function atlasGeometryFeatures(sources: Map<SourceCode, SourceView>, rule
     return false;
   }));
   out.push(...(sources.get('nuts')?.features ?? []).filter((vm) => OVERLAY_UNITS.has(vm.sourceId)));
-  return dissolveSameRegion(out, rules);
+  return out;
 }
 
 /** 同国、候选地区集合完全相同的 NUTS/GADM 单元在族群分布模式下着色/hover 恒同，

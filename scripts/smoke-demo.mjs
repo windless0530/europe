@@ -237,7 +237,6 @@ if (new Set(Object.values(de500)).size < 3) {
 }
 await page.screenshot({ path: 'chromium/smoke-9-germany-500.png' });
 
-// 切到几何浏览模式（DARMC + 1450）
 // ---- 标注纹理与面板：年份窗口内出现、窗口外消失、hover 面板显示标注文本 ----
 {
   const caveatAt = async (yr) => {
@@ -279,10 +278,12 @@ await page.screenshot({ path: 'chromium/smoke-9-germany-500.png' });
   await page.screenshot({ path: 'chromium/smoke-9-caveat-transylvania-1100.png' });
 }
 
+// 切到几何浏览模式（DARMC + 1450）。三源全量改为按需加载：进入模式先加载
+// 初始源，切源再加载目标源，各自复用启动进度层——等进度层消失即加载完成。
 await page.click('#mode-toggle');
-await page.waitForTimeout(800);
+await page.waitForSelector('#boot-overlay.hidden', { timeout: 60000 }); // 初始源按需加载完成
 await page.click('#source-seg button:nth-child(2)');
-await page.waitForTimeout(2500);
+await page.waitForSelector('#boot-overlay.hidden', { timeout: 60000 }); // DARMC 按需加载完成
 await page.locator('#tl-range').fill('6');
 await page.waitForTimeout(500);
 await page.screenshot({ path: 'chromium/smoke-6-geo-darmc-1450.png' });
