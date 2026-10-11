@@ -24,8 +24,9 @@
 
 - projector 用 **code-unit 比较**排序（勿引入 `localeCompare`），保证 atlas.json 产物稳定
 - `data/peoples/source/regions.json` 的 `geometry_rules` **数组顺序 = 求值候选优先序**，不可按字典序重排
-- `people_region` 投影后按 (region, priority DESC, people) 排序；族群→调色板槽位写死在 `src/frontend/atlas.ts` 的 `PEOPLE_SLOT`（数据重排/增补不改变既有族群颜色——**同一族群颜色跨时间、跨版本一致是硬约束**），仅无槽位的新族群由 `assignPaletteSlots` 按首现顺序对「同年同屏共现」运行时贪心补位
-- 调色板 64 槽（`scripts/pick-palette.mjs` 色环网格池 + `scripts/palette-tune.ts` 按实际共现槽对爬山优化；数据变更后重跑调优器并回填 `CATEGORICAL_LIGHT/DARK` + `PEOPLE_SLOT`）。同年同屏异族颜色避免冲突是**尽力而为**（同年 45 团共现超全对 CVD 上限，弱对由谱系树 + hover 消歧）；`npm run collisions` 逐年复验避让不变量
+- `people_region` 投影后按 (region, priority DESC, people) 排序
+- **族群颜色与族群强绑定（硬约束）**：每个族群的亮/暗两色写死在 `src/frontend/people-colors.ts` 的 `PEOPLE_COLOR`，不随年份、不随其他族群、不随数据版本变化；前端只查表，不做运行时分配。**既有条目冻结**：新增族群、改疆域/谱系、改配色算法都不得改动或重排既有条目；族群删除时条目保留（同码复用即复用原色）
+- 新增族群后 `npm run collisions` 会报缺色：运行 `npm run colors`（`scripts/pick-people-colors.ts`，只为缺色族群推荐、对同年同屏族群避让、结果可复现），把输出行按键序插入 `PEOPLE_COLOR`。同年同屏异族撞色是**尽力而为**（只提示不拦截；同年 45 团共现超全对 CVD 上限，弱对由谱系树 + hover 消歧），不得以改动既有族群颜色来消除
 
 ## 工作方式
 

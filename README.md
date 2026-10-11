@@ -12,7 +12,8 @@ npm install            # 首次拉取项目或依赖变化后执行
 npm run dev            # http://localhost:5173（默认进入「族群分布」模式）
 npm run project        # data/peoples/source/*.json -> data/peoples/export/atlas.json（校验 + 投影，改数据后重跑）
 npm run audit          # 覆盖审计：逐年扫描核心几何「先有族群后空白」断档
-npm run collisions     # 调色板碰撞审计：同年同国同色异族群对（目标 0）
+npm run collisions     # 族群颜色审计：缺色族群即失败；同年同国同色异族群对提示（目标 0）
+npm run colors         # 新族群选色：只为缺色族群推荐固定颜色（既有颜色冻结）
 npm run favicon        # 由自有 NUTS 几何生成 favicon（SVG + PNG 回退）
 npm run smoke          # headless 冒烟：加载/时间轴/hover/零网络验证 + 截图；需先在另一终端运行 npm run dev
 ```
@@ -59,6 +60,7 @@ classification 字符串项 = member_of）与全部校验规则见 `src/build/so
 | `npm run data -- list/status/compare/check` | 按需查看数据源、产物状态及一致性 |
 | `npm run data -- use <源>` | 需要修改几何浏览的默认数据源时（写 `atlas.config.json`） |
 | `npm run audit` / `collisions` | 数据或相关渲染策略变化后执行对应审计 |
+| `npm run colors` | 新增族群后（collisions 报缺色时），为其推荐固定颜色 |
 | `npm run smoke` | `npm run dev` 已在运行时执行浏览器冒烟测试 |
 | `npm run build` / `npx tsc --noEmit` | 发布前或代码变更完成后验证构建与类型 |
 | `npm run favicon` | 仅在需要重新生成 favicon 时 |
@@ -129,13 +131,15 @@ NUTS L2 归为东色雷斯+安纳托利亚十二区（君士坦丁堡、比提�
 非行政区划下钻，细分国家渲染 NUTS L1/L2 或
 GADM 州级几何而非 L0；另有部分细分叠加单元（`OVERLAY_UNITS`：芬兰拉普兰
 与北卡累利阿、俄罗斯卡累利阿/鞑靼斯坦/巴什科尔托斯坦），
-所属国家保留 L0、仅叠加次级单元。调色板 64 槽（构造管线
-`scripts/pick-palette.mjs` 色环网格池 + `scripts/palette-tune.ts` 按实际
-共现槽对爬山优化，OKLab ΔE + Machado CVD 模拟）——族群→槽位映射写死在
-`src/frontend/atlas.ts` 的 `PEOPLE_SLOT`（同一族群颜色跨时间、跨数据版本
-一致是硬约束）；同年同屏异族颜色尽量避免冲突（尽力而为：同年 45 团共现
-超出全对 CVD 可分上限，弱对由谱系树 + hover 次级编码消歧），新族群运行时
-按同年共现贪心补位，`npm run collisions` 逐年复验。
+所属国家保留 L0、仅叠加次级单元。**族群颜色与族群强绑定**：每个族群的
+亮/暗两色直接写死在 `src/frontend/people-colors.ts` 的 `PEOPLE_COLOR`，
+不随年份、不随其他族群、不随数据版本变化，前端运行时只查表不做分配；
+既有条目一经写入即冻结（族群删除时条目也保留）。新族群由 `npm run colors`
+（`scripts/pick-people-colors.ts`：`scripts/pick-palette.mjs` 色环网格池，
+OKLab ΔE + Machado CVD 模拟，对同年同屏族群避让，结果可复现）推荐颜色后
+人工插入表中；`npm run collisions` 对缺色族群报错，同年同屏撞色只作提示
+（尽力而为：同年 45 团共现超出全对 CVD 可分上限，弱对由谱系树 + hover
+次级编码消歧；不靠改动既有族群颜色消除）。
 北非/黎凡特 DARMC 行省与 NUTS 核心几何同受零空窗门禁，无豁免项（AWMC 罗马帝国
 117 年快照已不再映射：其覆盖范围已由更细地区取代）。地区若带存续年份
 （`regions.json` 的 `years`），存续期外其独占几何不绘制、hover 不再落到该地区。历史区间和现代国家/

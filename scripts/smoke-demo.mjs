@@ -10,7 +10,7 @@ const errors = [];
 let requestCount = 0;
 let requestGateOpen = false;
 
-const browser = await chromium.launch({ channel: 'msedge', headless: true });
+const browser = await chromium.launch({ channel: process.env.SMOKE_CHANNEL ?? 'msedge', headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 page.on('console', (m) => {
   if (m.type() === 'error') errors.push(m.text());
@@ -58,11 +58,27 @@ const treeVisible = await page.locator('#people-tree').isVisible();
 const treeText = await page.locator('#people-tree').innerText();
 const hasGothicNesting =
   treeText.includes('东日耳曼') && treeText.includes('哥特') && treeText.includes('东哥特人') && treeText.includes('西哥特人');
-const germanicIdx = treeText.indexOf('日耳曼语族');
-const eastIdx = treeText.indexOf('东日耳曼');
-const ostroIdx = treeText.indexOf('东哥特人');
-const nestingOk = germanicIdx >= 0 && eastIdx > germanicIdx && ostroIdx > eastIdx;
-console.log(`people-tree: visible=${treeVisible}, gothic-nesting=${hasGothicNesting && nestingOk}`);
+// DOM 真实嵌套（非仅文字顺序）：东哥特人叶子的祖先节点路径须含 日耳曼语族 > 东日耳曼 > 哥特语支，且各层缩进逐层递增
+const ostroNesting = await page.evaluate(() => {
+  const leaf = [...document.querySelectorAll('.ptree-leaf')].find((el) => el.textContent.includes('东哥特人'));
+  const path = [];
+  const xs = [];
+  for (let p = leaf?.parentElement; p && !p.classList.contains('ptree-body'); p = p.parentElement) {
+    if (p.tagName !== 'DETAILS') continue;
+    const summary = p.querySelector(':scope > summary');
+    path.unshift(summary.querySelector('.ptree-node-name').textContent);
+    xs.unshift(summary.getBoundingClientRect().left);
+  }
+  return { path, xs };
+});
+const pathStr = ostroNesting.path.join(' > ');
+const nestingOk =
+  pathStr.includes('日耳曼语族 > 东日耳曼 > 哥特语支') && ostroNesting.xs.every((x, i) => i === 0 || x > ostroNesting.xs[i - 1]);
+console.log(`people-tree: visible=${treeVisible}, gothic-nesting=${hasGothicNesting && nestingOk} (${pathStr})`);
+if (!treeVisible || !hasGothicNesting || !nestingOk) {
+  console.error('FAIL: 谱系树层级未逐层嵌套缩进（东哥特人应在 日耳曼语族 > 东日耳曼 > 哥特语支 之下）');
+  process.exitCode = 1;
+}
 let treeFail = !treeVisible || !hasGothicNesting || !nestingOk;
 
 // 悬停谱系树叶（东哥特人）-> 地图上该族群区域之外应压暗（fill-opacity 0.25）

@@ -12,6 +12,7 @@
     "project": "tsx src/build/project.ts",
     "audit": "tsx scripts/coverage-audit.ts",
     "collisions": "tsx scripts/palette-collisions.ts",
+    "colors": "tsx scripts/pick-people-colors.ts",
     "favicon": "tsx scripts/make-favicon.ts",
     "dev": "vite",
     "build": "vite build",

@@ -1,9 +1,9 @@
 // 调色板构造库：OKLab 色彩数学 + Machado 二色模拟 + 结构化色环网格。
-// 被 scripts/palette-tune.ts 引用（构造候选池与初序）；直接运行则打印初序数组。
+// 被 scripts/pick-people-colors.ts 引用（构造新族群候选色池）；直接运行则打印初序数组。
 //
 // 构造：HUE_N 色相 × 3 明度全格点（66 色 @22 色相）。抽象全对下限：
-// 同色相 ΔL0.14 → ΔE≥14；相邻色相同明度 ≈4（弱）——由 palette-tune.ts 按
-// 实际「同年同屏」槽对爬山排序，弱对被排进永不共现的槽位。
+// 同色相 ΔL0.14 → ΔE≥14；相邻色相同明度 ≈4（弱）——由 pick-people-colors.ts 按
+// 新族群的实际「同年同屏」共现对象挑选可分者（既有族群颜色冻结，不参与重排）。
 // 用法：node scripts/pick-palette.mjs [色相数=22]
 
 // ---------- 色彩数学（sRGB -> OKLab） ----------
@@ -78,12 +78,12 @@ export const pairScore = (hexA, hexB) => {
   const p = pairScores(hexA, hexB);
   return Math.min(p.normal, Math.min(p.protan, p.deutan) * 1.33);
 };
-/** 仅正常视觉距离（池准入用：CVD 相近的色可留给调优器排进不共现槽） */
+/** 仅正常视觉距离（池准入用：CVD 相近的色由选色脚本按共现对象再筛） */
 export const pairScoreNormal = (hexA, hexB) => pairScores(hexA, hexB).normal;
 
 // ---------- 结构化候选池：HUE_N 色相 × 3 明度 × 2 色度，互距过滤 ----------
 // 均匀色相采样在暖色低明度区（棕/橄榄）会产生近重复色（ΔE 2-4），
-// 故池先按「质量序扫描 + 互距 ≥ FILTER 地板」过滤，再交给 palette-tune 选排。
+// 故池先按「质量序扫描 + 互距 ≥ FILTER 地板」过滤，再交给 pick-people-colors 选色。
 export const SURFACE_LIGHT = '#ecebe7';
 export function buildPool(hueN = 22, filter = 8) {
   const LS = [0.38, 0.48, 0.58, 0.68, 0.78];
@@ -104,7 +104,7 @@ export function buildPool(hueN = 22, filter = 8) {
   }
   const admitted = [anchor];
   const rest = new Set(raw.filter((c) => c !== anchor));
-  // 贪心 max-min 扫描（准入只看正常视觉 ΔE：CVD 相近的色可留给调优器排进不共现槽）
+  // 贪心 max-min 扫描（准入只看正常视觉 ΔE：CVD 相近的色由选色脚本按共现对象再筛）
   while (rest.size > 0) {
     let best = null, bestScore = -Infinity;
     for (const c of rest) {
@@ -149,7 +149,7 @@ export const darken = (hex) => {
   return rgbToHex(oklabToRgb([Math.min(0.8, lab[0] + 0.06), lab[1] * 0.92, lab[2] * 0.92]));
 };
 
-// ---------- CLI：打印初序（实际采用值以 palette-tune.ts 输出为准） ----------
+// ---------- CLI：打印初序（仅供参照；族群实际颜色以 src/frontend/people-colors.ts 为准） ----------
 if (process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).href) {
   const hueN = Number(process.argv[2] ?? 22);
   const light = initialOrder(buildWheel(hueN));
@@ -159,5 +159,5 @@ if (process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).
     for (let i = 0; i < arr.length; i += 6) console.log('  ' + arr.slice(i, i + 6).map((c) => `'${c}',`).join(' '));
     console.log('];');
   }
-  console.error('（初序仅供参照；实际调色板由 scripts/palette-tune.ts 按实际共现槽对调优后写入 atlas.ts）');
+  console.error('（初序仅供参照；族群颜色固定在 src/frontend/people-colors.ts，新族群用 npm run colors 选色）');
 }

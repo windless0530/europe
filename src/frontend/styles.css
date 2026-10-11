@@ -59,7 +59,8 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  max-width: 1440px;
+  /* 1440 + 84：谱系树由 236 加宽到 320px（多层缩进下最长族群名一行放下），整体同步加宽，地图与详情面板宽度不变 */
+  max-width: 1524px;
   margin: 0 auto;
   padding: 12px 16px;
   gap: 10px;
@@ -209,7 +210,7 @@ body {
 /* ---------- 主区：谱系树 + 地图 + 详情面板 ---------- */
 
 .people-tree {
-  width: 236px;
+  width: 320px;
   flex: none;
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -267,16 +268,23 @@ body {
   display: none;
 }
 
+/* 展开/收起图标：方框加号（收起）/ 方框减号（展开），CSS 线条绘制，不依赖字体字形；
+   11px 框 + 1px 边 → 内部 9px，5×1 横/竖线整像素居中 */
 .ptree-body summary::before {
-  content: '▸';
-  font-size: 9px;
-  color: var(--text-muted);
-  transition: transform 0.12s ease;
+  content: '';
+  box-sizing: border-box;
+  width: 11px;
+  height: 11px;
+  border: 1px solid var(--text-muted);
+  border-radius: 2.5px;
+  background:
+    linear-gradient(var(--text-secondary), var(--text-secondary)) center / 5px 1px no-repeat,
+    linear-gradient(var(--text-secondary), var(--text-secondary)) center / 1px 5px no-repeat;
   flex: none;
 }
 
 .ptree-body details[open] > summary::before {
-  transform: rotate(90deg);
+  background-size: 5px 1px, 0 0;
 }
 
 .ptree-body summary:hover {
@@ -308,7 +316,7 @@ body {
 
 .ptree-branches {
   border-left: 1px solid var(--gridline);
-  margin-left: 8px;
+  margin-left: 9px; /* 竖线对齐展开图标中心（summary 内边距 4 + 图标半宽 5.5） */
   padding-left: 6px;
 }
 
@@ -348,7 +356,19 @@ body {
   background: var(--gridline);
 }
 
+/* 族群名不折行：名称按内容宽度排版，只有在整行放不下时才省略；
+   地区注记基准宽 0，只占名称之后的剩余空间（不与名称争宽） */
+.ptree-leaf-name {
+  flex: 0 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .ptree-leaf-regions {
+  flex: 1 1 0;
+  min-width: 0;
   font-size: 11px;
   color: var(--text-muted);
   overflow: hidden;
@@ -430,7 +450,8 @@ body {
   pointer-events: none;
 }
 
-.map-tooltip {
+.map-tooltip,
+.ptree-tooltip {
   position: absolute;
   z-index: 10;
   pointer-events: none;
@@ -443,12 +464,21 @@ body {
   font-size: 12.5px;
 }
 
-.map-tooltip .tt-name {
+/* 谱系树叶 tooltip：挂在 body 上、fixed 定位于谱系树右侧（见 people-tree.ts） */
+.ptree-tooltip {
+  position: fixed;
+  z-index: 30;
+  max-width: 320px;
+}
+
+.map-tooltip .tt-name,
+.ptree-tooltip .tt-name {
   font-weight: 650;
   margin-bottom: 2px;
 }
 
-.map-tooltip .tt-meta {
+.map-tooltip .tt-meta,
+.ptree-tooltip .tt-meta {
   color: var(--text-secondary);
 }
 

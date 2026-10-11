@@ -71,6 +71,35 @@ export function createPeopleTree(root: HTMLElement): PeopleTreeApi {
   const body = root.querySelector<HTMLElement>('.ptree-body')!;
   toggleInput.addEventListener('change', () => toggleCb?.(toggleInput.checked));
 
+  // 悬停树叶的 tooltip：完整族群名 + 当年全部活动区域（行内注记会被省略号截断）。
+  // 挂在 body 上、fixed 定位于谱系树右侧，不受谱系树滚动区域裁剪
+  const tip = document.createElement('div');
+  tip.className = 'ptree-tooltip';
+  tip.setAttribute('role', 'tooltip');
+  tip.hidden = true;
+  const tipName = document.createElement('div');
+  tipName.className = 'tt-name';
+  const tipMeta = document.createElement('div');
+  tipMeta.className = 'tt-meta';
+  tip.append(tipName, tipMeta);
+  document.body.appendChild(tip);
+  root.addEventListener('scroll', () => (tip.hidden = true), { passive: true });
+
+  function showTip(li: HTMLElement, leaf: TreeLeaf, lang: Lang): void {
+    tipName.textContent = label(leaf.people.name_zh, leaf.people.name_en, lang, leaf.people.code);
+    const regions = leaf.active ? leaf.regions.map((r) => label(r.name_zh, r.name_en, lang, r.code)).join('、') : '';
+    tipMeta.textContent = regions;
+    tipMeta.hidden = regions === '';
+    tip.hidden = false;
+    const GAP = 8;
+    const lr = li.getBoundingClientRect();
+    const tr = tip.getBoundingClientRect();
+    const left = Math.min(root.getBoundingClientRect().right + GAP, window.innerWidth - tr.width - GAP);
+    const top = Math.min(Math.max(GAP, lr.top + lr.height / 2 - tr.height / 2), window.innerHeight - tr.height - GAP);
+    tip.style.left = `${Math.max(GAP, left)}px`;
+    tip.style.top = `${top}px`;
+  }
+
   function leafEl(leaf: TreeLeaf, lang: Lang): HTMLLIElement {
     const li = document.createElement('li');
     li.className = 'ptree-leaf' + (leaf.active ? ' active' : '');
@@ -87,12 +116,19 @@ export function createPeopleTree(root: HTMLElement): PeopleTreeApi {
       regs.textContent = leaf.regions.map((r) => label(r.name_zh, r.name_en, lang, r.code)).join('、');
       li.append(regs);
     }
-    li.addEventListener('pointerenter', () => highlightCb?.(leaf.people.code));
-    li.addEventListener('pointerleave', () => highlightCb?.(null));
+    li.addEventListener('pointerenter', () => {
+      highlightCb?.(leaf.people.code);
+      showTip(li, leaf, lang);
+    });
+    li.addEventListener('pointerleave', () => {
+      highlightCb?.(null);
+      tip.hidden = true;
+    });
     return li;
   }
 
-  /** branch 内容：叶子列表 + 子分支；root（node=null）不生成节点行 */
+  /** branch 内容：叶子列表 + 子分支列表（各层子分支都包进自己的 ul.ptree-branches，逐层缩进）；
+   *  root（node=null）不生成节点行 */
   function branchContent(branch: TreeBranch, lang: Lang, into: HTMLElement): void {
     if (branch.leaves.length > 0) {
       const ul = document.createElement('ul');
@@ -100,6 +136,10 @@ export function createPeopleTree(root: HTMLElement): PeopleTreeApi {
       for (const leaf of branch.leaves) ul.appendChild(leafEl(leaf, lang));
       into.appendChild(ul);
     }
+    if (branch.children.length === 0) return;
+    const branches = document.createElement('ul');
+    branches.className = 'ptree-branches';
+    into.appendChild(branches);
     for (const child of branch.children) {
       const li = document.createElement('li');
       li.className = 'ptree-node';
@@ -116,7 +156,7 @@ export function createPeopleTree(root: HTMLElement): PeopleTreeApi {
       details.appendChild(summary);
       branchContent(child, lang, details);
       li.appendChild(details);
-      into.appendChild(li);
+      branches.appendChild(li);
     }
   }
 
@@ -138,6 +178,7 @@ export function createPeopleTree(root: HTMLElement): PeopleTreeApi {
       if (key === lastKey) return;
       lastKey = key;
 
+      tip.hidden = true; // 重建会移除悬停中的树叶（不触发 pointerleave），先收起 tooltip
       body.innerHTML = '';
       for (const group of groups) {
         const rootBranch = showInactive ? group.root : activeOnly(group.root);
@@ -154,10 +195,7 @@ export function createPeopleTree(root: HTMLElement): PeopleTreeApi {
         cn.textContent = String(rootBranch.totalCount);
         summary.append(nm, cn);
         details.appendChild(summary);
-        const wrap = document.createElement('ul');
-        wrap.className = 'ptree-branches';
-        branchContent(rootBranch, lang, wrap);
-        details.appendChild(wrap);
+        branchContent(rootBranch, lang, details);
         body.appendChild(details);
       }
 

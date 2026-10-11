@@ -1,6 +1,6 @@
 // 族群分布（SQL）模式视图模型：
-// - 颜色跟「族群」实体走（槽位写死在 PEOPLE_SLOT，跨时间/跨数据版本不变；
-//   新族群运行时按同年共现避让补位，见 assignPaletteSlots）
+// - 颜色跟「族群」实体走：直接查 people-colors.ts 的 PEOPLE_COLOR（固定色值，
+//   不随年份/其他族群/数据版本变化；运行时不做任何分配）
 // - 任一年份的着色 = 时间切片查询 people_region，同区多族群按 render_priority
 //   取主族群（平局按 people_code 字典序）
 // - 全部计算在内存中完成，时间轴拖动零网络请求
@@ -9,6 +9,7 @@ import { featureCollection, rewind, union } from '@turf/turf';
 import type { SourceCode } from '../lib/contract.js';
 import type { RegionVm, SourceView } from './load';
 import { resolveRegionGeometry, countryOf, type RegionGeometryRule } from './region-map';
+import { PEOPLE_COLOR } from './people-colors';
 
 export interface AtlasTrItem {
   name_en: string | null;
@@ -103,76 +104,8 @@ export interface AtlasData {
   enums: Record<string, Record<string, Record<string, string>>>;
 }
 
-/** 分类调色板（64 槽，亮/暗两套）+ 族群→槽位写死映射 PEOPLE_SLOT。
- *  - 硬约束（同一族群颜色跨时间、跨数据版本一致）：88 族群的槽位写死在
- *    PEOPLE_SLOT，数据重排/增补不漂移；由 scripts/palette-tune.ts 生成输出后
- *    粘贴于此，数据变更后重跑再粘贴。无槽位的新族群由 assignPaletteSlots
- *    以此为种子运行时贪心补位（对「同年同屏共现」避让）。
- *  - 尽力而为（同年同屏异族颜色尽量避免冲突，非硬性）：调色板颜色按
- *    「实际共现槽对」爬山优化（OKLab ΔE + Machado CVD 模拟；同年 45 团的
- *    色度学上限使全对 CVD≥6 不可行，弱对靠谱系树 + hover 次级编码消歧）。
- *  - 构造管线：scripts/pick-palette.mjs（26 色相 × 5 明度 × 3 色度网格，
- *    正常视觉互距 ≥7 过滤成 67 色池）→ scripts/palette-tune.ts（避让分配 +
- *    共现对调优 + 写死映射输出）。
- */
-const CATEGORICAL_LIGHT = [
-  '#5e548c', '#004f7a', '#5d0099', '#006e5f', '#9d703b', '#00be9d',
-  '#a0adff', '#89474e', '#326ff4', '#7c84ff', '#00dc70', '#5d2e57',
-  '#8b0000', '#b39700', '#ff8cb3', '#7ca66f', '#4842d0', '#7b053f',
-  '#00e0bc', '#cd72c1', '#ac43c8', '#daa2d1', '#593d00', '#002baf',
-  '#f85093', '#ff7df1', '#6a2c26', '#7a0071', '#c0c100', '#a70076',
-  '#9bc68e', '#f7a600', '#00ccfb', '#47b407', '#2e58b1', '#006d99',
-  '#678800', '#00957e', '#666ed1', '#33328f', '#91699d', '#676300',
-  '#b50038', '#8c1da7', '#7f58ea', '#7b98d0', '#b66efe', '#009a31',
-  '#ff7668', '#e9a48a', '#00b0c8', '#d83800', '#ca8379', '#ca3194',
-  '#a33600', '#6bcac8', '#009bff', '#005c00', '#2f86a0', '#005144',
-  '#d68eff', '#c24d5f', '#007b07', '#dd7c2a',
-];
-const CATEGORICAL_DARK = [
-  '#6f669b', '#246088', '#6c2ba6', '#2e7f70', '#ad8353', '#49d0b0',
-  '#abb8ff', '#995a60', '#4a85ff', '#8f99ff', '#3edf7c', '#6d4066',
-  '#9b291f', '#c4aa3d', '#ff98bb', '#91b885', '#575adc', '#8b274f',
-  '#33dbb9', '#dd88d1', '#bc5dd6', '#deaad6', '#684e1f', '#1544bb',
-  '#ff6da6', '#ff8bf4', '#7a3f38', '#8a2880', '#c4c636', '#b73186',
-  '#a3cb97', '#f7ad35', '#3dd0fb', '#64c640', '#436bbe', '#2f7fa8',
-  '#7a9a33', '#3ca690', '#7882de', '#42469c', '#a27cad', '#777429',
-  '#c5334c', '#9c3db5', '#8f70f6', '#8fabdf', '#c686ff', '#3bab4d',
-  '#ff8e80', '#ecac94', '#46c2d8', '#e75632', '#da978e', '#da50a5',
-  '#b24e28', '#7acfcd', '#40afff', '#266c22', '#4c98b0', '#246154',
-  '#e09eff', '#d26473', '#308c2f', '#ed924d',
-];
-const PALETTE_LEN = CATEGORICAL_LIGHT.length;
-
-/** 族群→槽位写死映射（scripts/palette-tune.ts 输出；同一族群颜色跨版本一致的硬约束） */
-export const PEOPLE_SLOT: Record<string, number> = {
-  'albanians': 0, 'alemanni': 24, 'angles': 3, 'arabs_crete': 0, 'arabs_levant': 52, 'arabs_north_africa': 56,
-  'arameans': 57,
-  'arabs_sicily': 43, 'armenians': 3, 'avars': 6, 'azerbaijanis': 6,
-  'balts': 19, 'basques': 9, 'bavarians': 5, 'belarusians': 10, 'berbers': 62,
-  'bosniaks': 4, 'bretons': 11, 'britons': 10, 'bulgarians': 12,
-  'burgundians': 12, 'carthaginians': 49, 'catalans': 14, 'crusaders': 55, 'celtiberians': 5, 'celts': 3,
-  'crimean_tatars': 8, 'croats': 18, 'czechs': 19, 'dacians': 11,
-  'danes': 21, 'dutch': 25, 'egyptians': 58, 'english': 22, 'estonian': 23,
-  'finns': 24, 'franks': 4, 'french': 26, 'gaels': 31,
-  'gauls': 4, 'georgians': 28, 'gepids': 18, 'germanic_tribes': 6,
-  'germans': 5, 'goths': 8, 'greeks': 16, 'hungarians': 29,
-  'huns': 5, 'iberians': 0, 'illyrians': 2, 'irish': 30,
-  'italians': 15, 'jews': 50, 'jutes': 0, 'karelians': 32, 'kurds': 59, 'latins': 13,
-  'latvians': 33, 'lithuanians': 34, 'lombards': 15, 'lusitanians': 12,
-  'macedonians': 35, 'magyars': 13, 'masurians': 0, 'montenegrins': 20, 'moors': 1,
-  'norse': 22, 'persians': 60, 'phoenicians': 63, 'norwegians': 38, 'ostrogoths': 2, 'picts': 23,
-  'poles': 36, 'portuguese': 37, 'prussians': 37, 'romanians': 39,
-  'romans': 1, 'rus': 10, 'russians': 17, 'sami': 40, 'sardinians': 41, 'sarmatians': 51,
-  'saxons': 17, 'scots': 42, 'serbs': 7, 'slavs': 20,
-  'slovaks': 44, 'slovenes': 45, 'spaniards': 2, 'suebi': 7,
-  'swedes': 46, 'tatars': 43, 'thracians': 0, 'thuringians': 25,
-  'turks': 13, 'ukrainians': 27, 'vandals': 14, 'visigoths': 0,
-  'volga_bulgars': 47, 'welsh': 48,
-};
-
-export function categoricalPalette(): string[] {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? CATEGORICAL_DARK : CATEGORICAL_LIGHT;
-}
+/** PEOPLE_COLOR 缺色族群的兜底填充（中性灰，与无数据底图区分；同时 console.error 提示补表） */
+const MISSING_PEOPLE_COLOR = '#8a8a8a';
 
 export interface PresenceRow extends AtlasPeopleRegion {
   people: AtlasPeople;
@@ -198,10 +131,10 @@ export interface AtlasModel {
   /** 几何当年是否绘制：映射到的地区全部在存续期（region.years）外则隐藏
    *  （如罗马帝国快照在 476 年后不再以「罗马帝国」名义占位）；未映射几何照常作中性底图 */
   geometryLive(code: string, year: number): boolean;
-  /** people -> 固定颜色槽位 */
+  /** people -> 固定颜色（PEOPLE_COLOR 按当前明/暗配色取值） */
   peopleColor: Map<string, string>;
-  /** people -> 调色板槽位序（people_region 首现顺序；未上色者为 Infinity） */
-  slotIndex: Map<string, number>;
+  /** people -> people_region 首现序（谱系树同级排序用；无时间片者为 Infinity） */
+  firstSeenIndex: Map<string, number>;
   yearRange: [number, number];
   /** T 年各 SQL 区域的状态（仅含有活动族群的区域） */
   regionsAt(year: number): Map<string, RegionYearState>;
@@ -255,112 +188,28 @@ export function activeInYear(row: AtlasPeopleRegion, year: number): boolean {
   return sy <= year && year <= ey;
 }
 
-/**
- * 调色板槽位分配（前端 buildAtlasModel 与门禁 scripts/palette-collisions.ts 共用）。
- * 硬约束：同一族群颜色跨时间、跨数据版本一致——既有族群的槽位写死在 PEOPLE_SLOT
- * （由 scripts/palette-tune.ts 生成，数据重排/增补不漂移），此处仅作种子。
- * 尽力而为：未写死的新族群按 people_region 首现顺序贪心避让——取「同年同屏共现」
- * （该年任一地区的主着色族群，跨国亦冲突）族群尚未占用的最低槽位；全被占用时取
- * 共现年数合计最小的槽（平局取低槽）。「同屏」口径与 paintAt 一致。
- */
-export function assignPaletteSlots(
-  data: Pick<AtlasData, 'people_region' | 'periods' | 'region_geometry'>,
-  features: RegionVm[],
-  order: string[],
-  paletteLen: number = PALETTE_LEN,
-  seed?: ReadonlyMap<string, number> | Readonly<Record<string, number>>,
-): Map<string, number> {
-  const { byRegion } = resolveRegionGeometry(features, data.region_geometry ?? []);
-
-  const cands: number[] = [];
-  for (const p of data.periods) {
-    if (p.start_year !== null) cands.push(p.start_year);
-    if (p.end_year !== null) cands.push(p.end_year);
-  }
-  for (const r of data.people_region) {
-    if (r.start_year !== null) cands.push(r.start_year);
-    if (r.end_year !== null) cands.push(r.end_year);
-  }
-  const yMin = Math.min(...cands, -500);
-  const yMax = Math.max(...cands, new Date().getFullYear());
-
-  const pairKey = (a: string, b: string): string => (a < b ? `${a}|${b}` : `${b}|${a}`);
-  // 同年同屏共现年数（用作冲突边与饱和时的权重）
-  const pairYears = new Map<string, number>();
-  for (let y = yMin; y <= yMax; y++) {
-    const byRegionYear = new Map<string, AtlasPeopleRegion[]>();
-    for (const row of data.people_region) {
-      if (!activeInYear(row, y)) continue;
-      const list = byRegionYear.get(row.region_code) ?? [];
-      list.push(row);
-      byRegionYear.set(row.region_code, list);
-    }
-    const tops = new Set<string>();
-    for (const [regionCode, rows] of byRegionYear) {
-      if ((byRegion.get(regionCode) ?? []).length === 0) continue; // 无几何映射的 region 不上屏
-      rows.sort((a, b) => b.render_priority - a.render_priority || a.people_code.localeCompare(b.people_code));
-      tops.add(rows[0]!.people_code);
-    }
-    const arr = [...tops].sort();
-    for (let i = 0; i < arr.length; i++) {
-      for (let j = i + 1; j < arr.length; j++) {
-        const k = pairKey(arr[i]!, arr[j]!);
-        pairYears.set(k, (pairYears.get(k) ?? 0) + 1);
-      }
-    }
-  }
-
-  const conflicts = new Map<string, Set<string>>();
-  for (const k of pairYears.keys()) {
-    const [a, b] = k.split('|') as [string, string];
-    for (const [x, y] of [[a, b], [b, a]] as const) {
-      const set = conflicts.get(x) ?? new Set<string>();
-      set.add(y);
-      conflicts.set(x, set);
-    }
-  }
-
-  const slot = new Map<string, number>();
-  // 写死的槽位先行落座（截到合法区间）；新族群在其基础上避让
-  const seedPairs: Array<[string, number]> = seed instanceof Map ? [...seed] : Object.entries(seed ?? {});
-  for (const [code, s] of seedPairs) {
-    if (Number.isInteger(s) && s >= 0) slot.set(code, s % paletteLen);
-  }
-  for (const code of order) {
-    if (slot.has(code)) continue;
-    // 已分配的共现族群占用的槽 -> 共现年数合计
-    const taken = new Map<number, number>();
-    for (const other of conflicts.get(code) ?? []) {
-      const s = slot.get(other);
-      if (s === undefined) continue;
-      taken.set(s, (taken.get(s) ?? 0) + (pairYears.get(pairKey(code, other)) ?? 0));
-    }
-    let s = 0;
-    while (s < paletteLen && taken.has(s)) s++;
-    if (s >= paletteLen) {
-      // 饱和：取共现年数合计最小的槽（平局取低槽），把伤害压到 hover 可消歧的程度
-      s = [...taken.entries()].sort((a, b) => a[1] - b[1] || a[0] - b[0])[0]![0];
-    }
-    slot.set(code, s);
-  }
-  return slot;
-}
-
 export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasModel {
   const peopleByCode = new Map(data.peoples.map((p) => [p.code, p]));
   const regionByCode = new Map(data.regions.map((r) => [r.code, r]));
   const { byRegion: regionGeometry, byGeometry: geometryToRegions } = resolveRegionGeometry(features, data.region_geometry ?? []);
 
-  // 颜色槽位：写死映射为种子 + 新族群运行时避让（颜色跟实体走，不随过滤/年份变化）
+  // 颜色：查固定表 PEOPLE_COLOR（颜色只跟族群走，不随年份/其他族群/数据版本变化）
   const order: string[] = [];
   for (const row of data.people_region) {
     if (!order.includes(row.people_code)) order.push(row.people_code);
   }
-  const pal = categoricalPalette();
-  const slot = assignPaletteSlots(data, features, order, PALETTE_LEN, PEOPLE_SLOT);
+  const scheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 1 : 0;
   const peopleColor = new Map<string, string>();
-  for (const code of order) peopleColor.set(code, pal[slot.get(code) ?? 0]!);
-  const slotIndex = new Map<string, number>(order.map((code, i) => [code, i]));
+  const missingColor: string[] = [];
+  for (const code of order) {
+    const pair = PEOPLE_COLOR[code];
+    if (!pair) missingColor.push(code);
+    peopleColor.set(code, pair?.[scheme] ?? MISSING_PEOPLE_COLOR);
+  }
+  if (missingColor.length > 0) {
+    console.error(`PEOPLE_COLOR 缺少族群颜色（以中性灰绘制，请运行 npm run colors 补表）：${missingColor.join(', ')}`);
+  }
+  const firstSeenIndex = new Map<string, number>(order.map((code, i) => [code, i]));
 
   const yearCandidates: number[] = [];
   for (const p of data.periods) {
@@ -520,7 +369,8 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
       const region = regionByCode.get(regionCode) ?? null;
       for (const row of state.rows) {
         const list = activeRegions.get(row.people_code) ?? [];
-        if (region) list.push(region);
+        // 同族群同地区可有多条同时生效的分层时间片，区域只列一次
+        if (region && !list.includes(region)) list.push(region);
         activeRegions.set(row.people_code, list);
       }
     }
@@ -531,7 +381,7 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
       regions: activeRegions.get(code) ?? [],
     });
     const bySlot = (a: TreeLeaf, b: TreeLeaf): number =>
-      (slotIndex.get(a.people.code) ?? Infinity) - (slotIndex.get(b.people.code) ?? Infinity) ||
+      (firstSeenIndex.get(a.people.code) ?? Infinity) - (firstSeenIndex.get(b.people.code) ?? Infinity) ||
       a.people.code.localeCompare(b.people.code);
 
     // taxonomy -> node code -> 挂载的 peoples
@@ -638,7 +488,7 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
     return { regionCode: passive[0] ?? candidates[0]!, state: null };
   }
 
-  return { data, peopleByCode, regionByCode, regionGeometry, geometryToRegions, regionFor, geometryLive, peopleColor, slotIndex, yearRange, regionsAt, paintAt, caveatAt, periodAt, peopleTreeAt, enumLabel };
+  return { data, peopleByCode, regionByCode, regionGeometry, geometryToRegions, regionFor, geometryLive, peopleColor, firstSeenIndex, yearRange, regionsAt, paintAt, caveatAt, periodAt, peopleTreeAt, enumLabel };
 }
 
 /** 从 /data/peoples/export/atlas.json 拉取（带字节进度） */
