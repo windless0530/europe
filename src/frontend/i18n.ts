@@ -33,6 +33,7 @@ const STRINGS = {
     en: 'Once loaded, zooming, the timeline and hover run entirely in memory; geometry-browser data loads on first use.',
   },
   bootFail: { zh: '加载失败，请刷新重试', en: 'Load failed — please refresh' },
+  bootMap: { zh: '构建地图几何…', en: 'Building map geometry…' },
   geoLoadTitle: { zh: '正在加载几何浏览数据', en: 'Loading geometry data' },
   geoLoadHint: {
     zh: '每个数据源只在首次进入时加载一次，之后切换无需重新加载。',

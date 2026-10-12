@@ -29,6 +29,8 @@ export interface MapApi {
   refreshColors(view: SourceView): void;
   /** 重建几何（族群分布模式：混合多源要素，默认全部可见） */
   setGeometry(features: RegionVm[]): void;
+  /** setGeometry 的分帧版（启动路径）：帧预算内批量建路径，onProgress 报告 0..1，完成后 resolve */
+  setGeometryProgressive(features: RegionVm[], onProgress?: (frac: number) => void): Promise<void>;
   /** 按 region_code 批量更新填充与可见性（内存操作，无网络）；dim=true 时压暗（图例联动聚焦） */
   applyStyles(entries: Iterable<[string, { fill?: string; visible: boolean; dim?: boolean }]>): void;
   /** 标注纹理叠加层：code -> 纹理类型（disputed 交叉斜线 / method 单向斜线）；空表即清除 */
@@ -41,6 +43,15 @@ export interface MapApi {
 
 /** tooltip 内容渲染器（由 main 依据当前模式提供） */
 export type DescribeVm = (vm: RegionVm) => { name: string; meta: string };
+
+/** 让出主线程一步（宏任务，无定时器钳制）：分帧构建的帧间隙由浏览器择机上帧。
+ *  不用 rAF——无显示环境（headless/后台页）下 begin frame 会被合并批处理，帧节奏不可控。 */
+const yieldTick = (): Promise<void> =>
+  new Promise((resolve) => {
+    const ch = new MessageChannel();
+    ch.port1.onmessage = () => resolve();
+    ch.port2.postMessage(0);
+  });
 
 /** 欧洲参考范围的加密采样顶点（供手动 fit 投影后取 bounds） */
 function europeRingVertices(): [number, number][] {
@@ -131,11 +142,29 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
   const projection = geoAzimuthalEqualArea().rotate([-10, -52]);
   const pathGen = geoPath(projection);
 
+  /** d 串缓存（键 = 几何对象）：模式来回切换时免去重复 pathGen（全量一次 ~0.4s）。
+   *  fit() 实际改变投影参数（缩放/平移）时整体失效。 */
+  const dCache = new Map<object, string>();
+
+  function pathD(vm: RegionVm): string {
+    const key = vm.feature as object;
+    let d = dCache.get(key);
+    if (d === undefined) {
+      d = pathGen(vm.feature as unknown as GeoPermissibleObjects) ?? '';
+      dCache.set(key, d);
+    }
+    return d;
+  }
+
   function fit(): void {
     const w = container.clientWidth;
     const h = container.clientHeight;
     if (w === 0 || h === 0) return;
+    const scaleBefore = projection.scale();
+    const [tx, ty] = projection.translate();
     fitProjectionToEurope(projection, w, h, 14);
+    const [nx, ny] = projection.translate();
+    if (projection.scale() !== scaleBefore || nx !== tx || ny !== ty) dCache.clear();
   }
 
   function drawChrome(): void {
@@ -195,25 +224,20 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
     });
   }
 
-  function rebuild(features: RegionVm[]): void {
-    nodesByCode.clear();
-    fit();
-    drawChrome();
-    const pal = modePalette();
-    gRegions.selectAll('path').remove();
-    caveatNodes = [];
-    gOutline.selectAll('path').remove();
-    for (const vm of features) {
-      const d = pathGen(vm.feature as unknown as GeoPermissibleObjects);
-      if (!d) continue;
-      const node = gRegions.append('path').attr('class', 'region').attr('data-code', vm.code).attr('d', d).node();
-      // 溶解要素：成员 slug（与单元 data-code 后缀同形）供测试按原始单元寻址
-      if (vm.memberIds) node?.setAttribute('data-members', vm.memberIds.map((id) => id.toLowerCase().replace(/[^a-z0-9]+/g, '_')).join(' '));
-      if (!node) continue;
-      node.style.fill = familyFill(vm.family, vm.level, pal);
-      nodesByCode.set(vm.code, node);
-      bindHover(node, vm);
-    }
+  /** 生成 d 并追加一个区域节点（含 hover 绑定与溶解成员标记） */
+  function appendRegion(vm: RegionVm, pal: ReturnType<typeof modePalette>): void {
+    const d = pathD(vm);
+    if (!d) return;
+    const node = gRegions.append('path').attr('class', 'region').attr('data-code', vm.code).attr('d', d).node();
+    // 溶解要素：成员 slug（与单元 data-code 后缀同形）供测试按原始单元寻址
+    if (vm.memberIds) node?.setAttribute('data-members', vm.memberIds.map((id) => id.toLowerCase().replace(/[^a-z0-9]+/g, '_')).join(' '));
+    if (!node) return;
+    node.style.fill = familyFill(vm.family, vm.level, pal);
+    nodesByCode.set(vm.code, node);
+    bindHover(node, vm);
+  }
+
+  function ensureOutline(): void {
     outlinePath = gOutline
       .append('path')
       .attr('class', 'region-outline')
@@ -221,6 +245,42 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
       .attr('pointer-events', 'none')
       .node()!;
     outlinePath.style.display = 'none';
+  }
+
+  function resetLayers(): void {
+    nodesByCode.clear();
+    fit();
+    drawChrome();
+    gRegions.selectAll('path').remove();
+    caveatNodes = [];
+    gOutline.selectAll('path').remove();
+  }
+
+  function rebuild(features: RegionVm[]): void {
+    resetLayers();
+    const pal = modePalette();
+    for (const vm of features) appendRegion(vm, pal);
+    ensureOutline();
+  }
+
+  /** 分帧版 rebuild：每段最多 ~12ms 批量建路径（单个超大要素无法再切，
+   *  一次 pathGen 仍可能超预算），段间让出主线程使进度条可动画；完成后 resolve */
+  async function rebuildProgressive(features: RegionVm[], onProgress?: (frac: number) => void): Promise<void> {
+    resetLayers();
+    const pal = modePalette();
+    const total = Math.max(features.length, 1);
+    let i = 0;
+    do {
+      const t0 = performance.now();
+      while (i < features.length) {
+        appendRegion(features[i]!, pal);
+        i++;
+        if (performance.now() - t0 > 12 && i < features.length) break;
+      }
+      onProgress?.(i / total);
+      if (i < features.length) await yieldTick();
+    } while (i < features.length);
+    ensureOutline();
   }
 
   return {
@@ -250,6 +310,11 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
     setGeometry(features) {
       currentFeatures = features;
       rebuild(features);
+    },
+
+    async setGeometryProgressive(features, onProgress) {
+      currentFeatures = features;
+      await rebuildProgressive(features, onProgress);
     },
 
     applyStyles(entries) {
@@ -308,7 +373,7 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
       for (const vm of currentFeatures) {
         const node = nodesByCode.get(vm.code);
         if (!node) continue;
-        const d = pathGen(vm.feature as unknown as GeoPermissibleObjects);
+        const d = pathD(vm);
         if (d) node.setAttribute('d', d);
       }
       this.setHover(hovered); // 几何 d 已变，覆盖层描边需重建

@@ -22,16 +22,24 @@ export interface AppState {
   hoverCode: string | null;
 }
 
-type Listener = (state: AppState) => void;
+/** 订阅回调：prev = 本次 set 之前的状态，用于按变更字段做增量更新；
+ *  首次 set 的 prev 为空对象（所有字段比较均为「已变更」），订阅方借此全量渲染。 */
+type Listener = (state: AppState, prev: Readonly<AppState>) => void;
+
+const EMPTY_PREV: Readonly<AppState> = Object.freeze({}) as Readonly<AppState>;
 
 export function createStore(initial: AppState): { get: () => AppState; set: (patch: Partial<AppState>) => void; subscribe: (fn: Listener) => () => void } {
   let state = initial;
+  let first = true;
   const listeners = new Set<Listener>();
   return {
     get: () => state,
     set(patch) {
+      const prev = state;
       state = { ...state, ...patch };
-      for (const fn of listeners) fn(state);
+      const emitPrev = first ? EMPTY_PREV : prev;
+      first = false;
+      for (const fn of listeners) fn(state, emitPrev);
     },
     subscribe(fn) {
       listeners.add(fn);

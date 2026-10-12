@@ -349,30 +349,46 @@ async function boot(): Promise<void> {
     }
   });
 
-  store.subscribe((s) => {
-    treeRoot.style.display = s.mode === 'atlas' ? '' : 'none';
-    mapNote.style.display = s.mode === 'atlas' ? '' : 'none';
-    renderMapNote(s.lang);
-    controlsRow.style.display = s.mode === 'geo' ? '' : 'none';
+  // 订阅按变更字段做增量更新：hover 只刷新面板与描边，年份只重着色 + 时间轴 + 谱系树，
+  // 语言只刷静态文案——避免每次 set 全量跑完整管线（hover 高频触发）。
+  store.subscribe((s, prev) => {
+    const modeSwitch = s.mode !== prev.mode;
+    const langCh = s.lang !== prev.lang;
+    const yearCh = s.year !== prev.year;
+    const hoverCh = s.hoverCode !== prev.hoverCode;
+    const sourceCh = s.source !== prev.source;
+    const geoOptsCh = modeSwitch || sourceCh || s.eraIndex !== prev.eraIndex || s.nutsLevel !== prev.nutsLevel || s.showUndated !== prev.showUndated;
+
+    if (modeSwitch) {
+      treeRoot.style.display = s.mode === 'atlas' ? '' : 'none';
+      mapNote.style.display = s.mode === 'atlas' ? '' : 'none';
+      controlsRow.style.display = s.mode === 'geo' ? '' : 'none';
+    }
+    if (langCh || modeSwitch) renderMapNote(s.lang);
     if (s.mode === 'atlas') {
       if (mapMode !== 'atlas') {
         mapMode = 'atlas';
         map.setGeometry(atlasFeatures);
       }
-      applyAtlasPaint(s);
+      if (yearCh || modeSwitch) applyAtlasPaint(s);
       if (tlKind !== 'continuous') {
         tlKind = 'continuous';
         timeline.buildContinuous(model.yearRange, s.year);
-      } else {
+      } else if (yearCh) {
         timeline.update(s.year);
       }
-      peopleTree.render(model, s.year, s.lang, s.showInactive);
-      const vm = s.hoverCode ? (allByCode.get(s.hoverCode) ?? null) : null;
-      panel.showAtlas(vm, model, s.year, s.lang);
+      if (yearCh || langCh || modeSwitch || s.showInactive !== prev.showInactive) {
+        peopleTree.render(model, s.year, s.lang, s.showInactive);
+      }
+      if (hoverCh || yearCh || langCh || modeSwitch) {
+        const vm = s.hoverCode ? (allByCode.get(s.hoverCode) ?? null) : null;
+        panel.showAtlas(vm, model, s.year, s.lang);
+      }
     } else {
       const entering = mapMode !== 'geo';
       mapMode = 'geo';
       const loaded = geoViews.get(s.source);
+      let rebuilt = false;
       if (!loaded) {
         void ensureGeoSource(s.source); // 首次进入该数据源：加载完成后 store.set({}) 重入本分支
       } else if (entering || view !== loaded) {
@@ -382,24 +398,31 @@ async function boot(): Promise<void> {
         map.render(view, opts());
         tlKind = 'steps';
         timeline.buildSteps(view.eras, Math.min(s.eraIndex, view.eras.length - 1));
+        rebuilt = true;
       }
-      if (view && view === loaded) {
+      if (view && view === loaded && (rebuilt || geoOptsCh)) {
         map.updateVisibility(view, opts());
         timeline.update(view.eras[Math.min(s.eraIndex, view.eras.length - 1)]!);
         controls.render(view, opts(), s.lang);
+      }
+      if (view && view === loaded && (rebuilt || hoverCh || langCh)) {
         const vm = s.hoverCode ? allByCode.get(s.hoverCode) : null;
         if (vm && vm.source === view.code) panel.show(vm, s.lang);
         else panel.showIdle(s.lang);
       }
     }
-    applyStaticTexts(s.lang);
-    renderSourceSeg(s.lang);
-    map.setHover(s.hoverCode);
+    if (langCh || modeSwitch) applyStaticTexts(s.lang);
+    if (langCh || modeSwitch || sourceCh) renderSourceSeg(s.lang);
+    if (hoverCh) map.setHover(s.hoverCode);
   });
 
   applyStaticTexts('zh');
   renderSourceSeg('zh');
+  // 分帧构建地图几何：进度条持续走到 100%，避免 0.5s 级长任务卡住进度动画
+  const mapLabel = t('bootMap', 'zh');
+  await map.setGeometryProgressive(atlasFeatures, (frac) => setProgress(frac, mapLabel));
   overlay.classList.add('hidden');
+  mapMode = 'atlas'; // 几何已就位：首次渲染不再走订阅分支里的 setGeometry 重建
   store.set({}); // 触发首次渲染
 }
 
