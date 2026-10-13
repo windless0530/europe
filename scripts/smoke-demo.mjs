@@ -1,11 +1,11 @@
-// Demo 冒烟驱动：headless Edge 打开 localhost:5173。
+// Demo 冒烟驱动：headless Edge 打开 localhost:5173/europe/（vite base）。
 // 验证：启动进度层 -> 族群分布模式（SQL）渲染 -> 时间轴/hover 零网络请求
 //       -> 几何浏览模式仍可用 -> 中英切换。截图到 chromium/。
 // 用法：先 npm run dev，再 node scripts/smoke-demo.mjs
 
 import { chromium } from 'playwright-core';
 
-const BASE = process.env.SMOKE_URL ?? 'http://localhost:5173/';
+const BASE = process.env.SMOKE_URL ?? 'http://localhost:5173/europe/';
 const errors = [];
 let requestCount = 0;
 let requestGateOpen = false;
@@ -81,7 +81,8 @@ if (!treeVisible || !hasGothicNesting || !nestingOk) {
 }
 let treeFail = !treeVisible || !hasGothicNesting || !nestingOk;
 
-// 悬停谱系树叶（东哥特人）-> 地图上该族群区域之外应压暗（fill-opacity 0.25）
+// 悬停谱系树叶（东哥特人）-> 地图上该族群区域之外应压暗
+// （fill-opacity 断言值与 map.ts applyStyles 的压暗字面值须同步改）
 const leaf = page.locator('.ptree-leaf', { hasText: '东哥特人' }).first();
 if (await leaf.count() > 0) {
   requestGateOpen = true; // 树悬停也纳入零网络验证

@@ -8,16 +8,12 @@
 // 有核心空窗或几何子集过期时退出码 1，可作回归门禁。
 
 import { existsSync, readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
-import { buildView, type RegionVm } from '../src/frontend/load.js';
+import { join } from 'node:path';
 import { resolveRegionGeometry, type RegionGeometryRule } from '../src/frontend/region-map.js';
-import { atlasGeometryFeatures } from '../src/frontend/atlas.js';
-import type { SourceCode } from '../src/lib/contract.js';
-import { ATLAS_GEOMETRY_REL, renderAtlasGeometry } from '../src/build/atlas-geometry.js';
-
-const here = dirname(fileURLToPath(import.meta.url));
-const root = join(here, '..');
+import { FAMILY } from '../src/frontend/load.js';
+import { atlasGeometryFeatures, atlasYearRange, activeInYear } from '../src/frontend/atlas.js';
+import { REPO_ROOT } from '../src/lib/contract.js';
+import { ATLAS_GEOMETRY_REL, loadSourceViews, renderAtlasGeometry } from '../src/build/atlas-geometry.js';
 
 interface AtlasPeopleRegion {
   region_code: string;
@@ -30,38 +26,12 @@ interface AtlasData {
   region_geometry: RegionGeometryRule[];
 }
 
-const atlas = JSON.parse(readFileSync(join(root, 'data/peoples/export/atlas.json'), 'utf8')) as AtlasData;
-
-// 与前端 buildAtlasModel 相同的 activeInYear（双端包含）与 yearRange 公式
-const activeInYear = (row: AtlasPeopleRegion, year: number): boolean => {
-  const sy = row.start_year ?? Number.NEGATIVE_INFINITY;
-  const ey = row.end_year ?? Number.POSITIVE_INFINITY;
-  return sy <= year && year <= ey;
-};
-
-const candidates: number[] = [];
-for (const p of atlas.periods) {
-  if (p.start_year !== null) candidates.push(p.start_year);
-  if (p.end_year !== null) candidates.push(p.end_year);
-}
-for (const r of atlas.people_region) {
-  if (r.start_year !== null) candidates.push(r.start_year);
-  if (r.end_year !== null) candidates.push(r.end_year);
-}
-const yearMin = Math.min(...candidates, -500);
-const yearMax = Math.max(...candidates, new Date().getFullYear());
+const atlas = JSON.parse(readFileSync(join(REPO_ROOT, 'data/peoples/export/atlas.json'), 'utf8')) as AtlasData;
+const [yearMin, yearMax] = atlasYearRange(atlas);
 
 // 几何：三源规范化产物，经 atlasGeometryFeatures 取「实际渲染集合」
 // （与前端同一套规则：细分国家只渲染次国家级单元），再过 region 映射。
-const sourceFeatures = new Map<SourceCode, { features: RegionVm[] }>();
-for (const code of ['awmc', 'darmc', 'nuts'] as SourceCode[]) {
-  const file = JSON.parse(readFileSync(join(root, `data/geography/processed/${code}/regions.geojson`), 'utf8'));
-  sourceFeatures.set(code, { features: buildView(code, file).features });
-}
-const allFeatures = atlasGeometryFeatures(
-  sourceFeatures as unknown as Map<SourceCode, { features: RegionVm[] }>,
-  atlas.region_geometry ?? [],
-);
+const allFeatures = atlasGeometryFeatures(loadSourceViews(), atlas.region_geometry ?? []);
 const vmByCode = new Map(allFeatures.map((vm) => [vm.code, vm]));
 const { byGeometry } = resolveRegionGeometry(allFeatures, atlas.region_geometry ?? []);
 
@@ -112,7 +82,7 @@ for (const [geomCode, regionCodes] of byGeometry) {
   reports.push({
     code: geomCode,
     label: vm.nameZh ?? vm.nameEn ?? geomCode,
-    core: vm.family === 'nuts' || vm.family === 'provinces',
+    core: vm.family === FAMILY.nuts || vm.family === FAMILY.provinces,
     firstCover,
     gaps,
   });
@@ -138,7 +108,7 @@ if (exempt.length > 0) {
 // 从未覆盖的 L0 国家（未被任何 region 映射，或映射了但任何年份都无切片）：
 // 只报告不拦截——微观国家与范围外（土耳其/塞浦路斯等）属设计性留白。
 const neverCovered = allFeatures
-  .filter((vm) => vm.family === 'nuts' && vm.level === 0 && !coveredGeom.has(vm.code))
+  .filter((vm) => vm.family === FAMILY.nuts && vm.level === 0 && !coveredGeom.has(vm.code))
   .sort((a, b) => a.code.localeCompare(b.code));
 if (neverCovered.length > 0) {
   console.log('\n== 从未覆盖的 L0 国家（信息，不拦截） ==');
@@ -147,8 +117,8 @@ if (neverCovered.length > 0) {
 }
 
 // 几何子集过期校验（前端族群分布只读子集；子集与全量求值结果一致的前提是子集为最新）
-const geoPath = join(root, ATLAS_GEOMETRY_REL);
-const geoFresh = existsSync(geoPath) && readFileSync(geoPath, 'utf8') === renderAtlasGeometry(root, atlas.region_geometry ?? []).text;
+const geoPath = join(REPO_ROOT, ATLAS_GEOMETRY_REL);
+const geoFresh = existsSync(geoPath) && readFileSync(geoPath, 'utf8') === renderAtlasGeometry(REPO_ROOT, atlas.region_geometry ?? []).text;
 console.log(`\n几何子集 ${ATLAS_GEOMETRY_REL}：${geoFresh ? '✓ 最新' : '✗ 缺失或过期'}`);
 
 if (coreGaps.length > 0) console.error('\nFAIL: 核心几何存在空窗（见上）');

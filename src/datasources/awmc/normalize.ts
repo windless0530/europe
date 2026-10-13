@@ -23,9 +23,11 @@ import {
   type Ring,
   type SourceCode,
 } from '../../lib/contract';
+import { SOURCE } from '../../lib/shared';
 import { LINE_DATASETS, PLACES_DATASETS, REGION_DATASETS } from './config';
 
-const SOURCE: SourceCode = 'awmc';
+/** 本源机器码（shared.SOURCE 成员别名；命名 AWMC 避免与枚举对象 SOURCE 混淆） */
+const AWMC: SourceCode = SOURCE.awmc;
 
 // ------------------------------------------------------------
 // 本地类型（contract 未定义线要素类型，见 README open_issues）
@@ -94,7 +96,7 @@ async function readShapefile(base: string): Promise<RawFeature[]> {
 
 /** 预读全部输入数据集（file 相对 raw 目录；geojson 含扩展名，shapefile 不含） */
 async function preload(files: string[]): Promise<Map<string, RawFeature[]>> {
-  const rawDir = rawDataDir('awmc');
+  const rawDir = rawDataDir(AWMC);
   const map = new Map<string, RawFeature[]>();
   for (const file of files) {
     const format = file.endsWith('.geojson') ? 'geojson' : 'shapefile';
@@ -174,9 +176,9 @@ function buildRegions(feats: Map<string, RawFeature[]>, stats: NormalizeStats): 
           type: 'Feature',
           geometry: { type: 'MultiPolygon', coordinates: parts },
           properties: {
-            source: SOURCE,
+            source: AWMC,
             source_id: ds.id,
-            region_code: regionCode(SOURCE, uniquer.unique(ds.id)),
+            region_code: regionCode(AWMC,uniquer.unique(ds.id)),
             name_en: ds.name_en,
             name_zh: null,
             region_type: ds.region_type,
@@ -214,9 +216,9 @@ function buildRegions(feats: Map<string, RawFeature[]>, stats: NormalizeStats): 
           type: 'Feature',
           geometry: geom,
           properties: {
-            source: SOURCE,
+            source: AWMC,
             source_id: sourceId,
-            region_code: regionCode(SOURCE, uniquer.unique(slugBase)),
+            region_code: regionCode(AWMC,uniquer.unique(slugBase)),
             name_en: enName,
             name_zh: null,
             region_type: ds.region_type,
@@ -274,9 +276,9 @@ function buildPlaces(feats: Map<string, RawFeature[]>, stats: NormalizeStats): P
         type: 'Feature',
         geometry: { type: 'Point', coordinates: onSurface.geometry.coordinates },
         properties: {
-          source: SOURCE,
+          source: AWMC,
           source_id: sourceId,
-          place_code: regionCode(SOURCE, uniquer.unique(title ? slugify(title) : `${ds.id}_unnamed_${i + 1}`)),
+          place_code: regionCode(AWMC,uniquer.unique(title ? slugify(title) : `${ds.id}_unnamed_${i + 1}`)),
           name_en: title,
           name_zh: null,
           place_type: ds.place_type,
@@ -322,9 +324,9 @@ function buildLines(feats: Map<string, RawFeature[]>, stats: NormalizeStats): Li
         type: 'Feature',
         geometry: { type: g.type, coordinates: g.coordinates },
         properties: {
-          source: SOURCE,
+          source: AWMC,
           source_id: `${ds.id}#${objectId}`,
-          line_code: regionCode(SOURCE, `${ds.id}_${String(i + 1).padStart(3, '0')}`),
+          line_code: regionCode(AWMC,`${ds.id}_${String(i + 1).padStart(3, '0')}`),
           name_en: ds.name_en,
           name_zh: null,
           source_props: { ...props, awmc_dataset: ds.id, snapshot_year: ds.snapshot_year },
@@ -343,7 +345,7 @@ function buildLines(feats: Map<string, RawFeature[]>, stats: NormalizeStats): Li
 // ------------------------------------------------------------
 
 export async function runNormalize(): Promise<void> {
-  const outDir = processedDataDir('awmc');
+  const outDir = processedDataDir(AWMC);
   await mkdir(outDir, { recursive: true });
 
   const stats: NormalizeStats = {

@@ -16,6 +16,13 @@
 
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { CLASSIFICATION, RULE_TYPES, SOURCES } from '../lib/shared.js';
+import type { CaveatKind, RuleType, SourceCode } from '../lib/shared.js';
+
+// 省写缺省值：validator 的校验对象与 projector 的展开必须同值（头注约定）
+export const DEFAULT_CONFIDENCE = 'high';
+export const DEFAULT_RELATION = CLASSIFICATION.member_of;
+export const DEFAULT_PRIORITY = 0;
 
 export interface I18n {
   zh: string | null;
@@ -55,7 +62,8 @@ export interface Slice {
   caveat?: Caveat;
 }
 export interface Caveat {
-  kind: string;
+  /** 枚举成员见 shared.ts 的 CAVEAT（reference.json enums.caveat_kind 由 validator 运行时校验） */
+  kind: CaveatKind;
   text: I18n;
   /** 显示窗口（缺省 = 整个时间片）：仅与时间片早期相关的标注据此收窄，避免长期占据地图 */
   years?: Years;
@@ -104,10 +112,11 @@ export interface Region {
   brief?: I18n;
   notes?: string;
 }
-export type RuleType = 'l0_country' | 'source_id' | 'name_regex' | 'awmc_snapshot';
+// RuleType / SourceCode 的真实定义在 shared.ts（双端共享），此处 re-export 供构建侧历史导入方
+export type { RuleType } from '../lib/shared.js';
 export interface GeometryRule {
   region: string;
-  source: 'awmc' | 'darmc' | 'nuts';
+  source: SourceCode;
   type: RuleType;
   values: string[];
   note?: string;
@@ -293,7 +302,7 @@ export function validate(b: Bundle): string[] {
       const sat = `${at} slice ${sl.region}`;
       if (!regionCodes.has(sl.region)) E(`${sat}: region 不存在`);
       checkEnum('presence_type', sl.presence, sat);
-      checkEnum('confidence_level', sl.confidence ?? 'high', sat);
+      checkEnum('confidence_level', sl.confidence ?? DEFAULT_CONFIDENCE, sat);
       checkYears(sl.years, sat);
       // 时间片须落在族群寿命内（null = 开放端：寿命开放端不设限；寿命有终点则切片不得开放）
       const [ls, le] = p.lifespan ?? [null, null];
@@ -317,13 +326,13 @@ export function validate(b: Bundle): string[] {
     for (const lr of p.languages ?? []) {
       if (!languageCodes.has(lr.language)) E(`${at} language: ${lr.language} 不存在`);
       checkEnum('language_role', lr.role, at);
-      checkEnum('confidence_level', lr.confidence ?? 'high', at);
+      checkEnum('confidence_level', lr.confidence ?? DEFAULT_CONFIDENCE, at);
       checkYears(lr.years, at);
     }
     for (const rr of p.religions ?? []) {
       if (!religionCodes.has(rr.religion)) E(`${at} religion: ${rr.religion} 不存在`);
       checkEnum('religion_role', rr.role, at);
-      checkEnum('confidence_level', rr.confidence ?? 'high', at);
+      checkEnum('confidence_level', rr.confidence ?? DEFAULT_CONFIDENCE, at);
       checkYears(rr.years, at);
     }
     for (const [tax, entries] of Object.entries(p.classification ?? {})) {
@@ -336,8 +345,8 @@ export function validate(b: Bundle): string[] {
         const node = typeof e === 'string' ? e : e.node;
         if (!nodes.has(node)) E(`${at} classification: 节点 ${tax}.${node} 不存在`);
         if (typeof e !== 'string') {
-          checkEnum('classification_relation', e.relation ?? 'member_of', at);
-          checkEnum('confidence_level', e.confidence ?? 'high', at);
+          checkEnum('classification_relation', e.relation ?? DEFAULT_RELATION, at);
+          checkEnum('confidence_level', e.confidence ?? DEFAULT_CONFIDENCE, at);
           checkYears(e.years, at);
         }
       }
@@ -350,7 +359,7 @@ export function validate(b: Bundle): string[] {
     if (r.a === r.b) E(`${at}: a 与 b 相同`);
     for (const x of [r.a, r.b]) if (!peopleCodes.has(x)) E(`${at}: people "${x}" 不存在`);
     checkEnum('relation_type', r.type, at);
-    checkEnum('confidence_level', r.confidence ?? 'high', at);
+    checkEnum('confidence_level', r.confidence ?? DEFAULT_CONFIDENCE, at);
     checkYears(r.years, at);
     for (const s of r.sources ?? []) if (!sourceCodes.has(s.source)) E(`${at} source: ${s.source} 不存在`);
   }
@@ -365,13 +374,12 @@ export function validate(b: Bundle): string[] {
     if (r.parent !== undefined && !regionCodes.has(r.parent)) E(`region ${r.code}: parent 不存在`);
     checkYears(r.years, `region ${r.code}`);
   }
-  const RULE_TYPES = new Set(['l0_country', 'source_id', 'name_regex', 'awmc_snapshot']);
   const ruleKeys = new Set<string>();
   for (const g of b.rules) {
     const at = `rule ${g.region}/${g.source}/${g.type}`;
     if (!regionCodes.has(g.region)) E(`${at}: region 不存在`);
-    if (!['awmc', 'darmc', 'nuts'].includes(g.source)) E(`${at}: source 非法`);
-    if (!RULE_TYPES.has(g.type)) E(`${at}: type 非法`);
+    if (!SOURCES.includes(g.source)) E(`${at}: source 非法`);
+    if (!RULE_TYPES.includes(g.type)) E(`${at}: type 非法`);
     if (g.values.length === 0) E(`${at}: values 为空`);
     const key = `${g.region}|${g.source}|${g.type}|${g.values.join(',')}`;
     if (ruleKeys.has(key)) E(`${at}: 规则重复`);

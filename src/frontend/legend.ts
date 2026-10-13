@@ -2,20 +2,23 @@
 // 族群分布模式的图例已移至左侧「族群谱系」树，见 people-tree.ts）。
 // 文本用 ink 色，色块只做身份标识（dataviz 规范）。
 
-import type { SourceView, RegionVm } from './load';
-import { isVisible } from './load';
+import type { SourceView, RegionVm, Family } from './load';
+import { isVisible, FAMILIES, FAMILY } from './load';
+import { NUTS_LEVELS, SOURCE } from '../lib/shared.js';
 import { familyFill } from './palette';
-import { t, type Lang } from './i18n';
+import { t, type Lang, type StringKey } from './i18n';
 
 export interface LegendApi {
   render(view: SourceView, opts: { era: number; nutsLevel: number; showUndated: boolean }, lang: Lang): void;
 }
 
-const LEGEND_KEYS: Record<string, Parameters<typeof t>[0]> = {
+/** 各家族的图例文案键（nuts 例外：标签带层级参数，循环外单独拼装） */
+const LEGEND_KEYS: Partial<Record<Family, StringKey>> = {
   people: 'legendPeoples',
   empire: 'legendEmpire',
   provinces: 'legendProvinces',
   kingdoms: 'legendKingdoms',
+  undated: 'legendUndated',
 };
 
 export function createControls(legendRoot: HTMLElement, filtersRoot: HTMLElement, handlers: { onLevel: (l: number) => void; onUndated: (v: boolean) => void }): LegendApi {
@@ -28,18 +31,16 @@ export function createControls(legendRoot: HTMLElement, filtersRoot: HTMLElement
         counts.set(vm.family, (counts.get(vm.family) ?? 0) + 1);
       }
       const entries: Array<{ family: string; label: string; color: string; count?: number }> = [];
-      for (const [family, key] of Object.entries(LEGEND_KEYS)) {
-        if (!counts.has(family)) continue;
+      for (const family of FAMILIES) {
+        const key = LEGEND_KEYS[family];
+        if (!key || !counts.has(family)) continue;
         entries.push({ family, label: t(key, lang), color: familyFill(family, null) });
       }
-      if (counts.has('undated')) {
-        entries.push({ family: 'undated', label: t('legendUndated', lang), color: familyFill('undated', null) });
-      }
-      if (view.code === 'nuts') {
+      if (view.code === SOURCE.nuts) {
         entries.push({
-          family: 'nuts',
+          family: FAMILY.nuts,
           label: t('legendNuts', lang).replace('{n}', String(opts.nutsLevel)),
-          color: familyFill('nuts', opts.nutsLevel),
+          color: familyFill(FAMILY.nuts, opts.nutsLevel),
           count: view.features.filter((vm) => vm.level === opts.nutsLevel).length,
         });
       }
@@ -69,11 +70,11 @@ export function createControls(legendRoot: HTMLElement, filtersRoot: HTMLElement
 
       // ---- 过滤器 ----
       filtersRoot.innerHTML = '';
-      if (view.code === 'nuts') {
+      if (view.code === SOURCE.nuts) {
         const label = document.createElement('label');
         label.textContent = t('levelLabel', lang);
         const select = document.createElement('select');
-        for (const lv of [0, 1, 2, 3]) {
+        for (const lv of NUTS_LEVELS) {
           const opt = document.createElement('option');
           opt.value = String(lv);
           opt.textContent = `NUTS L${lv}`;
@@ -84,7 +85,7 @@ export function createControls(legendRoot: HTMLElement, filtersRoot: HTMLElement
         label.appendChild(select);
         filtersRoot.appendChild(label);
       }
-      if (view.code === 'awmc') {
+      if (view.code === SOURCE.awmc) {
         const label = document.createElement('label');
         const cb = document.createElement('input');
         cb.type = 'checkbox';

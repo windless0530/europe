@@ -10,6 +10,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import type { Manifest, PlacesFile, RegionsFile, SourceCode } from '../lib/contract.js';
 import { REPO_ROOT, SOURCES } from '../lib/contract.js';
+import { DEFAULT_SOURCE, SOURCE } from '../lib/shared.js';
 
 export type ArtifactKind = 'regions' | 'places' | 'lines';
 
@@ -31,7 +32,7 @@ export interface SourceRegistryEntry {
 
 export const REGISTRY: Record<SourceCode, SourceRegistryEntry> = {
   awmc: {
-    code: 'awmc',
+    code: SOURCE.awmc,
     title: 'AWMC（Ancient World Mapping Center）',
     description: '古代世界：罗马帝国 6 个快照范围、Strabo 记载的 109 个族群领地多边形、城市点与行省边界线',
     cli: 'npm run awmc',
@@ -40,7 +41,7 @@ export const REGISTRY: Record<SourceCode, SourceRegistryEntry> = {
     provides: ['regions', 'places', 'lines'],
   },
   darmc: {
-    code: 'darmc',
+    code: SOURCE.darmc,
     title: 'DARMC / Mapping Past Societies（哈佛）',
     description: '罗马-中世纪：行省（117/303-324/500）与王国（814/1000/1200/1450）多边形快照 + 城市定居点/主教区点网络',
     cli: 'npm run darmc',
@@ -49,7 +50,7 @@ export const REGISTRY: Record<SourceCode, SourceRegistryEntry> = {
     provides: ['regions', 'places'],
   },
   nuts: {
-    code: 'nuts',
+    code: SOURCE.nuts,
     title: 'NUTS 2024（Eurostat GISCO）+ GADM 4.1 补齐',
     description: '现代次国家边界（L0-L3），时间轴现代端的固定网格与对照底图',
     cli: 'npm run nuts',
@@ -70,7 +71,7 @@ export interface AtlasConfig {
 }
 
 export function readConfig(): AtlasConfig {
-  if (!existsSync(CONFIG_FILE)) return { source: 'nuts' };
+  if (!existsSync(CONFIG_FILE)) return { source: DEFAULT_SOURCE };
   return JSON.parse(readFileSync(CONFIG_FILE, 'utf8')) as AtlasConfig;
 }
 

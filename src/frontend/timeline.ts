@@ -3,7 +3,7 @@
 //   continuous 族群分布：连续年份（min..max 整数滑杆，播放按步长推进）
 // 标签（年份格式 + 时期名）由 main 通过 describe 回调提供。
 
-import { fmtYear, type Lang } from './i18n';
+import { fmtYear, t, type Lang } from './i18n';
 
 export type TimelineMode = 'steps' | 'continuous';
 
@@ -69,7 +69,7 @@ export function createTimeline(root: HTMLElement): TimelineApi {
     playing = false;
     if (timer) clearInterval(timer);
     timer = null;
-    playBtn.textContent = lang() === 'zh' ? '播放' : 'Play';
+    playBtn.textContent = t('play', lang());
   }
 
   function advance(): void {
@@ -96,7 +96,7 @@ export function createTimeline(root: HTMLElement): TimelineApi {
       return;
     }
     playing = true;
-    playBtn.textContent = lang() === 'zh' ? '暂停' : 'Pause';
+    playBtn.textContent = t('pause', lang());
     timer = setInterval(advance, 1400);
   });
 
@@ -119,7 +119,7 @@ export function createTimeline(root: HTMLElement): TimelineApi {
       stopPlay();
       root.classList.toggle('disabled', singleVintage);
       noteEl.hidden = !singleVintage;
-      noteEl.textContent = lang() === 'zh' ? '该数据源为现代单一版本，无时间轴' : 'This source has a single modern vintage';
+      noteEl.textContent = t('timelineNote', lang());
       rangeEl.min = '0';
       rangeEl.max = String(Math.max(vs.length - 1, 0));
       rangeEl.value = String(index);
@@ -162,9 +162,9 @@ export function createTimeline(root: HTMLElement): TimelineApi {
       paint();
     },
     setLang() {
-      const zh = lang() === 'zh';
-      playBtn.textContent = playing ? (zh ? '暂停' : 'Pause') : zh ? '播放' : 'Play';
-      if (singleVintage) noteEl.textContent = zh ? '该数据源为现代单一版本，无时间轴' : 'This source has a single modern vintage';
+      const l = lang();
+      playBtn.textContent = playing ? t('pause', l) : t('play', l);
+      if (singleVintage) noteEl.textContent = t('timelineNote', l);
       paint();
     },
   };

@@ -25,10 +25,12 @@ import {
   type ValidationIssue,
   type ValidationReport,
 } from '../../lib/contract';
+import { SOURCE } from '../../lib/shared';
 import type { LineFeature } from './normalize';
 import { GEOJSON_FILES, LICENSE, LICENSE_URL, SHAPEFILES_ZIP, SOURCE_HOMEPAGE, SOURCE_URL } from './config';
 
-const SOURCE: SourceCode = 'awmc';
+/** 本源机器码（shared.SOURCE 成员别名；命名 AWMC 避免与枚举对象 SOURCE 混淆） */
+const AWMC: SourceCode = SOURCE.awmc;
 const ALLOWED_REGION_TYPES = new Set([
   'continent',
   'historical_region',
@@ -111,7 +113,7 @@ function checkCoordinates(
 }
 
 function validateLines(fc: LinesFile, file: string): ValidationReport {
-  const report = emptyReport(SOURCE, file);
+  const report = emptyReport(AWMC, file);
   const bounds = { minLon: Infinity, minLat: Infinity, maxLon: -Infinity, maxLat: -Infinity };
   const seen = new Set<string>();
   let sawAny = false;
@@ -211,7 +213,7 @@ function relativeToRepo(file: string): string {
 }
 
 export async function runValidate(): Promise<void> {
-  const outDir = processedDataDir('awmc');
+  const outDir = processedDataDir(AWMC);
   const regionsPath = path.join(outDir, 'regions.geojson');
   const placesPath = path.join(outDir, 'places.geojson');
   const linesPath = path.join(outDir, 'lines.geojson');
@@ -227,9 +229,9 @@ export async function runValidate(): Promise<void> {
   const lines = existsSync(linesPath) ? await readJson<LinesFile>(linesPath) : null;
 
   // contract 通用校验器
-  const regionsReport = validateRegions(regions, SOURCE, relativeToRepo(regionsPath));
+  const regionsReport = validateRegions(regions, AWMC, relativeToRepo(regionsPath));
   extraRegionChecks(regions, regionsReport);
-  const placesReport = places ? validatePlaces(places, SOURCE, relativeToRepo(placesPath)) : null;
+  const placesReport = places ? validatePlaces(places, AWMC, relativeToRepo(placesPath)) : null;
   const linesReport = lines ? validateLines(lines, relativeToRepo(linesPath)) : null;
 
   // 坐标级校验 + 真实 bbox（补 contract 校验器不生效的部分，见 checkCoordinates 注释）
@@ -263,7 +265,7 @@ export async function runValidate(): Promise<void> {
   }
 
   // retrieved_at：取 _meta.json 最早下载时间，缺省用当前时间
-  const metaPath = path.join(rawDataDir('awmc'), '_meta.json');
+  const metaPath = path.join(rawDataDir(AWMC), '_meta.json');
   let retrievedAt = new Date().toISOString();
   const downloadUrls = [...GEOJSON_FILES.map((f) => f.url), SHAPEFILES_ZIP.url];
   if (existsSync(metaPath)) {
@@ -285,7 +287,7 @@ export async function runValidate(): Promise<void> {
   const reports = [regionsReport, placesReport, linesReport].filter((r): r is ValidationReport => r !== null);
 
   const manifest: Manifest = {
-    source: SOURCE,
+    source: AWMC,
     title: 'AWMC Geodata — Ancient World Mapping Center (UNC Chapel Hill)',
     url: SOURCE_URL,
     download_urls: downloadUrls,

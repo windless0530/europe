@@ -12,8 +12,11 @@ export const NUTS_YEAR = 2024;
 
 const GISCO_BASE = 'https://gisco-services.ec.europa.eu/distribution/v2/nuts';
 
-/** 2024 版四个层级的文件都在 30MB 预算内（原始共约 3MB），LEVL 3 一并纳入 */
-export const NUTS_LEVELS = [0, 1, 2, 3] as const;
+/** 层级域唯一真实源在 src/lib/shared.ts（与前端序数色带/层级选择器同源），此处 re-export 供管线各环节 */
+export { NUTS_LEVELS } from '../../lib/shared';
+
+/** source_props.origin 标记：要素来自 NUTS 主数据还是 GADM 补齐（normalize 写入、validate 校验） */
+export const ORIGIN = { nuts: 'nuts', gadm: 'gadm' } as const;
 
 export function nutsFileName(level: number): string {
   return `NUTS_RG_20M_${NUTS_YEAR}_4326_LEVL_${level}.geojson`;
@@ -82,9 +85,10 @@ export function gadmUrl(iso3: string, level: number): string {
 }
 
 // ------------------------------------------------------------
-// 欧洲参考范围（与 docs/data-contract.md 一致）
+// 欧洲参考范围（与 docs/data-contract.md 一致）：唯一真实源在 src/lib/shared.ts，
+// 此处按既有名转发其元组形态，normalize/validate 的导入不变
 // ------------------------------------------------------------
-export const EUROPE_BBOX: readonly [number, number, number, number] = [-31, 27, 45, 73];
+export { EUROPE_BBOX_TUPLE as EUROPE_BBOX } from '../../lib/shared';
 
 /**
  * GADM 名称字段修正：GADM 的 JSON 导出把空格剥掉了

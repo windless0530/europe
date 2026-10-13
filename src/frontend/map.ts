@@ -9,6 +9,8 @@ import type { RegionVm, SourceView } from './load';
 import { isVisible } from './load';
 import { familyFill, modePalette } from './palette';
 import { familyName, fmtYear, type Lang } from './i18n';
+import { CAVEAT, type CaveatKind } from './atlas';
+import { EUROPE_BBOX } from '../lib/shared.js';
 
 export interface MapOpts {
   era: number;
@@ -34,7 +36,7 @@ export interface MapApi {
   /** 按 region_code 批量更新填充与可见性（内存操作，无网络）；dim=true 时压暗（图例联动聚焦） */
   applyStyles(entries: Iterable<[string, { fill?: string; visible: boolean; dim?: boolean }]>): void;
   /** 标注纹理叠加层：code -> 纹理类型（disputed 交叉斜线 / method 单向斜线）；空表即清除 */
-  applyCaveats(entries: ReadonlyMap<string, 'disputed' | 'method'>): void;
+  applyCaveats(entries: ReadonlyMap<string, CaveatKind>): void;
   setHover(code: string | null): void;
   onHover(cb: (e: HoverEvent) => void): void;
   /** 重投影当前几何：复用既有节点就地更新 d（不重建 DOM/监听器），调用方负责重着色叠加层 */
@@ -53,9 +55,16 @@ const yieldTick = (): Promise<void> =>
     ch.port2.postMessage(0);
   });
 
+/** 欧洲参考范围 bbox（手动 fit 与 favicon 生成共用）；唯一真实源在 shared.ts，此处 re-export 维持导入方不变 */
+export { EUROPE_BBOX };
+
+/** 主地图投影旋转参数（favicon 生成保持同一视向） */
+export const MAP_PROJECTION_ROTATE: [number, number] = [-10, -52];
+
 /** 欧洲参考范围的加密采样顶点（供手动 fit 投影后取 bounds） */
 function europeRingVertices(): [number, number][] {
-  const w = -31, s = 27, e = 45, n = 73, step = 2;
+  const { w, s, e, n } = EUROPE_BBOX;
+  const step = 2;
   const ring: [number, number][] = [];
   for (let x = w; x < e; x += step) ring.push([x, s]);
   for (let y = s; y < n; y += step) ring.push([e, y]);
@@ -69,7 +78,7 @@ function europeRingVertices(): [number, number][] {
  * 导致目标区域被缩小），而是把 bbox 顶点直接过投影、取外接框，
  * 再换算 scale/translate。
  */
-const FIT_BASE_SCALE = 1000;
+export const FIT_BASE_SCALE = 1000;
 
 function fitProjectionToEurope(projection: GeoProjection, w: number, h: number, pad: number): void {
   projection.scale(FIT_BASE_SCALE);
@@ -97,24 +106,24 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
   // 线条为「浅色描边 + 深色芯」双色调，任何底色上都有对比；
   // 缩放时 patternTransform 反向缩放，屏幕上的线宽与间距恒定。
   // 争议：间距 6 的交叉线（醒目）；处理说明：间距 7.3 的细单线（轻）
-  const HATCH_SIZE = { disputed: 6, method: 7.3 } as const;
+  const HATCH_SIZE: Record<CaveatKind, number> = { disputed: 6, method: 7.3 };
   const defs = svg.append('defs');
   const hatchPatterns: SVGPatternElement[] = [];
   // 每种纹理两份：地图用（随缩放反向缩放）与图例色块用（-key，静态）
   for (const [id, kind] of [
-    ['hatch-method', 'method'], ['hatch-disputed', 'disputed'], ['hatch-method-key', 'method'], ['hatch-disputed-key', 'disputed'],
+    ['hatch-method', CAVEAT.method], ['hatch-disputed', CAVEAT.disputed], ['hatch-method-key', CAVEAT.method], ['hatch-disputed-key', CAVEAT.disputed],
   ] as const) {
     const size = HATCH_SIZE[kind];
     const pat = defs
       .append('pattern')
       .attr('id', id)
-      .attr('class', kind === 'method' ? 'hatch-light' : null)
+      .attr('class', kind === CAVEAT.method ? 'hatch-light' : null)
       .attr('patternUnits', 'userSpaceOnUse')
       .attr('width', size)
       .attr('height', size)
       .attr('patternTransform', 'rotate(45)');
     const strokes: Array<[number, number, number, number]> = [[size / 2, 0, size / 2, size]];
-    if (kind === 'disputed') strokes.push([0, size / 2, size, size / 2]);
+    if (kind === CAVEAT.disputed) strokes.push([0, size / 2, size, size / 2]);
     for (const [x1, y1, x2, y2] of strokes) {
       pat.append('line').attr('class', 'hatch-halo').attr('x1', x1).attr('y1', y1).attr('x2', x2).attr('y2', y2);
       pat.append('line').attr('class', 'hatch-core').attr('x1', x1).attr('y1', y1).attr('x2', x2).attr('y2', y2);
@@ -139,7 +148,7 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
   let currentView: SourceView | null = null;
   let currentFeatures: RegionVm[] = [];
 
-  const projection = geoAzimuthalEqualArea().rotate([-10, -52]);
+  const projection = geoAzimuthalEqualArea().rotate(MAP_PROJECTION_ROTATE);
   const pathGen = geoPath(projection);
 
   /** d 串缓存（键 = 几何对象）：模式来回切换时免去重复 pathGen（全量一次 ~0.4s）。
@@ -322,6 +331,7 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
         const node = nodesByCode.get(code);
         if (!node) continue;
         if (st.fill !== undefined) node.style.fill = st.fill;
+        // 压暗不透明度（smoke-demo.mjs 按此字面值断言图例联动，两处须同步改）
         node.style.fillOpacity = st.dim ? '0.25' : '';
         node.style.display = st.visible ? '' : 'none';
       }

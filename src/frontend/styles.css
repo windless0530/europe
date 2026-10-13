@@ -13,6 +13,7 @@
   --text-muted: #898781;
   --gridline: #e1e0d9;
   --border: rgba(11, 11, 11, 0.1);
+  /* 系列色与 src/frontend/palette.ts 的 LIGHT/DARK 为同一组值的两处表达，改动须两处同步 */
   --series-blue: #2a78d6;
   --series-orange: #eb6834;
   --context-fill: #ecebe7;
@@ -29,6 +30,7 @@
     --text-muted: #898781;
     --gridline: #2c2c2a;
     --border: rgba(255, 255, 255, 0.1);
+    /* 暗色系列色：与 palette.ts 的 DARK 同步（见上方亮色注释） */
     --series-blue: #3987e5;
     --series-orange: #d95926;
     --context-fill: #262624;

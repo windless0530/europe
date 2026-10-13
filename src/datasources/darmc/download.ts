@@ -13,6 +13,7 @@ import { access, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { ALL_LAYERS, SERVICE_ROOT, layerQueryUrl, type LayerSpec } from './catalog';
 import { rawDataDir } from '../../lib/contract';
+import { SOURCE } from '../../lib/shared';
 
 interface RawFeature {
   type: 'Feature';
@@ -124,7 +125,7 @@ async function downloadLayer(layer: LayerSpec, dir: string, force: boolean): Pro
 }
 
 export async function download(force = false): Promise<void> {
-  const dir = rawDataDir('darmc');
+  const dir = rawDataDir(SOURCE.darmc);
   await mkdir(dir, { recursive: true });
   console.log(`下载 DARMC 图层（${ALL_LAYERS.length} 个服务图层）到 ${dir}`);
   for (const layer of ALL_LAYERS) {

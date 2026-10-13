@@ -2,9 +2,16 @@
 // 几何模式 show()；族群分布模式 showAtlas()（SQL region + 当年族群/语言/宗教/关系/事件）。
 
 import type { RegionVm } from './load';
-import { caveatActive, type AtlasModel, type PresenceRow } from './atlas';
+import { caveatActive, CAVEAT, type AtlasModel, type PresenceRow, type CaveatKind } from './atlas';
+import { ENUM_DEF } from '../lib/shared.js';
 import { familyName, regionTypeName, t, fmtYear, type Lang } from './i18n';
 import { familyFill } from './palette';
+
+/** 信息量低的关系类型（"相关于"）：仅当该族群关系总数不多于 LOW_INFO_MAX_TOTAL 时展示 */
+const LOW_INFO_RELATION = 'related_to';
+const LOW_INFO_MAX_TOTAL = 3;
+/** 单族群最多展示的关系条数 */
+const MAX_RELATIONS_SHOWN = 4;
 
 export interface PanelApi {
   show(vm: RegionVm, lang: Lang): void;
@@ -60,7 +67,7 @@ export function createPanel(root: HTMLElement): PanelApi {
 
     const meta = document.createElement('div');
     meta.className = 'people-meta';
-    meta.textContent = `${model.enumLabel('presence_type', row.presence, lang)} · ${yearRangeText(row.start_year, row.end_year, lang)}`;
+    meta.textContent = `${model.enumLabel(ENUM_DEF.presenceType, row.presence, lang)} · ${yearRangeText(row.start_year, row.end_year, lang)}`;
     block.appendChild(meta);
 
     if (row.people.languages.length > 0) {
@@ -80,18 +87,25 @@ export function createPanel(root: HTMLElement): PanelApi {
       p.append(b, document.createTextNode(row.people.religions.map((r) => label(r.name_zh, r.name_en, lang)).join('、')));
       block.appendChild(p);
     }
-    const rels = row.people.relations.filter((r) => r.rel !== 'related_to' || row.people.relations.length <= 3);
+    const rels = row.people.relations.filter((r) => r.rel !== LOW_INFO_RELATION || row.people.relations.length <= LOW_INFO_MAX_TOTAL);
     if (rels.length > 0) {
       const p = document.createElement('div');
       p.className = 'people-line';
       const b = document.createElement('b');
       b.textContent = `${t('fRelations', lang)}: `;
+      // 方向以语序表达：出向「征服了 法兰克人」（谓+宾），入向「罗马人 征服了 迦太基人」（主+谓+宾，
+      // 补出己方名）。relation_type 全部标签均为动词短语，主谓宾换序对 12 个枚举值一律成立。
+      const self = label(row.people.name_zh, row.people.name_en, lang, row.people.code);
       p.append(
         b,
         document.createTextNode(
           rels
-            .slice(0, 4)
-            .map((r) => `${model.enumLabel('relation_type', r.rel, lang)} ${label(r.other_name_zh, r.other_name_en, lang, r.other_code)}`)
+            .slice(0, MAX_RELATIONS_SHOWN)
+            .map((r) => {
+              const rel = model.enumLabel(ENUM_DEF.relationType, r.rel, lang);
+              const other = label(r.other_name_zh, r.other_name_en, lang, r.other_code);
+              return r.direction === 'in' ? `${other} ${rel} ${self}` : `${rel} ${other}`;
+            })
             .join('；'),
         ),
       );
@@ -99,12 +113,12 @@ export function createPanel(root: HTMLElement): PanelApi {
     }
     // 标注（争议 / 处理说明）：仅在显示窗口内的年份出现
     if (caveatActive(row, year)) {
-      const kind = row.caveat_kind === 'disputed' ? 'disputed' : 'method';
+      const kind: CaveatKind = row.caveat_kind === CAVEAT.disputed ? CAVEAT.disputed : CAVEAT.method;
       const box = document.createElement('div');
       box.className = `caveat-box caveat-${kind}`;
       const head = document.createElement('div');
       head.className = 'caveat-head';
-      head.textContent = `${kind === 'disputed' ? '⚠' : 'ⓘ'} ${model.enumLabel('caveat_kind', kind, lang)}`;
+      head.textContent = `${kind === CAVEAT.disputed ? '⚠' : 'ⓘ'} ${model.enumLabel(ENUM_DEF.caveatKind, kind, lang)}`;
       const body = document.createElement('div');
       body.className = 'caveat-text';
       body.textContent = label(row.caveat_zh, row.caveat_en, lang, '');

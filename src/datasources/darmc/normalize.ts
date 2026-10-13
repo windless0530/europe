@@ -22,6 +22,7 @@ import {
   REGION_LAYERS,
   type LayerSpec,
 } from './catalog';
+import { SOURCE } from '../../lib/shared';
 import {
   rawDataDir,
   processedDataDir,
@@ -93,7 +94,7 @@ function featureCode(layerKey: string, name: string | null, oid: number): string
 }
 
 function readRaw(key: string): Promise<RawFC> {
-  const file = path.join(rawDataDir('darmc'), `${key}.geojson`);
+  const file = path.join(rawDataDir(SOURCE.darmc), `${key}.geojson`);
   return readFile(file, 'utf8').then((t) => JSON.parse(t) as RawFC);
 }
 
@@ -166,7 +167,7 @@ async function normalizePlaces(): Promise<LayerStat[]> {
         id: `darmc:${code}`,
         geometry: { type: 'Point', coordinates: [lon, lat] },
         properties: {
-          source: 'darmc',
+          source: SOURCE.darmc,
           source_id: toNum(props.DARMCID) !== null ? `${layer.key}:${toNum(props.DARMCID)}` : `${layer.key}:${oid}`,
           place_code: `darmc:${code}`,
           name_en: name,
@@ -189,7 +190,7 @@ async function normalizePlaces(): Promise<LayerStat[]> {
   }
 
   const out: PlacesFile = { type: 'FeatureCollection', features };
-  await writeJson(path.join(processedDataDir('darmc'), 'places.geojson'), out);
+  await writeJson(path.join(processedDataDir(SOURCE.darmc), 'places.geojson'), out);
   return stats;
 }
 
@@ -274,9 +275,9 @@ async function normalizeRegions(): Promise<LayerStat[]> {
         id: `darmc:${code}`,
         geometry: simplified,
         properties: {
-          source: 'darmc',
+          source: SOURCE.darmc,
           source_id: `${layer.key}:${oid}`,
-          region_code: regionCode('darmc', code),
+          region_code: regionCode(SOURCE.darmc, code),
           name_en: name,
           name_zh: null,
           region_type: regionType(layer),
@@ -302,7 +303,7 @@ async function normalizeRegions(): Promise<LayerStat[]> {
   }
 
   const out: RegionsFile = { type: 'FeatureCollection', features };
-  await writeJson(path.join(processedDataDir('darmc'), 'regions.geojson'), out);
+  await writeJson(path.join(processedDataDir(SOURCE.darmc), 'regions.geojson'), out);
   return stats;
 }
 
@@ -329,7 +330,7 @@ export async function normalize(): Promise<NormalizeResult> {
   print('normalize places：', places);
   print('normalize regions：', regions);
 
-  console.log(`\n写出: ${path.join(processedDataDir('darmc'), 'places.geojson')}`);
-  console.log(`写出: ${path.join(processedDataDir('darmc'), 'regions.geojson')}`);
+  console.log(`\n写出: ${path.join(processedDataDir(SOURCE.darmc), 'places.geojson')}`);
+  console.log(`写出: ${path.join(processedDataDir(SOURCE.darmc), 'regions.geojson')}`);
   return { places, regions };
 }

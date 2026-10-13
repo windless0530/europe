@@ -27,6 +27,7 @@ import {
   slugify,
   REPO_ROOT,
 } from '../../lib/contract';
+import { SOURCE } from '../../lib/shared';
 import {
   NUTS_LEVELS,
   NUTS_YEAR,
@@ -34,6 +35,7 @@ import {
   GADM_COUNTRIES,
   nutsUrl,
   gadmUrl,
+  ORIGIN,
   EUROPE_BBOX,
   LICENSE_NUTS,
   LICENSE_NUTS_URL,
@@ -117,7 +119,7 @@ function customChecks(fc: RegionsFile, report: ValidationReport): void {
     const label = p.region_code;
 
     // origin 标记
-    if (p.source_props?.origin !== 'nuts' && p.source_props?.origin !== 'gadm') {
+    if (p.source_props?.origin !== ORIGIN.nuts && p.source_props?.origin !== ORIGIN.gadm) {
       report.issues.push({ level: 'warn', feature: label, message: `source_props.origin 缺失或非预期: ${String(p.source_props?.origin)}` });
     }
 
@@ -136,8 +138,8 @@ function customChecks(fc: RegionsFile, report: ValidationReport): void {
     }
 
     // NUTS 前缀规则：level n 的父级编码 = NUTS_ID 前 level+1 字符（NUTS_ID 共 level+2 字符）
-    if (p.source_props?.origin === 'nuts' && p.level !== null && p.level > 0 && typeof p.source_props?.NUTS_ID === 'string') {
-      const expected = regionCode('nuts', slugify(p.source_props.NUTS_ID.slice(0, p.level + 1)));
+    if (p.source_props?.origin === ORIGIN.nuts && p.level !== null && p.level > 0 && typeof p.source_props?.NUTS_ID === 'string') {
+      const expected = regionCode(SOURCE.nuts, slugify(p.source_props.NUTS_ID.slice(0, p.level + 1)));
       if (p.parent_code !== expected) {
         report.issues.push({ level: 'error', feature: label, message: `NUTS 前缀规则不满足: 期望 parent=${expected}, 实际=${p.parent_code}` });
       }
@@ -210,14 +212,14 @@ function buildCoverageNote(stats: NormalizeStats | null, gadmCountries: string[]
 }
 
 export async function runValidate(): Promise<ValidationReport> {
-  const outDir = processedDataDir('nuts');
+  const outDir = processedDataDir(SOURCE.nuts);
   const regionsPath = path.join(outDir, 'regions.geojson');
   if (!existsSync(regionsPath)) throw new Error(`产物缺失：${regionsPath}（先运行 normalize）`);
 
   const fc: RegionsFile = JSON.parse(readFileSync(regionsPath, 'utf8'));
 
   // 通用校验器
-  const report = validateRegions(fc, 'nuts', path.relative(REPO_ROOT, regionsPath));
+  const report = validateRegions(fc, SOURCE.nuts, path.relative(REPO_ROOT, regionsPath));
   // 自定义检查
   customChecks(fc, report);
 
@@ -235,7 +237,7 @@ export async function runValidate(): Promise<ValidationReport> {
   }
 
   // ---------------- manifest ----------------
-  const metaPath = path.join(rawDataDir('nuts'), '_meta.json');
+  const metaPath = path.join(rawDataDir(SOURCE.nuts), '_meta.json');
   const meta = existsSync(metaPath) ? JSON.parse(readFileSync(metaPath, 'utf8')) : null;
   const retrievedAt =
     meta?.downloads?.filter((d: { retrieved_at: string }) => d.retrieved_at).map((d: { retrieved_at: string }) => d.retrieved_at).sort().pop() ??
@@ -248,7 +250,7 @@ export async function runValidate(): Promise<ValidationReport> {
   const gadmCountryNames = GADM_COUNTRIES.map((s) => `${s.iso3}${s.parentOverride ? '（补 UA admin1）' : ''}`);
 
   const manifest: Manifest = {
-    source: 'nuts',
+    source: SOURCE.nuts,
     title: `NUTS ${NUTS_YEAR}（Eurostat GISCO）+ GADM ${GADM_VERSION} 补齐 —— 现代次国家边界`,
     url: 'https://gisco-services.ec.europa.eu/distribution/v2/nuts/',
     download_urls: downloadUrls,

@@ -12,6 +12,7 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import AdmZip from 'adm-zip';
 import { rawDataDir, REPO_ROOT } from '../../lib/contract';
+import { SOURCE } from '../../lib/shared';
 import { GEOJSON_FILES, SHAPEFILES_ZIP } from './config';
 
 interface DownloadRecord {
@@ -36,7 +37,7 @@ async function fetchToFile(url: string, dest: string): Promise<number> {
 }
 
 export async function runDownload(force = false): Promise<void> {
-  const rawDir = rawDataDir('awmc');
+  const rawDir = rawDataDir(SOURCE.awmc);
   await mkdir(rawDir, { recursive: true });
 
   const records: DownloadRecord[] = [];

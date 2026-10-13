@@ -12,9 +12,12 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { formatGeoJson } from './geojson-format.js';
 
-export type SourceCode = 'awmc' | 'darmc' | 'nuts';
-
-export const SOURCES: SourceCode[] = ['awmc', 'darmc', 'nuts'];
+// SourceCode / SOURCES 的唯一真实定义在 shared.ts（双端共享），
+// 此处 re-export 维持本文件对外接口不变（历史导入方零改动）。
+import { SOURCES } from './shared.js';
+import type { SourceCode } from './shared.js';
+export { SOURCES };
+export type { SourceCode };
 
 // ------------------------------------------------------------
 // 最小 GeoJSON 结构类型（不依赖外部 @types）
@@ -193,6 +196,9 @@ export function ringSignedArea(ring: number[][]): number {
   return s / 2;
 }
 
+/** 退化环判据：带符号面积绝对值低于此值视为退化，不参与绕向判断（两端共用） */
+export const RING_AREA_EPSILON = 1e-15;
+
 /**
  * 强制环向一致：外环 CW（shoelace < 0），洞 CCW（> 0）。
  * 本仓库三个数据源（ESRI/ArcGIS 系 GeoJSON）的外环惯例均为 CW；
@@ -207,7 +213,7 @@ export function enforceRingWinding(geom: PolygonalGeometry): number {
     for (let r = 0; r < rings.length; r++) {
       const ring = rings[r]!;
       const area = ringSignedArea(ring);
-      if (Math.abs(area) < 1e-15) continue;
+      if (Math.abs(area) < RING_AREA_EPSILON) continue;
       const wantPositive = r > 0; // 外环 CW（负），洞 CCW（正）
       if (area > 0 !== wantPositive) {
         ring.reverse();

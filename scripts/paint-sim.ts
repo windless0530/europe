@@ -3,15 +3,12 @@
 // 只决定「哪个族群上屏」，与颜色无关。
 
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
-import { buildView, type RegionVm } from '../src/frontend/load.js';
+import { join } from 'node:path';
 import { resolveRegionGeometry, countryOf, type RegionGeometryRule } from '../src/frontend/region-map.js';
-import { atlasGeometryFeatures, activeInYear } from '../src/frontend/atlas.js';
-import type { SourceCode } from '../src/lib/contract.js';
-
-const here = dirname(fileURLToPath(import.meta.url));
-const root = join(here, '..');
+import { FAMILY } from '../src/frontend/load.js';
+import { atlasGeometryFeatures, activeInYear, atlasYearRange } from '../src/frontend/atlas.js';
+import { REPO_ROOT } from '../src/lib/contract.js';
+import { loadSourceViews } from '../src/build/atlas-geometry.js';
 
 interface Row {
   people_code: string;
@@ -25,19 +22,14 @@ interface Data {
   periods: Array<{ start_year: number | null; end_year: number | null }>;
   region_geometry: RegionGeometryRule[];
 }
-const atlas = JSON.parse(readFileSync(join(root, 'data/peoples/export/atlas.json'), 'utf8')) as Data;
+const atlas = JSON.parse(readFileSync(join(REPO_ROOT, 'data/peoples/export/atlas.json'), 'utf8')) as Data;
 
-const sourceFeatures = new Map<SourceCode, { features: RegionVm[] }>();
-for (const code of ['awmc', 'darmc', 'nuts'] as SourceCode[]) {
-  const file = JSON.parse(readFileSync(join(root, `data/geography/processed/${code}/regions.geojson`), 'utf8'));
-  sourceFeatures.set(code, { features: buildView(code, file).features });
-}
-const features = atlasGeometryFeatures(sourceFeatures as unknown as Map<SourceCode, { features: RegionVm[] }>, atlas.region_geometry ?? []);
+const features = atlasGeometryFeatures(loadSourceViews(), atlas.region_geometry ?? []);
 const { byRegion } = resolveRegionGeometry(features, atlas.region_geometry ?? []);
 
 /** geometry code -> NUTS L0 国家码（非 NUTS 几何为 null） */
 export const countryOfGeom = new Map<string, string | null>(
-  features.map((vm) => [vm.code, vm.family === 'nuts' ? countryOf(vm) : null]),
+  features.map((vm) => [vm.code, vm.family === FAMILY.nuts ? countryOf(vm) : null]),
 );
 
 /** people_region 中出现的族群（首现顺序） */
@@ -45,17 +37,7 @@ export const order: string[] = [];
 for (const row of atlas.people_region) if (!order.includes(row.people_code)) order.push(row.people_code);
 
 // 年份范围（与前端 yearRange 同口径）
-const cands: number[] = [];
-for (const p of atlas.periods) {
-  if (p.start_year !== null) cands.push(p.start_year);
-  if (p.end_year !== null) cands.push(p.end_year);
-}
-for (const r of atlas.people_region) {
-  if (r.start_year !== null) cands.push(r.start_year);
-  if (r.end_year !== null) cands.push(r.end_year);
-}
-export const yMin = Math.min(...cands, -500);
-export const yMax = Math.max(...cands, new Date().getFullYear());
+export const [yMin, yMax] = atlasYearRange(atlas);
 
 /** T 年 geometry code -> 主族群 */
 export function paintPeopleAt(year: number): Map<string, string> {

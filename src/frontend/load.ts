@@ -8,9 +8,29 @@
 //   darmc prov* / kingdoms*             -> provinces（蓝）/ kingdoms（橙），快照+持续
 //   nuts  全部                          -> nuts（按层级取序数蓝带）
 
-import type { RegionFeature, RegionsFile, SourceCode } from '../lib/contract.js';
+import type { RegionFeature, RegionsFile } from '../lib/contract.js';
+import {
+  AWMC_DATASET,
+  DARMC_LAYER_PREFIX,
+  DEFAULT_SOURCE,
+  MODERN_ERA_YEAR,
+  processedRegionsRel,
+  SOURCE,
+  SOURCE_PROPS,
+} from '../lib/shared.js';
+import type { SourceCode } from '../lib/shared.js';
 
-export type Family = 'people' | 'empire' | 'undated' | 'provinces' | 'kingdoms' | 'nuts';
+/** 渲染家族全集（推导规则见头注）；键序 = 图例分段序 */
+export const FAMILY = {
+  people: 'people',
+  empire: 'empire',
+  provinces: 'provinces',
+  kingdoms: 'kingdoms',
+  undated: 'undated',
+  nuts: 'nuts',
+} as const;
+export type Family = keyof typeof FAMILY;
+export const FAMILIES: readonly Family[] = Object.keys(FAMILY) as Family[];
 
 export interface RegionVm {
   source: SourceCode;
@@ -34,7 +54,7 @@ export interface SourceView {
   code: SourceCode;
   title: string;
   features: RegionVm[];
-  /** 全部快照年（升序）；无时间维度的源为 [2024] */
+  /** 全部快照年（升序）；无时间维度的源为 [MODERN_ERA_YEAR]（2024） */
   eras: number[];
   /** 各家族的快照年集合（用于"最近一次快照持续显示"） */
   familySnapshots: Map<Family, number[]>;
@@ -46,19 +66,19 @@ function prop(vm: RegionFeature, key: string): unknown {
 
 function deriveFamily(code: SourceCode, f: RegionFeature): Family {
   const sp = f.properties.source_props as Record<string, unknown>;
-  if (code === 'awmc') {
-    const ds = String(sp?.awmc_dataset ?? '');
-    if (ds === 'ethnonyms') return 'people';
-    if (ds.startsWith('roman_empire')) return 'empire';
-    return 'undated';
+  if (code === SOURCE.awmc) {
+    const ds = String(sp?.[SOURCE_PROPS.awmcDataset] ?? '');
+    if (ds === AWMC_DATASET.ethnonyms) return FAMILY.people;
+    if (ds.startsWith(AWMC_DATASET.romanEmpirePrefix)) return FAMILY.empire;
+    return FAMILY.undated;
   }
-  if (code === 'darmc') {
-    const layer = String(sp?.layer ?? '');
-    if (layer.startsWith('prov')) return 'provinces';
-    if (layer.startsWith('kingdoms')) return 'kingdoms';
-    return 'undated';
+  if (code === SOURCE.darmc) {
+    const layer = String(sp?.[SOURCE_PROPS.layer] ?? '');
+    if (layer.startsWith(DARMC_LAYER_PREFIX.provinces)) return FAMILY.provinces;
+    if (layer.startsWith(DARMC_LAYER_PREFIX.kingdoms)) return FAMILY.kingdoms;
+    return FAMILY.undated;
   }
-  return 'nuts';
+  return FAMILY.nuts;
 }
 
 function snapshotOf(f: RegionFeature): number | null {
@@ -80,7 +100,7 @@ function toVm(code: SourceCode, f: RegionFeature): RegionVm {
     snapshot: snapshotOf(f),
     regionType: f.properties.region_type,
     sourceId: f.properties.source_id,
-    dataset: String(prop(f, 'awmc_dataset') ?? prop(f, 'layer') ?? prop(f, 'layer_title') ?? code),
+    dataset: String(prop(f, SOURCE_PROPS.awmcDataset) ?? prop(f, SOURCE_PROPS.layer) ?? prop(f, SOURCE_PROPS.layerTitle) ?? code),
     feature: f,
     memberIds: f.properties.members,
   };
@@ -101,7 +121,7 @@ export function buildView(code: SourceCode, file: RegionsFile): SourceView {
   }
   for (const [k, v] of familySnapshots) familySnapshots.set(k, [...new Set(v)].sort((a, b) => a - b));
 
-  const eras = eraSet.size > 0 ? [...eraSet].sort((a, b) => a - b) : [2024];
+  const eras = eraSet.size > 0 ? [...eraSet].sort((a, b) => a - b) : [MODERN_ERA_YEAR];
 
   const titles: Record<SourceCode, string> = {
     awmc: 'AWMC — Ancient World Mapping Center',
@@ -122,24 +142,24 @@ export function familyActiveSnapshot(snapshots: number[], era: number): number |
 /** 某要素在给定状态下是否可见 */
 export function isVisible(vm: RegionVm, view: SourceView, era: number, opts: { nutsLevel: number; showUndated: boolean }): boolean {
   switch (vm.family) {
-    case 'people':
+    case FAMILY.people:
       return true; // Strabo 时代领地，无逐要素年份，常显
-    case 'empire':
-    case 'kingdoms': {
+    case FAMILY.empire:
+    case FAMILY.kingdoms: {
       const active = familyActiveSnapshot(view.familySnapshots.get(vm.family) ?? [], era);
       return active !== null && vm.snapshot === active;
     }
-    case 'provinces': {
+    case FAMILY.provinces: {
       // 行省系列只持续到王国系列出现为止（814 起行政框架被王国层取代），
       // 避免晚期时间点上残留拜占庭行省底色
-      const kingdomsActive = familyActiveSnapshot(view.familySnapshots.get('kingdoms') ?? [], era);
+      const kingdomsActive = familyActiveSnapshot(view.familySnapshots.get(FAMILY.kingdoms) ?? [], era);
       if (kingdomsActive !== null) return false;
-      const active = familyActiveSnapshot(view.familySnapshots.get('provinces') ?? [], era);
+      const active = familyActiveSnapshot(view.familySnapshots.get(FAMILY.provinces) ?? [], era);
       return active !== null && vm.snapshot === active;
     }
-    case 'undated':
+    case FAMILY.undated:
       return opts.showUndated;
-    case 'nuts':
+    case FAMILY.nuts:
       return vm.level === opts.nutsLevel;
     default:
       return false;
@@ -152,8 +172,12 @@ export function isVisible(vm: RegionVm, view: SourceView, era: number, opts: { n
 //   几何浏览：首次进入 / 首次切到某数据源时加载该源 regions.geojson，缓存后不再请求
 // ------------------------------------------------------------
 
-export const ATLAS_URL = '/data/peoples/export/atlas.json';
-export const ATLAS_GEOMETRY_URL = '/data/peoples/export/atlas-geometry.geojson';
+/** 站点基路径（vite base，形如 '/europe/'，尾含斜杠）：所有运行期数据请求挂在 base 下，子路径部署与本机直访同构。
+ *  tsx 直跑的脚本（coverage-audit / paint-sim）也 import 本模块，那里没有 vite 注入的 import.meta.env，回退 '/' */
+const BASE = import.meta.env?.BASE_URL ?? '/';
+
+export const ATLAS_URL = `${BASE}data/peoples/export/atlas.json`;
+export const ATLAS_GEOMETRY_URL = `${BASE}data/peoples/export/atlas-geometry.geojson`;
 export const SOURCE_LABELS: Record<SourceCode, string> = { awmc: 'AWMC', darmc: 'DARMC', nuts: 'NUTS' };
 
 /** 并发拉取多个 JSON，按合计字节回报进度。total = 各响应 content-length 之和；任一缺失则为 0（进度未知） */
@@ -210,7 +234,7 @@ export function loadSource(code: SourceCode, onBytes?: (loaded: number, total: n
   if (hit) return Promise.resolve(hit);
   const inflight = pending.get(code);
   if (inflight) return inflight;
-  const p = fetchJsonBatch([`/data/geography/processed/${code}/regions.geojson`], onBytes)
+  const p = fetchJsonBatch([`${BASE}${processedRegionsRel(code)}`], onBytes)
     .then(([file]) => {
       const view = buildView(code, file as RegionsFile);
       cache.set(code, view);
@@ -223,11 +247,11 @@ export function loadSource(code: SourceCode, onBytes?: (loaded: number, total: n
 
 export async function loadConfigSource(): Promise<SourceCode> {
   try {
-    const res = await fetch('/config');
-    if (!res.ok) return 'nuts';
+    const res = await fetch(`${BASE}config`);
+    if (!res.ok) return DEFAULT_SOURCE;
     const cfg = (await res.json()) as { source?: SourceCode };
-    return cfg.source ?? 'nuts';
+    return cfg.source ?? DEFAULT_SOURCE;
   } catch {
-    return 'nuts';
+    return DEFAULT_SOURCE;
   }
 }

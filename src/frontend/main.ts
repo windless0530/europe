@@ -6,12 +6,13 @@
 // 几何浏览首次进入 / 首次切到某数据源时加载该源（独立进度，缓存）。载入后缩放/时间轴/hover 零网络请求。
 
 import './styles.css';
-import type { SourceCode } from '../lib/contract.js';
+import type { RegionsFile } from '../lib/contract.js';
+import { ENUM_DEF, MODERN_ERA_YEAR, SOURCES } from '../lib/shared.js';
+import type { SourceCode } from '../lib/shared.js';
 import { createMap, type DescribeVm } from './map';
 import { createTimeline } from './timeline';
 import { createControls } from './legend';
 import { createPanel } from './panel';
-import type { RegionsFile } from '../lib/contract.js';
 import {
   ATLAS_GEOMETRY_URL,
   ATLAS_URL,
@@ -23,16 +24,17 @@ import {
   type RegionVm,
   type SourceView,
 } from './load';
-import { buildAtlasModel, caveatActive, type AtlasData, type AtlasModel } from './atlas';
+import { buildAtlasModel, caveatActive, CAVEAT, CAVEAT_KINDS, type AtlasData, type AtlasModel, type CaveatKind } from './atlas';
 import { createPeopleTree } from './people-tree';
 import { getCookie, setCookie } from './cookies';
-import { createStore } from './state';
+import { createStore, type Mode } from './state';
 import { familyName, fmtYear, t, type StringKey } from './i18n';
 import { modePalette, onModeChange } from './palette';
 
-type Mode = 'atlas' | 'geo';
-
-const SOURCE_CODES: SourceCode[] = ['awmc', 'darmc', 'nuts'];
+/** caveat_kind -> tooltip 提示文案键（与 MAP_NOTE_KEYS 同构，新增枚举值时两处一起补） */
+const CAVEAT_HINT_KEYS: Record<CaveatKind, StringKey> = { disputed: 'caveatHintDisputed', method: 'caveatHintMethod' };
+/** caveat_kind -> 地图左下角图例文案键 */
+const MAP_NOTE_KEYS: Record<CaveatKind, StringKey> = { disputed: 'mapNoteDisputed', method: 'mapNoteMethod' };
 
 /** 谱系树「显示未点亮族群」开关的持久化 cookie（'1'/'0'，缺省显示） */
 const COOKIE_SHOW_INACTIVE = 'ptree-show-inactive';
@@ -51,7 +53,7 @@ const GEO_ERA_NAMES: Record<number, { zh: string; en: string }> = {
   1000: { zh: '中世纪盛期之始', en: 'Millennium year' },
   1200: { zh: '中世纪盛期', en: 'High Middle Ages' },
   1450: { zh: '中世纪晚期', en: 'Late Middle Ages' },
-  2024: { zh: '现代', en: 'Present' },
+  [MODERN_ERA_YEAR]: { zh: '现代', en: 'Present' },
 };
 
 function mb(bytes: number): string {
@@ -123,11 +125,12 @@ async function boot(): Promise<void> {
         : null;
       // 当年有标注时在 tooltip 末尾提示（详情见右侧面板）
       const cav = rf.state?.rows.filter((r) => caveatActive(r, s.year)) ?? [];
-      const cavHint = cav.length === 0 ? '' : ` · ${t(cav.some((r) => r.caveat_kind === 'disputed') ? 'caveatHintDisputed' : 'caveatHintMethod', s.lang)}`;
+      const cavKind: CaveatKind | null = cav.length === 0 ? null : cav.some((r) => r.caveat_kind === CAVEAT.disputed) ? CAVEAT.disputed : CAVEAT.method;
+      const cavHint = cavKind === null ? '' : ` · ${t(CAVEAT_HINT_KEYS[cavKind], s.lang)}`;
       return {
         name: ((s.lang === 'zh' ? region?.name_zh : region?.name_en) ?? region?.name_en) ?? rf.regionCode,
         meta: topName
-          ? `${topName} · ${model.enumLabel('presence_type', rf.state!.top.presence, s.lang)}${cavHint}`
+          ? `${topName} · ${model.enumLabel(ENUM_DEF.presenceType, rf.state!.top.presence, s.lang)}${cavHint}`
           : t('noRegionData', s.lang),
       };
     }
@@ -158,7 +161,8 @@ async function boot(): Promise<void> {
     rule.textContent = t('mapNoteRule', lang);
     const keys = document.createElement('div');
     keys.className = 'map-note-keys';
-    for (const [kind, key] of [['disputed', 'mapNoteDisputed'], ['method', 'mapNoteMethod']] as const) {
+    for (const kind of CAVEAT_KINDS) {
+      const key = MAP_NOTE_KEYS[kind];
       const item = document.createElement('span');
       item.className = 'map-note-key';
       const sw = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -259,7 +263,7 @@ async function boot(): Promise<void> {
 
   function opts() {
     const s = state();
-    const era = view ? view.eras[Math.min(s.eraIndex, view.eras.length - 1)]! : 2024;
+    const era = view ? view.eras[Math.min(s.eraIndex, view.eras.length - 1)]! : MODERN_ERA_YEAR;
     return { era, nutsLevel: s.nutsLevel, showUndated: s.showUndated };
   }
 
@@ -282,7 +286,7 @@ async function boot(): Promise<void> {
     seg.style.display = s.mode === 'geo' ? '' : 'none';
     seg.innerHTML = '';
     seg.setAttribute('aria-label', t('sourceLabel', lang as 'zh' | 'en'));
-    for (const code of SOURCE_CODES) {
+    for (const code of SOURCES) {
       const b = document.createElement('button');
       b.type = 'button';
       b.textContent = code.toUpperCase();

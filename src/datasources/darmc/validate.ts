@@ -20,6 +20,7 @@ import {
   layerQueryUrl,
   type LayerSpec,
 } from './catalog';
+import { SOURCE } from '../../lib/shared';
 import type { NormalizeResult } from './normalize';
 import {
   processedDataDir,
@@ -161,7 +162,7 @@ function coverageHint(report: ValidationReport): void {
 async function countRaw(layerKeys: string[]): Promise<number> {
   let total = 0;
   for (const key of layerKeys) {
-    const file = path.join(rawDataDir('darmc'), `${key}.geojson`);
+    const file = path.join(rawDataDir(SOURCE.darmc), `${key}.geojson`);
     if (!(await exists(file))) continue;
     const fc = await readJson<{ features: unknown[] }>(file);
     total += fc.features.length;
@@ -176,7 +177,7 @@ export interface ValidateResult {
 }
 
 export async function validate(norm?: NormalizeResult): Promise<ValidateResult> {
-  const dir = processedDataDir('darmc');
+  const dir = processedDataDir(SOURCE.darmc);
   const placesFile = path.join(dir, 'places.geojson');
   const regionsFile = path.join(dir, 'regions.geojson');
 
@@ -187,7 +188,7 @@ export async function validate(norm?: NormalizeResult): Promise<ValidateResult> 
 
   if (await exists(placesFile)) {
     const fc = await readJson<PlacesFile>(placesFile);
-    const report = validatePlaces(fc, 'darmc', path.relative(process.cwd(), placesFile));
+    const report = validatePlaces(fc, SOURCE.darmc, path.relative(process.cwd(), placesFile));
     checkPlacesCustom(fc, report);
     computeBounds(fc, report);
     coverageHint(report);
@@ -206,7 +207,7 @@ export async function validate(norm?: NormalizeResult): Promise<ValidateResult> 
 
   if (await exists(regionsFile)) {
     const fc = await readJson<RegionsFile>(regionsFile);
-    const report = validateRegions(fc, 'darmc', path.relative(process.cwd(), regionsFile));
+    const report = validateRegions(fc, SOURCE.darmc, path.relative(process.cwd(), regionsFile));
     checkRegionsCustom(fc, report);
     computeBounds(fc, report);
     coverageHint(report);
@@ -238,7 +239,7 @@ export async function validate(norm?: NormalizeResult): Promise<ValidateResult> 
   let retrievedAt = new Date().toISOString();
   try {
     const mtimes = await Promise.all(
-      ALL_LAYERS.map((l) => stat(path.join(rawDataDir('darmc'), `${l.key}.geojson`)).then((s) => s.mtimeMs).catch(() => 0)),
+      ALL_LAYERS.map((l) => stat(path.join(rawDataDir(SOURCE.darmc), `${l.key}.geojson`)).then((s) => s.mtimeMs).catch(() => 0)),
     );
     const valid = mtimes.filter((t) => t > 0);
     if (valid.length > 0) retrievedAt = new Date(Math.min(...valid)).toISOString();
@@ -258,7 +259,7 @@ export async function validate(norm?: NormalizeResult): Promise<ValidateResult> 
     : 'regions 多边形用 turf simplify 简化（provinces 0.001°/kingdoms 0.002°，详见 README 决策记录）。';
 
   const manifest: Manifest = {
-    source: 'darmc',
+    source: SOURCE.darmc,
     title: 'DARMC / Mapping Past Societies（哈佛，罗马与中世纪文明数字图谱）',
     url: 'https://darmc.harvard.edu/',
     download_urls: [

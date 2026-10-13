@@ -9,6 +9,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { rawDataDir, REPO_ROOT } from '../../lib/contract';
+import { SOURCE } from '../../lib/shared';
 import {
   NUTS_LEVELS,
   GADM_COUNTRIES,
@@ -40,7 +41,7 @@ async function fetchToFile(url: string, dest: string): Promise<number> {
 }
 
 export async function runDownload(force = false): Promise<void> {
-  const rawDir = rawDataDir('nuts');
+  const rawDir = rawDataDir(SOURCE.nuts);
   const gadmDir = path.join(rawDir, 'gadm');
   await mkdir(gadmDir, { recursive: true });
 

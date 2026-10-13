@@ -20,13 +20,12 @@
 
 import { mkdirSync, writeFileSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { loadSource, validate, type Bundle, type I18n, type Taxonomy } from './source.js';
+import { loadSource, validate, DEFAULT_CONFIDENCE, DEFAULT_PRIORITY, DEFAULT_RELATION, type Bundle, type I18n, type Taxonomy } from './source.js';
+import { REPO_ROOT } from '../lib/contract.js';
 import { ATLAS_GEOMETRY_REL, renderAtlasGeometry } from './atlas-geometry.js';
 import type { RegionGeometryRule } from '../frontend/region-map.js';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const OUT_FILE = join(ROOT, 'data', 'peoples', 'export', 'atlas.json');
+const OUT_FILE = join(REPO_ROOT, 'data', 'peoples', 'export', 'atlas.json');
 
 /** code-unit 比较（与 PG C 排序一致，勿用 localeCompare） */
 const cmp = (a: string, b: string): number => (a < b ? -1 : a > b ? 1 : 0);
@@ -84,7 +83,7 @@ function project(b: Bundle): Record<string, unknown> {
           entries.map((e) => ({
             tax,
             node: typeof e === 'string' ? e : e.node,
-            relation: typeof e === 'string' ? 'member_of' : (e.relation ?? 'member_of'),
+            relation: typeof e === 'string' ? DEFAULT_RELATION : (e.relation ?? DEFAULT_RELATION),
           })),
         )
         .sort((x, y2) => cmp(x.tax, y2.tax) || cmp(x.node, y2.node))
@@ -121,8 +120,8 @@ function project(b: Bundle): Record<string, unknown> {
         presence: sl.presence,
         start_year: sy(sl.years),
         end_year: ey(sl.years),
-        confidence: sl.confidence ?? 'high',
-        render_priority: sl.priority ?? 0,
+        confidence: sl.confidence ?? DEFAULT_CONFIDENCE,
+        render_priority: sl.priority ?? DEFAULT_PRIORITY,
         caveat_kind: sl.caveat?.kind ?? null,
         caveat_zh: sl.caveat?.text.zh ?? null,
         caveat_en: sl.caveat?.text.en ?? null,
@@ -227,7 +226,7 @@ function project(b: Bundle): Record<string, unknown> {
 }
 
 function main(): void {
-  const b = loadSource(ROOT);
+  const b = loadSource(REPO_ROOT);
   const errs = validate(b);
   if (errs.length > 0) {
     console.error(`校验失败（${errs.length} 处）：`);
@@ -250,8 +249,8 @@ function main(): void {
       `${(out.taxonomies as unknown[]).length} taxonomies`,
   );
 
-  const geo = renderAtlasGeometry(ROOT, out.region_geometry as RegionGeometryRule[]);
-  const geoFile = join(ROOT, ATLAS_GEOMETRY_REL);
+  const geo = renderAtlasGeometry(REPO_ROOT, out.region_geometry as RegionGeometryRule[]);
+  const geoFile = join(REPO_ROOT, ATLAS_GEOMETRY_REL);
   writeFileSync(geoFile, geo.text, 'utf8');
   const mbSize = (statSync(geoFile).size / 1024 / 1024).toFixed(1);
   console.log(`几何子集 -> ${ATLAS_GEOMETRY_REL} (${mbSize} MB)：族群分布绘制集合 ${geo.count} 个要素（已同区溶解，文件序 = 绘制顺序）`);

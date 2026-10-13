@@ -4,14 +4,24 @@
 // 全部为「近似」映射：以现代国家组合或最接近的历史快照代表 SQL 中的
 // 历史区域，note 字段说明近似方式，后续可随时扩充/替换。
 
+import { FAMILY } from './load';
 import type { RegionVm } from './load';
 import type { SourceCode } from '../lib/contract.js';
+import { RULE_TYPE } from '../lib/shared.js';
+import type { RuleType } from '../lib/shared.js';
+
+/** 国家码属性键（NUTS 的 CNTR_CODE / GADM 的 GID_0，按此序探测） */
+const COUNTRY_CODE_KEYS = ['CNTR_CODE', 'GID_0'] as const;
+/** ISO 3166-1 alpha-2/3 国家码形态 */
+const COUNTRY_CODE_RE = /^[A-Z]{2,3}$/;
+/** NUTS 层级码形态（L1+：两位国家码后跟层级码，如 DE2 / DE21） */
+const NUTS_CODE_RE = /^[A-Z]{2}[0-9A-Z]+$/;
 
 /** region_geometry_rule 行（src/build/project.ts 投影导出，字段与源格式一一对应） */
 export interface RegionGeometryRule {
   region_code: string;
   source_code: SourceCode;
-  rule_type: 'l0_country' | 'source_id' | 'name_regex' | 'awmc_snapshot';
+  rule_type: RuleType;
   /** l0_country/source_id：码点集合；name_regex/awmc_snapshot：单值（regex 文本 / 快照年份） */
   match_values: string[];
   note: string | null;
@@ -20,34 +30,39 @@ export interface RegionGeometryRule {
 /** 提取几何要素的国家码（NUTS 的 CNTR_CODE / GADM 的 GID_0 / L0 的 source_id） */
 export function countryOf(vm: RegionVm): string | null {
   const sp = vm.feature.properties.source_props as Record<string, unknown>;
-  for (const key of ['CNTR_CODE', 'GID_0']) {
+  for (const key of COUNTRY_CODE_KEYS) {
     const v = sp[key];
-    if (typeof v === 'string' && /^[A-Z]{2,3}$/.test(v)) return v;
+    if (typeof v === 'string' && COUNTRY_CODE_RE.test(v)) return v;
   }
-  if (vm.family === 'nuts' && vm.level === 0 && /^[A-Z]{2,3}$/.test(vm.sourceId)) return vm.sourceId;
+  if (vm.family === FAMILY.nuts && vm.level === 0 && COUNTRY_CODE_RE.test(vm.sourceId)) return vm.sourceId;
   return null;
 }
 
 function matches(rule: RegionGeometryRule, vm: RegionVm): boolean {
   switch (rule.rule_type) {
-    case 'l0_country': {
+    case RULE_TYPE.l0_country: {
       // 现代国家 L0（NUTS CNTR_CODE / GADM GID_0，如 italy = ['IT']、balkans = 10 国）
       const cc = countryOf(vm);
-      return vm.family === 'nuts' && vm.level === 0 && cc !== null && rule.match_values.includes(cc);
+      return vm.family === FAMILY.nuts && vm.level === 0 && cc !== null && rule.match_values.includes(cc);
     }
-    case 'source_id': {
+    case RULE_TYPE.source_id: {
       // 按规范化数据的原始要素 id 匹配（NUTS L1/L2 子区域、GADM 州级、英国构成国等）；
       // NUTS 码按层级前缀编码，值写上级码即匹配其全部下级单元（如 DE2 = 巴伐利亚 DE21–DE27）
       const ids = vm.memberIds ?? [vm.sourceId];
-      const nuts = vm.family === 'nuts' && typeof (vm.feature.properties.source_props as Record<string, unknown>)?.CNTR_CODE === 'string';
-      return rule.match_values.some((v) => ids.some((id) => id === v || (nuts && /^[A-Z]{2}[0-9A-Z]+$/.test(v) && id.startsWith(v))));
+      const nuts = vm.family === FAMILY.nuts && typeof (vm.feature.properties.source_props as Record<string, unknown>)?.CNTR_CODE === 'string';
+      return rule.match_values.some((v) => ids.some((id) => id === v || (nuts && NUTS_CODE_RE.test(v) && id.startsWith(v))));
     }
-    case 'name_regex':
+    case RULE_TYPE.name_regex:
       // DARMC 行省拉丁名正则（不区分大小写，如北非诸省）
-      return vm.family === 'provinces' && new RegExp(rule.match_values[0] ?? '', 'i').test(vm.nameEn ?? '');
-    case 'awmc_snapshot':
+      return vm.family === FAMILY.provinces && new RegExp(rule.match_values[0] ?? '', 'i').test(vm.nameEn ?? '');
+    case RULE_TYPE.awmc_snapshot:
       // AWMC 帝国快照年份（如罗马帝国 117 CE）
-      return vm.family === 'empire' && vm.snapshot === Number(rule.match_values[0]);
+      return vm.family === FAMILY.empire && vm.snapshot === Number(rule.match_values[0]);
+    default: {
+      // 穷尽守卫：新增 RuleType 未在此实现语义时编译期即暴露
+      const exhaustive: never = rule.rule_type;
+      return exhaustive;
+    }
   }
 }
 

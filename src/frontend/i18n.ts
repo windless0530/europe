@@ -1,6 +1,8 @@
 // 界面双语（数据里的 name_zh 目前为 null，翻译属下一阶段；
 // 区域名展示规则：zh 模式下优先 name_zh，缺失回退 name_en）。
 
+import type { Family } from './load.js';
+
 export type Lang = 'zh' | 'en';
 
 const STRINGS = {
@@ -73,6 +75,7 @@ const STRINGS = {
   fSourceId: { zh: '来源 ID', en: 'Source ID' },
   fDataset: { zh: '数据集', en: 'Dataset' },
   fNoZh: { zh: '（中文名待补）', en: '' },
+  // 6 家族必须全列（键约束为 Family，缺项 familyName 索引处报编译错）
   familyNames: {
     people: { zh: '族群领地', en: 'People territory' },
     empire: { zh: '罗马帝国范围', en: 'Roman Empire extent' },
@@ -80,11 +83,14 @@ const STRINGS = {
     provinces: { zh: '罗马行省', en: 'Roman province' },
     kingdoms: { zh: '中世纪王国', en: 'Medieval kingdom' },
     nuts: { zh: '现代区划', en: 'Modern subdivision' },
-  } as Record<string, { zh: string; en: string }>,
+  },
+  // region_type 为开放字典（契约允许 null/建议值），缺键回退原码
   regionTypes: {
     political_entity: { zh: '政治实体', en: 'Political entity' },
     historical_region: { zh: '历史地区', en: 'Historical region' },
     cultural_region: { zh: '文化区域', en: 'Cultural region' },
+    continent: { zh: '大陆', en: 'Continent' },
+    modern_country: { zh: '现代国家', en: 'Modern country' },
   } as Record<string, { zh: string; en: string }>,
 } as const;
 
@@ -95,8 +101,8 @@ export function t(key: StringKey, lang: Lang): string {
   return entry ? entry[lang] : key;
 }
 
-export function familyName(family: string, lang: Lang): string {
-  return STRINGS.familyNames[family]?.[lang] ?? family;
+export function familyName(family: Family, lang: Lang): string {
+  return STRINGS.familyNames[family][lang];
 }
 
 export function regionTypeName(type: string | null, lang: Lang): string {

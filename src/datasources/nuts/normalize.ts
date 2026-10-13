@@ -34,12 +34,14 @@ import {
   enforceRingWinding,
   REPO_ROOT,
 } from '../../lib/contract';
+import { SOURCE } from '../../lib/shared';
 import {
   NUTS_LEVELS,
   NUTS_YEAR,
   GADM_VERSION,
   GADM_COUNTRIES,
   GADM_ADMIN1_KEEP,
+  ORIGIN,
   EUROPE_BBOX,
   NAME_OVERRIDES,
   restoreGadmSpaces,
@@ -88,7 +90,7 @@ function isPolygonal(geom: unknown): geom is PolygonalGeometry {
 }
 
 function readGadmZip(iso3: string, level: number): { features: Array<{ geometry: unknown; properties: Record<string, unknown> }> } {
-  const file = path.join(rawDataDir('nuts'), 'gadm', gadmFileName(iso3, level));
+  const file = path.join(rawDataDir(SOURCE.nuts), 'gadm', gadmFileName(iso3, level));
   if (!existsSync(file)) throw new Error(`GADM 原始文件缺失：${file}（先运行 download）`);
   const zip = new AdmZip(file);
   const entry = zip.getEntries().find((e) => e.entryName.endsWith('.json'));
@@ -97,7 +99,7 @@ function readGadmZip(iso3: string, level: number): { features: Array<{ geometry:
 }
 
 function readNuts(level: number): { features: Array<{ geometry: unknown; properties: Record<string, unknown> }> } {
-  const file = path.join(rawDataDir('nuts'), nutsFileName(level));
+  const file = path.join(rawDataDir(SOURCE.nuts), nutsFileName(level));
   if (!existsSync(file)) throw new Error(`NUTS 原始文件缺失：${file}（先运行 download）`);
   return JSON.parse(readFileSync(file, 'utf8'));
 }
@@ -141,7 +143,7 @@ export async function runNormalize(): Promise<NormalizeStats> {
         stats.nuts.dropped_outside_europe.push(`${nutsId} ${p.NAME_LATN ?? ''}`.trim());
         continue;
       }
-      const code = regionCode('nuts', slugify(nutsId));
+      const code = regionCode(SOURCE.nuts,slugify(nutsId));
       codeByNutsId.set(nutsId, code);
       const parentCode = level > 0 ? codeByNutsId.get(nutsId.slice(0, level + 1)) ?? null : null;
       features.push({
@@ -149,7 +151,7 @@ export async function runNormalize(): Promise<NormalizeStats> {
         id: code,
         geometry: f.geometry,
         properties: {
-          source: 'nuts',
+          source: SOURCE.nuts,
           source_id: nutsId,
           region_code: code,
           // NAME_LATN：拉丁转写/国语名（如 "Crna Gora"、"İstanbul"），不是英文译名
@@ -160,7 +162,7 @@ export async function runNormalize(): Promise<NormalizeStats> {
           start_year: null,
           end_year: null,
           parent_code: parentCode,
-          source_props: { ...p, origin: 'nuts', vintage: NUTS_YEAR },
+          source_props: { ...p, origin: ORIGIN.nuts, vintage: NUTS_YEAR },
         },
       });
       stats.nuts.kept++;
@@ -169,7 +171,7 @@ export async function runNormalize(): Promise<NormalizeStats> {
 
   // ---------------- GADM ----------------
   for (const spec of GADM_COUNTRIES) {
-    const countryCode = spec.parentOverride ?? regionCode('nuts', slugify(spec.iso3));
+    const countryCode = spec.parentOverride ?? regionCode(SOURCE.nuts,slugify(spec.iso3));
 
     if (spec.levels.includes(0)) {
       const fc = readGadmZip(spec.iso3, 0);
@@ -180,7 +182,7 @@ export async function runNormalize(): Promise<NormalizeStats> {
         stats.gadm.dropped_outside_europe.push(`${spec.iso3} L0（国家级整体在 bbox 外）`);
       } else {
         const gid0 = typeof f.properties.GID_0 === 'string' && f.properties.GID_0 !== 'NA' ? f.properties.GID_0 : spec.iso3;
-        const code = regionCode('nuts', slugify(gid0));
+        const code = regionCode(SOURCE.nuts,slugify(gid0));
         const name = NAME_OVERRIDES[gid0] ?? restoreGadmSpaces(f.properties.COUNTRY);
         if (name && name !== f.properties.COUNTRY) stats.gadm.names_fixed.push(`${gid0}: "${f.properties.COUNTRY}" -> "${name}"`);
         features.push({
@@ -188,7 +190,7 @@ export async function runNormalize(): Promise<NormalizeStats> {
           id: code,
           geometry: f.geometry,
           properties: {
-            source: 'nuts',
+            source: SOURCE.nuts,
             source_id: gid0,
             region_code: code,
             name_en: name,
@@ -198,7 +200,7 @@ export async function runNormalize(): Promise<NormalizeStats> {
             start_year: null,
             end_year: null,
             parent_code: null,
-            source_props: { ...f.properties, origin: 'gadm', gadm_version: GADM_VERSION },
+            source_props: { ...f.properties, origin: ORIGIN.gadm, gadm_version: GADM_VERSION },
           },
         });
         stats.gadm.kept++;
@@ -228,7 +230,7 @@ export async function runNormalize(): Promise<NormalizeStats> {
           stats.gadm.dropped_outside_europe.push(`${gid1} ${p.NAME_1 ?? ''}`.trim());
           continue;
         }
-        const code = regionCode('nuts', slugify(gid1));
+        const code = regionCode(SOURCE.nuts,slugify(gid1));
         const name = NAME_OVERRIDES[gid1] ?? restoreGadmSpaces(p.NAME_1);
         if (name && p.NAME_1 !== 'NA' && name !== p.NAME_1) {
           stats.gadm.names_fixed.push(`${gid1}: "${p.NAME_1}" -> "${name}"`);
@@ -238,7 +240,7 @@ export async function runNormalize(): Promise<NormalizeStats> {
           id: code,
           geometry: f.geometry,
           properties: {
-            source: 'nuts',
+            source: SOURCE.nuts,
             source_id: gid1,
             region_code: code,
             name_en: name,
@@ -248,7 +250,7 @@ export async function runNormalize(): Promise<NormalizeStats> {
             start_year: null,
             end_year: null,
             parent_code: countryCode,
-            source_props: { ...p, origin: 'gadm', gadm_version: GADM_VERSION },
+            source_props: { ...p, origin: ORIGIN.gadm, gadm_version: GADM_VERSION },
           },
         });
         stats.gadm.kept++;
@@ -274,7 +276,7 @@ export async function runNormalize(): Promise<NormalizeStats> {
   for (const f of features) windingFixed += enforceRingWinding(f.geometry);
   stats.winding_fixed = windingFixed;
 
-  const outDir = processedDataDir('nuts');
+  const outDir = processedDataDir(SOURCE.nuts);
   const regionsFile = path.join(outDir, 'regions.geojson');
   const fc: RegionsFile = { type: 'FeatureCollection', features };
   await writeJson(regionsFile, fc);

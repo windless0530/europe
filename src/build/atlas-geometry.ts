@@ -27,28 +27,22 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { simplify } from '@turf/turf';
 import type { MultiPolygon, Polygon } from 'geojson';
-import type { RegionFeature, RegionsFile, SourceCode } from '../lib/contract.js';
+import type { RegionFeature, RegionsFile } from '../lib/contract.js';
+import { REPO_ROOT, RING_AREA_EPSILON, ringSignedArea } from '../lib/contract.js';
+import { SOURCES, processedRegionsRel } from '../lib/shared.js';
 import { formatGeoJson } from '../lib/geojson-format.js';
 import { buildView } from '../frontend/load.js';
 import { atlasGeometryFeatures } from '../frontend/atlas.js';
 import type { RegionGeometryRule } from '../frontend/region-map.js';
+import type { SourceCode } from '../lib/shared.js';
 
 export const ATLAS_GEOMETRY_REL = 'data/peoples/export/atlas-geometry.geojson';
-
-const SOURCES: SourceCode[] = ['awmc', 'darmc', 'nuts'];
 
 const SIMPLIFY_TOLERANCE_DEG = 0.002;
 
 /** 环闭合且不少于 4 个坐标点 */
 function ringValid(ring: number[][]): boolean {
   return ring.length >= 4 && ring[0]![0] === ring[ring.length - 1]![0] && ring[0]![1] === ring[ring.length - 1]![1];
-}
-
-/** 平面带符号面积（shoelace），符号即绕向 */
-function ringSignedArea(ring: number[][]): number {
-  let a = 0;
-  for (let i = 0; i < ring.length - 1; i++) a += ring[i]![0]! * ring[i + 1]![1]! - ring[i + 1]![0]! * ring[i]![1]!;
-  return a / 2;
 }
 
 /** 4 位小数量化（~11m） */
@@ -67,7 +61,7 @@ function simplifyPolygon(poly: number[][][]): number[][][] {
         const q = r.map(([x, y]) => [quantize(x), quantize(y)]);
         const aIn = ringSignedArea(poly[i]!);
         const aOut = ringSignedArea(q);
-        if (aIn !== 0 && aOut !== 0 && Math.sign(aIn) !== Math.sign(aOut)) q.reverse();
+        if (Math.abs(aIn) >= RING_AREA_EPSILON && Math.abs(aOut) >= RING_AREA_EPSILON && Math.sign(aIn) !== Math.sign(aOut)) q.reverse();
         return q;
       });
     }
@@ -87,16 +81,21 @@ function simplifyFeature(ft: RegionFeature): RegionFeature {
   return { ...ft, geometry: out } as RegionFeature;
 }
 
-/** 由三源全量几何 + atlas.json 的 region_geometry 渲染子集文件内容（确定性：同输入同字节） */
-export function renderAtlasGeometry(root: string, rules: RegionGeometryRule[]): { text: string; count: number } {
+/** 装载三源全量几何并构建 SourceView（子集导出与审计/绘制脚本共用的装载块） */
+export function loadSourceViews(root: string = REPO_ROOT): Map<SourceCode, ReturnType<typeof buildView>> {
   const views = new Map<SourceCode, ReturnType<typeof buildView>>();
   for (const code of SOURCES) {
-    const file = JSON.parse(readFileSync(join(root, `data/geography/processed/${code}/regions.geojson`), 'utf8')) as RegionsFile;
+    const file = JSON.parse(readFileSync(join(root, processedRegionsRel(code)), 'utf8')) as RegionsFile;
     views.set(code, buildView(code, file));
   }
+  return views;
+}
+
+/** 由三源全量几何 + atlas.json 的 region_geometry 渲染子集文件内容（确定性：同输入同字节） */
+export function renderAtlasGeometry(root: string, rules: RegionGeometryRule[]): { text: string; count: number } {
   // 已溶解的绘制集合：文件序 = 绘制顺序，前端启动直接使用（不再运行时溶解）；
   // 随后 DP 简化 + 量化压缩（见头注）
-  const features = atlasGeometryFeatures(views, rules).map((vm) => simplifyFeature(vm.feature));
+  const features = atlasGeometryFeatures(loadSourceViews(root), rules).map((vm) => simplifyFeature(vm.feature));
   const out: RegionsFile = { type: 'FeatureCollection', features };
   return { text: formatGeoJson(out), count: features.length };
 }

@@ -7,6 +7,9 @@
 
 import { featureCollection, rewind, union } from '@turf/turf';
 import type { SourceCode } from '../lib/contract.js';
+import { CAVEAT, CAVEAT_KINDS, CLASSIFICATION, RULE_TYPE, SOURCE } from '../lib/shared.js';
+import type { CaveatKind, ClassificationRelation } from '../lib/shared.js';
+import { FAMILY } from './load';
 import type { RegionVm, SourceView } from './load';
 import { resolveRegionGeometry, countryOf, type RegionGeometryRule } from './region-map';
 import { PEOPLE_COLOR } from './people-colors';
@@ -26,7 +29,7 @@ export interface AtlasPeople extends AtlasTrItem {
   status_code: string | null;
   languages: Array<{ code: string; name_en: string | null; name_zh: string | null; role: string; sy: number | null; ey: number | null }>;
   religions: Array<{ code: string; name_en: string | null; name_zh: string | null; role: string; sy: number | null; ey: number | null }>;
-  classifications: Array<{ taxonomy: string; node: string; name_en: string | null; name_zh: string | null; relation: string }>;
+  classifications: Array<{ taxonomy: string; node: string; name_en: string | null; name_zh: string | null; relation: ClassificationRelation }>;
   relations: Array<{ rel: string; direction: 'out' | 'in'; other_code: string; other_name_en: string | null; other_name_zh: string | null; notes: string | null }>;
 }
 
@@ -39,7 +42,7 @@ export interface AtlasPeopleRegion {
   confidence: string;
   render_priority: number;
   /** 面向用户的标注：disputed（争议）/ method（特殊处理说明）；无则 null */
-  caveat_kind: string | null;
+  caveat_kind: CaveatKind | null;
   caveat_zh: string | null;
   caveat_en: string | null;
   /** 标注显示窗口（缺省即时间片区间；仅窗口内年份显示） */
@@ -47,7 +50,9 @@ export interface AtlasPeopleRegion {
   caveat_ey: number | null;
 }
 
-export type CaveatKind = 'disputed' | 'method';
+/** caveat 枚举唯一真实源在 shared.ts；此处 re-export 维持历史导入方（main/map/panel）不变 */
+export { CAVEAT, CAVEAT_KINDS };
+export type { CaveatKind };
 
 /** 该行在 year 年是否显示标注（行本身须当年活动） */
 export function caveatActive(row: AtlasPeopleRegion, year: number): boolean {
@@ -106,6 +111,9 @@ export interface AtlasData {
 
 /** PEOPLE_COLOR 缺色族群的兜底填充（中性灰，与无数据底图区分；同时 console.error 提示补表） */
 const MISSING_PEOPLE_COLOR = '#8a8a8a';
+
+/** 大陆级兜底 region（regions.json 的 europe）：hover 无活动族群时不落到整个欧洲，优先取更具体的候选 */
+const EUROPE_REGION_CODE = 'europe';
 
 export interface PresenceRow extends AtlasPeopleRegion {
   people: AtlasPeople;
@@ -182,10 +190,35 @@ interface TaxIdx {
   depth: Map<string, number>;
 }
 
-export function activeInYear(row: AtlasPeopleRegion, year: number): boolean {
+/** 行在 year 年是否活动（双端包含；字段按结构放宽，供脚本以窄行类型复用） */
+export function activeInYear(row: Pick<AtlasPeopleRegion, 'start_year' | 'end_year'>, year: number): boolean {
   const sy = row.start_year ?? Number.NEGATIVE_INFINITY;
   const ey = row.end_year ?? Number.POSITIVE_INFINITY;
   return sy <= year && year <= ey;
+}
+
+/** 时间轴最早年份兜底：无论数据端点如何，至少回溯到公元前 500 年 */
+export const YEAR_FLOOR = -500;
+
+/** 时间轴年份范围：periods + people_region 端点取包络，下限兜 YEAR_FLOOR、上限兜当前年。
+ *  前端时间轴与审计/绘制脚本共用，保证逐年扫描的窗口一致（参数按结构放宽，同 activeInYear）。 */
+export function atlasYearRange(data: {
+  periods: Array<{ start_year: number | null; end_year: number | null }>;
+  people_region: Array<{ start_year: number | null; end_year: number | null }>;
+}): [number, number] {
+  const yearCandidates: number[] = [];
+  for (const p of data.periods) {
+    if (p.start_year !== null) yearCandidates.push(p.start_year);
+    if (p.end_year !== null) yearCandidates.push(p.end_year);
+  }
+  for (const r of data.people_region) {
+    if (r.start_year !== null) yearCandidates.push(r.start_year);
+    if (r.end_year !== null) yearCandidates.push(r.end_year);
+  }
+  return [
+    Math.min(...yearCandidates, YEAR_FLOOR),
+    Math.max(...yearCandidates, new Date().getFullYear()),
+  ];
 }
 
 export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasModel {
@@ -211,19 +244,7 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
   }
   const firstSeenIndex = new Map<string, number>(order.map((code, i) => [code, i]));
 
-  const yearCandidates: number[] = [];
-  for (const p of data.periods) {
-    if (p.start_year !== null) yearCandidates.push(p.start_year);
-    if (p.end_year !== null) yearCandidates.push(p.end_year);
-  }
-  for (const r of data.people_region) {
-    if (r.start_year !== null) yearCandidates.push(r.start_year);
-    if (r.end_year !== null) yearCandidates.push(r.end_year);
-  }
-  const yearRange: [number, number] = [
-    Math.min(...yearCandidates, -500),
-    Math.max(...yearCandidates, new Date().getFullYear()),
-  ];
+  const yearRange = atlasYearRange(data);
 
   function regionsAt(year: number): Map<string, RegionYearState> {
     const byRegion = new Map<string, PresenceRow[]>();
@@ -275,11 +296,11 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
       let kind: CaveatKind | null = null;
       for (const row of win.state.rows) {
         if (!caveatActive(row, year)) continue;
-        if (row.caveat_kind === 'disputed') {
-          kind = 'disputed';
+        if (row.caveat_kind === CAVEAT.disputed) {
+          kind = CAVEAT.disputed;
           break;
         }
-        kind = 'method';
+        kind = CAVEAT.method;
       }
       if (kind) out.set(gcode, kind);
     }
@@ -342,7 +363,7 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
   function attachOf(people: AtlasPeople): { taxonomy: string; node: AtlasTaxonomyNode } | null {
     const byTax = new Map<string, AtlasTaxonomyNode[]>();
     for (const c of people.classifications) {
-      if (c.relation !== 'member_of' && c.relation !== 'descendant_of') continue;
+      if (c.relation !== CLASSIFICATION.member_of && c.relation !== CLASSIFICATION.descendant_of) continue;
       const idx = taxIdx.get(c.taxonomy);
       const node = idx?.byCode.get(c.node);
       if (!idx || !node) continue;
@@ -484,7 +505,7 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
       .filter((c) => c.state !== null)
       .sort((a, b) => (b.state!.top.render_priority - a.state!.top.render_priority) || a.regionCode.localeCompare(b.regionCode));
     if (active.length > 0) return active[0]!;
-    const passive = candidates.filter((c) => c !== 'europe');
+    const passive = candidates.filter((c) => c !== EUROPE_REGION_CODE);
     return { regionCode: passive[0] ?? candidates[0]!, state: null };
   }
 
@@ -521,23 +542,23 @@ export function atlasGeometryFeatures(sources: Map<SourceCode, SourceView>, rule
 export function atlasGeometrySelection(sources: Map<SourceCode, Pick<SourceView, 'features'>>, rules: RegionGeometryRule[]): RegionVm[] {
   const out: RegionVm[] = [];
   const awmcSnapshots = new Set(
-    rules.filter((r) => r.source_code === 'awmc' && r.rule_type === 'awmc_snapshot').flatMap((r) => r.match_values.map(Number)),
+    rules.filter((r) => r.source_code === SOURCE.awmc && r.rule_type === RULE_TYPE.awmc_snapshot).flatMap((r) => r.match_values.map(Number)),
   );
   out.push(
-    ...(sources.get('awmc')?.features ?? []).filter((vm) => vm.family === 'empire' && vm.snapshot !== null && awmcSnapshots.has(vm.snapshot)),
+    ...(sources.get(SOURCE.awmc)?.features ?? []).filter((vm) => vm.family === FAMILY.empire && vm.snapshot !== null && awmcSnapshots.has(vm.snapshot)),
   );
   // DARMC 行省：name_regex 按拉丁名、source_id 按要素 id 精确挑选（同名行省在 117/303/500 各快照层重复出现，
   // 需单层取几何时用 source_id，避免跨快照多边形互相叠盖）
   const darmcRegexes = rules
-    .filter((r) => r.source_code === 'darmc' && r.rule_type === 'name_regex')
+    .filter((r) => r.source_code === SOURCE.darmc && r.rule_type === RULE_TYPE.name_regex)
     .map((r) => new RegExp(r.match_values[0] ?? '', 'i'));
-  const darmcIds = new Set(rules.filter((r) => r.source_code === 'darmc' && r.rule_type === 'source_id').flatMap((r) => r.match_values));
+  const darmcIds = new Set(rules.filter((r) => r.source_code === SOURCE.darmc && r.rule_type === RULE_TYPE.source_id).flatMap((r) => r.match_values));
   out.push(
-    ...(sources.get('darmc')?.features ?? []).filter(
-      (vm) => vm.family === 'provinces' && (darmcIds.has(vm.sourceId) || darmcRegexes.some((re) => re.test(vm.nameEn ?? ''))),
+    ...(sources.get(SOURCE.darmc)?.features ?? []).filter(
+      (vm) => vm.family === FAMILY.provinces && (darmcIds.has(vm.sourceId) || darmcRegexes.some((re) => re.test(vm.nameEn ?? ''))),
     ),
   );
-  out.push(...(sources.get('nuts')?.features ?? []).filter((vm) => {
+  out.push(...(sources.get(SOURCE.nuts)?.features ?? []).filter((vm) => {
     if (OVERLAY_UNITS.has(vm.sourceId)) return false; // 叠加单元最后单独 push，保证盖在 L0 上
     const raw = countryOf(vm);
     const cc = raw === 'UKR' ? 'UA' : raw;
@@ -549,9 +570,12 @@ export function atlasGeometrySelection(sources: Map<SourceCode, Pick<SourceView,
     }
     return false;
   }));
-  out.push(...(sources.get('nuts')?.features ?? []).filter((vm) => OVERLAY_UNITS.has(vm.sourceId)));
+  out.push(...(sources.get(SOURCE.nuts)?.features ?? []).filter((vm) => OVERLAY_UNITS.has(vm.sourceId)));
   return out;
 }
+
+/** 同区溶解要素的 region_code 前缀：遵循 region_code 约定 `${source}:${slug}`，slug 固定为 merge:<分组键> */
+const MERGE_CODE_PREFIX = 'nuts:merge:';
 
 /** 同国、候选地区集合完全相同的 NUTS/GADM 单元在族群分布模式下着色/hover 恒同，
  *  溶解为一个要素（去掉无信息的内部边界，如德国 38 个 L2 单元 → 4 区）；
@@ -563,7 +587,7 @@ function dissolveSameRegion(features: RegionVm[], rules: RegionGeometryRule[]): 
   const groups = new Map<string, RegionVm[]>();
   for (const vm of features) {
     const regions = byGeometry.get(vm.code);
-    if (vm.family !== 'nuts' || !regions) continue;
+    if (vm.family !== FAMILY.nuts || !regions) continue;
     const key = `${countryOf(vm)}|${[...regions].sort().join('+')}`;
     const list = groups.get(key) ?? [];
     list.push(vm);
@@ -580,7 +604,7 @@ function dissolveSameRegion(features: RegionVm[], rules: RegionGeometryRule[]): 
     const memberIds = members.map((m) => m.sourceId);
     const vm: RegionVm = {
       ...first,
-      code: `nuts:merge:${key.toLowerCase()}`,
+      code: `${MERGE_CODE_PREFIX}${key.toLowerCase()}`,
       nameEn: null,
       nameZh: null,
       feature: {

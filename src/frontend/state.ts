@@ -3,10 +3,12 @@
 import type { Lang } from './i18n';
 import type { SourceCode } from '../lib/contract.js';
 
+/** 交互模式：atlas = 族群分布（SQL）；geo = 几何浏览 */
+export type Mode = 'atlas' | 'geo';
+
 export interface AppState {
   lang: Lang;
-  /** atlas = 族群分布（SQL）；geo = 几何浏览 */
-  mode: 'atlas' | 'geo';
+  mode: Mode;
   source: SourceCode;
   /** 几何模式：当前时间轴索引（对应 view.eras） */
   eraIndex: number;

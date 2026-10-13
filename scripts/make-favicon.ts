@@ -10,21 +10,22 @@
 // 用法：npm run favicon
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { join } from 'node:path';
 import { geoAzimuthalEqualArea } from 'd3-geo';
 import { bboxClip, simplify, union } from '@turf/turf';
 import type { Feature, MultiPolygon, Polygon } from 'geojson';
 import { chromium } from 'playwright-core';
+import { REPO_ROOT } from '../src/lib/contract.js';
+import { processedRegionsRel } from '../src/lib/shared.js';
+import { EUROPE_BBOX, FIT_BASE_SCALE, MAP_PROJECTION_ROTATE } from '../src/frontend/map.js';
+import { LIGHT } from '../src/frontend/palette.js';
 
-const here = dirname(fileURLToPath(import.meta.url));
-const root = join(here, '..');
-const pub = join(root, 'public');
+const pub = join(REPO_ROOT, 'public');
 mkdirSync(pub, { recursive: true });
 
 // ---------- 1. 载入 NUTS L0 国家几何，裁剪到站内地图同一欧洲范围 ----------
-const BBOX: [number, number, number, number] = [-31, 27, 45, 73]; // 与 map.ts europeRingVertices 一致
-const file = JSON.parse(readFileSync(join(root, 'data/geography/processed/nuts/regions.geojson'), 'utf8'));
+const BBOX: [number, number, number, number] = [EUROPE_BBOX.w, EUROPE_BBOX.s, EUROPE_BBOX.e, EUROPE_BBOX.n]; // 与 map.ts 手动 fit 的欧洲范围一致
+const file = JSON.parse(readFileSync(join(REPO_ROOT, processedRegionsRel('nuts')), 'utf8'));
 const l0: Array<Feature<Polygon | MultiPolygon>> = [];
 for (const f of file.features as Feature[]) {
   if (f.properties?.level !== 0) continue;
@@ -59,9 +60,8 @@ console.log(`化简后：${polys.length} 个多边形（未过滤）`);
 // 步骤 4 面积过滤后按保留环重算——亚速尔/加纳利等西南碎屑会把全量外接框
 // 撑偏，令过滤后的大陆主体整体偏右上。
 const SIZE = 64;
-const FIT_BASE = 1000;
-const projection = geoAzimuthalEqualArea().rotate([-10, -52]);
-projection.scale(FIT_BASE);
+const projection = geoAzimuthalEqualArea().rotate(MAP_PROJECTION_ROTATE);
+projection.scale(FIT_BASE_SCALE);
 projection.translate([0, 0]);
 let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
 for (const ring of polys.flat() as [number, number][][]) {
@@ -76,7 +76,7 @@ for (const ring of polys.flat() as [number, number][][]) {
 }
 const pad = 2.5;
 const k = Math.min((SIZE - pad * 2) / (x1 - x0), (SIZE - pad * 2) / (y1 - y0));
-projection.scale(FIT_BASE * k);
+projection.scale(FIT_BASE_SCALE * k);
 
 // ---------- 4. 投影 + 像素面积过滤（去小岛碎屑与小孔洞）+ 生成 SVG path ----------
 // 64px 画布上：主大陆/不列颠/爱尔兰/冰岛 ≥ 3px² 保留，
@@ -126,7 +126,7 @@ for (const ring of keptRings) {
 // 配色：series-blue 芯片 + 近页面色剪影——明/暗浏览器标签页上都醒目
 // （深色芯片会在深色标签页里「消失」），也贴合站点主题色。
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-<rect width="64" height="64" rx="14" fill="#2a78d6"/>
+<rect width="64" height="64" rx="14" fill="${LIGHT.series.blue}"/>
 <g fill="#f5f4ef" fill-rule="evenodd">${paths.map((d) => `<path d="${d}"/>`).join('')}</g>
 </svg>
 `;
