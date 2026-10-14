@@ -24,7 +24,7 @@ export interface PeopleTreeApi {
   onHighlight(cb: (peopleCode: string | null) => void): void;
   onToggle(cb: (showInactive: boolean) => void): void;
   onSelect(cb: (codes: string[]) => void): void;
-  /** 移动端抽屉关闭钮（桌面端 CSS 隐藏） */
+  /** 移动端弹层头部关闭钮（桌面端 CSS 隐藏） */
   onClose(cb: () => void): void;
 }
 
@@ -102,8 +102,8 @@ export function createPeopleTree(root: HTMLElement): PeopleTreeApi {
   let neutralEl: HTMLElement | null = null;
   let noMatchEl: HTMLElement | null = null;
 
-  // 一次性骨架：标题行（标题 + 移动端关闭钮）+ 过滤输入 + 未点亮显隐切换 + 选中条 + 正文容器
-  // （重渲染只重建 body，悬停状态不被打断）
+  // 一次性骨架：标题行（标题 + 移动端关闭钮）+ 过滤输入 + 未点亮显隐切换 +
+  // 选中条 + 正文容器（重渲染只重建 body，悬停状态不被打断）
   if (!root.querySelector('.ptree-body')) {
     root.innerHTML = '';
     const head = document.createElement('div');
@@ -193,7 +193,8 @@ export function createPeopleTree(root: HTMLElement): PeopleTreeApi {
   tipMeta.className = 'tt-meta';
   tip.append(tipName, tipMeta);
   document.body.appendChild(tip);
-  root.addEventListener('scroll', () => (tip.hidden = true), { passive: true });
+  // capture：窄屏抽屉态滚动发生在 .ptree-body（事件不冒泡到 root），捕获相才能收到
+  root.addEventListener('scroll', () => (tip.hidden = true), { passive: true, capture: true });
 
   function showTip(li: HTMLElement, leaf: TreeLeaf, lang: Lang): void {
     tipName.textContent = label(leaf.people.name_zh, leaf.people.name_en, lang, leaf.people.code);

@@ -10,7 +10,11 @@ const errors = [];
 let requestCount = 0;
 let requestGateOpen = false;
 
-const browser = await chromium.launch({ channel: process.env.SMOKE_CHANNEL ?? 'msedge', headless: true });
+const browser = await chromium.launch(
+  process.env.SMOKE_EXECUTABLE
+    ? { executablePath: process.env.SMOKE_EXECUTABLE, headless: true }
+    : { channel: process.env.SMOKE_CHANNEL ?? 'msedge', headless: true },
+);
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 page.on('console', (m) => {
   if (m.type() === 'error') errors.push(m.text());
@@ -424,7 +428,7 @@ if (treeFail) {
   process.exitCode = 1;
 }
 
-// ---- 移动端（390×844 触屏）：无横向滚动 + 族群抽屉（拉出/过滤/单选/收回/徽标） ----
+// ---- 移动端（390×844 触屏）：无横向滚动 + 族群左侧抽屉（汉堡呼出/过滤/单选/遮罩与✕缩回/徽标） ----
 {
   const mctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
   const mp = await mctx.newPage();
@@ -438,9 +442,36 @@ if (treeFail) {
   await mp.waitForTimeout(600);
   const noHScroll = () => mp.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 0.5);
   let mobileFail = !(await noHScroll());
-  await mp.tap('#tree-toggle');
+  // 顶部汉堡：可见、方形、与「几何浏览」等高、居其左侧
+  const btnShown = await mp.evaluate(() => {
+    const btn = document.getElementById('tree-toggle');
+    const r = btn.getBoundingClientRect();
+    const geo = document.getElementById('mode-toggle').getBoundingClientRect();
+    return (
+      getComputedStyle(btn).display !== 'none' &&
+      Math.abs(r.width - r.height) < 1 && // 方形
+      Math.abs(r.height - geo.height) < 1 && // 同高度
+      r.right <= geo.left + 1 // 左侧
+    );
+  });
+  await mp.tap('#tree-toggle'); // 一键呼出
   await mp.waitForTimeout(400);
-  const drawerOpen = await mp.evaluate(() => document.body.classList.contains('tree-open') && getComputedStyle(document.getElementById('tree-scrim')).visibility === 'visible');
+  const drawerShown = await mp.evaluate(() => {
+    const el = document.getElementById('people-tree');
+    const r = el.getBoundingClientRect();
+    const body = el.querySelector('.ptree-body');
+    return (
+      document.body.classList.contains('tree-open') &&
+      getComputedStyle(el).position === 'fixed' &&
+      getComputedStyle(document.getElementById('tree-scrim')).visibility === 'visible' &&
+      Math.abs(r.left) < 1 && // 左侧抽屉贴住视口左缘
+      Math.abs(r.top) < 1 &&
+      Math.abs(r.bottom - window.innerHeight) < 1 && // 全高
+      r.width <= 0.86 * window.innerWidth + 1 &&
+      body.scrollHeight > body.clientHeight // 正文独立垂直滚动（任意族群可滚到点选）
+    );
+  });
+  await mp.screenshot({ path: 'chromium/smoke-10-mobile-drawer.png' });
   await mp.fill('#ptree-filter', '哥特');
   await mp.waitForTimeout(200);
   const filtered = await mp.locator('.ptree-leaf:visible').count();
@@ -448,11 +479,11 @@ if (treeFail) {
   await mp.waitForTimeout(300);
   const selMarked = await mp.locator('.ptree-leaf.selected').count();
   const selbar = await mp.locator('.ptree-sel-count').innerText();
-  await mp.touchscreen.tap(374, 400); // 右侧露出的遮罩条收回
+  await mp.touchscreen.tap(360, 300); // 抽屉右侧露出的遮罩缩回
   await mp.waitForTimeout(400);
   const closed = await mp.evaluate(() => !document.body.classList.contains('tree-open'));
   const badge = (await mp.textContent('#tree-toggle')) ?? '';
-  const keptAfterClose = await mp.locator('.ptree-leaf.selected').count(); // 收回抽屉选中仍在
+  const keptAfterClose = await mp.locator('.ptree-leaf.selected').count(); // 缩回弹层选中仍在
   // 轻点地图区域 = 单选该区域当前主族群（与桌面同构）：面板首个族群（主）名应与选中条一致
   await mp.locator('path.region[data-code="nuts:ie"]').tap({ force: true }); // 450 年爱尔兰主族群 = 盖尔人
   await mp.waitForTimeout(400);
@@ -464,14 +495,20 @@ if (treeFail) {
   await mp.waitForTimeout(400);
   const mSelbarOff = await mp.locator('.ptree-selbar').evaluate((el) => el.hidden);
   const mBadgeOff = (await mp.textContent('#tree-toggle')) ?? '';
-  await mp.tap('#mode-toggle'); // geo 模式：按钮隐藏，仍无横向滚动
+  // 头部 ✕ 缩回：再次呼出，点抽屉头部 ✕ → 缩回
+  await mp.tap('#tree-toggle');
+  await mp.waitForTimeout(400);
+  await mp.tap('.ptree-close');
+  await mp.waitForTimeout(400);
+  const xClosed = await mp.evaluate(() => !document.body.classList.contains('tree-open'));
+  await mp.tap('#mode-toggle'); // geo 模式：呼出钮隐藏，仍无横向滚动
   await mp.waitForSelector('#boot-overlay.hidden', { timeout: 60000 });
   await mp.waitForTimeout(600);
   const geoBtnHidden = await mp.evaluate(() => getComputedStyle(document.getElementById('tree-toggle')).display === 'none');
   const geoOk = await noHScroll();
   await mp.screenshot({ path: 'chromium/smoke-10-mobile-geo.png' });
-  console.log(`mobile: no-h-scroll=${!mobileFail} drawer=${drawerOpen} filter=${filtered === 3} select=${selMarked === 1}(${selbar}) scrim-close=${closed} badge=${badge.trim()} kept=${keptAfterClose} map-tap=${mSelbar}(panel:${mPanelTop}) badge2=${mBadge.trim()} ocean-off=${mSelbarOff} badge3=${mBadgeOff.trim()} geo-btn-hidden=${geoBtnHidden} geo-no-h-scroll=${geoOk}`);
-  if (mobileFail || !drawerOpen || filtered !== 3 || selMarked !== 1 || !selbar.includes('东哥特人') || !closed || !/1/.test(badge) || keptAfterClose !== 1 || !mSelbar.includes(mPanelTop) || !/1/.test(mBadge) || !mSelbarOff || mBadgeOff.includes('1') || !geoBtnHidden || !geoOk) {
+  console.log(`mobile: no-h-scroll=${!mobileFail} btn=${btnShown} drawer=${drawerShown} filter=${filtered === 3} select=${selMarked === 1}(${selbar}) scrim-close=${closed} badge=${badge.trim()} kept=${keptAfterClose} map-tap=${mSelbar}(panel:${mPanelTop}) badge2=${mBadge.trim()} ocean-off=${mSelbarOff} badge3=${mBadgeOff.trim()} x-close=${xClosed} geo-btn-hidden=${geoBtnHidden} geo-no-h-scroll=${geoOk}`);
+  if (mobileFail || !btnShown || !drawerShown || filtered !== 3 || selMarked !== 1 || !selbar.includes('东哥特人') || !closed || !/1/.test(badge) || keptAfterClose !== 1 || !mSelbar.includes(mPanelTop) || !/1/.test(mBadge) || !mSelbarOff || mBadgeOff.includes('1') || !xClosed || !geoBtnHidden || !geoOk) {
     console.error('FAIL: 移动端抽屉/横向滚动校验未通过');
     process.exitCode = 1;
   }

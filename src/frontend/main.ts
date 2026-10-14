@@ -165,7 +165,6 @@ async function boot(): Promise<void> {
   const peopleTree = createPeopleTree(document.getElementById('people-tree')!);
   const panel = createPanel(document.getElementById('detail-panel')!);
 
-  const treeRoot = document.getElementById('people-tree')!;
   // 地图左下角固定说明：全图着色规则 + 纹理图例（仅族群分布模式）
   const mapNote = document.createElement('div');
   mapNote.className = 'map-note';
@@ -212,7 +211,8 @@ async function boot(): Promise<void> {
   // 谱系树单选：选中族群入 store（单一数据源），地图把该族群当年活动区域改涂其族群色
   peopleTree.onSelect((codes) => store.set({ peopleSel: codes }));
 
-  // 窄屏抽屉：按钮拉出，遮罩 / 头部 ✕ 收回（桌面端 CSS 隐藏按钮，树为常驻侧栏）
+  // 窄屏左侧抽屉：顶部汉堡（居「几何浏览」左侧）一键呼出，遮罩 / 头部 ✕ 手动缩回
+  // （桌面端 CSS 隐藏呼出钮，树为常驻侧栏）
   const treeBtn = document.getElementById('tree-toggle')!;
   const treeScrim = document.getElementById('tree-scrim')!;
   const setTreeOpen = (v: boolean) => document.body.classList.toggle('tree-open', v);
@@ -221,7 +221,10 @@ async function boot(): Promise<void> {
   peopleTree.onClose(() => setTreeOpen(false));
   function renderTreeBtn(lang: 'zh' | 'en'): void {
     const n = state().peopleSel.length;
-    treeBtn.textContent = `${t('treeBtn', lang)}${n > 0 ? ` · ${n}` : ''}`;
+    treeBtn.setAttribute('aria-label', `${t('treeBtn', lang)}${n > 0 ? ` · ${n}` : ''}`);
+    const badge = treeBtn.querySelector<HTMLElement>('.tree-btn-badge')!;
+    badge.textContent = n > 0 ? String(n) : '';
+    badge.hidden = n === 0;
   }
 
   function applyAtlasPaint(s: { year: number; peopleSel: string[] }): void {
@@ -430,7 +433,7 @@ async function boot(): Promise<void> {
     const geoOptsCh = modeSwitch || sourceCh || s.eraIndex !== prev.eraIndex || s.nutsLevel !== prev.nutsLevel || s.showUndated !== prev.showUndated;
 
     if (modeSwitch) {
-      setTreeOpen(false); // 切模式收回抽屉（遮罩不得盖住几何浏览）
+      setTreeOpen(false); // 切模式缩回抽屉（遮罩不得盖住几何浏览）
       treeBtn.style.display = s.mode === 'atlas' ? '' : 'none';
       mapNote.style.display = s.mode === 'atlas' ? '' : 'none';
       controlsRow.style.display = s.mode === 'geo' ? '' : 'none';
@@ -453,7 +456,7 @@ async function boot(): Promise<void> {
       }
       if (selCh) {
         peopleTree.setSelected(new Set(s.peopleSel));
-        renderTreeBtn(s.lang); // 抽屉收起时按钮徽标反馈已选数量
+        renderTreeBtn(s.lang); // 抽屉收起时呼出钮徽标反馈已选数量
       }
       if (hoverCh || yearCh || langCh || modeSwitch || selCh) {
         const vm = s.hoverCode ? (allByCode.get(s.hoverCode) ?? null) : null;

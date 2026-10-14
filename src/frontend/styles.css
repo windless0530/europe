@@ -97,9 +97,31 @@ body {
   flex-wrap: wrap; /* 窄屏不撑出横向滚动 */
 }
 
-/* 窄屏族群抽屉拉出钮（≤900px 显示；geo 模式由 main.ts 内联隐藏） */
-#tree-toggle {
+/* 窄屏谱系树呼出钮（顶部汉堡，居「几何浏览」左侧；≤900px 显示，geo 模式由 main.ts
+   内联隐藏）。桌面端树为常驻侧栏，此钮与徽标一并隐藏 */
+.tree-btn {
   display: none;
+  position: relative; /* 徽标定位锚 */
+  align-items: center;
+  justify-content: center;
+}
+
+/* 已选族群数徽标（选中 = 恰 1 个；outline 用按钮底色与图标分隔） */
+.tree-btn-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--series-blue);
+  color: #fff;
+  font-size: 10.5px;
+  line-height: 17px;
+  font-weight: 600;
+  text-align: center;
+  outline: 2px solid var(--surface-1);
 }
 
 /* 抽屉遮罩（窄屏专用；桌面端恒不显示，body.tree-open 残留也无害） */
@@ -891,38 +913,46 @@ body {
   .app-main {
     flex-direction: column;
   }
-  #tree-toggle {
+  .tree-btn {
     display: inline-flex;
+    align-self: stretch; /* 与同行「几何浏览」等高 */
+    /* 方形：宽 = 行高(1.5em) + 纵向 padding(12px) + 边框(2px)，恰等于 .btn 的自然高
+       （aspect-ratio 在 wrap 多行 flex 里不把拉伸高转移到宽，须显式等宽） */
+    width: calc(1.5em + 14px);
+    padding: 6px 0;
   }
 
-  /* 族群树抽屉化：左侧滑入面板，按钮拉出、遮罩/✕ 收回（geo 模式由内联 display:none 隐藏） */
+  /* 族群树左侧抽屉化：顶部汉堡一键呼出，遮罩 / 头部 ✕ 手动缩回（geo 模式由 main.ts
+     内联隐藏呼出钮）。骨架纵向排布：头部+过滤+开关常驻，正文独占滚动——树有独立
+     滚动条，任何族群都可滚到点选，且不带动页面、不滚走搜索框 */
   .people-tree {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
-    width: min(86vw, 340px);
+    width: min(86vw, 320px);
+    height: auto;
     z-index: 40;
-    border-radius: 0 12px 12px 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 12px 10px calc(12px + env(safe-area-inset-bottom, 0px));
+    border-radius: 0 10px 10px 0;
     box-shadow: var(--shadow);
     transform: translateX(-103%);
-    transition: transform 0.25s ease;
-    overscroll-behavior: contain; /* 树内滚动不带动页面 */
+    transition: transform 0.28s ease;
   }
   body.tree-open .people-tree {
     transform: translateX(0);
   }
+  .ptree-body {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
   .ptree-close {
     display: inline-flex;
-  }
-  .ptree-head {
-    /* 树内滚动时头部（含 ✕）吸顶，收起入口始终可达 */
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    margin: 0;
-    padding: 12px 14px 6px;
-    background: var(--surface-1);
   }
   #ptree-filter {
     font-size: 16px; /* ≥16px：iOS 聚焦输入框不触发页面自动放大 */
@@ -935,14 +965,14 @@ body {
     background: rgba(11, 11, 11, 0.45);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.25s ease, visibility 0.25s;
+    transition: opacity 0.28s ease, visibility 0.28s;
   }
   body.tree-open .tree-scrim {
     opacity: 1;
     visibility: visible;
   }
   body.tree-open {
-    overflow: hidden; /* 抽屉打开时锁住底层页面滚动 */
+    overflow: hidden; /* 弹层打开时锁住底层页面滚动 */
   }
 
   /* 时间轴两行布局：年份+播放一行，滑杆独占一行——刻度串的最小内容宽 ~160px，
@@ -959,7 +989,9 @@ body {
     flex-basis: 100%;
     min-width: 0;
   }
-  .map-note {
+  /* 图例宽度让出滚动条位。带容器选择器提权：基础 .map-note 规则在文件更后方，
+     同特异性会被其 340px 反杀（窄屏覆盖失效的隐性 bug） */
+  .map-wrap .map-note {
     max-width: calc(100% - 20px);
   }
   .map-wrap {
