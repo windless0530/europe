@@ -49,6 +49,20 @@ body {
   height: 100%;
 }
 
+/* 横向滚动禁用（iOS 触屏横滑 / 横向滚动条不应出现）。
+   关键事实：iOS WebKit 对 html/body 上的 overflow-x:hidden 有长年 bug——主文档
+   仍可触摸横滑揭出溢出内容；iOS 真正遵守的是「非根元素的裁剪」。因此执行层在
+   下方 #app 的 overflow-x:clip，根元素这组只是纵深防御 */
+html {
+  overflow-x: hidden;
+  overflow-x: clip;
+  /* iOS：横向橡皮筋回弹也视作「能左右滑」，一并禁掉（iOS 16+ 生效） */
+  overscroll-behavior-x: none;
+  /* iOS 文本自动放大可能把不换行的行撑出视口，显式关掉（继承全树） */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
   background: var(--page);
@@ -66,6 +80,12 @@ body {
   margin: 0 auto;
   padding: 12px 16px;
   gap: 10px;
+  /* 横向硬裁剪（执行层）：页面全部内容都在 #app 内，宽度永不超出视口——iOS 不认
+     html/body 根元素 overflow，但认非根元素裁剪。clip 不建滚动容器；overflow-y
+     留 visible 与 clip 合法共存，#app 不变成纵向滚动层，垂直滚动仍归视点。
+     抽屉/遮罩/启动层/tooltip 均 position:fixed（含块=视口），不受此裁剪影响 */
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 /* ---------- 顶部 ---------- */
@@ -221,6 +241,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap; /* 窄屏（geo 模式下拉+开关两件套）不撑出横向溢出 */
 }
 
 .filters label {
@@ -899,11 +920,6 @@ body {
 /* ---------- 窄屏 ---------- */
 
 @media (max-width: 900px) {
-  html,
-  body {
-    /* 宽度始终恰好铺满视口：换行修复已消除溢出源，此处兜底拒绝任何残余横向滚动 */
-    overflow-x: clip;
-  }
   #app {
     /* 内容自然撑高、页面允许垂直滚动：详情面板内容增减不再挤压地图 */
     height: auto;

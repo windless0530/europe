@@ -440,7 +440,7 @@ if (treeFail) {
   await mp.waitForSelector('#boot-overlay.hidden', { timeout: 120000 });
   await mp.waitForSelector('path.region:visible', { timeout: 60000 });
   await mp.waitForTimeout(600);
-  const noHScroll = () => mp.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 0.5);
+  const noHScroll = () => mp.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth); // 严格相等：横向一像素都不许滚
   let mobileFail = !(await noHScroll());
   // 顶部汉堡：可见、方形、与「几何浏览」等高、居其左侧
   const btnShown = await mp.evaluate(() => {
