@@ -131,6 +131,125 @@ await page.screenshot({ path: 'chromium/smoke-4c-tree-active-only.png' });
 await page.locator('#ptree-show-inactive').check(); // 恢复
 await page.waitForTimeout(300);
 
+// ---- 谱系树过滤：拼音全拼 / 首字母 / 无匹配 / 清空恢复（纯内存，纳入零网络验证） ----
+const visibleLeafNames = () =>
+  page.locator('.ptree-leaf:visible').evaluateAll((els) => els.map((el) => el.querySelector('.ptree-leaf-name').textContent));
+const allLeavesBeforeFilter = await page.locator('.ptree-leaf').count();
+// 过滤会自动展开命中分支且清空后保持展开，恢复基线取“过滤前可见数”，上限为全部叶数
+const visibleBeforeFilter = (await visibleLeafNames()).length;
+requestGateOpen = true;
+await page.fill('#ptree-filter', 'dong'); // 全拼命中：哥特系 + 罗斯（东斯拉夫）等
+await page.waitForTimeout(200);
+const dongNames = await visibleLeafNames();
+await page.fill('#ptree-filter', 'dgt'); // 首字母命中：仅东哥特人
+await page.waitForTimeout(200);
+const dgtNames = await visibleLeafNames();
+await page.fill('#ptree-filter', 'zzzz'); // 无匹配
+await page.waitForTimeout(200);
+const noneNames = await visibleLeafNames();
+const noneRowShown = await page.locator('.ptree-nomatch:visible').count();
+await page.fill('#ptree-filter', ''); // 清空恢复
+await page.waitForTimeout(200);
+const restoredCount = (await visibleLeafNames()).length;
+requestGateOpen = false;
+const dongOk =
+  dongNames.length > 0 && dongNames.length <= 8 &&
+  ['哥特人', '东哥特人', '西哥特人'].every((nm) => dongNames.includes(nm));
+const filterOk =
+  dongOk && dgtNames.join() === '东哥特人' && noneNames.length === 0 && noneRowShown === 1 &&
+  restoredCount >= visibleBeforeFilter && restoredCount <= allLeavesBeforeFilter;
+console.log(`tree-filter: dong=[${dongNames.join(',')}] dgt=[${dgtNames.join()}] none=${noneNames.length}(+row=${noneRowShown}) restored=${restoredCount}/${allLeavesBeforeFilter}`);
+if (!filterOk) {
+  console.error('FAIL: 谱系树过滤（拼音全拼/首字母/无匹配/恢复）不符预期');
+  treeFail = true;
+}
+
+// ---- 谱系树单选：800 年选盖尔人（主流层被爱尔兰人 pr70 / 皮克特人 pr65 盖住）→
+//      爱尔兰/苏格兰改涂盖尔橙、其余区域压暗（选中 = 持久聚焦，移出树不恢复全亮）；
+//      点选地图区域 = 单选该区域当前主族群（同区再点取消）；同叶再点 / 清除钮恢复 ----
+// （色值字面量与 src/frontend/people-colors.ts 的 gaels/irish/picts 浅色配色须同步改）
+requestGateOpen = true;
+const hexToRgb = (hex) => {
+  const n = parseInt(hex.slice(1), 16);
+  return `rgb(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255})`;
+};
+const GAELS = hexToRgb('#f7a600'), IRISH = hexToRgb('#9bc68e'), PICTS = hexToRgb('#002baf');
+const fillOf = (code) => page.locator(`path.region[data-code="${code}"]`).evaluate((el) => el.style.fill);
+const opacityOf = (code) => page.locator(`path.region[data-code="${code}"]`).evaluate((el) => el.style.fillOpacity || '');
+const IE = 'nuts:ie', SCO = 'nuts:gbr_3_1', BG = 'nuts:bg'; // bg = 保加利亚（800 主流保加利亚人，非盖尔活动区，压暗探针）
+await page.locator('#tl-range').fill('800');
+await page.waitForTimeout(400);
+const ieMain = await fillOf(IE); // 800 主流：爱尔兰人（700 起 pr70 盖过盖尔人）
+const scoMain = await fillOf(SCO); // 800 主流：皮克特人（200–843 pr65）
+const bgLit0 = await opacityOf(BG); // 未选：全亮
+const gaelsLeaf = page.locator('.ptree-leaf:visible', { hasText: '盖尔人' }).first();
+await gaelsLeaf.click(); // 单选盖尔人
+await page.mouse.move(720, 50); // 移出树：选中 = 持久聚焦，压暗不随悬停解除
+await page.waitForTimeout(300);
+const ieSel = await fillOf(IE);
+const scoSel = await fillOf(SCO);
+const ieDimSel = await opacityOf(IE); // ''：选中族群覆盖的几何保持点亮
+const bgDimSel = await opacityOf(BG); // 0.25：其余区域压暗
+const selMarked = await page.locator('.ptree-leaf.selected').count();
+const selbarText = await page.locator('.ptree-sel-count').innerText();
+await page.screenshot({ path: 'chromium/smoke-4d-tree-select-gaels-800.png' });
+// 点选地图区域：苏格兰 800 主流 = 皮克特人 → 单选切到皮克特人，爱尔兰失去盖尔覆盖回主流绿
+await page.locator('path.region[data-code="nuts:gbr_3_1"]').click();
+await page.waitForTimeout(300);
+const ieClick = await fillOf(IE);
+const scoClick = await fillOf(SCO);
+const selbarClick = await page.locator('.ptree-sel-count').innerText();
+const bgDimClick = await opacityOf(BG); // 仍压暗（皮克特人聚焦）
+const panelSelBlocks = await page.locator('#detail-panel .people-block.selected').count(); // 面板恒为该区域族群，选中行加标记
+await page.waitForTimeout(650); // 拉开间隔避免双击缩放
+await page.locator('path.region[data-code="nuts:gbr_3_1"]').click(); // 同区再点：取消选择 → 恢复全亮
+await page.waitForTimeout(300);
+const selbarOff = await page.locator('.ptree-selbar').evaluate((el) => el.hidden);
+const bgLitOff = await opacityOf(BG);
+const ieOff2 = await fillOf(IE);
+// 点语族以外的空白（地图左上角大西洋海域）= 取消选中：恢复全亮、回主流色
+await gaelsLeaf.click();
+await page.waitForTimeout(300);
+await page.locator('#map-wrap > svg').click({ position: { x: 15, y: 15 } });
+await page.waitForTimeout(300);
+const selbarOcean = await page.locator('.ptree-selbar').evaluate((el) => el.hidden);
+const bgLitOcean = await opacityOf(BG);
+const ieOcean = await fillOf(IE);
+await gaelsLeaf.click(); // 回到树内路径：年份保持与清除钮
+await page.locator('#tl-range').fill('2000'); // 盖尔人活动期（-100..1500）外：选中保持，地图回主流色
+await page.waitForTimeout(400);
+const keptAfterYear = await page.locator('.ptree-leaf.selected').count();
+const ie2000 = await fillOf(IE);
+await page.locator('#tl-range').fill('800'); // 拖回活动年份：覆盖层重新生效
+await page.waitForTimeout(400);
+const ie800sel = await fillOf(IE);
+await gaelsLeaf.click(); // 同叶再点：取消选择
+await page.waitForTimeout(300);
+const ieOff = await fillOf(IE);
+await gaelsLeaf.click(); // 再选后用清除钮恢复
+await page.mouse.move(720, 50);
+await page.waitForTimeout(300);
+await page.click('.ptree-sel-clear');
+await page.waitForTimeout(300);
+const ieCleared = await fillOf(IE);
+const selbarGone = await page.locator('.ptree-selbar').evaluate((el) => el.hidden);
+requestGateOpen = false;
+const selOk =
+  ieMain === IRISH && scoMain === PICTS && bgLit0 === '' && // 主流层：irish / picts，未选全亮
+  ieSel === GAELS && scoSel === GAELS && ieDimSel === '' && bgDimSel === '0.25' && // 改涂 + 持久压暗
+  selMarked === 1 && selbarText.includes('盖尔人') &&
+  ieClick === IRISH && scoClick === PICTS && selbarClick.includes('皮克特人') && bgDimClick === '0.25' &&
+  panelSelBlocks === 1 && // 点选区域 = 选其主族群；面板选中行标记
+  selbarOff && bgLitOff === '' && ieOff2 === ieMain && // 同区再点取消 → 全亮回主流
+  selbarOcean && bgLitOcean === '' && ieOcean === ieMain && // 点空白取消选中 → 全亮回主流
+  keptAfterYear === 1 && ie2000 === ieMain && // 年份拖动选中保持，活动窗外回主流
+  ie800sel === GAELS && ieOff === ieMain && ieCleared === ieMain && selbarGone;
+console.log(`tree-select: ie ${ieMain}->${ieSel}->click:${ieClick}->off:${ieOff}; sco ${scoMain}->${scoSel}->click:${scoClick}; dim ${bgLit0}->'${bgDimSel}'->off:'${bgLitOff}'; marked=${selMarked}(${selbarText}) mapclick=${selbarClick} panel-sel=${panelSelBlocks} ocean-off=${selbarOcean} year-kept=${keptAfterYear} cleared=${ieCleared} selbar-gone=${selbarGone}`);
+if (!selOk) {
+  console.error('FAIL: 谱系树单选改涂/持久聚焦/地图点选/取消清除不符预期');
+  treeFail = true;
+}
+
 // ---- 740 年中欧+瑞士/科索沃上色断言（覆盖补丁回归；德国已细分，改查 L2 单元） ----
 await page.locator('#tl-range').fill('740');
 await page.waitForTimeout(400);
@@ -303,5 +422,59 @@ if (requestCount > 0) {
 if (treeFail) {
   console.error('FAIL: 族群谱系树校验未通过');
   process.exitCode = 1;
+}
+
+// ---- 移动端（390×844 触屏）：无横向滚动 + 族群抽屉（拉出/过滤/单选/收回/徽标） ----
+{
+  const mctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
+  const mp = await mctx.newPage();
+  mp.on('console', (m) => {
+    if (m.type() === 'error') errors.push('mobile: ' + m.text());
+  });
+  mp.on('pageerror', (e) => errors.push('mobile: ' + e));
+  await mp.goto(BASE, { waitUntil: 'load' });
+  await mp.waitForSelector('#boot-overlay.hidden', { timeout: 120000 });
+  await mp.waitForSelector('path.region:visible', { timeout: 60000 });
+  await mp.waitForTimeout(600);
+  const noHScroll = () => mp.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 0.5);
+  let mobileFail = !(await noHScroll());
+  await mp.tap('#tree-toggle');
+  await mp.waitForTimeout(400);
+  const drawerOpen = await mp.evaluate(() => document.body.classList.contains('tree-open') && getComputedStyle(document.getElementById('tree-scrim')).visibility === 'visible');
+  await mp.fill('#ptree-filter', '哥特');
+  await mp.waitForTimeout(200);
+  const filtered = await mp.locator('.ptree-leaf:visible').count();
+  await mp.locator('.ptree-leaf:visible', { hasText: '东哥特人' }).first().tap(); // 单选
+  await mp.waitForTimeout(300);
+  const selMarked = await mp.locator('.ptree-leaf.selected').count();
+  const selbar = await mp.locator('.ptree-sel-count').innerText();
+  await mp.touchscreen.tap(374, 400); // 右侧露出的遮罩条收回
+  await mp.waitForTimeout(400);
+  const closed = await mp.evaluate(() => !document.body.classList.contains('tree-open'));
+  const badge = (await mp.textContent('#tree-toggle')) ?? '';
+  const keptAfterClose = await mp.locator('.ptree-leaf.selected').count(); // 收回抽屉选中仍在
+  // 轻点地图区域 = 单选该区域当前主族群（与桌面同构）：面板首个族群（主）名应与选中条一致
+  await mp.locator('path.region[data-code="nuts:ie"]').tap({ force: true }); // 450 年爱尔兰主族群 = 盖尔人
+  await mp.waitForTimeout(400);
+  const mPanelTop = await mp.locator('#detail-panel .people-block .people-head strong').first().innerText();
+  const mSelbar = await mp.locator('.ptree-sel-count').innerText();
+  const mBadge = (await mp.textContent('#tree-toggle')) ?? '';
+  // 轻点语族以外的空白（地图左上角海域）= 取消选中（与桌面点空白同构）
+  await mp.locator('#map-wrap > svg').tap({ position: { x: 15, y: 15 }, force: true });
+  await mp.waitForTimeout(400);
+  const mSelbarOff = await mp.locator('.ptree-selbar').evaluate((el) => el.hidden);
+  const mBadgeOff = (await mp.textContent('#tree-toggle')) ?? '';
+  await mp.tap('#mode-toggle'); // geo 模式：按钮隐藏，仍无横向滚动
+  await mp.waitForSelector('#boot-overlay.hidden', { timeout: 60000 });
+  await mp.waitForTimeout(600);
+  const geoBtnHidden = await mp.evaluate(() => getComputedStyle(document.getElementById('tree-toggle')).display === 'none');
+  const geoOk = await noHScroll();
+  await mp.screenshot({ path: 'chromium/smoke-10-mobile-geo.png' });
+  console.log(`mobile: no-h-scroll=${!mobileFail} drawer=${drawerOpen} filter=${filtered === 3} select=${selMarked === 1}(${selbar}) scrim-close=${closed} badge=${badge.trim()} kept=${keptAfterClose} map-tap=${mSelbar}(panel:${mPanelTop}) badge2=${mBadge.trim()} ocean-off=${mSelbarOff} badge3=${mBadgeOff.trim()} geo-btn-hidden=${geoBtnHidden} geo-no-h-scroll=${geoOk}`);
+  if (mobileFail || !drawerOpen || filtered !== 3 || selMarked !== 1 || !selbar.includes('东哥特人') || !closed || !/1/.test(badge) || keptAfterClose !== 1 || !mSelbar.includes(mPanelTop) || !/1/.test(mBadge) || !mSelbarOff || mBadgeOff.includes('1') || !geoBtnHidden || !geoOk) {
+    console.error('FAIL: 移动端抽屉/横向滚动校验未通过');
+    process.exitCode = 1;
+  }
+  await mctx.close();
 }
 await browser.close();

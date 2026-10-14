@@ -20,6 +20,8 @@ export interface AppState {
   showUndated: boolean;
   /** 族群谱系树：是否显示当年未点亮（未活动）的族群 */
   showInactive: boolean;
+  /** 谱系树单选族群（空 = 未选；单元素 = 已选，地图将该族群当年活动区域改涂其族群色） */
+  peopleSel: string[];
   /** hover 中的 region_code */
   hoverCode: string | null;
 }

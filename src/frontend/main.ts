@@ -24,7 +24,7 @@ import {
   type RegionVm,
   type SourceView,
 } from './load';
-import { buildAtlasModel, caveatActive, CAVEAT, CAVEAT_KINDS, type AtlasData, type AtlasModel, type CaveatKind } from './atlas';
+import { buildAtlasModel, caveatActive, CAVEAT, CAVEAT_KINDS, type AtlasData, type AtlasModel, type CaveatKind, type PresenceRow } from './atlas';
 import { createPeopleTree } from './people-tree';
 import { getCookie, setCookie } from './cookies';
 import { createStore, type Mode } from './state';
@@ -108,6 +108,7 @@ async function boot(): Promise<void> {
     nutsLevel: 2,
     showUndated: false,
     showInactive: getCookie(COOKIE_SHOW_INACTIVE) !== '0',
+    peopleSel: [],
     hoverCode: null,
   });
   const state = () => store.get();
@@ -120,17 +121,32 @@ async function boot(): Promise<void> {
         return { name: (s.lang === 'zh' ? vm.nameZh : vm.nameEn) ?? vm.nameEn ?? vm.code, meta: t('unlinkedGeometry', s.lang) };
       }
       const region = model.regionByCode.get(rf.regionCode);
-      const topName = rf.state
-        ? ((s.lang === 'zh' ? rf.state.top.people.name_zh : rf.state.top.people.name_en) ?? rf.state.top.people.name_en)
-        : null;
-      // 当年有标注时在 tooltip 末尾提示（详情见右侧面板）
-      const cav = rf.state?.rows.filter((r) => caveatActive(r, s.year)) ?? [];
+      // 提示条显示的族群：选中族群覆盖此几何时显示它（与改涂一致），否则主族群——
+      // 两者都是该区域自己的族群行，选中不改变悬停信息的归属
+      const sel = s.peopleSel.length === 1 ? s.peopleSel[0]! : null;
+      let row: PresenceRow | null = rf.state?.top ?? null;
+      if (sel !== null && rf.state !== null && model.peopleOverlayAt(sel, s.year).paint.has(vm.code)) {
+        const states = model.regionsAt(s.year);
+        for (const rc of model.geometryToRegions.get(vm.code) ?? []) {
+          const hit = states.get(rc)?.rows.find((r) => r.people_code === sel);
+          if (hit) {
+            row = hit;
+            break;
+          }
+        }
+      }
+      const topName = row !== null ? ((s.lang === 'zh' ? row.people.name_zh : row.people.name_en) ?? row.people.name_en) : null;
+      // 当年有标注时在 tooltip 末尾提示（详情见右侧面板）；显示选中族群行时标注与其纹理同源
+      const rowSel = row !== null && row.people_code === sel;
+      const cav = rowSel
+        ? caveatActive(row!, s.year) ? [row!] : []
+        : rf.state?.rows.filter((r) => caveatActive(r, s.year)) ?? [];
       const cavKind: CaveatKind | null = cav.length === 0 ? null : cav.some((r) => r.caveat_kind === CAVEAT.disputed) ? CAVEAT.disputed : CAVEAT.method;
       const cavHint = cavKind === null ? '' : ` · ${t(CAVEAT_HINT_KEYS[cavKind], s.lang)}`;
       return {
         name: ((s.lang === 'zh' ? region?.name_zh : region?.name_en) ?? region?.name_en) ?? rf.regionCode,
         meta: topName
-          ? `${topName} · ${model.enumLabel(ENUM_DEF.presenceType, rf.state!.top.presence, s.lang)}${cavHint}`
+          ? `${topName} · ${model.enumLabel(ENUM_DEF.presenceType, row!.presence, s.lang)}${cavHint}`
           : t('noRegionData', s.lang),
       };
     }
@@ -182,7 +198,8 @@ async function boot(): Promise<void> {
   }
   const controlsRow = document.getElementById('controls-row')!;
 
-  // 图例树聚焦：悬停谱系树叶 -> 地图只亮该族群的活动区域，其余压暗（内存操作）
+  // 图例树聚焦：悬停谱系树叶 -> 地图只亮该族群当年活动的区域，其余压暗（内存操作）；
+  // 已有单选族群时让位——选中即持久聚焦（见 applyAtlasPaint）
   let legendFocus: string | null = null;
   peopleTree.onHighlight((code) => {
     legendFocus = code;
@@ -192,27 +209,60 @@ async function boot(): Promise<void> {
     store.set({ showInactive: v });
     setCookie(COOKIE_SHOW_INACTIVE, v ? '1' : '0');
   });
+  // 谱系树单选：选中族群入 store（单一数据源），地图把该族群当年活动区域改涂其族群色
+  peopleTree.onSelect((codes) => store.set({ peopleSel: codes }));
 
-  function applyAtlasPaint(s: { year: number }): void {
+  // 窄屏抽屉：按钮拉出，遮罩 / 头部 ✕ 收回（桌面端 CSS 隐藏按钮，树为常驻侧栏）
+  const treeBtn = document.getElementById('tree-toggle')!;
+  const treeScrim = document.getElementById('tree-scrim')!;
+  const setTreeOpen = (v: boolean) => document.body.classList.toggle('tree-open', v);
+  treeBtn.addEventListener('click', () => setTreeOpen(true));
+  treeScrim.addEventListener('click', () => setTreeOpen(false));
+  peopleTree.onClose(() => setTreeOpen(false));
+  function renderTreeBtn(lang: 'zh' | 'en'): void {
+    const n = state().peopleSel.length;
+    treeBtn.textContent = `${t('treeBtn', lang)}${n > 0 ? ` · ${n}` : ''}`;
+  }
+
+  function applyAtlasPaint(s: { year: number; peopleSel: string[] }): void {
     const paint = model.paintAt(s.year);
-    // geometry -> 当年主族群（用于图例聚焦压暗）
+    // 谱系树单选族群的覆盖层：其当年活动切片覆盖的几何改涂该族群固定色（未选 = 主流着色）
+    const selCode = s.peopleSel.length === 1 ? s.peopleSel[0]! : null;
+    const overlay = selCode !== null ? model.peopleOverlayAt(selCode, s.year) : null;
+    // geometry -> 当年主族群（聚焦压暗判定）
     const geomPeople = new Map<string, string>();
     for (const [regionCode, st] of model.regionsAt(s.year)) {
       for (const g of model.regionGeometry.get(regionCode) ?? []) geomPeople.set(g, st.top.people_code);
     }
+    // 点亮规则：单选族群 = 持久聚焦——其当年活动的几何点亮、其余压暗，移出谱系树不恢复全亮，
+    // 取消选中才恢复；未选中时悬停谱系树叶临时聚焦。聚焦点亮含被更高优先级盖住、主族群
+    // 并非它的区域（与单选改涂同一视角：盖尔人在 800 年的爱尔兰也属其活动区）
+    const focusCode = selCode ?? legendFocus;
+    const focusPaint =
+      focusCode === null ? null : focusCode === selCode ? overlay!.paint : model.peopleOverlayAt(focusCode, s.year).paint;
+    const lit = (code: string): boolean =>
+      focusCode === null || geomPeople.get(code) === focusCode || focusPaint?.has(code) === true;
     const contextFill = modePalette().contextFill;
     const entries: Array<[string, { fill: string; visible: boolean; dim: boolean }]> = atlasFeatures.map((vm) => [
       vm.code,
       {
-        fill: paint.get(vm.code) ?? contextFill,
+        fill: overlay?.paint.get(vm.code) ?? paint.get(vm.code) ?? contextFill,
         visible: model.geometryLive(vm.code, s.year),
-        dim: legendFocus !== null && (geomPeople.get(vm.code) ?? null) !== legendFocus,
+        dim: !lit(vm.code),
       },
     ]);
     map.applyStyles(entries);
-    // 标注纹理：图例聚焦压暗的区域不叠纹理，避免干扰聚焦
+    // 标注纹理：压暗的区域不叠纹理，避免干扰聚焦；被覆盖几何改用所选族群自身标注
+    // （涂色与纹理同源），其余几何保持主流层标注
     const caveats = model.caveatAt(s.year);
-    if (legendFocus !== null) for (const [code, st] of entries) if (st.dim) caveats.delete(code);
+    for (const [code, st] of entries) {
+      if (st.dim) caveats.delete(code);
+      else if (overlay?.paint.has(code)) {
+        const kind = overlay.caveats.get(code);
+        if (kind !== undefined) caveats.set(code, kind);
+        else caveats.delete(code);
+      }
+    }
     map.applyCaveats(caveats);
   }
 
@@ -278,6 +328,7 @@ async function boot(): Promise<void> {
     const other = state().mode === 'atlas' ? 'modeGeo' : 'modeAtlas';
     modeBtn.textContent = t(other, lang as 'zh' | 'en');
     timeline.setLang(); // 播放按钮 / 单一版本提示 / 年份标签随语言刷新
+    renderTreeBtn(lang as 'zh' | 'en');
   }
 
   function renderSourceSeg(lang: string): void {
@@ -329,6 +380,20 @@ async function boot(): Promise<void> {
     store.set({ hoverCode: vm ? vm.code : null });
   });
 
+  // 点选区域 = 单选该区域当前主族群（与谱系树点叶同一入口：同区再点取消）；点在语族
+  // 区域以外（海洋/空白）或无族群数据的区域 = 取消当前选中。鼠标单击与触屏轻点同构
+  // （map.ts 已过滤拖动平移）
+  map.onClick(({ vm }) => {
+    const s = state();
+    if (s.mode !== 'atlas') return;
+    const top = (vm !== null ? model.regionFor(vm.code, s.year)?.state?.top : null) ?? null;
+    if (top === null) {
+      if (s.peopleSel.length > 0) store.set({ peopleSel: [] });
+      return;
+    }
+    store.set({ peopleSel: s.peopleSel[0] === top.people_code ? [] : [top.people_code] });
+  });
+
   // resize 防抖：全量重投影开销大，拖动窗口期间不逐事件重算；就地在既有节点上更新 d，
   // 不重建 DOM/监听器。标注纹理层复制几何节点的 d，重投影后由 applyAtlasPaint 重建
   let resizeTimer = 0;
@@ -346,7 +411,7 @@ async function boot(): Promise<void> {
     if (mapMode === 'atlas') {
       map.setGeometry(atlasFeatures);
       applyAtlasPaint(state());
-      peopleTree.render(model, state().year, state().lang, state().showInactive);
+      peopleTree.render(model, state().year, state().lang, state().showInactive, new Set(state().peopleSel));
     } else if (view) {
       map.refreshColors(view);
       controls.render(view, opts(), state().lang);
@@ -360,11 +425,13 @@ async function boot(): Promise<void> {
     const langCh = s.lang !== prev.lang;
     const yearCh = s.year !== prev.year;
     const hoverCh = s.hoverCode !== prev.hoverCode;
+    const selCh = s.peopleSel !== prev.peopleSel;
     const sourceCh = s.source !== prev.source;
     const geoOptsCh = modeSwitch || sourceCh || s.eraIndex !== prev.eraIndex || s.nutsLevel !== prev.nutsLevel || s.showUndated !== prev.showUndated;
 
     if (modeSwitch) {
-      treeRoot.style.display = s.mode === 'atlas' ? '' : 'none';
+      setTreeOpen(false); // 切模式收回抽屉（遮罩不得盖住几何浏览）
+      treeBtn.style.display = s.mode === 'atlas' ? '' : 'none';
       mapNote.style.display = s.mode === 'atlas' ? '' : 'none';
       controlsRow.style.display = s.mode === 'geo' ? '' : 'none';
     }
@@ -374,7 +441,7 @@ async function boot(): Promise<void> {
         mapMode = 'atlas';
         map.setGeometry(atlasFeatures);
       }
-      if (yearCh || modeSwitch) applyAtlasPaint(s);
+      if (yearCh || modeSwitch || selCh) applyAtlasPaint(s);
       if (tlKind !== 'continuous') {
         tlKind = 'continuous';
         timeline.buildContinuous(model.yearRange, s.year);
@@ -382,11 +449,15 @@ async function boot(): Promise<void> {
         timeline.update(s.year);
       }
       if (yearCh || langCh || modeSwitch || s.showInactive !== prev.showInactive) {
-        peopleTree.render(model, s.year, s.lang, s.showInactive);
+        peopleTree.render(model, s.year, s.lang, s.showInactive, new Set(s.peopleSel));
       }
-      if (hoverCh || yearCh || langCh || modeSwitch) {
+      if (selCh) {
+        peopleTree.setSelected(new Set(s.peopleSel));
+        renderTreeBtn(s.lang); // 抽屉收起时按钮徽标反馈已选数量
+      }
+      if (hoverCh || yearCh || langCh || modeSwitch || selCh) {
         const vm = s.hoverCode ? (allByCode.get(s.hoverCode) ?? null) : null;
-        panel.showAtlas(vm, model, s.year, s.lang);
+        panel.showAtlas(vm, model, s.year, s.lang, s.peopleSel[0] ?? null);
       }
     } else {
       const entering = mapMode !== 'geo';

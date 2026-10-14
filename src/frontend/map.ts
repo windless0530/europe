@@ -39,6 +39,9 @@ export interface MapApi {
   applyCaveats(entries: ReadonlyMap<string, CaveatKind>): void;
   setHover(code: string | null): void;
   onHover(cb: (e: HoverEvent) => void): void;
+  /** 点选区域（鼠标单击 / 触屏轻点同构；拖动平移后的 click 不触发）：调用方据此单选该区域主族群；
+   *  vm = null 表示点在语族区域以外（海洋/地图空白），调用方据此取消当前选中 */
+  onClick(cb: (e: { vm: RegionVm | null }) => void): void;
   /** 重投影当前几何：复用既有节点就地更新 d（不重建 DOM/监听器），调用方负责重着色叠加层 */
   resize(): void;
 }
@@ -139,6 +142,7 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
   tooltip.html('<div class="tt-name"></div><div class="tt-meta"></div>');
   const nodesByCode = new Map<string, SVGPathElement>();
   let hoverCb: ((e: HoverEvent) => void) | null = null;
+  let clickCb: ((e: { vm: RegionVm | null }) => void) | null = null;
   let hovered: string | null = null;
   // hover 描边覆盖层：复制几何 d 而不重排 path 节点——
   // appendChild 提升被悬停节点会让 Chromium 丢失其 hover 追踪，pointerleave 不再派发。
@@ -235,6 +239,21 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
     showTooltip(null, null);
   });
 
+  // 点选空白（非 path.region 目标）：以 vm=null 上报，调用方据此取消选中。区域上的 click
+  // 由 path 节点自己的监听器处理（冒泡到此被 closest 跳过，不重复上报）；拖动平移后的
+  // click 已被 d3-zoom 抑制，此处再按 pointerdown 锚点位移兜底（与区域点选同一阈值）
+  let bgDownX = 0;
+  let bgDownY = 0;
+  svg.node()!.addEventListener('pointerdown', (evt) => {
+    bgDownX = evt.clientX;
+    bgDownY = evt.clientY;
+  });
+  svg.node()!.addEventListener('click', (evt) => {
+    if ((evt.target as Element).closest('path.region')) return;
+    if (Math.hypot(evt.clientX - bgDownX, evt.clientY - bgDownY) > TAP_SLOP) return;
+    clickCb?.({ vm: null });
+  });
+
   function bindHover(pathNode: SVGPathElement, vm: RegionVm): void {
     let downX = 0;
     let downY = 0;
@@ -264,6 +283,19 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
       if ((evt as PointerEvent).pointerType === 'touch' && !dragged) return;
       hoverCb?.({ vm: null, x: 0, y: 0 });
       showTooltip(null, null);
+    });
+    pathNode.addEventListener('pointerdown', (evt) => {
+      // 鼠标按下锚点（click 判拖动用）；触屏已在 pointerenter 记录
+      if ((evt as PointerEvent).pointerType !== 'touch') {
+        downX = evt.clientX;
+        downY = evt.clientY;
+        dragged = false;
+      }
+    });
+    pathNode.addEventListener('click', (evt) => {
+      // 点选区域：触屏拖动（dragged）与拖动平移后的 click（位移超阈值）都不算点选
+      if (dragged || Math.hypot(evt.clientX - downX, evt.clientY - downY) > TAP_SLOP) return;
+      clickCb?.({ vm });
     });
   }
 
@@ -409,6 +441,10 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
 
     onHover(cb) {
       hoverCb = cb;
+    },
+
+    onClick(cb) {
+      clickCb = cb;
     },
 
     resize() {

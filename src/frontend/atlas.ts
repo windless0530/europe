@@ -31,6 +31,9 @@ export interface AtlasPeople extends AtlasTrItem {
   religions: Array<{ code: string; name_en: string | null; name_zh: string | null; role: string; sy: number | null; ey: number | null }>;
   classifications: Array<{ taxonomy: string; node: string; name_en: string | null; name_zh: string | null; relation: ClassificationRelation }>;
   relations: Array<{ rel: string; direction: 'out' | 'in'; other_code: string; other_name_en: string | null; other_name_zh: string | null; notes: string | null }>;
+  /** 检索键（投影期生成）：全拼小写空格分隔 / 首字母串；无汉字为 null */
+  name_py: string | null;
+  name_py_abbr: string | null;
 }
 
 export interface AtlasPeopleRegion {
@@ -88,6 +91,9 @@ export interface AtlasTaxonomyNode {
   sort: number;
   name_en: string | null;
   name_zh: string | null;
+  /** 检索键（投影期生成），语义同 AtlasPeople.name_py */
+  name_py: string | null;
+  name_py_abbr: string | null;
 }
 
 export interface AtlasTaxonomy {
@@ -150,6 +156,9 @@ export interface AtlasModel {
   paintAt(year: number): Map<string, string>;
   /** T 年 geometry code -> 标注类型（胜出区域当年任一行有标注即标记；disputed 优先于 method） */
   caveatAt(year: number): Map<string, CaveatKind>;
+  /** 谱系树单选族群的覆盖层：该族群当年活动切片覆盖的几何 -> 其固定色（无视主流优先级）；
+   *  标注只看该族群自己的行（涂色与纹理同源，被覆盖的几何不继承主流层标注） */
+  peopleOverlayAt(peopleCode: string, year: number): { paint: Map<string, string>; caveats: Map<string, CaveatKind> };
   /** 时期标签：包含该年的最窄 period */
   periodAt(year: number): AtlasPeriod | null;
   /** 族群谱系树：全部族群按分类层级组织，标注当年活动状态 */
@@ -305,6 +314,29 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
       if (kind) out.set(gcode, kind);
     }
     return out;
+  }
+
+  function peopleOverlayAt(peopleCode: string, year: number): { paint: Map<string, string>; caveats: Map<string, CaveatKind> } {
+    const paint = new Map<string, string>();
+    const caveats = new Map<string, CaveatKind>();
+    const color = peopleColor.get(peopleCode);
+    if (!color) return { paint, caveats };
+    const rows: AtlasPeopleRegion[] = [];
+    let kind: CaveatKind | null = null; // 该族群当年任一活动行的标注（disputed 优先）
+    for (const row of data.people_region) {
+      if (row.people_code !== peopleCode || !activeInYear(row, year)) continue;
+      rows.push(row);
+      if (kind !== CAVEAT.disputed && caveatActive(row, year)) {
+        kind = row.caveat_kind === CAVEAT.disputed ? CAVEAT.disputed : CAVEAT.method;
+      }
+    }
+    for (const row of rows) {
+      for (const gcode of regionGeometry.get(row.region_code) ?? []) {
+        paint.set(gcode, color);
+        if (kind !== null) caveats.set(gcode, kind);
+      }
+    }
+    return { paint, caveats };
   }
 
   function periodAt(year: number): AtlasPeriod | null {
@@ -509,7 +541,7 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
     return { regionCode: passive[0] ?? candidates[0]!, state: null };
   }
 
-  return { data, peopleByCode, regionByCode, regionGeometry, geometryToRegions, regionFor, geometryLive, peopleColor, firstSeenIndex, yearRange, regionsAt, paintAt, caveatAt, periodAt, peopleTreeAt, enumLabel };
+  return { data, peopleByCode, regionByCode, regionGeometry, geometryToRegions, regionFor, geometryLive, peopleColor, firstSeenIndex, yearRange, regionsAt, paintAt, caveatAt, peopleOverlayAt, periodAt, peopleTreeAt, enumLabel };
 }
 
 /** 族群分布模式的几何集合（绘制顺序 = 数组顺序，后者在上）：

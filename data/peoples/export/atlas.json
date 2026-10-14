@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T14:52:51.747Z",
+  "generated_at": "2026-10-14T11:19:09.237Z",
   "regions": [
     {
       "code": "aegyptus",
@@ -1131,6 +1131,8 @@
       "status_code": "extant",
       "name_en": "Albanians",
       "name_zh": "阿尔巴尼亚人",
+      "name_py": "a er ba ni ya ren",
+      "name_py_abbr": "aebnyr",
       "brief_en": "The modern Albanian people.",
       "brief_zh": "现代阿尔巴尼亚族群。",
       "languages": [
@@ -1170,6 +1172,8 @@
       "status_code": "transformed",
       "name_en": "Alemanni",
       "name_zh": "阿勒曼尼人",
+      "name_py": "a le man ni ren",
+      "name_py_abbr": "almnr",
       "brief_en": "Upper Rhine confederation, ancestors of the Swabians",
       "brief_zh": "上莱茵部落联盟，施瓦本人前身",
       "languages": [],
@@ -1200,6 +1204,8 @@
       "status_code": "transformed",
       "name_en": "Angles",
       "name_zh": "盎格鲁人",
+      "name_py": "ang ge lu ren",
+      "name_py_abbr": "aglr",
       "brief_en": "A Germanic people associated with the early formation of England.",
       "brief_zh": "与早期英格兰形成密切相关的日耳曼人群。",
       "languages": [
@@ -1249,6 +1255,8 @@
       "status_code": "transformed",
       "name_en": "Arabs of Crete",
       "name_zh": "克里特阿拉伯人",
+      "name_py": "ke li te a la bo ren",
+      "name_py_abbr": "kltalbr",
       "brief_en": "Arab-Andalusi settlers of the Emirate of Crete (824-961).",
       "brief_zh": "克里特酋长国（824–961）的阿拉伯—安达卢斯移民。",
       "languages": [],
@@ -1281,6 +1289,8 @@
       "status_code": "extant",
       "name_en": "Levantine Arabs",
       "name_zh": "黎凡特阿拉伯人",
+      "name_py": "li fan te a la bo ren",
+      "name_py_abbr": "lftalbr",
       "brief_en": "The Arabs of Syria, Lebanon, Palestine and Jordan: the pre-Islamic Nabataeans and Ghassanids, the conquerors of 636, and the Arabized populations descended from them.",
       "brief_zh": "叙利亚、黎巴嫩、巴勒斯坦、约旦的阿拉伯人：前伊斯兰的纳巴泰人与加萨尼人，636 年起的阿拉伯征服及其阿拉伯化后裔。",
       "languages": [
@@ -1377,6 +1387,8 @@
       "status_code": "extant",
       "name_en": "North African Arabs",
       "name_zh": "北非阿拉伯人",
+      "name_py": "bei fei a la bo ren",
+      "name_py_abbr": "bfalbr",
       "brief_en": "Arabs who entered Egypt and the Maghreb with the conquests from 641, and the Arabized populations descended from them.",
       "brief_zh": "641 年起随阿拉伯征服进入埃及与马格里布的阿拉伯人及其阿拉伯化后裔。",
       "languages": [
@@ -1465,6 +1477,8 @@
       "status_code": "transformed",
       "name_en": "Arabs of Sicily",
       "name_zh": "西西里阿拉伯人",
+      "name_py": "xi xi li a la bo ren",
+      "name_py_abbr": "xxlalbr",
       "brief_en": "Arab-Berber rulers of the Emirate of Sicily (831-1091).",
       "brief_zh": "西西里酋长国（831–1091）的阿拉伯—柏柏尔统治集团。",
       "languages": [],
@@ -1506,6 +1520,8 @@
       "status_code": "transformed",
       "name_en": "Arameans (Syriac-speaking peoples)",
       "name_zh": "阿拉米人（叙利亚语人群）",
+      "name_py": "a la mi ren （ xu li ya yu ren qun ）",
+      "name_py_abbr": "almr（xlyyrq）",
       "brief_en": "The Aramaic-speaking peoples of Syria and Upper Mesopotamia: the ancient Aramean states, the Syriac Christians of the Roman–Byzantine era, and today's Assyrians/Syriacs.",
       "brief_zh": "叙利亚与上美索不达米亚的阿拉米语人群：古代阿拉米诸国，罗马—拜占庭时代的叙利亚语基督徒，今亚述/叙利亚克人。",
       "languages": [
@@ -1579,6 +1595,8 @@
       "status_code": "extant",
       "name_en": "Armenians",
       "name_zh": "亚美尼亚人",
+      "name_py": "ya mei ni ya ren",
+      "name_py_abbr": "ymnyr",
       "brief_en": "The modern Armenian people.",
       "brief_zh": "现代亚美尼亚族群。",
       "languages": [
@@ -1611,6 +1629,8 @@
       "status_code": "transformed",
       "name_en": "Avars",
       "name_zh": "阿瓦尔人",
+      "name_py": "a wa er ren",
+      "name_py_abbr": "awer",
       "brief_en": "Avar Khaganate (Carpathian Basin)",
       "brief_zh": "阿瓦尔汗国（喀尔巴阡盆地）",
       "languages": [],
@@ -1641,6 +1661,8 @@
       "status_code": "extant",
       "name_en": "Azerbaijanis",
       "name_zh": "阿塞拜疆人",
+      "name_py": "a sai bai jiang ren",
+      "name_py_abbr": "asbjr",
       "brief_en": "The modern Azerbaijani people.",
       "brief_zh": "现代阿塞拜疆族群。",
       "languages": [
@@ -1673,6 +1695,8 @@
       "status_code": "transformed",
       "name_en": "Balts",
       "name_zh": "波罗的人",
+      "name_py": "bo luo de ren",
+      "name_py_abbr": "bldr",
       "brief_en": "Ancestors of Lithuanians and Latvians",
       "brief_zh": "立陶宛/拉脱维亚人前身",
       "languages": [],
@@ -1703,6 +1727,8 @@
       "status_code": "extant",
       "name_en": "Basques",
       "name_zh": "巴斯克人",
+      "name_py": "ba si ke ren",
+      "name_py_abbr": "bskr",
       "brief_en": "Pre-Indo-European language isolate people",
       "brief_zh": "前印欧语言孤岛（巴斯克语）",
       "languages": [],
@@ -1733,6 +1759,8 @@
       "status_code": "transformed",
       "name_en": "Bavarians",
       "name_zh": "巴伐利亚人",
+      "name_py": "ba fa li ya ren",
+      "name_py_abbr": "bflyr",
       "brief_en": "Agilolfing Duchy of Bavaria",
       "brief_zh": "阿吉洛尔夫王朝巴伐利亚公国",
       "languages": [],
@@ -1770,6 +1798,8 @@
       "status_code": "extant",
       "name_en": "Belarusians",
       "name_zh": "白俄罗斯人",
+      "name_py": "bai e luo si ren",
+      "name_py_abbr": "belsr",
       "brief_en": "The modern Belarusian people.",
       "brief_zh": "现代白俄罗斯族群。",
       "languages": [],
@@ -1802,6 +1832,8 @@
       "status_code": "extant",
       "name_en": "Berbers (Amazigh)",
       "name_zh": "柏柏尔人（阿马齐格人）",
+      "name_py": "bai bai er ren （ a ma qi ge ren ）",
+      "name_py_abbr": "bber（amqgr）",
       "brief_en": "The indigenous people of the Maghreb — the Libyans, Numidians and Moors of antiquity, and founders of medieval dynasties such as the Almoravids and Almohads.",
       "brief_zh": "马格里布的原住民族群：古代称利比亚人、努米底亚人、摩尔人，中世纪建立阿尔摩拉维德、阿尔摩哈德等王朝。",
       "languages": [
@@ -1883,6 +1915,8 @@
       "status_code": "extant",
       "name_en": "Bosniaks",
       "name_zh": "波斯尼亚克族",
+      "name_py": "bo si ni ya ke zu",
+      "name_py_abbr": "bsnykz",
       "brief_en": "Population base of medieval Bosnia",
       "brief_zh": "中世纪波斯尼亚王国人口基础",
       "languages": [],
@@ -1913,6 +1947,8 @@
       "status_code": "extant",
       "name_en": "Bretons",
       "name_zh": "布列塔尼人",
+      "name_py": "bu lie ta ni ren",
+      "name_py_abbr": "bltnr",
       "brief_en": "Celtic descendants of British migrants (Brittany)",
       "brief_zh": "不列颠凯尔特移民后裔（布列塔尼半岛）",
       "languages": [],
@@ -1943,6 +1979,8 @@
       "status_code": "transformed",
       "name_en": "Britons",
       "name_zh": "不列颠人",
+      "name_py": "bu lie dian ren",
+      "name_py_abbr": "bldr",
       "brief_en": "Brittonic-speaking peoples of ancient and early medieval Britain.",
       "brief_zh": "古代及中世纪早期不列颠岛的布立吞语人群。",
       "languages": [],
@@ -1966,6 +2004,8 @@
       "status_code": "extant",
       "name_en": "Bulgarians",
       "name_zh": "保加利亚人",
+      "name_py": "bao jia li ya ren",
+      "name_py_abbr": "bjlyr",
       "brief_en": "The modern Bulgarian people.",
       "brief_zh": "现代保加利亚族群。",
       "languages": [],
@@ -1989,6 +2029,8 @@
       "status_code": "transformed",
       "name_en": "Burgundians",
       "name_zh": "勃艮第人",
+      "name_py": "bo gen di ren",
+      "name_py_abbr": "bgdr",
       "brief_en": "A historical Germanic people associated with Burgundy.",
       "brief_zh": "与勃艮第地区历史相关的日耳曼人群。",
       "languages": [],
@@ -2012,6 +2054,8 @@
       "status_code": "transformed",
       "name_en": "Carthaginians",
       "name_zh": "迦太基人",
+      "name_py": "jia tai ji ren",
+      "name_py_abbr": "jtjr",
       "brief_en": "The Punic city-state of Carthage, founded by Tyrian Phoenicians, and its maritime empire; destroyed by Rome in 146 BC.",
       "brief_zh": "推罗腓尼基人建立的迦太基城邦及其布匿海上帝国，前 146 年亡于罗马。",
       "languages": [
@@ -2077,6 +2121,8 @@
       "status_code": "extant",
       "name_en": "Catalans",
       "name_zh": "加泰罗尼亚人",
+      "name_py": "jia tai luo ni ya ren",
+      "name_py_abbr": "jtlnyr",
       "brief_en": "Romance people of the Crown of Aragón",
       "brief_zh": "阿拉贡王冠核心的罗曼族群",
       "languages": [],
@@ -2107,6 +2153,8 @@
       "status_code": "transformed",
       "name_en": "Celtiberians",
       "name_zh": "凯尔特伊比利亚人",
+      "name_py": "kai er te yi bi li ya ren",
+      "name_py_abbr": "ketyblyr",
       "brief_en": "Celtic-influenced peoples of central Iberia.",
       "brief_zh": "伊比利亚中部受凯尔特文化影响的古代人群。",
       "languages": [],
@@ -2130,6 +2178,8 @@
       "status_code": "transformed",
       "name_en": "Celts",
       "name_zh": "凯尔特人",
+      "name_py": "kai er te ren",
+      "name_py_abbr": "ketr",
       "brief_en": "Iron Age peoples of the Hallstatt and La Tène cultures",
       "brief_zh": "哈尔施塔特—拉登铁器时代族群集合称",
       "languages": [],
@@ -2160,6 +2210,8 @@
       "status_code": "extant",
       "name_en": "Crimean Tatars",
       "name_zh": "克里米亚鞑靼人",
+      "name_py": "ke li mi ya da da ren",
+      "name_py_abbr": "klmyddr",
       "brief_en": "People of the Crimean Khanate (1441-1783), deported in 1944",
       "brief_zh": "克里米亚汗国（1441–1783）主体，1944 年遭驱逐",
       "languages": [],
@@ -2197,6 +2249,8 @@
       "status_code": "extant",
       "name_en": "Croats",
       "name_zh": "克罗地亚人",
+      "name_py": "ke luo di ya ren",
+      "name_py_abbr": "kldyr",
       "brief_en": "The modern Croatian people.",
       "brief_zh": "现代克罗地亚族群。",
       "languages": [],
@@ -2220,6 +2274,8 @@
       "status_code": "merged",
       "name_en": "Crusaders (Franks)",
       "name_zh": "十字军（法兰克人）",
+      "name_py": "shi zi jun （ fa lan ke ren ）",
+      "name_py_abbr": "szj（flkr）",
       "brief_en": "The Latin ruling class of the Crusader states in the eastern Mediterranean: the Kingdom of Jerusalem, County of Tripoli, Latin Empire and Lusignan Cyprus.",
       "brief_zh": "十字军在东地中海建立的拉丁国家统治集团：耶路撒冷王国、的黎波里伯国、拉丁帝国、吕西尼昂塞浦路斯。",
       "languages": [
@@ -2285,6 +2341,8 @@
       "status_code": "extant",
       "name_en": "Czechs",
       "name_zh": "捷克人",
+      "name_py": "jie ke ren",
+      "name_py_abbr": "jkr",
       "brief_en": "The modern Czech people.",
       "brief_zh": "现代捷克族群。",
       "languages": [
@@ -2317,6 +2375,8 @@
       "status_code": "transformed",
       "name_en": "Dacians",
       "name_zh": "达契亚人",
+      "name_py": "da qi ya ren",
+      "name_py_abbr": "dqyr",
       "brief_en": "Ancient peoples of the lower Danube and Carpathian region.",
       "brief_zh": "多瑙河下游及喀尔巴阡地区的古代人群。",
       "languages": [],
@@ -2332,6 +2392,8 @@
       "status_code": "extant",
       "name_en": "Danes",
       "name_zh": "丹麦人",
+      "name_py": "dan mai ren",
+      "name_py_abbr": "dmr",
       "brief_en": "The modern Danish people.",
       "brief_zh": "现代丹麦族群。",
       "languages": [
@@ -2364,6 +2426,8 @@
       "status_code": "extant",
       "name_en": "Dutch",
       "name_zh": "荷兰人",
+      "name_py": "he lan ren",
+      "name_py_abbr": "hlr",
       "brief_en": "The modern Dutch people.",
       "brief_zh": "现代荷兰族群。",
       "languages": [
@@ -2396,6 +2460,8 @@
       "status_code": "transformed",
       "name_en": "Egyptians (Ancient–Coptic)",
       "name_zh": "埃及人（古埃及—科普特）",
+      "name_py": "ai ji ren （ gu ai ji — ke pu te ）",
+      "name_py_abbr": "ajr（gaj—kpt）",
       "brief_en": "The ancient Egyptians of the Nile valley and their Coptic descendants, gradually Arabized in the Islamic era.",
       "brief_zh": "尼罗河谷的古埃及人及其后裔科普特人；伊斯兰时代逐步阿拉伯化。",
       "languages": [
@@ -2485,6 +2551,8 @@
       "status_code": "extant",
       "name_en": "English",
       "name_zh": "英格兰人",
+      "name_py": "ying ge lan ren",
+      "name_py_abbr": "yglr",
       "brief_en": "The modern ethnic and cultural population of England.",
       "brief_zh": "现代英格兰的族群与文化共同体。",
       "languages": [
@@ -2534,6 +2602,8 @@
       "status_code": "extant",
       "name_en": "Estonians",
       "name_zh": "爱沙尼亚人",
+      "name_py": "ai sha ni ya ren",
+      "name_py_abbr": "asnyr",
       "brief_en": "The modern Estonian people.",
       "brief_zh": "现代爱沙尼亚族群。",
       "languages": [
@@ -2566,6 +2636,8 @@
       "status_code": "extant",
       "name_en": "Finns",
       "name_zh": "芬兰人",
+      "name_py": "fen lan ren",
+      "name_py_abbr": "flr",
       "brief_en": "The modern Finnish people.",
       "brief_zh": "现代芬兰族群。",
       "languages": [
@@ -2598,6 +2670,8 @@
       "status_code": "transformed",
       "name_en": "Franks",
       "name_zh": "法兰克人",
+      "name_py": "fa lan ke ren",
+      "name_py_abbr": "flkr",
       "brief_en": "A confederation of Germanic peoples that became central to Frankish Gaul.",
       "brief_zh": "日耳曼人群联盟，后来成为法兰克高卢的重要政治力量。",
       "languages": [],
@@ -2639,6 +2713,8 @@
       "status_code": "extant",
       "name_en": "French",
       "name_zh": "法国人",
+      "name_py": "fa guo ren",
+      "name_py_abbr": "fgr",
       "brief_en": "The modern population associated with France.",
       "brief_zh": "现代法国相关的族群与国民共同体。",
       "languages": [
@@ -2688,6 +2764,8 @@
       "status_code": "transformed",
       "name_en": "Gaels",
       "name_zh": "盖尔人",
+      "name_py": "gai er ren",
+      "name_py_abbr": "ger",
       "brief_en": "Celtic peoples associated with Ireland and Gaelic Scotland.",
       "brief_zh": "与爱尔兰和盖尔语苏格兰相关的凯尔特人群。",
       "languages": [],
@@ -2711,6 +2789,8 @@
       "status_code": "transformed",
       "name_en": "Gauls",
       "name_zh": "高卢人",
+      "name_py": "gao lu ren",
+      "name_py_abbr": "glr",
       "brief_en": "Celtic peoples of ancient Gaul.",
       "brief_zh": "古代高卢地区的凯尔特人群总称。",
       "languages": [],
@@ -2743,6 +2823,8 @@
       "status_code": "extant",
       "name_en": "Georgians",
       "name_zh": "格鲁吉亚人",
+      "name_py": "ge lu ji ya ren",
+      "name_py_abbr": "gljyr",
       "brief_en": "The modern Georgian people.",
       "brief_zh": "现代格鲁吉亚族群。",
       "languages": [
@@ -2775,6 +2857,8 @@
       "status_code": "transformed",
       "name_en": "Gepids",
       "name_zh": "格皮德人",
+      "name_py": "ge pi de ren",
+      "name_py_abbr": "gpdr",
       "brief_en": "Tisza kingdom after the Battle of Nedao",
       "brief_zh": "内道战役后据蒂萨河建国",
       "languages": [],
@@ -2805,6 +2889,8 @@
       "status_code": "transformed",
       "name_en": "Early Germanic peoples",
       "name_zh": "古日耳曼人",
+      "name_py": "gu ri er man ren",
+      "name_py_abbr": "gremr",
       "brief_en": "Jastorf-culture tribes before the named confederations",
       "brief_zh": "亚斯托夫文化部族时代集合称（苏维汇/法兰克等前身）",
       "languages": [],
@@ -2835,6 +2921,8 @@
       "status_code": "extant",
       "name_en": "Germans",
       "name_zh": "德国人",
+      "name_py": "de guo ren",
+      "name_py_abbr": "dgr",
       "brief_en": "The modern German people.",
       "brief_zh": "现代德国族群。",
       "languages": [
@@ -2867,6 +2955,8 @@
       "status_code": "transformed",
       "name_en": "Goths",
       "name_zh": "哥特人",
+      "name_py": "ge te ren",
+      "name_py_abbr": "gtr",
       "brief_en": "A historical Germanic people associated with the Gothic tradition.",
       "brief_zh": "与哥特传统相关的历史日耳曼人群。",
       "languages": [
@@ -2947,6 +3037,8 @@
       "status_code": "extant",
       "name_en": "Greeks",
       "name_zh": "希腊人",
+      "name_py": "xi la ren",
+      "name_py_abbr": "xlr",
       "brief_en": "The Greek people, continuous from the Archaic city-states to today.",
       "brief_zh": "自古希腊城邦时代延续至今的希腊语族群。",
       "languages": [
@@ -2995,6 +3087,8 @@
       "status_code": "extant",
       "name_en": "Hungarians",
       "name_zh": "匈牙利人",
+      "name_py": "xiong ya li ren",
+      "name_py_abbr": "xylr",
       "brief_en": "The modern Hungarian people.",
       "brief_zh": "现代匈牙利族群。",
       "languages": [
@@ -3027,6 +3121,8 @@
       "status_code": "transformed",
       "name_en": "Huns",
       "name_zh": "匈人",
+      "name_py": "xiong ren",
+      "name_py_abbr": "xr",
       "brief_en": "Steppe confederation of Attila (Pannonian core)",
       "brief_zh": "阿提拉草原联盟（潘诺尼亚核心）",
       "languages": [],
@@ -3050,6 +3146,8 @@
       "status_code": "transformed",
       "name_en": "Iberians",
       "name_zh": "伊比利亚人",
+      "name_py": "yi bi li ya ren",
+      "name_py_abbr": "yblyr",
       "brief_en": "Ancient peoples of parts of the Iberian Peninsula.",
       "brief_zh": "伊比利亚半岛部分地区的古代人群。",
       "languages": [],
@@ -3065,6 +3163,8 @@
       "status_code": "transformed",
       "name_en": "Illyrians",
       "name_zh": "伊利里亚人",
+      "name_py": "yi li li ya ren",
+      "name_py_abbr": "yllyr",
       "brief_en": "A broad ancient designation for peoples of the western Balkans.",
       "brief_zh": "古代巴尔干西部若干人群的宽泛称呼。",
       "languages": [],
@@ -3080,6 +3180,8 @@
       "status_code": "extant",
       "name_en": "Irish",
       "name_zh": "爱尔兰人",
+      "name_py": "ai er lan ren",
+      "name_py_abbr": "aelr",
       "brief_en": "The modern people of Ireland.",
       "brief_zh": "现代爱尔兰族群。",
       "languages": [
@@ -3112,6 +3214,8 @@
       "status_code": "extant",
       "name_en": "Italians",
       "name_zh": "意大利人",
+      "name_py": "yi da li ren",
+      "name_py_abbr": "ydlr",
       "brief_en": "The modern Italian people.",
       "brief_zh": "现代意大利族群。",
       "languages": [
@@ -3144,6 +3248,8 @@
       "status_code": "extant",
       "name_en": "Jews",
       "name_zh": "犹太人",
+      "name_py": "you tai ren",
+      "name_py_abbr": "ytr",
       "brief_en": "The Jewish people from the kingdoms of Israel and Judah; mostly in diaspora after AD 135, founding the State of Israel in 1948.",
       "brief_zh": "以色列—犹大王国以来的犹太民族；135 年后主体流散，1948 年建立以色列国。",
       "languages": [
@@ -3209,6 +3315,8 @@
       "status_code": "transformed",
       "name_en": "Jutes",
       "name_zh": "朱特人",
+      "name_py": "zhu te ren",
+      "name_py_abbr": "ztr",
       "brief_en": "A Germanic people traditionally associated with settlement in Kent and Wessex.",
       "brief_zh": "传统上与英格兰肯特及威塞克斯早期定居有关的日耳曼人群。",
       "languages": [
@@ -3241,6 +3349,8 @@
       "status_code": "extant",
       "name_en": "Karelians",
       "name_zh": "卡累利阿人",
+      "name_py": "ka lei li a ren",
+      "name_py_abbr": "kllar",
       "brief_en": "Orthodox Finnic people of the Ladoga region.",
       "brief_zh": "拉多加湖周边的东正教芬兰语族族群。",
       "languages": [
@@ -3289,6 +3399,8 @@
       "status_code": "extant",
       "name_en": "Kurds",
       "name_zh": "库尔德人",
+      "name_py": "ku er de ren",
+      "name_py_abbr": "kedr",
       "brief_en": "An Iranian-speaking people of the Zagros–Taurus highlands, living in southeastern Turkey, northern Iraq, western Iran and northeastern Syria.",
       "brief_zh": "扎格罗斯—托罗斯山区的伊朗语民族，分布于土耳其东南、伊拉克北部、伊朗西部与叙利亚东北。",
       "languages": [
@@ -3346,6 +3458,8 @@
       "status_code": "transformed",
       "name_en": "Latins",
       "name_zh": "拉丁人",
+      "name_py": "la ding ren",
+      "name_py_abbr": "ldr",
       "brief_en": "An ancient Italic people of Latium.",
       "brief_zh": "古代意大利拉丁姆地区的人群。",
       "languages": [
@@ -3378,6 +3492,8 @@
       "status_code": "extant",
       "name_en": "Latvians",
       "name_zh": "拉脱维亚人",
+      "name_py": "la tuo wei ya ren",
+      "name_py_abbr": "ltwyr",
       "brief_en": "The modern Latvian people.",
       "brief_zh": "现代拉脱维亚族群。",
       "languages": [
@@ -3410,6 +3526,8 @@
       "status_code": "extant",
       "name_en": "Lithuanians",
       "name_zh": "立陶宛人",
+      "name_py": "li tao wan ren",
+      "name_py_abbr": "ltwr",
       "brief_en": "The modern Lithuanian people.",
       "brief_zh": "现代立陶宛族群。",
       "languages": [
@@ -3442,6 +3560,8 @@
       "status_code": "transformed",
       "name_en": "Lombards",
       "name_zh": "伦巴第人",
+      "name_py": "lun ba di ren",
+      "name_py_abbr": "lbdr",
       "brief_en": "A Germanic people that established a kingdom in Italy.",
       "brief_zh": "在意大利建立伦巴第王国的日耳曼人群。",
       "languages": [],
@@ -3465,6 +3585,8 @@
       "status_code": "transformed",
       "name_en": "Lusitanians",
       "name_zh": "卢西塔尼亚人",
+      "name_py": "lu xi ta ni ya ren",
+      "name_py_abbr": "lxtnyr",
       "brief_en": "An ancient people of western Iberia.",
       "brief_zh": "伊比利亚西部的古代人群。",
       "languages": [],
@@ -3480,6 +3602,8 @@
       "status_code": "extant",
       "name_en": "Macedonians",
       "name_zh": "马其顿人",
+      "name_py": "ma qi dun ren",
+      "name_py_abbr": "mqdr",
       "brief_en": "Slavic population of the Macedonia region; modern national identity formed in the late 19th to mid-20th century",
       "brief_zh": "马其顿地区的斯拉夫人口；现代民族认同形成于 19 世纪末至 20 世纪中",
       "languages": [],
@@ -3510,6 +3634,8 @@
       "status_code": "transformed",
       "name_en": "Magyars",
       "name_zh": "马扎尔人",
+      "name_py": "ma zha er ren",
+      "name_py_abbr": "mzer",
       "brief_en": "The historical Hungarian-speaking people associated with the Hungarian conquest of the Carpathian Basin.",
       "brief_zh": "与征服喀尔巴阡盆地及匈牙利民族形成相关的历史匈牙利语人群。",
       "languages": [],
@@ -3525,6 +3651,8 @@
       "status_code": "transformed",
       "name_en": "Masurians",
       "name_zh": "马祖里人",
+      "name_py": "ma zu li ren",
+      "name_py_abbr": "mzlr",
       "brief_en": "Polish-dialect-speaking Lutheran population of southern East Prussia",
       "brief_zh": "东普鲁士南部讲波兰语方言的路德宗人群",
       "languages": [
@@ -3582,6 +3710,8 @@
       "status_code": "extant",
       "name_en": "Montenegrins",
       "name_zh": "黑山人",
+      "name_py": "hei shan ren",
+      "name_py_abbr": "hsr",
       "brief_en": "Tradition of Duklja and Zeta",
       "brief_zh": "杜克利亚-泽塔公国传统",
       "languages": [],
@@ -3612,6 +3742,8 @@
       "status_code": "transformed",
       "name_en": "Moors (al-Andalus)",
       "name_zh": "摩尔人（安达卢斯）",
+      "name_py": "mo er ren （ an da lu si ）",
+      "name_py_abbr": "mer（adls）",
       "brief_en": "Arab-Berber polities of al-Andalus",
       "brief_zh": "安达卢斯的阿拉伯—柏柏尔政权",
       "languages": [],
@@ -3652,6 +3784,8 @@
       "status_code": "transformed",
       "name_en": "Norse",
       "name_zh": "诺斯人",
+      "name_py": "nuo si ren",
+      "name_py_abbr": "nsr",
       "brief_en": "North Germanic peoples of the Viking Age",
       "brief_zh": "维京时代北日耳曼人",
       "languages": [],
@@ -3682,6 +3816,8 @@
       "status_code": "extant",
       "name_en": "Norwegians",
       "name_zh": "挪威人",
+      "name_py": "nuo wei ren",
+      "name_py_abbr": "nwr",
       "brief_en": "The modern Norwegian people.",
       "brief_zh": "现代挪威族群。",
       "languages": [
@@ -3714,6 +3850,8 @@
       "status_code": "transformed",
       "name_en": "Ostrogoths",
       "name_zh": "东哥特人",
+      "name_py": "dong ge te ren",
+      "name_py_abbr": "dgtr",
       "brief_en": "A Gothic people that established a kingdom in Italy in the 5th-6th centuries.",
       "brief_zh": "哥特人的一个分支，5-6世纪在意大利建立东哥特王国。",
       "languages": [
@@ -3786,6 +3924,8 @@
       "status_code": "transformed",
       "name_en": "Persians (Achaemenid–Sasanian)",
       "name_zh": "波斯人（阿契美尼德—萨珊）",
+      "name_py": "bo si ren （ a qi mei ni de — sa shan ）",
+      "name_py_abbr": "bsr（aqmnd—ss）",
       "brief_en": "The Persian ruling peoples of the Achaemenid (550–330 BC) and Sasanian (AD 224–651) empires.",
       "brief_zh": "阿契美尼德帝国（前 550–前 330）与萨珊帝国（224–651）的波斯统治集团。",
       "languages": [
@@ -3859,6 +3999,8 @@
       "status_code": "transformed",
       "name_en": "Phoenicians",
       "name_zh": "腓尼基人",
+      "name_py": "fei ni ji ren",
+      "name_py_abbr": "fnjr",
       "brief_en": "The seafaring Canaanite city-states of the northern Levantine coast — Tyre, Sidon, Byblos — and mother cities of Carthage.",
       "brief_zh": "黎凡特北部沿海推罗、西顿、比布鲁斯等迦南城邦的航海民族，迦太基的母邦。",
       "languages": [
@@ -3924,6 +4066,8 @@
       "status_code": "transformed",
       "name_en": "Picts",
       "name_zh": "皮克特人",
+      "name_py": "pi ke te ren",
+      "name_py_abbr": "pktr",
       "brief_en": "Confederacy of northern and eastern Scotland",
       "brief_zh": "苏格兰东部-北部族群联盟",
       "languages": [],
@@ -3947,6 +4091,8 @@
       "status_code": "extant",
       "name_en": "Poles",
       "name_zh": "波兰人",
+      "name_py": "bo lan ren",
+      "name_py_abbr": "blr",
       "brief_en": "The modern Polish people.",
       "brief_zh": "现代波兰族群。",
       "languages": [
@@ -3988,6 +4134,8 @@
       "status_code": "extant",
       "name_en": "Portuguese",
       "name_zh": "葡萄牙人",
+      "name_py": "pu tao ya ren",
+      "name_py_abbr": "ptyr",
       "brief_en": "The modern Portuguese people.",
       "brief_zh": "现代葡萄牙族群。",
       "languages": [
@@ -4020,6 +4168,8 @@
       "status_code": "transformed",
       "name_en": "Old Prussians",
       "name_zh": "古普鲁士人",
+      "name_py": "gu pu lu shi ren",
+      "name_py_abbr": "gplsr",
       "brief_en": "Baltic people assimilated by the Teutonic Order",
       "brief_zh": "波罗的语族，被条顿骑士团同化",
       "languages": [],
@@ -4050,6 +4200,8 @@
       "status_code": "extant",
       "name_en": "Romanians",
       "name_zh": "罗马尼亚人",
+      "name_py": "luo ma ni ya ren",
+      "name_py_abbr": "lmnyr",
       "brief_en": "The modern Romanian people.",
       "brief_zh": "现代罗马尼亚族群。",
       "languages": [
@@ -4082,6 +4234,8 @@
       "status_code": "transformed",
       "name_en": "Romans",
       "name_zh": "罗马人",
+      "name_py": "luo ma ren",
+      "name_py_abbr": "lmr",
       "brief_en": "The historical people associated with Rome and the Roman state.",
       "brief_zh": "与罗马及罗马国家相关的历史人群。",
       "languages": [
@@ -4138,6 +4292,8 @@
       "status_code": "transformed",
       "name_en": "Rus' (East Slavs)",
       "name_zh": "罗斯人（东斯拉夫人）",
+      "name_py": "luo si ren （ dong si la fu ren ）",
+      "name_py_abbr": "lsr（dslfr）",
       "brief_en": "East Slavs of the Kievan Rus' era; common precursor of Russians, Ukrainians and Belarusians",
       "brief_zh": "基辅罗斯时代的东斯拉夫人，俄罗斯人、乌克兰人、白俄罗斯人的共同前身",
       "languages": [
@@ -4219,6 +4375,8 @@
       "status_code": "extant",
       "name_en": "Russians",
       "name_zh": "俄罗斯人",
+      "name_py": "e luo si ren",
+      "name_py_abbr": "elsr",
       "brief_en": "The modern Russian people.",
       "brief_zh": "现代俄罗斯族群。",
       "languages": [
@@ -4260,6 +4418,8 @@
       "status_code": "extant",
       "name_en": "Sami",
       "name_zh": "萨米人",
+      "name_py": "sa mi ren",
+      "name_py_abbr": "smr",
       "brief_en": "Indigenous people of Sápmi (reindeer herding)",
       "brief_zh": "萨普米的原住民（驯鹿畜牧）",
       "languages": [],
@@ -4290,6 +4450,8 @@
       "status_code": "extant",
       "name_en": "Sardinians",
       "name_zh": "撒丁人",
+      "name_py": "sa ding ren",
+      "name_py_abbr": "sdr",
       "brief_en": "Island people continuous since the Nuragic era, speaking Sardinian (Romance).",
       "brief_zh": "努拉吉时代以来持续至今的岛屿族群，操罗曼语族撒丁语。",
       "languages": [
@@ -4338,6 +4500,8 @@
       "status_code": "merged",
       "name_en": "Sarmatians (Iazyges)",
       "name_zh": "萨尔马提亚人（伊阿兹吉斯人）",
+      "name_py": "sa er ma ti ya ren （ yi a zi ji si ren ）",
+      "name_py_abbr": "semtyr（yazjsr）",
       "brief_en": "Iranian-speaking steppe nomads; their western branch, the Iazyges, settled between the Danube and the Tisza from about AD 20, facing Roman Pannonia and Dacia.",
       "brief_zh": "伊朗语草原游牧民；其西支伊阿兹吉斯人约 20 年起定居多瑙河与蒂萨河之间，与罗马潘诺尼亚、达契亚隔河相望。",
       "languages": [],
@@ -4377,6 +4541,8 @@
       "status_code": "transformed",
       "name_en": "Saxons",
       "name_zh": "撒克逊人",
+      "name_py": "sa ke xun ren",
+      "name_py_abbr": "skxr",
       "brief_en": "A Germanic people associated with northern Germany and early England.",
       "brief_zh": "与北德意志及早期英格兰历史相关的日耳曼人群。",
       "languages": [
@@ -4418,6 +4584,8 @@
       "status_code": "extant",
       "name_en": "Scots",
       "name_zh": "苏格兰人",
+      "name_py": "su ge lan ren",
+      "name_py_abbr": "sglr",
       "brief_en": "The modern people of Scotland.",
       "brief_zh": "现代苏格兰族群。",
       "languages": [],
@@ -4441,6 +4609,8 @@
       "status_code": "extant",
       "name_en": "Serbs",
       "name_zh": "塞尔维亚人",
+      "name_py": "sai er wei ya ren",
+      "name_py_abbr": "sewyr",
       "brief_en": "The modern Serbian people.",
       "brief_zh": "现代塞尔维亚族群。",
       "languages": [],
@@ -4464,6 +4634,8 @@
       "status_code": "transformed",
       "name_en": "Slavs",
       "name_zh": "斯拉夫人",
+      "name_py": "si la fu ren",
+      "name_py_abbr": "slfr",
       "brief_en": "Early Slavic peoples whose expansion shaped much of eastern and southeastern Europe.",
       "brief_zh": "早期斯拉夫人群，其扩散深刻影响东欧和东南欧。",
       "languages": [],
@@ -4487,6 +4659,8 @@
       "status_code": "extant",
       "name_en": "Slovaks",
       "name_zh": "斯洛伐克人",
+      "name_py": "si luo fa ke ren",
+      "name_py_abbr": "slfkr",
       "brief_en": "The modern Slovak people.",
       "brief_zh": "现代斯洛伐克族群。",
       "languages": [],
@@ -4510,6 +4684,8 @@
       "status_code": "extant",
       "name_en": "Slovenes",
       "name_zh": "斯洛文尼亚人",
+      "name_py": "si luo wen ni ya ren",
+      "name_py_abbr": "slwnyr",
       "brief_en": "The modern Slovenian people.",
       "brief_zh": "现代斯洛文尼亚族群。",
       "languages": [],
@@ -4533,6 +4709,8 @@
       "status_code": "extant",
       "name_en": "Spaniards",
       "name_zh": "西班牙人",
+      "name_py": "xi ban ya ren",
+      "name_py_abbr": "xbyr",
       "brief_en": "A broad modern designation for the people of Spain.",
       "brief_zh": "现代西班牙人的广义称呼；内部具有多样的区域身份。",
       "languages": [
@@ -4565,6 +4743,8 @@
       "status_code": "transformed",
       "name_en": "Suebi",
       "name_zh": "苏维汇人",
+      "name_py": "su wei hui ren",
+      "name_py_abbr": "swhr",
       "brief_en": "A Germanic people that established a kingdom in northwestern Iberia.",
       "brief_zh": "在伊比利亚西北部建立王国的日耳曼人群。",
       "languages": [],
@@ -4588,6 +4768,8 @@
       "status_code": "extant",
       "name_en": "Swedes",
       "name_zh": "瑞典人",
+      "name_py": "rui dian ren",
+      "name_py_abbr": "rdr",
       "brief_en": "The modern Swedish people.",
       "brief_zh": "现代瑞典族群。",
       "languages": [
@@ -4620,6 +4802,8 @@
       "status_code": "extant",
       "name_en": "Volga Tatars",
       "name_zh": "伏尔加鞑靼人",
+      "name_py": "fu er jia da da ren",
+      "name_py_abbr": "fejddr",
       "brief_en": "Muslim Turkic people formed under the Golden Horde, heirs of Volga Bulgaria.",
       "brief_zh": "金帐汗国框架下形成的伊斯兰突厥族群，伏尔加保加利亚继承者。",
       "languages": [
@@ -4668,6 +4852,8 @@
       "status_code": "transformed",
       "name_en": "Thracians",
       "name_zh": "色雷斯人",
+      "name_py": "se lei si ren",
+      "name_py_abbr": "slsr",
       "brief_en": "Ancient peoples of Thrace and adjacent regions.",
       "brief_zh": "古代色雷斯及周边地区的人群。",
       "languages": [],
@@ -4683,6 +4869,8 @@
       "status_code": "transformed",
       "name_en": "Thuringians",
       "name_zh": "图林根人",
+      "name_py": "tu lin gen ren",
+      "name_py_abbr": "tlgr",
       "brief_en": "Kingdom of central Germany (fell 531)",
       "brief_zh": "中德意志王国（531 年亡）",
       "languages": [],
@@ -4713,6 +4901,8 @@
       "status_code": "extant",
       "name_en": "Turks",
       "name_zh": "土耳其人",
+      "name_py": "tu er qi ren",
+      "name_py_abbr": "teqr",
       "brief_en": "The Turks of Anatolia and Eastern Thrace: Seljuk Turks after Manzikert (1071), the Turkmen beyliks and the Ottomans, down to the modern Turks.",
       "brief_zh": "安纳托利亚与东色雷斯的突厥—土耳其人：1071 年曼齐刻尔特战役后的塞尔柱突厥人、诸贝伊国与奥斯曼土耳其人，至现代土耳其人。",
       "languages": [
@@ -4770,6 +4960,8 @@
       "status_code": "extant",
       "name_en": "Ukrainians",
       "name_zh": "乌克兰人",
+      "name_py": "wu ke lan ren",
+      "name_py_abbr": "wklr",
       "brief_en": "The modern Ukrainian people.",
       "brief_zh": "现代乌克兰族群。",
       "languages": [
@@ -4811,6 +5003,8 @@
       "status_code": "transformed",
       "name_en": "Vandals",
       "name_zh": "汪达尔人",
+      "name_py": "wang da er ren",
+      "name_py_abbr": "wder",
       "brief_en": "A Germanic people that established a kingdom centered in North Africa.",
       "brief_zh": "建立过以北非为核心王国的日耳曼人群。",
       "languages": [],
@@ -4867,6 +5061,8 @@
       "status_code": "transformed",
       "name_en": "Visigoths",
       "name_zh": "西哥特人",
+      "name_py": "xi ge te ren",
+      "name_py_abbr": "xgtr",
       "brief_en": "A branch of the Goths prominent in late Roman Gaul and Iberia.",
       "brief_zh": "哥特人的一个分支，在晚期罗马高卢和伊比利亚历史中非常重要。",
       "languages": [
@@ -4939,6 +5135,8 @@
       "status_code": "transformed",
       "name_en": "Volga Bulgars",
       "name_zh": "伏尔加保加尔人",
+      "name_py": "fu er jia bao jia er ren",
+      "name_py_abbr": "fejbjer",
       "brief_en": "Turkic people and trading state on the Volga-Kama (937-1240).",
       "brief_zh": "伏尔加-卡马河的突厥语族群及其商业国家（937–1240）。",
       "languages": [],
@@ -4978,6 +5176,8 @@
       "status_code": "extant",
       "name_en": "Welsh",
       "name_zh": "威尔士人",
+      "name_py": "wei er shi ren",
+      "name_py_abbr": "wesr",
       "brief_en": "The modern people of Wales.",
       "brief_zh": "现代威尔士族群。",
       "languages": [
@@ -13568,224 +13768,288 @@
           "parent": "semitic",
           "sort": 10,
           "name_en": "Canaanite",
-          "name_zh": "迦南语支"
+          "name_zh": "迦南语支",
+          "name_py": "jia nan yu zhi",
+          "name_py_abbr": "jnyz"
         },
         {
           "code": "finnic",
           "parent": "uralic",
           "sort": 10,
           "name_en": "Finnic",
-          "name_zh": "芬兰语支"
+          "name_zh": "芬兰语支",
+          "name_py": "fen lan yu zhi",
+          "name_py_abbr": "flyz"
         },
         {
           "code": "germanic",
           "parent": "indo_european",
           "sort": 10,
           "name_en": "Germanic",
-          "name_zh": "日耳曼语族"
+          "name_zh": "日耳曼语族",
+          "name_py": "ri er man yu zu",
+          "name_py_abbr": "remyz"
         },
         {
           "code": "germanic_north",
           "parent": "germanic",
           "sort": 10,
           "name_en": "North Germanic",
-          "name_zh": "北日耳曼"
+          "name_zh": "北日耳曼",
+          "name_py": "bei ri er man",
+          "name_py_abbr": "brem"
         },
         {
           "code": "gothic",
           "parent": "germanic_east",
           "sort": 10,
           "name_en": "Gothic",
-          "name_zh": "哥特语支"
+          "name_zh": "哥特语支",
+          "name_py": "ge te yu zhi",
+          "name_py_abbr": "gtyz"
         },
         {
           "code": "indo_european",
           "parent": null,
           "sort": 10,
           "name_en": "Indo-European",
-          "name_zh": "印欧语系"
+          "name_zh": "印欧语系",
+          "name_py": "yin ou yu xi",
+          "name_py_abbr": "yoyx"
         },
         {
           "code": "iranian",
           "parent": "indo_european",
           "sort": 10,
           "name_en": "Iranian",
-          "name_zh": "伊朗语支"
+          "name_zh": "伊朗语支",
+          "name_py": "yi lang yu zhi",
+          "name_py_abbr": "ylyz"
         },
         {
           "code": "kartvelian_core",
           "parent": "kartvelian",
           "sort": 10,
           "name_en": "Kartvelian core",
-          "name_zh": "卡特维尔语支核心"
+          "name_zh": "卡特维尔语支核心",
+          "name_py": "ka te wei er yu zhi he xin",
+          "name_py_abbr": "ktweyzhx"
         },
         {
           "code": "oghuz",
           "parent": "turkic",
           "sort": 10,
           "name_en": "Oghuz",
-          "name_zh": "乌古斯"
+          "name_zh": "乌古斯",
+          "name_py": "wu gu si",
+          "name_py_abbr": "wgs"
         },
         {
           "code": "romance",
           "parent": "italic",
           "sort": 10,
           "name_en": "Romance",
-          "name_zh": "罗曼语族"
+          "name_zh": "罗曼语族",
+          "name_py": "luo man yu zu",
+          "name_py_abbr": "lmyz"
         },
         {
           "code": "semitic",
           "parent": "afroasiatic",
           "sort": 10,
           "name_en": "Semitic",
-          "name_zh": "闪米特语族"
+          "name_zh": "闪米特语族",
+          "name_py": "shan mi te yu zu",
+          "name_py_abbr": "smtyz"
         },
         {
           "code": "west_slavic",
           "parent": "slavic",
           "sort": 10,
           "name_en": "West Slavic",
-          "name_zh": "西斯拉夫"
+          "name_zh": "西斯拉夫",
+          "name_py": "xi si la fu",
+          "name_py_abbr": "xslf"
         },
         {
           "code": "arabic",
           "parent": "semitic",
           "sort": 20,
           "name_en": "Arabic",
-          "name_zh": "阿拉伯语支"
+          "name_zh": "阿拉伯语支",
+          "name_py": "a la bo yu zhi",
+          "name_py_abbr": "albyz"
         },
         {
           "code": "berber",
           "parent": "afroasiatic",
           "sort": 20,
           "name_en": "Berber",
-          "name_zh": "柏柏尔语族"
+          "name_zh": "柏柏尔语族",
+          "name_py": "bai bai er yu zu",
+          "name_py_abbr": "bbeyz"
         },
         {
           "code": "celtic",
           "parent": "indo_european",
           "sort": 20,
           "name_en": "Celtic",
-          "name_zh": "凯尔特语族"
+          "name_zh": "凯尔特语族",
+          "name_py": "kai er te yu zu",
+          "name_py_abbr": "ketyz"
         },
         {
           "code": "east_slavic",
           "parent": "slavic",
           "sort": 20,
           "name_en": "East Slavic",
-          "name_zh": "东斯拉夫"
+          "name_zh": "东斯拉夫",
+          "name_py": "dong si la fu",
+          "name_py_abbr": "dslf"
         },
         {
           "code": "germanic_west",
           "parent": "germanic",
           "sort": 20,
           "name_en": "West Germanic",
-          "name_zh": "西日耳曼"
+          "name_zh": "西日耳曼",
+          "name_py": "xi ri er man",
+          "name_py_abbr": "xrem"
         },
         {
           "code": "kipchak",
           "parent": "turkic",
           "sort": 20,
           "name_en": "Kipchak",
-          "name_zh": "钦察"
+          "name_zh": "钦察",
+          "name_py": "qin cha",
+          "name_py_abbr": "qc"
         },
         {
           "code": "uralic",
           "parent": null,
           "sort": 20,
           "name_en": "Uralic",
-          "name_zh": "乌拉尔语系"
+          "name_zh": "乌拉尔语系",
+          "name_py": "wu la er yu xi",
+          "name_py_abbr": "wleyx"
         },
         {
           "code": "aramaic",
           "parent": "semitic",
           "sort": 30,
           "name_en": "Aramaic",
-          "name_zh": "阿拉米语支"
+          "name_zh": "阿拉米语支",
+          "name_py": "a la mi yu zhi",
+          "name_py_abbr": "almyz"
         },
         {
           "code": "egyptian",
           "parent": "afroasiatic",
           "sort": 30,
           "name_en": "Egyptian",
-          "name_zh": "埃及语族"
+          "name_zh": "埃及语族",
+          "name_py": "ai ji yu zu",
+          "name_py_abbr": "ajyz"
         },
         {
           "code": "germanic_east",
           "parent": "germanic",
           "sort": 30,
           "name_en": "East Germanic",
-          "name_zh": "东日耳曼"
+          "name_zh": "东日耳曼",
+          "name_py": "dong ri er man",
+          "name_py_abbr": "drem"
         },
         {
           "code": "italic",
           "parent": "indo_european",
           "sort": 30,
           "name_en": "Italic",
-          "name_zh": "意大利语族"
+          "name_zh": "意大利语族",
+          "name_py": "yi da li yu zu",
+          "name_py_abbr": "ydlyz"
         },
         {
           "code": "kartvelian",
           "parent": null,
           "sort": 30,
           "name_en": "Kartvelian",
-          "name_zh": "卡特维尔语系"
+          "name_zh": "卡特维尔语系",
+          "name_py": "ka te wei er yu xi",
+          "name_py_abbr": "ktweyx"
         },
         {
           "code": "south_slavic",
           "parent": "slavic",
           "sort": 30,
           "name_en": "South Slavic",
-          "name_zh": "南斯拉夫"
+          "name_zh": "南斯拉夫",
+          "name_py": "nan si la fu",
+          "name_py_abbr": "nslf"
         },
         {
           "code": "slavic",
           "parent": "indo_european",
           "sort": 40,
           "name_en": "Slavic",
-          "name_zh": "斯拉夫语族"
+          "name_zh": "斯拉夫语族",
+          "name_py": "si la fu yu zu",
+          "name_py_abbr": "slfyz"
         },
         {
           "code": "turkic",
           "parent": null,
           "sort": 40,
           "name_en": "Turkic",
-          "name_zh": "突厥语系"
+          "name_zh": "突厥语系",
+          "name_py": "tu jue yu xi",
+          "name_py_abbr": "tjyx"
         },
         {
           "code": "afroasiatic",
           "parent": null,
           "sort": 50,
           "name_en": "Afroasiatic",
-          "name_zh": "亚非语系"
+          "name_zh": "亚非语系",
+          "name_py": "ya fei yu xi",
+          "name_py_abbr": "yfyx"
         },
         {
           "code": "baltic",
           "parent": "indo_european",
           "sort": 50,
           "name_en": "Baltic",
-          "name_zh": "波罗的语族"
+          "name_zh": "波罗的语族",
+          "name_py": "bo luo de yu zu",
+          "name_py_abbr": "bldyz"
         },
         {
           "code": "hellenic",
           "parent": "indo_european",
           "sort": 60,
           "name_en": "Hellenic",
-          "name_zh": "希腊语族"
+          "name_zh": "希腊语族",
+          "name_py": "xi la yu zu",
+          "name_py_abbr": "xlyz"
         },
         {
           "code": "albanian",
           "parent": "indo_european",
           "sort": 70,
           "name_en": "Albanian",
-          "name_zh": "阿尔巴尼亚语支"
+          "name_zh": "阿尔巴尼亚语支",
+          "name_py": "a er ba ni ya yu zhi",
+          "name_py_abbr": "aebnyyz"
         },
         {
           "code": "basque",
           "parent": null,
           "sort": 500,
           "name_en": "Basque (isolate)",
-          "name_zh": "巴斯克语系（孤立）"
+          "name_zh": "巴斯克语系（孤立）",
+          "name_py": "ba si ke yu xi （ gu li ）",
+          "name_py_abbr": "bskyx（gl）"
         }
       ]
     },
@@ -13797,329 +14061,423 @@
           "parent": null,
           "sort": 10,
           "name_en": "Goths",
-          "name_zh": "哥特人"
+          "name_zh": "哥特人",
+          "name_py": "ge te ren",
+          "name_py_abbr": "gtr"
         },
         {
           "code": "franks",
           "parent": null,
           "sort": 20,
           "name_en": "Franks",
-          "name_zh": "法兰克人"
+          "name_zh": "法兰克人",
+          "name_py": "fa lan ke ren",
+          "name_py_abbr": "flkr"
         },
         {
           "code": "angles",
           "parent": null,
           "sort": 30,
           "name_en": "Angles",
-          "name_zh": "盎格鲁人"
+          "name_zh": "盎格鲁人",
+          "name_py": "ang ge lu ren",
+          "name_py_abbr": "aglr"
         },
         {
           "code": "saxons",
           "parent": null,
           "sort": 40,
           "name_en": "Saxons",
-          "name_zh": "撒克逊人"
+          "name_zh": "撒克逊人",
+          "name_py": "sa ke xun ren",
+          "name_py_abbr": "skxr"
         },
         {
           "code": "jutes",
           "parent": null,
           "sort": 50,
           "name_en": "Jutes",
-          "name_zh": "朱特人"
+          "name_zh": "朱特人",
+          "name_py": "zhu te ren",
+          "name_py_abbr": "ztr"
         },
         {
           "code": "gauls",
           "parent": null,
           "sort": 60,
           "name_en": "Gauls",
-          "name_zh": "高卢人"
+          "name_zh": "高卢人",
+          "name_py": "gao lu ren",
+          "name_py_abbr": "glr"
         },
         {
           "code": "britons",
           "parent": null,
           "sort": 70,
           "name_en": "Britons",
-          "name_zh": "不列颠人"
+          "name_zh": "不列颠人",
+          "name_py": "bu lie dian ren",
+          "name_py_abbr": "bldr"
         },
         {
           "code": "gaels",
           "parent": null,
           "sort": 80,
           "name_en": "Gaels",
-          "name_zh": "盖尔人"
+          "name_zh": "盖尔人",
+          "name_py": "gai er ren",
+          "name_py_abbr": "ger"
         },
         {
           "code": "vandals",
           "parent": null,
           "sort": 90,
           "name_en": "Vandals",
-          "name_zh": "汪达尔人"
+          "name_zh": "汪达尔人",
+          "name_py": "wang da er ren",
+          "name_py_abbr": "wder"
         },
         {
           "code": "burgundians",
           "parent": null,
           "sort": 100,
           "name_en": "Burgundians",
-          "name_zh": "勃艮第人"
+          "name_zh": "勃艮第人",
+          "name_py": "bo gen di ren",
+          "name_py_abbr": "bgdr"
         },
         {
           "code": "lombards",
           "parent": null,
           "sort": 110,
           "name_en": "Lombards",
-          "name_zh": "伦巴第人"
+          "name_zh": "伦巴第人",
+          "name_py": "lun ba di ren",
+          "name_py_abbr": "lbdr"
         },
         {
           "code": "suebi",
           "parent": null,
           "sort": 120,
           "name_en": "Suebi",
-          "name_zh": "苏维汇人"
+          "name_zh": "苏维汇人",
+          "name_py": "su wei hui ren",
+          "name_py_abbr": "swhr"
         },
         {
           "code": "visigoths",
           "parent": null,
           "sort": 130,
           "name_en": "Visigoths",
-          "name_zh": "西哥特人"
+          "name_zh": "西哥特人",
+          "name_py": "xi ge te ren",
+          "name_py_abbr": "xgtr"
         },
         {
           "code": "ostrogoths",
           "parent": null,
           "sort": 140,
           "name_en": "Ostrogoths",
-          "name_zh": "东哥特人"
+          "name_zh": "东哥特人",
+          "name_py": "dong ge te ren",
+          "name_py_abbr": "dgtr"
         },
         {
           "code": "romans",
           "parent": null,
           "sort": 150,
           "name_en": "Romans",
-          "name_zh": "罗马人"
+          "name_zh": "罗马人",
+          "name_py": "luo ma ren",
+          "name_py_abbr": "lmr"
         },
         {
           "code": "latins",
           "parent": null,
           "sort": 160,
           "name_en": "Latins",
-          "name_zh": "拉丁人"
+          "name_zh": "拉丁人",
+          "name_py": "la ding ren",
+          "name_py_abbr": "ldr"
         },
         {
           "code": "iberians",
           "parent": null,
           "sort": 170,
           "name_en": "Iberians",
-          "name_zh": "伊比利亚人"
+          "name_zh": "伊比利亚人",
+          "name_py": "yi bi li ya ren",
+          "name_py_abbr": "yblyr"
         },
         {
           "code": "celtiberians",
           "parent": null,
           "sort": 180,
           "name_en": "Celtiberians",
-          "name_zh": "凯尔特伊比利亚人"
+          "name_zh": "凯尔特伊比利亚人",
+          "name_py": "kai er te yi bi li ya ren",
+          "name_py_abbr": "ketyblyr"
         },
         {
           "code": "lusitanians",
           "parent": null,
           "sort": 190,
           "name_en": "Lusitanians",
-          "name_zh": "卢西塔尼亚人"
+          "name_zh": "卢西塔尼亚人",
+          "name_py": "lu xi ta ni ya ren",
+          "name_py_abbr": "lxtnyr"
         },
         {
           "code": "dacians",
           "parent": null,
           "sort": 200,
           "name_en": "Dacians",
-          "name_zh": "达契亚人"
+          "name_zh": "达契亚人",
+          "name_py": "da qi ya ren",
+          "name_py_abbr": "dqyr"
         },
         {
           "code": "illyrians",
           "parent": null,
           "sort": 210,
           "name_en": "Illyrians",
-          "name_zh": "伊利里亚人"
+          "name_zh": "伊利里亚人",
+          "name_py": "yi li li ya ren",
+          "name_py_abbr": "yllyr"
         },
         {
           "code": "thracians",
           "parent": null,
           "sort": 220,
           "name_en": "Thracians",
-          "name_zh": "色雷斯人"
+          "name_zh": "色雷斯人",
+          "name_py": "se lei si ren",
+          "name_py_abbr": "slsr"
         },
         {
           "code": "slavs",
           "parent": null,
           "sort": 230,
           "name_en": "Slavs",
-          "name_zh": "斯拉夫人"
+          "name_zh": "斯拉夫人",
+          "name_py": "si la fu ren",
+          "name_py_abbr": "slfr"
         },
         {
           "code": "magyars",
           "parent": null,
           "sort": 240,
           "name_en": "Magyars",
-          "name_zh": "马扎尔人"
+          "name_zh": "马扎尔人",
+          "name_py": "ma zha er ren",
+          "name_py_abbr": "mzer"
         },
         {
           "code": "avars",
           "parent": null,
           "sort": 250,
           "name_en": "Avars",
-          "name_zh": "阿瓦尔人"
+          "name_zh": "阿瓦尔人",
+          "name_py": "a wa er ren",
+          "name_py_abbr": "awer"
         },
         {
           "code": "bavarians",
           "parent": null,
           "sort": 260,
           "name_en": "Bavarians",
-          "name_zh": "巴伐利亚人"
+          "name_zh": "巴伐利亚人",
+          "name_py": "ba fa li ya ren",
+          "name_py_abbr": "bflyr"
         },
         {
           "code": "moors",
           "parent": null,
           "sort": 270,
           "name_en": "Moors",
-          "name_zh": "摩尔人"
+          "name_zh": "摩尔人",
+          "name_py": "mo er ren",
+          "name_py_abbr": "mer"
         },
         {
           "code": "prussians",
           "parent": null,
           "sort": 280,
           "name_en": "Old Prussians",
-          "name_zh": "古普鲁士人"
+          "name_zh": "古普鲁士人",
+          "name_py": "gu pu lu shi ren",
+          "name_py_abbr": "gplsr"
         },
         {
           "code": "celts",
           "parent": null,
           "sort": 290,
           "name_en": "Celts",
-          "name_zh": "凯尔特人"
+          "name_zh": "凯尔特人",
+          "name_py": "kai er te ren",
+          "name_py_abbr": "ketr"
         },
         {
           "code": "germanic_tribes",
           "parent": null,
           "sort": 300,
           "name_en": "Early Germanic peoples",
-          "name_zh": "古日耳曼人"
+          "name_zh": "古日耳曼人",
+          "name_py": "gu ri er man ren",
+          "name_py_abbr": "gremr"
         },
         {
           "code": "alemanni",
           "parent": null,
           "sort": 310,
           "name_en": "Alemanni",
-          "name_zh": "阿勒曼尼人"
+          "name_zh": "阿勒曼尼人",
+          "name_py": "a le man ni ren",
+          "name_py_abbr": "almnr"
         },
         {
           "code": "thuringians",
           "parent": null,
           "sort": 320,
           "name_en": "Thuringians",
-          "name_zh": "图林根人"
+          "name_zh": "图林根人",
+          "name_py": "tu lin gen ren",
+          "name_py_abbr": "tlgr"
         },
         {
           "code": "huns",
           "parent": null,
           "sort": 330,
           "name_en": "Huns",
-          "name_zh": "匈人"
+          "name_zh": "匈人",
+          "name_py": "xiong ren",
+          "name_py_abbr": "xr"
         },
         {
           "code": "gepids",
           "parent": null,
           "sort": 340,
           "name_en": "Gepids",
-          "name_zh": "格皮德人"
+          "name_zh": "格皮德人",
+          "name_py": "ge pi de ren",
+          "name_py_abbr": "gpdr"
         },
         {
           "code": "norse",
           "parent": null,
           "sort": 350,
           "name_en": "Norse",
-          "name_zh": "诺斯人"
+          "name_zh": "诺斯人",
+          "name_py": "nuo si ren",
+          "name_py_abbr": "nsr"
         },
         {
           "code": "picts",
           "parent": null,
           "sort": 360,
           "name_en": "Picts",
-          "name_zh": "皮克特人"
+          "name_zh": "皮克特人",
+          "name_py": "pi ke te ren",
+          "name_py_abbr": "pktr"
         },
         {
           "code": "balts",
           "parent": null,
           "sort": 370,
           "name_en": "Balts",
-          "name_zh": "波罗的人"
+          "name_zh": "波罗的人",
+          "name_py": "bo luo de ren",
+          "name_py_abbr": "bldr"
         },
         {
           "code": "volga_bulgars",
           "parent": null,
           "sort": 380,
           "name_en": "Volga Bulgars",
-          "name_zh": "伏尔加保加尔人"
+          "name_zh": "伏尔加保加尔人",
+          "name_py": "fu er jia bao jia er ren",
+          "name_py_abbr": "fejbjer"
         },
         {
           "code": "arabs",
           "parent": null,
           "sort": 390,
           "name_en": "Arabs",
-          "name_zh": "阿拉伯人"
+          "name_zh": "阿拉伯人",
+          "name_py": "a la bo ren",
+          "name_py_abbr": "albr"
         },
         {
           "code": "rus",
           "parent": null,
           "sort": 400,
           "name_en": "Rus'",
-          "name_zh": "罗斯人"
+          "name_zh": "罗斯人",
+          "name_py": "luo si ren",
+          "name_py_abbr": "lsr"
         },
         {
           "code": "masurians",
           "parent": null,
           "sort": 410,
           "name_en": "Masurians",
-          "name_zh": "马祖里人"
+          "name_zh": "马祖里人",
+          "name_py": "ma zu li ren",
+          "name_py_abbr": "mzlr"
         },
         {
           "code": "carthaginians",
           "parent": "phoenicians",
           "sort": 420,
           "name_en": "Carthaginians",
-          "name_zh": "迦太基人"
+          "name_zh": "迦太基人",
+          "name_py": "jia tai ji ren",
+          "name_py_abbr": "jtjr"
         },
         {
           "code": "persians",
           "parent": null,
           "sort": 430,
           "name_en": "Persians",
-          "name_zh": "波斯人"
+          "name_zh": "波斯人",
+          "name_py": "bo si ren",
+          "name_py_abbr": "bsr"
         },
         {
           "code": "phoenicians",
           "parent": null,
           "sort": 440,
           "name_en": "Phoenicians",
-          "name_zh": "腓尼基人"
+          "name_zh": "腓尼基人",
+          "name_py": "fei ni ji ren",
+          "name_py_abbr": "fnjr"
         },
         {
           "code": "arameans",
           "parent": null,
           "sort": 450,
           "name_en": "Arameans",
-          "name_zh": "阿拉米人"
+          "name_zh": "阿拉米人",
+          "name_py": "a la mi ren",
+          "name_py_abbr": "almr"
         },
         {
           "code": "crusaders",
           "parent": null,
           "sort": 460,
           "name_en": "Crusaders",
-          "name_zh": "十字军"
+          "name_zh": "十字军",
+          "name_py": "shi zi jun",
+          "name_py_abbr": "szj"
         },
         {
           "code": "sarmatians",
           "parent": null,
           "sort": 470,
           "name_en": "Sarmatians",
-          "name_zh": "萨尔马提亚人"
+          "name_zh": "萨尔马提亚人",
+          "name_py": "sa er ma ti ya ren",
+          "name_py_abbr": "semtyr"
         }
       ]
     },
@@ -14131,364 +14489,468 @@
           "parent": null,
           "sort": 10,
           "name_en": "English",
-          "name_zh": "英格兰人"
+          "name_zh": "英格兰人",
+          "name_py": "ying ge lan ren",
+          "name_py_abbr": "yglr"
         },
         {
           "code": "scots",
           "parent": null,
           "sort": 20,
           "name_en": "Scots",
-          "name_zh": "苏格兰人"
+          "name_zh": "苏格兰人",
+          "name_py": "su ge lan ren",
+          "name_py_abbr": "sglr"
         },
         {
           "code": "welsh",
           "parent": null,
           "sort": 30,
           "name_en": "Welsh",
-          "name_zh": "威尔士人"
+          "name_zh": "威尔士人",
+          "name_py": "wei er shi ren",
+          "name_py_abbr": "wesr"
         },
         {
           "code": "irish",
           "parent": null,
           "sort": 40,
           "name_en": "Irish",
-          "name_zh": "爱尔兰人"
+          "name_zh": "爱尔兰人",
+          "name_py": "ai er lan ren",
+          "name_py_abbr": "aelr"
         },
         {
           "code": "french",
           "parent": null,
           "sort": 50,
           "name_en": "French",
-          "name_zh": "法国人"
+          "name_zh": "法国人",
+          "name_py": "fa guo ren",
+          "name_py_abbr": "fgr"
         },
         {
           "code": "germans",
           "parent": null,
           "sort": 60,
           "name_en": "Germans",
-          "name_zh": "德国人"
+          "name_zh": "德国人",
+          "name_py": "de guo ren",
+          "name_py_abbr": "dgr"
         },
         {
           "code": "dutch",
           "parent": null,
           "sort": 70,
           "name_en": "Dutch",
-          "name_zh": "荷兰人"
+          "name_zh": "荷兰人",
+          "name_py": "he lan ren",
+          "name_py_abbr": "hlr"
         },
         {
           "code": "danes",
           "parent": null,
           "sort": 80,
           "name_en": "Danes",
-          "name_zh": "丹麦人"
+          "name_zh": "丹麦人",
+          "name_py": "dan mai ren",
+          "name_py_abbr": "dmr"
         },
         {
           "code": "swedes",
           "parent": null,
           "sort": 90,
           "name_en": "Swedes",
-          "name_zh": "瑞典人"
+          "name_zh": "瑞典人",
+          "name_py": "rui dian ren",
+          "name_py_abbr": "rdr"
         },
         {
           "code": "norwegians",
           "parent": null,
           "sort": 100,
           "name_en": "Norwegians",
-          "name_zh": "挪威人"
+          "name_zh": "挪威人",
+          "name_py": "nuo wei ren",
+          "name_py_abbr": "nwr"
         },
         {
           "code": "italians",
           "parent": null,
           "sort": 110,
           "name_en": "Italians",
-          "name_zh": "意大利人"
+          "name_zh": "意大利人",
+          "name_py": "yi da li ren",
+          "name_py_abbr": "ydlr"
         },
         {
           "code": "spaniards",
           "parent": null,
           "sort": 120,
           "name_en": "Spaniards",
-          "name_zh": "西班牙人"
+          "name_zh": "西班牙人",
+          "name_py": "xi ban ya ren",
+          "name_py_abbr": "xbyr"
         },
         {
           "code": "portuguese",
           "parent": null,
           "sort": 130,
           "name_en": "Portuguese",
-          "name_zh": "葡萄牙人"
+          "name_zh": "葡萄牙人",
+          "name_py": "pu tao ya ren",
+          "name_py_abbr": "ptyr"
         },
         {
           "code": "romanians",
           "parent": null,
           "sort": 140,
           "name_en": "Romanians",
-          "name_zh": "罗马尼亚人"
+          "name_zh": "罗马尼亚人",
+          "name_py": "luo ma ni ya ren",
+          "name_py_abbr": "lmnyr"
         },
         {
           "code": "poles",
           "parent": null,
           "sort": 150,
           "name_en": "Poles",
-          "name_zh": "波兰人"
+          "name_zh": "波兰人",
+          "name_py": "bo lan ren",
+          "name_py_abbr": "blr"
         },
         {
           "code": "czechs",
           "parent": null,
           "sort": 160,
           "name_en": "Czechs",
-          "name_zh": "捷克人"
+          "name_zh": "捷克人",
+          "name_py": "jie ke ren",
+          "name_py_abbr": "jkr"
         },
         {
           "code": "slovaks",
           "parent": null,
           "sort": 170,
           "name_en": "Slovaks",
-          "name_zh": "斯洛伐克人"
+          "name_zh": "斯洛伐克人",
+          "name_py": "si luo fa ke ren",
+          "name_py_abbr": "slfkr"
         },
         {
           "code": "serbs",
           "parent": null,
           "sort": 180,
           "name_en": "Serbs",
-          "name_zh": "塞尔维亚人"
+          "name_zh": "塞尔维亚人",
+          "name_py": "sai er wei ya ren",
+          "name_py_abbr": "sewyr"
         },
         {
           "code": "croats",
           "parent": null,
           "sort": 190,
           "name_en": "Croats",
-          "name_zh": "克罗地亚人"
+          "name_zh": "克罗地亚人",
+          "name_py": "ke luo di ya ren",
+          "name_py_abbr": "kldyr"
         },
         {
           "code": "slovenes",
           "parent": null,
           "sort": 200,
           "name_en": "Slovenes",
-          "name_zh": "斯洛文尼亚人"
+          "name_zh": "斯洛文尼亚人",
+          "name_py": "si luo wen ni ya ren",
+          "name_py_abbr": "slwnyr"
         },
         {
           "code": "bulgarians",
           "parent": null,
           "sort": 210,
           "name_en": "Bulgarians",
-          "name_zh": "保加利亚人"
+          "name_zh": "保加利亚人",
+          "name_py": "bao jia li ya ren",
+          "name_py_abbr": "bjlyr"
         },
         {
           "code": "greeks",
           "parent": null,
           "sort": 220,
           "name_en": "Greeks",
-          "name_zh": "希腊人"
+          "name_zh": "希腊人",
+          "name_py": "xi la ren",
+          "name_py_abbr": "xlr"
         },
         {
           "code": "albanians",
           "parent": null,
           "sort": 230,
           "name_en": "Albanians",
-          "name_zh": "阿尔巴尼亚人"
+          "name_zh": "阿尔巴尼亚人",
+          "name_py": "a er ba ni ya ren",
+          "name_py_abbr": "aebnyr"
         },
         {
           "code": "hungarians",
           "parent": null,
           "sort": 240,
           "name_en": "Hungarians",
-          "name_zh": "匈牙利人"
+          "name_zh": "匈牙利人",
+          "name_py": "xiong ya li ren",
+          "name_py_abbr": "xylr"
         },
         {
           "code": "ukrainians",
           "parent": null,
           "sort": 250,
           "name_en": "Ukrainians",
-          "name_zh": "乌克兰人"
+          "name_zh": "乌克兰人",
+          "name_py": "wu ke lan ren",
+          "name_py_abbr": "wklr"
         },
         {
           "code": "belarusians",
           "parent": null,
           "sort": 260,
           "name_en": "Belarusians",
-          "name_zh": "白俄罗斯人"
+          "name_zh": "白俄罗斯人",
+          "name_py": "bai e luo si ren",
+          "name_py_abbr": "belsr"
         },
         {
           "code": "russians",
           "parent": null,
           "sort": 270,
           "name_en": "Russians",
-          "name_zh": "俄罗斯人"
+          "name_zh": "俄罗斯人",
+          "name_py": "e luo si ren",
+          "name_py_abbr": "elsr"
         },
         {
           "code": "latvians",
           "parent": null,
           "sort": 280,
           "name_en": "Latvians",
-          "name_zh": "拉脱维亚人"
+          "name_zh": "拉脱维亚人",
+          "name_py": "la tuo wei ya ren",
+          "name_py_abbr": "ltwyr"
         },
         {
           "code": "lithuanians",
           "parent": null,
           "sort": 290,
           "name_en": "Lithuanians",
-          "name_zh": "立陶宛人"
+          "name_zh": "立陶宛人",
+          "name_py": "li tao wan ren",
+          "name_py_abbr": "ltwr"
         },
         {
           "code": "estonian",
           "parent": null,
           "sort": 300,
           "name_en": "Estonians",
-          "name_zh": "爱沙尼亚人"
+          "name_zh": "爱沙尼亚人",
+          "name_py": "ai sha ni ya ren",
+          "name_py_abbr": "asnyr"
         },
         {
           "code": "finns",
           "parent": null,
           "sort": 310,
           "name_en": "Finns",
-          "name_zh": "芬兰人"
+          "name_zh": "芬兰人",
+          "name_py": "fen lan ren",
+          "name_py_abbr": "flr"
         },
         {
           "code": "georgians",
           "parent": null,
           "sort": 320,
           "name_en": "Georgians",
-          "name_zh": "格鲁吉亚人"
+          "name_zh": "格鲁吉亚人",
+          "name_py": "ge lu ji ya ren",
+          "name_py_abbr": "gljyr"
         },
         {
           "code": "armenians",
           "parent": null,
           "sort": 330,
           "name_en": "Armenians",
-          "name_zh": "亚美尼亚人"
+          "name_zh": "亚美尼亚人",
+          "name_py": "ya mei ni ya ren",
+          "name_py_abbr": "ymnyr"
         },
         {
           "code": "azerbaijanis",
           "parent": null,
           "sort": 340,
           "name_en": "Azerbaijanis",
-          "name_zh": "阿塞拜疆人"
+          "name_zh": "阿塞拜疆人",
+          "name_py": "a sai bai jiang ren",
+          "name_py_abbr": "asbjr"
         },
         {
           "code": "bretons",
           "parent": null,
           "sort": 350,
           "name_en": "Bretons",
-          "name_zh": "布列塔尼人"
+          "name_zh": "布列塔尼人",
+          "name_py": "bu lie ta ni ren",
+          "name_py_abbr": "bltnr"
         },
         {
           "code": "catalans",
           "parent": null,
           "sort": 360,
           "name_en": "Catalans",
-          "name_zh": "加泰罗尼亚人"
+          "name_zh": "加泰罗尼亚人",
+          "name_py": "jia tai luo ni ya ren",
+          "name_py_abbr": "jtlnyr"
         },
         {
           "code": "basques",
           "parent": null,
           "sort": 370,
           "name_en": "Basques",
-          "name_zh": "巴斯克人"
+          "name_zh": "巴斯克人",
+          "name_py": "ba si ke ren",
+          "name_py_abbr": "bskr"
         },
         {
           "code": "crimean_tatars",
           "parent": null,
           "sort": 380,
           "name_en": "Crimean Tatars",
-          "name_zh": "克里米亚鞑靼人"
+          "name_zh": "克里米亚鞑靼人",
+          "name_py": "ke li mi ya da da ren",
+          "name_py_abbr": "klmyddr"
         },
         {
           "code": "sami",
           "parent": null,
           "sort": 390,
           "name_en": "Sami",
-          "name_zh": "萨米人"
+          "name_zh": "萨米人",
+          "name_py": "sa mi ren",
+          "name_py_abbr": "smr"
         },
         {
           "code": "bosniaks",
           "parent": null,
           "sort": 400,
           "name_en": "Bosniaks",
-          "name_zh": "波斯尼亚克族"
+          "name_zh": "波斯尼亚克族",
+          "name_py": "bo si ni ya ke zu",
+          "name_py_abbr": "bsnykz"
         },
         {
           "code": "macedonians",
           "parent": null,
           "sort": 410,
           "name_en": "Macedonians",
-          "name_zh": "马其顿人"
+          "name_zh": "马其顿人",
+          "name_py": "ma qi dun ren",
+          "name_py_abbr": "mqdr"
         },
         {
           "code": "montenegrins",
           "parent": null,
           "sort": 420,
           "name_en": "Montenegrins",
-          "name_zh": "黑山人"
+          "name_zh": "黑山人",
+          "name_py": "hei shan ren",
+          "name_py_abbr": "hsr"
         },
         {
           "code": "sardinians",
           "parent": null,
           "sort": 430,
           "name_en": "Sardinians",
-          "name_zh": "撒丁人"
+          "name_zh": "撒丁人",
+          "name_py": "sa ding ren",
+          "name_py_abbr": "sdr"
         },
         {
           "code": "karelians",
           "parent": null,
           "sort": 440,
           "name_en": "Karelians",
-          "name_zh": "卡累利阿人"
+          "name_zh": "卡累利阿人",
+          "name_py": "ka lei li a ren",
+          "name_py_abbr": "kllar"
         },
         {
           "code": "volga_tatars",
           "parent": null,
           "sort": 450,
           "name_en": "Volga Tatars",
-          "name_zh": "伏尔加鞑靼人"
+          "name_zh": "伏尔加鞑靼人",
+          "name_py": "fu er jia da da ren",
+          "name_py_abbr": "fejddr"
         },
         {
           "code": "turks",
           "parent": null,
           "sort": 460,
           "name_en": "Turks",
-          "name_zh": "土耳其人"
+          "name_zh": "土耳其人",
+          "name_py": "tu er qi ren",
+          "name_py_abbr": "teqr"
         },
         {
           "code": "berbers",
           "parent": null,
           "sort": 470,
           "name_en": "Berbers",
-          "name_zh": "柏柏尔人"
+          "name_zh": "柏柏尔人",
+          "name_py": "bai bai er ren",
+          "name_py_abbr": "bber"
         },
         {
           "code": "egyptians",
           "parent": null,
           "sort": 480,
           "name_en": "Egyptians",
-          "name_zh": "埃及人"
+          "name_zh": "埃及人",
+          "name_py": "ai ji ren",
+          "name_py_abbr": "ajr"
         },
         {
           "code": "north_african_arabs",
           "parent": null,
           "sort": 490,
           "name_en": "North African Arabs",
-          "name_zh": "北非阿拉伯人"
+          "name_zh": "北非阿拉伯人",
+          "name_py": "bei fei a la bo ren",
+          "name_py_abbr": "bfalbr"
         },
         {
           "code": "jews",
           "parent": null,
           "sort": 500,
           "name_en": "Jews",
-          "name_zh": "犹太人"
+          "name_zh": "犹太人",
+          "name_py": "you tai ren",
+          "name_py_abbr": "ytr"
         },
         {
           "code": "kurds",
           "parent": null,
           "sort": 510,
           "name_en": "Kurds",
-          "name_zh": "库尔德人"
+          "name_zh": "库尔德人",
+          "name_py": "ku er de ren",
+          "name_py_abbr": "kedr"
         },
         {
           "code": "levantine_arabs",
           "parent": null,
           "sort": 520,
           "name_en": "Levantine Arabs",
-          "name_zh": "黎凡特阿拉伯人"
+          "name_zh": "黎凡特阿拉伯人",
+          "name_py": "li fan te a la bo ren",
+          "name_py_abbr": "lftalbr"
         }
       ]
     }

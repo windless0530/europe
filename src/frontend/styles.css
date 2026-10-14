@@ -94,6 +94,17 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap; /* 窄屏不撑出横向滚动 */
+}
+
+/* 窄屏族群抽屉拉出钮（≤900px 显示；geo 模式由 main.ts 内联隐藏） */
+#tree-toggle {
+  display: none;
+}
+
+/* 抽屉遮罩（窄屏专用；桌面端恒不显示，body.tree-open 残留也无害） */
+.tree-scrim {
+  display: none;
 }
 
 .seg {
@@ -221,13 +232,40 @@ body {
   overflow-y: auto;
 }
 
+.ptree-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 4px 6px;
+}
+
 .ptree-title {
   font-size: 11.5px;
   font-weight: 650;
   letter-spacing: 0.4px;
   color: var(--text-muted);
   text-transform: uppercase;
-  margin: 0 4px 6px;
+  margin: 0;
+}
+
+/* 抽屉头部关闭钮：桌面端隐藏，≤900px 抽屉态显示 */
+.ptree-close {
+  display: none;
+  appearance: none;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--surface-1);
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 12.5px;
+  line-height: 1;
+  width: 26px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: none;
 }
 
 /* 未点亮族群显隐切换（一键显示/隐藏当年未活动族群） */
@@ -245,6 +283,100 @@ body {
 .ptree-toggle input {
   accent-color: var(--series-blue);
   margin: 0;
+}
+
+/* ---------- 谱系树过滤与多选 ---------- */
+
+/* 过滤输入行（清空钮叠在行内右侧） */
+.ptree-filter {
+  position: relative;
+  margin: 0 0 8px;
+}
+
+.ptree-filter input {
+  width: 100%;
+  font: inherit;
+  font-size: 12px;
+  color: var(--text-primary);
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 24px 4px 8px;
+  outline: none;
+}
+
+.ptree-filter input:focus {
+  border-color: var(--series-blue);
+}
+
+.ptree-filter input::placeholder {
+  color: var(--text-muted);
+}
+
+.ptree-filter input::-webkit-search-cancel-button {
+  display: none; /* 用行内 ✕ 钮替代浏览器默认样式（两套清除入口易混淆） */
+}
+
+.ptree-filter-clear {
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  appearance: none;
+  border: 0;
+  background: transparent;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.ptree-filter-clear:hover {
+  background: var(--gridline);
+  color: var(--text-primary);
+}
+
+/* 选中条：所选族群名 + 清除（单选，选中时显示） */
+.ptree-selbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 4px 8px;
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.ptree-sel-clear {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--series-blue);
+  font-size: 11.5px;
+  cursor: pointer;
+}
+
+.ptree-sel-clear:hover {
+  text-decoration: underline;
+}
+
+/* 叶行选中态（单选）：行底色 + 色点外圈 */
+.ptree-leaf.selected {
+  background: var(--gridline);
+}
+
+.ptree-leaf.selected .dot {
+  outline: 1px solid var(--text-secondary);
+  outline-offset: 1px;
+}
+
+.ptree-nomatch {
+  padding: 10px 4px;
+  font-size: 12px;
+  color: var(--text-muted);
 }
 
 .ptree-body details {
@@ -334,7 +466,8 @@ body {
   border-radius: 6px;
   font-size: 12.5px;
   color: var(--text-secondary);
-  cursor: default;
+  cursor: pointer; /* 点击多选（悬停聚焦仍由 pointerenter 承担） */
+  user-select: none;
 }
 
 .ptree-leaf .dot {
@@ -691,6 +824,16 @@ body {
   border-bottom: 0;
 }
 
+/* 单选族群的行标记（谱系树选中）：与叶行选中态同款行底色 + 色点外圈 */
+.people-block.selected {
+  background: var(--gridline);
+}
+
+.people-block.selected .people-head .dot {
+  outline: 1px solid var(--text-secondary);
+  outline-offset: 1px;
+}
+
 .people-head {
   display: flex;
   align-items: center;
@@ -734,6 +877,11 @@ body {
 /* ---------- 窄屏 ---------- */
 
 @media (max-width: 900px) {
+  html,
+  body {
+    /* 宽度始终恰好铺满视口：换行修复已消除溢出源，此处兜底拒绝任何残余横向滚动 */
+    overflow-x: clip;
+  }
   #app {
     /* 内容自然撑高、页面允许垂直滚动：详情面板内容增减不再挤压地图 */
     height: auto;
@@ -743,8 +891,76 @@ body {
   .app-main {
     flex-direction: column;
   }
+  #tree-toggle {
+    display: inline-flex;
+  }
+
+  /* 族群树抽屉化：左侧滑入面板，按钮拉出、遮罩/✕ 收回（geo 模式由内联 display:none 隐藏） */
   .people-tree {
-    display: none !important;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: min(86vw, 340px);
+    z-index: 40;
+    border-radius: 0 12px 12px 0;
+    box-shadow: var(--shadow);
+    transform: translateX(-103%);
+    transition: transform 0.25s ease;
+    overscroll-behavior: contain; /* 树内滚动不带动页面 */
+  }
+  body.tree-open .people-tree {
+    transform: translateX(0);
+  }
+  .ptree-close {
+    display: inline-flex;
+  }
+  .ptree-head {
+    /* 树内滚动时头部（含 ✕）吸顶，收起入口始终可达 */
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    margin: 0;
+    padding: 12px 14px 6px;
+    background: var(--surface-1);
+  }
+  #ptree-filter {
+    font-size: 16px; /* ≥16px：iOS 聚焦输入框不触发页面自动放大 */
+  }
+  .tree-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 39;
+    background: rgba(11, 11, 11, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s;
+  }
+  body.tree-open .tree-scrim {
+    opacity: 1;
+    visibility: visible;
+  }
+  body.tree-open {
+    overflow: hidden; /* 抽屉打开时锁住底层页面滚动 */
+  }
+
+  /* 时间轴两行布局：年份+播放一行，滑杆独占一行——刻度串的最小内容宽 ~160px，
+     单行布局在窄屏必然横向溢出 */
+  .timeline {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+  .timeline .era-label {
+    flex: 1;
+    min-width: 0;
+  }
+  .timeline .slider-wrap {
+    flex-basis: 100%;
+    min-width: 0;
+  }
+  .map-note {
+    max-width: calc(100% - 20px);
   }
   .map-wrap {
     /* 固定高度（≈窄屏下原先的空闲态高度），点选后面板变高也不改地图可视范围；

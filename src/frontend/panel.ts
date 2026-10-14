@@ -1,4 +1,4 @@
-// 右侧详情面板：hover 区域的当前信息。
+// 右侧详情面板：hover 区域的当前信息（恒为该区域自己的族群行；单选族群行仅作标记，不改内容）。
 // 几何模式 show()；族群分布模式 showAtlas()（SQL region + 当年族群/语言/宗教/关系/事件）。
 
 import type { RegionVm } from './load';
@@ -15,7 +15,8 @@ const MAX_RELATIONS_SHOWN = 4;
 
 export interface PanelApi {
   show(vm: RegionVm, lang: Lang): void;
-  showAtlas(vm: RegionVm | null, model: AtlasModel, year: number, lang: Lang): void;
+  /** selPeople：当前单选族群（其行加 selected 标记；面板内容仍恒为该区域的族群） */
+  showAtlas(vm: RegionVm | null, model: AtlasModel, year: number, lang: Lang, selPeople?: string | null): void;
   showIdle(lang: Lang): void;
 }
 
@@ -46,9 +47,9 @@ export function createPanel(root: HTMLElement): PanelApi {
     return ((lang === 'zh' ? zh : en) ?? en ?? zh) ?? fallback;
   }
 
-  function peopleBlock(row: PresenceRow, model: AtlasModel, year: number, lang: Lang, isTop: boolean): HTMLElement {
+  function peopleBlock(row: PresenceRow, model: AtlasModel, year: number, lang: Lang, isTop: boolean, selected: boolean): HTMLElement {
     const block = document.createElement('div');
-    block.className = 'people-block' + (isTop ? ' top' : '');
+    block.className = 'people-block' + (isTop ? ' top' : '') + (selected ? ' selected' : '');
     const head = document.createElement('div');
     head.className = 'people-head';
     const dot = document.createElement('span');
@@ -129,7 +130,7 @@ export function createPanel(root: HTMLElement): PanelApi {
   }
 
   return {
-    showAtlas(vm, model, year, lang) {
+    showAtlas(vm, model, year, lang, selPeople) {
       if (!vm) {
         this.showIdle(lang);
         return;
@@ -174,7 +175,7 @@ export function createPanel(root: HTMLElement): PanelApi {
       root.appendChild(heading);
 
       for (const row of state.rows) {
-        root.appendChild(peopleBlock(row, model, year, lang, row === state.top));
+        root.appendChild(peopleBlock(row, model, year, lang, row === state.top, selPeople === row.people_code));
       }
 
       const events = model.data.events.filter(

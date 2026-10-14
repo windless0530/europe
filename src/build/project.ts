@@ -5,7 +5,8 @@
 // 前端「族群分布模式」的唯一数据来源（全量进内存）。输出形状
 // 与键序、排序、省写展开规则均固定 —— 与 PostgreSQL 时代的
 // 导出产物保持字节等价（除 generated_at；已知例外：relations 的
-// other_name_zh 修正了旧导出误取英文名的 bug），前端与审计脚本
+// other_name_zh 修正了旧导出误取英文名的 bug，以及谱系树检索用的
+// 派生字段 name_py / name_py_abbr），前端与审计脚本
 // （audit/collisions）零改动。
 //
 // 排序规则（显式重排，手改源文件插入位置不影响产物）：
@@ -21,6 +22,7 @@
 import { mkdirSync, writeFileSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { loadSource, validate, DEFAULT_CONFIDENCE, DEFAULT_PRIORITY, DEFAULT_RELATION, type Bundle, type I18n, type Taxonomy } from './source.js';
+import { pinyinKeys } from './pinyin.js';
 import { REPO_ROOT } from '../lib/contract.js';
 import { ATLAS_GEOMETRY_REL, renderAtlasGeometry } from './atlas-geometry.js';
 import type { RegionGeometryRule } from '../frontend/region-map.js';
@@ -54,6 +56,7 @@ function project(b: Bundle): Record<string, unknown> {
       status_code: p.status ?? null,
       name_en: nameEn(p.name),
       name_zh: nameZh(p.name),
+      ...pinyinKeys(nameZh(p.name)),
       brief_en: briefEn(p.brief),
       brief_zh: briefZh(p.brief),
       languages: (p.languages ?? [])
@@ -148,6 +151,7 @@ function project(b: Bundle): Record<string, unknown> {
           sort: n.sort,
           name_en: nameEn(n.name),
           name_zh: nameZh(n.name),
+          ...pinyinKeys(nameZh(n.name)),
         })),
     }));
 
