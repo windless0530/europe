@@ -189,6 +189,11 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
       tooltip.attr('hidden', '');
       return;
     }
+    // 触屏不显示悬浮 tooltip：选中信息由地图外的详情面板承载（粘性选中后面板仍在）
+    if ((evt as PointerEvent).pointerType === 'touch') {
+      tooltip.attr('hidden', '');
+      return;
+    }
     const l = lang();
     const described = describeVm
       ? describeVm(vm)
@@ -219,15 +224,44 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
       }),
   );
 
+  // 触屏点选/拖动判别的位移阈值（与 d3-zoom 双击的 tapDistance 同量级）
+  const TAP_SLOP = 10;
+
+  // 触屏点空白处（海洋等非区域目标）：清除粘性选中。鼠标路径不受影响。
+  svg.node()!.addEventListener('pointerdown', (evt) => {
+    if ((evt as PointerEvent).pointerType !== 'touch') return;
+    if ((evt.target as Element).closest('path.region')) return;
+    hoverCb?.({ vm: null, x: 0, y: 0 });
+    showTooltip(null, null);
+  });
+
   function bindHover(pathNode: SVGPathElement, vm: RegionVm): void {
+    let downX = 0;
+    let downY = 0;
+    let dragged = false;
     pathNode.addEventListener('pointerenter', (evt) => {
+      const pe = evt as PointerEvent;
+      if (pe.pointerType === 'touch') {
+        downX = pe.clientX; // 记按下位置，抬指时区分点选与拖动
+        downY = pe.clientY;
+        dragged = false;
+      }
       hoverCb?.({ vm, x: 0, y: 0 });
       showTooltip(vm, evt as MouseEvent);
     });
     pathNode.addEventListener('pointermove', (evt) => {
+      const pe = evt as PointerEvent;
+      if (pe.pointerType === 'touch') {
+        // 触屏无 tooltip（面板承载），move 仅用于判定是否已成拖动
+        if (Math.hypot(pe.clientX - downX, pe.clientY - downY) > TAP_SLOP) dragged = true;
+        return;
+      }
       showTooltip(vm, evt as MouseEvent);
     });
-    pathNode.addEventListener('pointerleave', () => {
+    pathNode.addEventListener('pointerleave', (evt) => {
+      // 触屏点选（未超出阈值）：抬指保持高亮——粘性选中，点空白处或点其他区域再清除；
+      // 鼠标与触屏拖动平移维持原行为：离开即清除
+      if ((evt as PointerEvent).pointerType === 'touch' && !dragged) return;
       hoverCb?.({ vm: null, x: 0, y: 0 });
       showTooltip(null, null);
     });
@@ -356,6 +390,7 @@ export function createMap(container: HTMLElement, lang: () => Lang, describeVm?:
 
     setHover(code) {
       hovered = code;
+      if (code === null) showTooltip(null, null); // 粘性选中被清除（切模式/数据源等）时 tooltip 一并收起
       if (!outlinePath) return;
       if (code === null) {
         outlinePath.style.display = 'none';

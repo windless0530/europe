@@ -734,15 +734,30 @@ body {
 /* ---------- 窄屏 ---------- */
 
 @media (max-width: 900px) {
+  #app {
+    /* 内容自然撑高、页面允许垂直滚动：详情面板内容增减不再挤压地图 */
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
+  }
   .app-main {
     flex-direction: column;
   }
   .people-tree {
     display: none !important;
   }
+  .map-wrap {
+    /* 固定高度（≈窄屏下原先的空闲态高度），点选后面板变高也不改地图可视范围；
+       svh 不随地址栏收起/展开跳动，vh 作旧浏览器回退 */
+    flex: none;
+    height: 60vh;
+    height: 60svh;
+    min-height: 280px;
+  }
   .detail-panel {
     width: auto;
-    max-height: 220px;
+    max-height: none;
+    overflow: visible;
   }
 }
 
