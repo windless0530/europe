@@ -3,7 +3,7 @@
 import type { Lang } from './i18n';
 import type { SourceCode } from '../lib/contract.js';
 
-/** 交互模式：atlas = 族群分布（SQL）；geo = 几何浏览 */
+/** 交互模式：atlas = 族群分布；geo = 几何浏览 */
 export type Mode = 'atlas' | 'geo';
 
 export interface AppState {

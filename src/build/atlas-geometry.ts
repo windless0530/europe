@@ -2,7 +2,7 @@
 // 族群分布几何子集：data/geography/processed/<src>/regions.geojson（三源全量）
 //   -> data/peoples/export/atlas-geometry.geojson
 //
-// 前端启动只加载 atlas.json + 本子集（约为三源全量的 1/4），几何浏览所需的
+// 前端启动只加载 atlas.json + 本子集（约为三源全量的 1/7），几何浏览所需的
 // 全量三源在进入该模式时按需加载。子集 = atlasGeometryFeatures（与前端同一套
 // 规则：region_geometry 规则 + atlas.ts 渲染策略 SUBNATIONAL_LEVEL /
 // GBR_CONSTITUENTS / OVERLAY_UNITS 挑选，再同区溶解合并）。**文件序 = 绘制顺序**

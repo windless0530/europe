@@ -4,6 +4,7 @@
 
 - 数据：`data/peoples/source/*.json`（5 个手写文件，唯一真实源）→ `npm run project` 投影出前端数据；无数据库、无运行时后端
 - 技术方案：文件优先（content-as-code）+ 静态导出 + 纯前端 SPA
+- 完整功能清单（以代码为主干，含界面交互一览）：`docs/features.md`
 
 ## 快速开始
 
@@ -12,7 +13,7 @@ npm install            # 首次拉取项目或依赖变化后执行
 npm run dev            # http://localhost:5173（默认进入「族群分布」模式）
 npm run project        # data/peoples/source/*.json -> data/peoples/export/atlas.json（校验 + 投影，改数据后重跑）
 npm run audit          # 覆盖审计：逐年扫描核心几何「先有族群后空白」断档
-npm run collisions     # 族群颜色审计：缺色族群即失败；同年同国同色异族群对提示（目标 0）
+npm run collisions     # 族群颜色审计：缺色族群即失败；同年同屏同色异族群对仅提示（尽力而为，不拦截）
 npm run colors         # 新族群选色：只为缺色族群推荐固定颜色（既有颜色冻结）
 npm run favicon        # 由自有 NUTS 几何生成 favicon（SVG + PNG 回退）
 npm run smoke          # headless 冒烟：加载/时间轴/hover/零网络验证 + 截图；需先在另一终端运行 npm run dev
@@ -26,8 +27,8 @@ atlas-geometry.geojson）和三源 `data/geography/processed/*/regions.geojson`�
 
 | 文件 | 性质 | 说明 |
 |---|---|---|
-| `data/peoples/source/peoples.json` | 手写（真实源） | 88 族群全量：双语名/简介/谱系挂点/语言/宗教/空间时间切片（slices，可带双语 `caveat` 标注：`disputed` 争议 / `method` 处理说明，可选 `years` 显示窗口，投影给前端），顶层 relations（族群关系+文献出处）与 claims |
-| `data/peoples/source/regions.json` | 手写（真实源） | 80 地区 + `geometry_rules`（81 条地区→几何映射规则；**数组顺序 = 求值候选优先序**） |
+| `data/peoples/source/peoples.json` | 手写（真实源） | 100 族群全量：双语名/简介/谱系挂点/语言/宗教/空间时间切片（slices，可带双语 `caveat` 标注：`disputed` 争议 / `method` 处理说明，可选 `years` 显示窗口，投影给前端），顶层 relations（族群关系+文献出处）与 claims |
+| `data/peoples/source/regions.json` | 手写（真实源） | 112 地区 + `geometry_rules`（112 条地区→几何映射规则；**数组顺序 = 求值候选优先序**） |
 | `data/peoples/source/events.json` | 手写（真实源） | 事件 + 参与族群 |
 | `data/peoples/source/taxonomy.json` | 手写（真实源） | 3 棵谱系树（语言 / 历史人群 / 现代族群） |
 | `data/peoples/source/reference.json` | 手写（真实源） | 语言 / 宗教 / 时期 / 枚举字典 / 文献来源 |
@@ -50,6 +51,12 @@ classification 字符串项 = member_of）与全部校验规则见 `src/build/so
 | `src/datasources/awmc/index.ts` | AWMC 下载/规范化管线（`npm run awmc`） | AWMC GitHub 发布文件 | `data/geography/processed/awmc/regions.geojson` |
 | `src/datasources/darmc/index.ts` | DARMC 下载/规范化管线（`npm run darmc`） | DARMC ArcGIS Online Feature Service | `data/geography/processed/darmc/regions.geojson` |
 | `src/datasources/nuts/index.ts` | NUTS 下载/规范化管线（`npm run nuts`） | GISCO NUTS 2024 + GADM 发布文件 | `data/geography/processed/nuts/regions.geojson` |
+| `src/cli.ts` | 数据源管理命令（`npm run data`） | `atlas.config.json` / 产物状态 | list / status / compare / check / use |
+| `scripts/coverage-audit.ts` | 覆盖审计（`npm run audit`） | 导出产物 + 三源几何 | 核心几何空窗报告（门禁） |
+| `scripts/palette-collisions.ts` | 族群颜色审计（`npm run collisions`；复刻涂色逻辑见 `scripts/paint-sim.ts`） | `people-colors.ts` + 导出产物 | 缺色/撞色报告（缺色即失败） |
+| `scripts/pick-people-colors.ts` | 新族群选色（`npm run colors`；色环数学 `scripts/pick-palette.mjs`） | PEOPLE_COLOR + 涂色模拟 | 缺色族群推荐色行 |
+| `scripts/smoke-demo.mjs` | 浏览器冒烟（`npm run smoke`，需先 `npm run dev`） | localhost 页面 | 断言结果 + `chromium/` 截图 |
+| `scripts/make-favicon.ts` | favicon 生成（`npm run favicon`） | NUTS L0 几何 | `public/favicon.svg` + PNG 回退 |
 
 这些命令按以下时机执行，并非都是服务启动命令：
 
@@ -97,9 +104,9 @@ atlas-geometry.geojson（三源全量的约 1/7，构建期已溶解并简化；
 着色 = `people_region` 时间切片按 render_priority 取主族群；hover 面板显示
 当年全部族群、语言、宗教、族群关系与当期事件（双语名直接来自源文件）。
 地区（粗粒度历史地理）→ 几何的近似映射规则存于 `data/peoples/source/regions.json`
-的 `geometry_rules`（112 条：NUTS L0 国家集 / 要素 id 集（NUTS 码可写上级码匹配全部下级单元；含 DARMC 303 年行省 id）/ DARMC 行省名
-正则 / AWMC 帝国快照四类），随 atlas.json 的 `region_geometry` 段下发，
-求值器在 `src/frontend/region-map.ts`。同国且所属地区完全相同的渲染单元由
+的 `geometry_rules`（112 条：l0_country 国家集 30 条 + source_id 要素 id 集 82 条——NUTS 码可写上级码
+匹配全部下级单元，含 DARMC 303 年行省 id；求值器另支持 DARMC 行省名正则 / AWMC 帝国快照两类，当前数据未用），
+随 atlas.json 的 `region_geometry` 段下发，求值器在 `src/frontend/region-map.ts`。同国且所属地区完全相同的渲染单元由
 `npm run project` 在**构建期**溶解为一个要素（`atlasGeometryFeatures` →
 `dissolveSameRegion`，合并要素携带 `properties.members` 成员表），再经 Douglas-Peucker
 简化（容差 0.002°，默认视口下偏差 ~1/40 px，逐环校正绕向防补集渲染）与 4 位小数

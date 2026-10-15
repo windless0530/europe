@@ -5,7 +5,7 @@
 ## 架构事实（不要推翻，除非用户明确要求）
 
 - `data/peoples/source/*.json`（peoples / regions / events / taxonomy / reference 共 5 个文件）是图谱数据的**唯一真实源**；`data/peoples/export/atlas.json` 与 `data/peoples/export/atlas-geometry.geojson`（族群分布模式启动加载的几何子集）是投影产物，**勿手改**
-- **无数据库、无运行时后端**。前端启动加载 atlas.json + atlas-geometry.geojson（约三源全量的 1/4）；几何浏览的三源全量 `data/geography/processed/*/regions.geojson` 在首次进入该模式 / 首次切到某数据源时按需加载一次并缓存。数据载入后缩放/时间轴/hover 全部内存运算、**零网络请求**——新功能不得引入交互期网络请求（模式/数据源的一次性按需加载除外，不得反复请求或逐帧请求）
+- **无数据库、无运行时后端**。前端启动加载 atlas.json + atlas-geometry.geojson（约三源全量的 1/7）；几何浏览的三源全量 `data/geography/processed/*/regions.geojson` 在首次进入该模式 / 首次切到某数据源时按需加载一次并缓存。数据载入后缩放/时间轴/hover 全部内存运算、**零网络请求**——新功能不得引入交互期网络请求（模式/数据源的一次性按需加载除外，不得反复请求或逐帧请求）
 - 渲染策略留在代码而非数据：`src/frontend/atlas.ts` 的 `SUBNATIONAL_LEVEL` / `GBR_CONSTITUENTS` / `OVERLAY_UNITS`（部分细分叠加单元，L0 保留、次级单元盖上；鞑靼斯坦/巴什科尔托斯坦经 `GADM_ADMIN1_KEEP` 白名单越过 bbox 过滤），`src/datasources/*/catalog.ts`（后者与数据生成有鸡生蛋关系，属下载配置）
 - 中英双语约束：所有面向用户的 name/label 需要 zh + en 两种
 

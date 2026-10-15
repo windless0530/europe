@@ -1,5 +1,5 @@
 // Demo 冒烟驱动：headless Edge 打开 localhost:5173/europe/（vite base）。
-// 验证：启动进度层 -> 族群分布模式（SQL）渲染 -> 时间轴/hover 零网络请求
+// 验证：启动进度层 -> 族群分布模式渲染 -> 时间轴/hover 零网络请求
 //       -> 几何浏览模式仍可用 -> 中英切换。截图到 chromium/。
 // 用法：先 npm run dev，再 node scripts/smoke-demo.mjs
 
@@ -254,7 +254,7 @@ if (!selOk) {
   treeFail = true;
 }
 
-// ---- 740 年中欧+瑞士/科索沃上色断言（覆盖补丁回归；德国已细分，改查 L2 单元） ----
+// ---- 740 年中欧+瑞士/科索沃上色断言（覆盖回归；德国已细分，改查 L2 单元） ----
 await page.locator('#tl-range').fill('740');
 await page.waitForTimeout(400);
 const central = await page.evaluate(() => {
@@ -268,18 +268,18 @@ const central = await page.evaluate(() => {
 });
 console.log(`740 central europe + ch/xk: ${JSON.stringify(central)} (expect all painted)`);
 if (Object.values(central).some((v) => v !== 'painted')) {
-  console.error('FAIL: 740 年中欧/瑞士/科索沃存在空白（覆盖补丁回归）');
+  console.error('FAIL: 740 年中欧/瑞士/科索沃存在空白（覆盖回归）');
   process.exitCode = 1;
 }
 await page.screenshot({ path: 'chromium/smoke-3b-atlas-740.png' });
-// 谱系树应出现补丁新增族群（阿瓦尔人/巴伐利亚人，740 年均活动）
+// 谱系树应出现阿瓦尔人/巴伐利亚人（740 年均活动）
 const tree740 = await page.locator('#people-tree').innerText();
 if (!tree740.includes('阿瓦尔人') || !tree740.includes('巴伐利亚人')) {
   console.error('FAIL: 740 年谱系树缺少新增族群');
   process.exitCode = 1;
 }
 
-// ---- 次国家级细分断言（补丁 3 回归）：1300 年与当前年，16 个代表单元不得空白 ----
+// ---- 次国家级细分断言（覆盖回归）：1300 年与当前年，16 个代表单元不得空白 ----
 for (const yr of [1300, 2026]) {
   await page.locator('#tl-range').fill(String(yr));
   await page.waitForTimeout(400);
@@ -299,13 +299,13 @@ for (const yr of [1300, 2026]) {
   });
   console.log(`subnational@${yr}: ${JSON.stringify(sub)} (expect all painted)`);
   if (Object.values(sub).some((v) => v !== 'painted')) {
-    console.error(`FAIL: ${yr} 年次国家级单元存在空白（补丁 3 回归）`);
+    console.error(`FAIL: ${yr} 年次国家级单元存在空白`);
     process.exitCode = 1;
   }
   if (yr === 1300) await page.screenshot({ path: 'chromium/smoke-7-subnational-1300.png' });
 }
 
-// ---- 前罗马时代断言（补丁 4 回归）：前 300 与公元 0 年中欧不得空白 ----
+// ---- 前罗马时代断言（覆盖回归）：前 300 与公元 0 年中欧不得空白 ----
 for (const yr of [-300, 0]) {
   await page.locator('#tl-range').fill(String(yr));
   await page.waitForTimeout(400);
@@ -320,7 +320,7 @@ for (const yr of [-300, 0]) {
   });
   console.log(`pre-roman@${yr}: ${JSON.stringify(early)} (expect all painted)`);
   if (Object.values(early).some((v) => v !== 'painted')) {
-    console.error(`FAIL: ${yr} 年中欧存在空白（补丁 4 回归）`);
+    console.error(`FAIL: ${yr} 年中欧存在空白`);
     process.exitCode = 1;
   }
   if (yr === 0) {
@@ -338,7 +338,7 @@ for (const yr of [-300, 0]) {
   }
 }
 
-// ---- 500 年德国四分断言（补丁 5 回归）：四区各自着色，不得为伦巴第单色 ----
+// ---- 500 年德国四分断言（覆盖回归）：四区各自着色，不得为伦巴第单色 ----
 await page.locator('#tl-range').fill('500');
 await page.waitForTimeout(400);
 const de500 = await page.evaluate(() => {
@@ -352,7 +352,7 @@ const de500 = await page.evaluate(() => {
 });
 console.log(`germany@500: ${JSON.stringify(de500)} (expect 4 painted, old_saxony=thuringia distinct)`);
 if (Object.values(de500).some((v) => v === 'BLANK')) {
-  console.error('FAIL: 500 年德国四区存在空白（补丁 5 回归）');
+  console.error('FAIL: 500 年德国四区存在空白');
   process.exitCode = 1;
 }
 if (new Set(Object.values(de500)).size < 3) {
