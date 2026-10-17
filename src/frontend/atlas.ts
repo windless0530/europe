@@ -5,13 +5,10 @@
 //   取主族群（平局按 people_code 字典序）
 // - 全部计算在内存中完成，时间轴拖动零网络请求
 
-import { featureCollection, rewind, union } from '@turf/turf';
-import type { SourceCode } from '../lib/contract.js';
-import { CAVEAT, CAVEAT_KINDS, CLASSIFICATION, RULE_TYPE, SOURCE } from '../lib/shared.js';
+import { CAVEAT, CAVEAT_KINDS, CLASSIFICATION } from '../lib/shared.js';
 import type { CaveatKind, ClassificationRelation } from '../lib/shared.js';
-import { FAMILY } from './load';
-import type { RegionVm, SourceView } from './load';
-import { resolveRegionGeometry, countryOf, type RegionGeometryRule } from './region-map';
+import type { RegionVm } from './load';
+import { resolveRegionGeometry, type RegionGeometryRule } from './region-map';
 import { PEOPLE_COLOR } from './people-colors';
 
 export interface AtlasTrItem {
@@ -544,116 +541,3 @@ export function buildAtlasModel(data: AtlasData, features: RegionVm[]): AtlasMod
   return { data, peopleByCode, regionByCode, regionGeometry, geometryToRegions, regionFor, geometryLive, peopleColor, firstSeenIndex, yearRange, regionsAt, paintAt, caveatAt, peopleOverlayAt, periodAt, peopleTreeAt, enumLabel };
 }
 
-/** 族群分布模式的几何集合（绘制顺序 = 数组顺序，后者在上）：
- *  AWMC 帝国参考层垫底（当前无映射）-> DARMC 北非/黎凡特行省 -> NUTS/GADM 几何（最上层承载着色）。
- *  AWMC/DARMC 叠加层由 region_geometry 规则推导（awmc_snapshot / name_regex / DARMC source_id），
- *  NUTS 部分为渲染策略：未细分国家渲染 L0；已按族群断层线细分的国家
- *  （SUBNATIONAL_LEVEL）改渲染次国家级单元，其 L0 不再绘制。 */
-const SUBNATIONAL_LEVEL: Record<string, number> = {
-  BE: 1, UA: 1, // 大区/GADM 州级（乌克兰 GADM 国家码 UKR 归一为 UA）
-  AT: 1, HU: 1, // NUTS L1（奥地利西/东南+东；匈牙利外多瑙/中部+大平原）
-  FR: 2, // NUTS L2（旧大区×22：按北法/阿基坦/朗格多克/勃艮第/普罗旺斯/阿尔萨斯—洛林/布列塔尼归组）
-  CH: 2, ES: 2, PL: 2, RO: 2, SE: 2, NO: 2, DE: 2, // NUTS L2（德国四分）
-  IT: 2, EL: 2, // NUTS L2（意大利大陆×19+西西里+撒丁；希腊×13，两岛/东马其顿-色雷斯另设）
-  TR: 2, // NUTS L2（土耳其×26：东色雷斯 TR21 + 安纳托利亚按历史地区归组）
-};
-const GBR_CONSTITUENTS = ['GBR.1_1', 'GBR.3_1', 'GBR.4_1'];
-/** 部分细分叠加单元（source_id 白名单）：所属国家不整体细分（L0 照常绘制），
- *  仅这些次级单元叠加在 L0 之上，承载更细的族群切片——
- *  芬兰拉普兰（萨普米）/北卡累利阿、俄罗斯卡累利阿/鞑靼斯坦/巴什科尔托斯坦。
- *  绘制在主集合之后 = 视觉盖在 L0 上。 */
-const OVERLAY_UNITS = new Set(['FI1D7', 'FI1DC', 'RUS.26_1', 'RUS.6_1', 'RUS.68_1']);
-
-export function atlasGeometryFeatures(sources: Map<SourceCode, SourceView>, rules: RegionGeometryRule[]): RegionVm[] {
-  return dissolveSameRegion(atlasGeometrySelection(sources, rules), rules);
-}
-
-/** 族群分布模式用到的原始几何要素（溶解前，绘制顺序），atlasGeometryFeatures 的第一步。
- *  npm run project 把溶解结果（atlasGeometryFeatures）写进 data/peoples/export/atlas-geometry.geojson，
- *  前端启动只加载该子集、按文件序直接绘制（几何浏览所需的全量三源按需加载）。 */
-export function atlasGeometrySelection(sources: Map<SourceCode, Pick<SourceView, 'features'>>, rules: RegionGeometryRule[]): RegionVm[] {
-  const out: RegionVm[] = [];
-  const awmcSnapshots = new Set(
-    rules.filter((r) => r.source_code === SOURCE.awmc && r.rule_type === RULE_TYPE.awmc_snapshot).flatMap((r) => r.match_values.map(Number)),
-  );
-  out.push(
-    ...(sources.get(SOURCE.awmc)?.features ?? []).filter((vm) => vm.family === FAMILY.empire && vm.snapshot !== null && awmcSnapshots.has(vm.snapshot)),
-  );
-  // DARMC 行省：name_regex 按拉丁名、source_id 按要素 id 精确挑选（同名行省在 117/303/500 各快照层重复出现，
-  // 需单层取几何时用 source_id，避免跨快照多边形互相叠盖）
-  const darmcRegexes = rules
-    .filter((r) => r.source_code === SOURCE.darmc && r.rule_type === RULE_TYPE.name_regex)
-    .map((r) => new RegExp(r.match_values[0] ?? '', 'i'));
-  const darmcIds = new Set(rules.filter((r) => r.source_code === SOURCE.darmc && r.rule_type === RULE_TYPE.source_id).flatMap((r) => r.match_values));
-  out.push(
-    ...(sources.get(SOURCE.darmc)?.features ?? []).filter(
-      (vm) => vm.family === FAMILY.provinces && (darmcIds.has(vm.sourceId) || darmcRegexes.some((re) => re.test(vm.nameEn ?? ''))),
-    ),
-  );
-  out.push(...(sources.get(SOURCE.nuts)?.features ?? []).filter((vm) => {
-    if (OVERLAY_UNITS.has(vm.sourceId)) return false; // 叠加单元最后单独 push，保证盖在 L0 上
-    const raw = countryOf(vm);
-    const cc = raw === 'UKR' ? 'UA' : raw;
-    if (vm.level === 0) return vm.sourceId !== 'GBR' && (cc === null || !(cc in SUBNATIONAL_LEVEL)); // 细分国家不绘 L0；英国由构成国覆盖
-    if (vm.level === 1 && GBR_CONSTITUENTS.includes(vm.sourceId)) return true; // 英国构成国叠加
-    if (cc !== null) {
-      const want = SUBNATIONAL_LEVEL[cc];
-      if (want !== undefined && vm.level === want) return true; // 细分国家的次国家级单元
-    }
-    return false;
-  }));
-  out.push(...(sources.get(SOURCE.nuts)?.features ?? []).filter((vm) => OVERLAY_UNITS.has(vm.sourceId)));
-  return out;
-}
-
-/** 同区溶解要素的 region_code 前缀：遵循 region_code 约定 `${source}:${slug}`，slug 固定为 merge:<分组键> */
-const MERGE_CODE_PREFIX = 'nuts:merge:';
-
-/** 同国、候选地区集合完全相同的 NUTS/GADM 单元在族群分布模式下着色/hover 恒同，
- *  溶解为一个要素（去掉无信息的内部边界，如德国 38 个 L2 单元 → 4 区）；
- *  合并要素置于首成员位置（保持绘制层序），memberIds 供规则与测试按原始 id 寻址，
- *  并随 properties.members 下发（npm run project 把溶解结果写进导出子集，
- *  前端启动直接使用、不再运行时溶解）。 */
-function dissolveSameRegion(features: RegionVm[], rules: RegionGeometryRule[]): RegionVm[] {
-  const { byGeometry } = resolveRegionGeometry(features, rules);
-  const groups = new Map<string, RegionVm[]>();
-  for (const vm of features) {
-    const regions = byGeometry.get(vm.code);
-    if (vm.family !== FAMILY.nuts || !regions) continue;
-    const key = `${countryOf(vm)}|${[...regions].sort().join('+')}`;
-    const list = groups.get(key) ?? [];
-    list.push(vm);
-    groups.set(key, list);
-  }
-  const merged = new Map<string, RegionVm | null>(); // 成员 code -> 合并要素（首成员）/ null（非首成员，丢弃）
-  for (const [key, members] of groups) {
-    if (members.length < 2) continue;
-    const unioned = union(featureCollection(members.map((m) => m.feature as never)));
-    if (!unioned) continue;
-    // turf 输出 RFC 7946 逆时针外环；d3-geo 球面约定为顺时针，否则按补集（全球减该面）绘制
-    const u = rewind(unioned, { reverse: true }) as typeof unioned;
-    const first = members[0]!;
-    const memberIds = members.map((m) => m.sourceId);
-    const vm: RegionVm = {
-      ...first,
-      code: `${MERGE_CODE_PREFIX}${key.toLowerCase()}`,
-      nameEn: null,
-      nameZh: null,
-      feature: {
-        ...first.feature,
-        properties: { ...first.feature.properties, name_en: null, name_zh: null, members: memberIds },
-        geometry: u.geometry,
-      } as RegionVm['feature'],
-      memberIds,
-    };
-    merged.set(first.code, vm);
-    for (const m of members.slice(1)) merged.set(m.code, null);
-  }
-  const out: RegionVm[] = [];
-  for (const vm of features) {
-    const m = merged.get(vm.code);
-    if (m === undefined) out.push(vm);
-    else if (m !== null) out.push(m);
-  }
-  return out;
-}

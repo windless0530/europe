@@ -180,10 +180,27 @@ export const ATLAS_URL = `${BASE}data/peoples/export/atlas.json`;
 export const ATLAS_GEOMETRY_URL = `${BASE}data/peoples/export/atlas-geometry.geojson`;
 export const SOURCE_LABELS: Record<SourceCode, string> = { awmc: 'AWMC', darmc: 'DARMC', nuts: 'NUTS' };
 
-/** 并发拉取多个 JSON，按合计字节回报进度。total = 各响应 content-length 之和；任一缺失则为 0（进度未知） */
+/** index.html 内联预热脚本挂载的启动期请求表（URL -> Response Promise）：HTML 解析期已发起，
+ *  此处按 URL 取走同一 Promise（不重复请求）。node 侧脚本 import 本模块时无 window，返回空。 */
+declare global {
+  interface Window {
+    __ATLAS_BOOT?: Map<string, Promise<Response | null>>;
+  }
+}
+function takePrewarm(url: string): Promise<Response | null> | null {
+  if (typeof window === 'undefined') return null;
+  const hit = window.__ATLAS_BOOT?.get(url);
+  if (hit) window.__ATLAS_BOOT?.delete(url);
+  return hit ?? null;
+}
+
+/** 并发拉取多个 JSON，按合计字节回报进度。total = 各响应 content-length 之和；任一缺失则为 0（进度未知）。
+ *  响应经 gzip 传输时 content-length 是压缩长度、reader 产出解压字节，loaded 可能超 total——回报处截齐。 */
 export async function fetchJsonBatch(urls: string[], onBytes?: (loaded: number, total: number) => void): Promise<unknown[]> {
   const responses = await Promise.all(
     urls.map(async (url) => {
+      const prewarmed = takePrewarm(url);
+      if (prewarmed !== null) return prewarmed as Promise<Response>; // 预热 Promise 已按同文案拒绝
       const res = await fetch(url);
       if (!res.ok) throw new Error(`${url} 加载失败：HTTP ${res.status}`);
       return res;
@@ -205,7 +222,7 @@ export async function fetchJsonBatch(urls: string[], onBytes?: (loaded: number, 
           chunks.push(value);
           size += value.byteLength;
           loaded += value.byteLength;
-          onBytes(loaded, total);
+          onBytes(total > 0 ? Math.min(loaded, total) : loaded, total);
         }
       }
       const merged = new Uint8Array(size);
@@ -247,8 +264,9 @@ export function loadSource(code: SourceCode, onBytes?: (loaded: number, total: n
 
 export async function loadConfigSource(): Promise<SourceCode> {
   try {
-    const res = await fetch(`${BASE}config`);
-    if (!res.ok) return DEFAULT_SOURCE;
+    const prewarmed = takePrewarm(`${BASE}config`);
+    const res = prewarmed !== null ? await prewarmed : await fetch(`${BASE}config`);
+    if (!res || !res.ok) return DEFAULT_SOURCE;
     const cfg = (await res.json()) as { source?: SourceCode };
     return cfg.source ?? DEFAULT_SOURCE;
   } catch {

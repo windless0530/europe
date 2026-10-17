@@ -11,9 +11,12 @@
 - **零网络交互保证**：启动加载 atlas.json + atlas-geometry.geojson（当前 0.4 + 4.6 MB，约为三源全量的 1/7）；
   几何浏览全量 `data/geography/processed/*/regions.geojson`（当前合计 34.8 MB）首次进入该模式 / 首次切源时按需加载一次并缓存。
   加载完成后缩放 / 时间轴 / hover / 过滤 / 点选全部内存运算，不发任何请求（smoke 逐年断言）。
+- **首次加载**：index.html 内联预热脚本在 HTML 解析期即发起启动数据请求（与模块图并行，不重复下载，
+  `load.ts` 按 URL 消费同一 Promise）；数据 gzip + ETag 304 再验证；`npm run build` 产出自包含 dist
+  （数据 + `/config` + `.gz` 预压缩伴随文件拷入）。
 - 中英双语：所有面向用户的文案 zh + en 双份（i18n 字典 `src/frontend/i18n.ts`，当前 66 键；数据侧 name/label 均双语）。
 - 站点挂子路径 `/europe/`（`vite.config.ts` base）；dev 中间件白名单直读 `data/geography/processed/` 与 `data/peoples/export/`，
-  并为剥前缀的反向代理补回 base。
+  并为剥前缀的反向代理补回 base，响应带 ETag + `no-cache`（304 再验证）与 gzip（≥1KB 且客户端支持）。
 
 ## 2. 数据管线（`src/datasources/` + `src/lib/contract.ts`）
 

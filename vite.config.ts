@@ -1,4 +1,5 @@
-import { readFileSync } from 'node:fs';
+import { cpSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { gzipSync } from 'node:zlib';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, type Plugin } from 'vite';
@@ -6,9 +7,12 @@ import { defineConfig, type Plugin } from 'vite';
 const REPO = path.dirname(fileURLToPath(import.meta.url));
 
 /**
- * 开发期数据通道（仅 dev server；正式构建走导出脚本产出的静态文件）：
+ * 开发期数据通道（dev server；构建产物由下方 closeBundle 拷贝同构静态文件进 dist）：
  *   GET {base}config                              -> atlas.config.json（当前数据源）
  *   GET {base}data/geography/processed/<src>/<file> -> data/geography/processed/<src>/<file>（白名单）
+ *
+ * 缓存：ETag（mtime+size）+ Cache-Control: no-cache——可缓存但须再验证，文件再生
+ * （npm run project 改 mtime）后自动失效；重复访问 304 免全量重下 ~5MB。
  *
  * base = '/europe/'：站点挂在 https://<域名>/europe 子路径下（反向代理 -> 本端口）。
  * 反代按「剥前缀」转发（/europe/x -> /x），而 vite 以 base 提供服务，故先补回
@@ -28,8 +32,33 @@ function atlasData(): Plugin {
         const sendJson = (file: string): void => {
           try {
             const body = readFileSync(file);
+            const st = statSync(file);
+            // 强 ETag；匹配容忍 W/ 前缀（nginx gzip 会把强 ETag 弱化后回传给客户端）
+            const etag = `"${Math.floor(st.mtimeMs).toString(16)}-${st.size.toString(16)}"`;
+            const inm = req.headers['if-none-match'];
+            const hit =
+              typeof inm === 'string' && inm.split(',').some((t) => { const v = t.trim(); return v === etag || v === `W/${etag}` || v === '*'; });
+            if (hit) {
+              res.statusCode = 304;
+              res.setHeader('ETag', etag);
+              res.setHeader('Cache-Control', 'no-cache');
+              res.end();
+              return;
+            }
             res.setHeader('Content-Type', 'application/json; charset=utf-8');
-            res.setHeader('Cache-Control', 'no-store');
+            res.setHeader('Cache-Control', 'no-cache');
+            res.setHeader('ETag', etag);
+            // 反代默认不为 application/json 开 gzip（nginx 默认 gzip_types 仅 text/html），
+            // 这里的数据是首次加载的主体（geojson 4.5MB -> ~1.2MB）；中间件自行 gzip，
+            // 上游已带 Content-Encoding 的响应代理会原样透传。gzip 输出确定性，ETag 仍一致。
+            if (/\bgzip\b/.test(String(req.headers['accept-encoding'] ?? '')) && body.length >= 1024) {
+              const gz = gzipSync(body, { level: 6 });
+              res.setHeader('Content-Encoding', 'gzip');
+              res.setHeader('Vary', 'Accept-Encoding');
+              res.setHeader('Content-Length', String(gz.length));
+              res.end(gz);
+              return;
+            }
             res.end(body);
           } catch {
             res.statusCode = 404;
@@ -53,6 +82,26 @@ function atlasData(): Plugin {
         }
         next();
       });
+    },
+    // 正式构建自包含：前端启动/按需加载引用的静态数据与 /config 一并拷进 dist，
+    // 并为大体量 JSON/GeoJSON 生成 .gz 预压缩伴随文件（nginx gzip_static 直接发送，
+    // 免每请求动态压缩 ~4.5MB 的 CPU）。npm run project 后需重新 build 才会反映数据变更。
+    closeBundle() {
+      const out = path.join(REPO, 'dist');
+      const copies: Array<[string, string]> = [
+        ['data/peoples/export/atlas.json', 'data/peoples/export/atlas.json'],
+        ['data/peoples/export/atlas-geometry.geojson', 'data/peoples/export/atlas-geometry.geojson'],
+        ['data/geography/processed/awmc/regions.geojson', 'data/geography/processed/awmc/regions.geojson'],
+        ['data/geography/processed/darmc/regions.geojson', 'data/geography/processed/darmc/regions.geojson'],
+        ['data/geography/processed/nuts/regions.geojson', 'data/geography/processed/nuts/regions.geojson'],
+        ['atlas.config.json', 'config'],
+      ];
+      for (const [src, dest] of copies) {
+        const from = path.join(REPO, src);
+        const to = path.join(out, dest);
+        cpSync(from, to);
+        writeFileSync(`${to}.gz`, gzipSync(readFileSync(from), { level: 9 }));
+      }
     },
   };
 }

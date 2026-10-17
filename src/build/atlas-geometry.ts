@@ -4,7 +4,7 @@
 //
 // 前端启动只加载 atlas.json + 本子集（约为三源全量的 1/7），几何浏览所需的
 // 全量三源在进入该模式时按需加载。子集 = atlasGeometryFeatures（与前端同一套
-// 规则：region_geometry 规则 + atlas.ts 渲染策略 SUBNATIONAL_LEVEL /
+// 规则：region_geometry 规则 + atlas-subset.ts 渲染策略 SUBNATIONAL_LEVEL /
 // GBR_CONSTITUENTS / OVERLAY_UNITS 挑选，再同区溶解合并）。**文件序 = 绘制顺序**
 // （awmc → darmc → nuts 主体，叠加单元置尾，合并要素占首成员位），前端按文件序
 // 直接绘制、不做任何运行时几何运算。合并要素携带 properties.members（成员 source_id），
@@ -32,7 +32,7 @@ import { REPO_ROOT, RING_AREA_EPSILON, ringSignedArea } from '../lib/contract.js
 import { SOURCES, processedRegionsRel } from '../lib/shared.js';
 import { formatGeoJson } from '../lib/geojson-format.js';
 import { buildView } from '../frontend/load.js';
-import { atlasGeometryFeatures } from '../frontend/atlas.js';
+import { atlasGeometryFeatures } from '../frontend/atlas-subset.js';
 import type { RegionGeometryRule } from '../frontend/region-map.js';
 import type { SourceCode } from '../lib/shared.js';
 

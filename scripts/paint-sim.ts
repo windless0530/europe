@@ -6,7 +6,8 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { resolveRegionGeometry, countryOf, type RegionGeometryRule } from '../src/frontend/region-map.js';
 import { FAMILY } from '../src/frontend/load.js';
-import { atlasGeometryFeatures, activeInYear, atlasYearRange } from '../src/frontend/atlas.js';
+import { activeInYear, atlasYearRange } from '../src/frontend/atlas.js';
+import { atlasGeometryFeatures } from '../src/frontend/atlas-subset.js';
 import { REPO_ROOT } from '../src/lib/contract.js';
 import { loadSourceViews } from '../src/build/atlas-geometry.js';
 

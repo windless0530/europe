@@ -11,7 +11,8 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { resolveRegionGeometry, type RegionGeometryRule } from '../src/frontend/region-map.js';
 import { FAMILY } from '../src/frontend/load.js';
-import { atlasGeometryFeatures, atlasYearRange, activeInYear } from '../src/frontend/atlas.js';
+import { atlasYearRange, activeInYear } from '../src/frontend/atlas.js';
+import { atlasGeometryFeatures } from '../src/frontend/atlas-subset.js';
 import { REPO_ROOT } from '../src/lib/contract.js';
 import { ATLAS_GEOMETRY_REL, loadSourceViews, renderAtlasGeometry } from '../src/build/atlas-geometry.js';
 

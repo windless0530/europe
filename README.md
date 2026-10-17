@@ -71,7 +71,7 @@ classification 字符串项 = member_of）与全部校验规则见 `src/build/so
 | `npm run audit` / `collisions` | 数据或相关渲染策略变化后执行对应审计 |
 | `npm run colors` | 新增族群后（collisions 报缺色时），为其推荐固定颜色 |
 | `npm run smoke` | `npm run dev` 已在运行时执行浏览器冒烟测试 |
-| `npm run build` / `npx tsc --noEmit` | 发布前或代码变更完成后验证构建与类型 |
+| `npm run build` / `npx tsc --noEmit` | 发布前或代码变更完成后验证构建与类型；build 产出自包含 dist（数据 + `/config` + 预压缩 `.gz` 一并拷入） |
 | `npm run favicon` | 仅在需要重新生成 favicon 时 |
 
 三条几何管线都是构建期 CLI 入口，流程为“联网下载到 `data/geography/raw/` →
@@ -171,7 +171,14 @@ OKLab ΔE + Machado CVD 模拟，对同年同屏族群避让，结果可复现�
 全量几何按需加载：首次进入该模式或首次切到某数据源时加载一次（独立进度条），
 此后缓存复用，加载前后的交互均为纯内存运算。
 
-代码：`src/frontend/`（main/map/timeline/legend/people-tree/panel/load/atlas/region-map/i18n/palette/state）。
+**首次加载**：index.html 内联预热脚本在 HTML 解析期即并行发起启动数据请求（不等模块图），
+`load.ts` 按 URL 消费同一 Promise、不重复下载。数据一律 gzip + ETag 再验证（dev 由 vite
+数据中间件自行压缩并支持 304；重复访问免全量重下）。`npm run build` 产出**自包含** dist：
+前端资源 + 启动数据 + 三源全量几何 + `/config` 一并拷入，大体量 JSON 附 `.gz` 预压缩伴随
+文件（nginx `gzip_static` 直接发送）；公网静态托管指向 dist 即可，数据变更后重新 build 上线。
+
+代码：`src/frontend/`（main/map/timeline/legend/people-tree/panel/load/atlas/atlas-subset/region-map/i18n/palette/state；
+atlas-subset 为构建期几何子集选取/溶解，turf 依赖隔离在此，运行时模块图不含 turf）。
 开发期数据经 vite 中间件白名单直读 `data/geography/processed/` 与 `data/peoples/export/`。
 
 ## 数据管线

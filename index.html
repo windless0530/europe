@@ -54,6 +54,32 @@
         <div class="boot-hint" id="boot-hint"></div>
       </div>
     </div>
+    <script>
+      // 启动数据预热：HTML 解析期即发起启动期请求，与模块图加载并行
+      //（慢网下省去「模块加载完才开始下载 ~4.5MB」的串行等待）。load.ts 按
+      // 完全相同的 URL 消费这里的 Promise，不会重复请求。base 从页面路径推导
+      //（页面恒挂在 vite base 下，dev 与构建产物同构；%BASE_URL% 在 dev 不替换，故不用）。
+      (function () {
+        var b = location.pathname.replace(/[^/]*$/, '');
+        var m = (window.__ATLAS_BOOT = new Map());
+        m.set(
+          b + 'data/peoples/export/atlas.json',
+          fetch(b + 'data/peoples/export/atlas.json').then(function (r) {
+            if (!r.ok) throw new Error(b + 'data/peoples/export/atlas.json 加载失败：HTTP ' + r.status);
+            return r;
+          }),
+        );
+        m.set(
+          b + 'data/peoples/export/atlas-geometry.geojson',
+          fetch(b + 'data/peoples/export/atlas-geometry.geojson').then(function (r) {
+            if (!r.ok) throw new Error(b + 'data/peoples/export/atlas-geometry.geojson 加载失败：HTTP ' + r.status);
+            return r;
+          }),
+        );
+        // /config 失败不致命（回退默认源），预热阶段就地吞掉网络错误
+        m.set(b + 'config', fetch(b + 'config').catch(function () { return null; }));
+      })();
+    </script>
     <script type="module" src="/src/frontend/main.ts"></script>
   </body>
 </html>
